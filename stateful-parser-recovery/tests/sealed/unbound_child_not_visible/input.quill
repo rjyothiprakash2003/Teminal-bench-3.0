@@ -1,0 +1,6 @@
+open UNIT root
+open BLOCK c
+bind VAL only 1
+end BLOCK
+use only
+end UNIT

@@ -1,0 +1,10 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "probe": {
+    "kind": "symlink",
+    "target": "pipe"
+  }
+}

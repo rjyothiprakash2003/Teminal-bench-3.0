@@ -1,0 +1,9 @@
+open UNIT alpha
+bind VAL src 4
+open BLOCK beta
+open BLOCK gamma
+bind ALIAS tip src
+use tip
+end BLOCK
+end BLOCK
+end UNIT

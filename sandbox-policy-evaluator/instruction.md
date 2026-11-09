@@ -1,0 +1,3 @@
+/app/evaluate.go is an unfinished cordon sandbox policy evaluator. Finish it so every row in /app/probes/ops.jsonl is decided against the ordered rules in /app/policy/rules.jsonl using SPE-2026 from /app/cordon/SPE_LEDGER.md. Concrete edge cases live under /app/cordon/samples/.
+
+The binary interface takes --policy, --book, --ops, and --out, each a directory. For the staged pack those directories are /app/policy, /app/cordon, and /app/probes. Write only /app/out/verdicts.jsonl and /app/out/summary.json as regular files (not symbolic links), and clear anything else already under --out. The same program must accept other policy and probe packs the same way, not only the ones shipped here.

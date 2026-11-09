@@ -1,0 +1,6 @@
+{
+  "mtu": 1500,
+  "name": "n1",
+  "owner": "disk",
+  "size": 100
+}

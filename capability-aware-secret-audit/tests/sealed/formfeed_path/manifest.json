@@ -1,0 +1,14 @@
+{
+  "nodes": [
+    {
+      "path": "a\fb",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 1000,
+      "gid": 1000,
+      "content": "f"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

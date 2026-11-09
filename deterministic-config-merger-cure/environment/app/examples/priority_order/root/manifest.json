@@ -1,0 +1,20 @@
+{
+  "sources": [
+    {
+      "id": "site",
+      "priority": 20
+    },
+    {
+      "id": "team_b",
+      "priority": 9
+    },
+    {
+      "id": "base",
+      "priority": 3
+    },
+    {
+      "id": "team_a",
+      "priority": 9
+    }
+  ]
+}

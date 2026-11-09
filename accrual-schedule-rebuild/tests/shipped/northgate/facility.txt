@@ -1,0 +1,11 @@
+# Facility papers as filed. Settled with the borrower on completion.
+facility F-BR-4417
+class BRIDGE
+advance 125000000
+rate 1075
+drawn 2019-12-31
+periods 12
+frequency 1
+step 2020-02-10 5000
+step 2020-02-22 7500
+step 2020-06-30 925

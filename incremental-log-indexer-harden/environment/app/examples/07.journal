@@ -1,0 +1,11 @@
+stopwords
+query 0 0 anything
+begin
+commit
+query 0 0 anything
+begin
+add net-1 eth0: link down (carrier lost) at 10:42:07
+commit
+query 0 0 10 42 07
+query 0 0 eth0 link
+query 0 0 carrier lost

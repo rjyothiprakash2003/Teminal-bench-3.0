@@ -1,0 +1,32 @@
+{
+  "bin_count": false,
+  "card_id": "H76",
+  "classes": [
+    "ash",
+    "pine"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "b",
+      "rows": [
+        {
+          "example_id": "g1",
+          "label": "pine",
+          "p_bp": {
+            "ash": 3000,
+            "pine": 7000
+          }
+        },
+        {
+          "example_id": "g2",
+          "label": "ash",
+          "p_bp": {
+            "ash": 6000,
+            "pine": 4000
+          }
+        }
+      ]
+    }
+  ]
+}

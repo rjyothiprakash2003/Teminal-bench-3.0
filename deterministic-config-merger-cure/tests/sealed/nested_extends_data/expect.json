@@ -1,0 +1,12 @@
+{
+  "deep": {
+    "x": {
+      "$extends": []
+    }
+  },
+  "meta": {
+    "$extends": [
+      "nobody"
+    ]
+  }
+}

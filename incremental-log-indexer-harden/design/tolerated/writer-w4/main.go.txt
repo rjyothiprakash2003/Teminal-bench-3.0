@@ -1,0 +1,356 @@
+package main
+
+import (
+	"bufio"
+	"io"
+	"os"
+	"sort"
+	"strings"
+)
+
+var stop = map[string]bool{}
+
+func tokenize(s string) []string {
+	var out []string
+	i := 0
+	for i < len(s) {
+		c := s[i]
+		if isAlnum(c) {
+			j := i
+			for j < len(s) && isAlnum(s[j]) {
+				j++
+			}
+			out = append(out, strings.ToLower(s[i:j]))
+			i = j
+		} else {
+			i++
+		}
+	}
+	return out
+}
+
+func isAlnum(c byte) bool {
+	return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9')
+}
+
+var vocabID = map[string]int32{}
+var vocab []string
+
+func docTokens(s string) []int32 {
+	t := tokenize(s)
+	out := make([]int32, len(t))
+	for i, w := range t {
+		if stop[w] {
+			out[i] = -1
+			continue
+		}
+		id, ok := vocabID[w]
+		if !ok {
+			id = int32(len(vocab))
+			vocabID[w] = id
+			vocab = append(vocab, w)
+		}
+		out[i] = id
+	}
+	return out
+}
+
+// Unrestricted Damerau-Levenshtein distance (Lowrance-Wagner).
+func dlDist(a, b string) int {
+	la, lb := len(a), len(b)
+	inf := la + lb
+	d := make([][]int, la+2)
+	for i := range d {
+		d[i] = make([]int, lb+2)
+	}
+	d[0][0] = inf
+	for i := 0; i <= la; i++ {
+		d[i+1][0] = inf
+		d[i+1][1] = i
+	}
+	for j := 0; j <= lb; j++ {
+		d[0][j+1] = inf
+		d[1][j+1] = j
+	}
+	var da [256]int
+	for i := 1; i <= la; i++ {
+		db := 0
+		for j := 1; j <= lb; j++ {
+			i1 := da[b[j-1]]
+			j1 := db
+			cost := 1
+			if a[i-1] == b[j-1] {
+				cost = 0
+				db = j
+			}
+			v := d[i][j] + cost
+			if x := d[i+1][j] + 1; x < v {
+				v = x
+			}
+			if x := d[i][j+1] + 1; x < v {
+				v = x
+			}
+			if x := d[i1][j1] + (i - i1 - 1) + 1 + (j - j1 - 1); x < v {
+				v = x
+			}
+			d[i+1][j+1] = v
+		}
+		da[a[i-1]] = i
+	}
+	return d[la+1][lb+1]
+}
+
+type cand struct {
+	pos, off int
+}
+
+type matcher struct {
+	byWord   [][]cand
+	matchTok []int // pos -> word+1
+	seen     []int // pos -> stamp
+	stamp    int
+	start    []int
+	lo, hi   int
+}
+
+func (m *matcher) try(w int) bool {
+	cs := m.byWord[w]
+	for k := m.start[w]; k < len(cs); k++ {
+		c := cs[k]
+		if c.off > m.hi {
+			break
+		}
+		if m.seen[c.pos] == m.stamp {
+			continue
+		}
+		m.seen[c.pos] = m.stamp
+		o := m.matchTok[c.pos]
+		if o == 0 || m.try(o-1) {
+			m.matchTok[c.pos] = w + 1
+			return true
+		}
+	}
+	return false
+}
+
+// feasible: each word gets a distinct token with offset in [lo,hi]
+func (m *matcher) feasible(lo, hi int) bool {
+	m.lo, m.hi = lo, hi
+	for w, cs := range m.byWord {
+		k := sort.Search(len(cs), func(i int) bool { return cs[i].off >= lo })
+		if k == len(cs) || cs[k].off > hi {
+			return false
+		}
+		m.start[w] = k
+	}
+	for w, cs := range m.byWord {
+		for k := m.start[w]; k < len(cs) && cs[k].off <= hi; k++ {
+			m.matchTok[cs[k].pos] = 0
+		}
+	}
+	for w := range m.byWord {
+		m.stamp++
+		if !m.try(w) {
+			return false
+		}
+	}
+	return true
+}
+
+func main() {
+	data, _ := io.ReadAll(os.Stdin)
+	lines := strings.Split(string(data), "\n")
+	w := bufio.NewWriter(os.Stdout)
+	defer w.Flush()
+	committed := map[string][]int32{}
+	var work map[string][]int32
+	first := true
+	for _, ln := range lines {
+		if ln == "" {
+			continue
+		}
+		if first {
+			first = false
+			f := strings.Split(ln, " ")
+			for _, s := range f[1:] {
+				if s != "" {
+					stop[s] = true
+				}
+			}
+			continue
+		}
+		switch {
+		case ln == "begin":
+			work = make(map[string][]int32, len(committed))
+			for k, v := range committed {
+				work[k] = v
+			}
+		case ln == "commit":
+			committed = work
+			work = nil
+		case ln == "rollback":
+			work = nil
+		case strings.HasPrefix(ln, "add "):
+			rest := ln[4:]
+			sp := strings.IndexByte(rest, ' ')
+			work[rest[:sp]] = docTokens(rest[sp+1:])
+		case strings.HasPrefix(ln, "append "):
+			rest := ln[7:]
+			sp := strings.IndexByte(rest, ' ')
+			id := rest[:sp]
+			old := work[id]
+			nt := make([]int32, 0, len(old)+8)
+			nt = append(nt, old...)
+			nt = append(nt, docTokens(rest[sp+1:])...)
+			work[id] = nt
+		case strings.HasPrefix(ln, "delete "):
+			delete(work, ln[7:])
+		case strings.HasPrefix(ln, "query "):
+			slop := int(ln[6] - '0')
+			fuzz := int(ln[8] - '0')
+			runQuery(w, committed, slop, fuzz, ln[10:])
+		}
+	}
+}
+
+type hit struct {
+	id string
+	d  int
+}
+
+func runQuery(w *bufio.Writer, idx map[string][]int32, slop, fuzz int, text string) {
+	qt := tokenize(text)
+	var words []string
+	var qpos []int
+	for i, t := range qt {
+		if !stop[t] {
+			words = append(words, t)
+			qpos = append(qpos, i)
+		}
+	}
+	nw := len(words)
+	status := make([][]int8, nw)
+	for i := range status {
+		status[i] = make([]int8, len(vocab))
+	}
+	match := func(wi int, id int32) bool {
+		st := status[wi][id]
+		if st != 0 {
+			return st == 1
+		}
+		q, tok := words[wi], vocab[id]
+		var r bool
+		dl := len(q) - len(tok)
+		if dl < 0 {
+			dl = -dl
+		}
+		if dl > fuzz {
+			r = false
+		} else if fuzz == 0 {
+			r = q == tok
+		} else {
+			r = dlDist(q, tok) <= fuzz
+		}
+		if r {
+			status[wi][id] = 1
+		} else {
+			status[wi][id] = 2
+		}
+		return r
+	}
+	var hits []hit
+	m := &matcher{byWord: make([][]cand, nw), start: make([]int, nw)}
+	var offs []int
+	for id, toks := range idx {
+		if nw == 0 {
+			break
+		}
+		ok := true
+		offs = offs[:0]
+		for wi := range words {
+			bw := m.byWord[wi][:0]
+			for p, t := range toks {
+				if t >= 0 && match(wi, t) {
+					bw = append(bw, cand{p, p - qpos[wi]})
+					offs = append(offs, p-qpos[wi])
+				}
+			}
+			m.byWord[wi] = bw
+			if len(bw) == 0 {
+				ok = false
+				break
+			}
+		}
+		if !ok {
+			continue
+		}
+		if len(m.seen) < len(toks) {
+			m.seen = make([]int, len(toks))
+			m.matchTok = make([]int, len(toks))
+			m.stamp = 0
+		}
+		sort.Ints(offs)
+		v := offs[:0]
+		for i, o := range offs {
+			if i == 0 || o != offs[i-1] {
+				v = append(v, o)
+			}
+		}
+		limit := slop // spreads considered must be <= limit
+		best := -1
+		j := 0
+		for i := 0; i < len(v) && limit >= 0; i++ {
+			if j < i {
+				j = i
+			}
+			for j < len(v) && v[j]-v[i] <= limit {
+				if m.feasible(v[i], v[j]) {
+					break
+				}
+				j++
+			}
+			if j < len(v) && v[j]-v[i] <= limit {
+				best = v[j] - v[i]
+				limit = best - 1
+			}
+		}
+		if best >= 0 {
+			hits = append(hits, hit{id, best})
+		}
+	}
+	writeHits(w, hits)
+}
+
+func writeHits(w *bufio.Writer, hits []hit) {
+	if len(hits) == 0 {
+		w.WriteString("-\n")
+		return
+	}
+	sort.Slice(hits, func(a, b int) bool {
+		if hits[a].d != hits[b].d {
+			return hits[a].d < hits[b].d
+		}
+		return hits[a].id < hits[b].id
+	})
+	for i, h := range hits {
+		if i > 0 {
+			w.WriteByte(' ')
+		}
+		w.WriteString(h.id)
+		w.WriteByte('@')
+		w.WriteString(itoa(h.d))
+	}
+	w.WriteByte('\n')
+}
+
+func itoa(n int) string {
+	if n == 0 {
+		return "0"
+	}
+	s := ""
+	for n > 0 {
+		s = string(rune('0'+n%10)) + s
+		n /= 10
+	}
+	return s
+}

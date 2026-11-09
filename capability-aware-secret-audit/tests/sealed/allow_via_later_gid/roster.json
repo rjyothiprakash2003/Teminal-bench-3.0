@@ -1,0 +1,20 @@
+{
+  "entries": [
+    {
+      "path": "secret",
+      "allow_uids": [],
+      "allow_gids": [
+        9,
+        1000
+      ]
+    }
+  ],
+  "subjects": [
+    {
+      "uid": 2000,
+      "gids": [
+        1000
+      ]
+    }
+  ]
+}

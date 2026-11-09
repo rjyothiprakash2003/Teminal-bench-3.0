@@ -1,0 +1,49 @@
+{
+  "bin_count": 4,
+  "card_id": "H90",
+  "mode": "live",
+  "classes": [
+    "pine",
+    "oak"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "s0",
+      "rows": [
+        {
+          "example_id": "z",
+          "label": "pine",
+          "p_bp": {
+            "pine": 9000,
+            "oak": 1000
+          }
+        },
+        {
+          "example_id": "y",
+          "label": "oak",
+          "p_bp": {
+            "pine": 2000,
+            "oak": 8000
+          }
+        },
+        {
+          "example_id": "x",
+          "label": "pine",
+          "p_bp": {
+            "pine": 6000,
+            "oak": 4000
+          }
+        },
+        {
+          "example_id": "w",
+          "label": "oak",
+          "p_bp": {
+            "pine": 3000,
+            "oak": 7000
+          }
+        }
+      ]
+    }
+  ]
+}

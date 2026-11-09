@@ -1,0 +1,21 @@
+{
+  "entries": [
+    {
+      "path": "conf/pipe",
+      "allow_uids": [
+        0
+      ],
+      "allow_gids": [
+        0
+      ]
+    }
+  ],
+  "subjects": [
+    {
+      "uid": 0,
+      "gids": [
+        0
+      ]
+    }
+  ]
+}

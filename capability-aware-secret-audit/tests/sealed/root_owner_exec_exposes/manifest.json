@@ -1,0 +1,14 @@
+{
+  "nodes": [
+    {
+      "path": "secret",
+      "kind": "file",
+      "mode": "0400",
+      "uid": 0,
+      "gid": 0,
+      "content": "s"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0700"
+}

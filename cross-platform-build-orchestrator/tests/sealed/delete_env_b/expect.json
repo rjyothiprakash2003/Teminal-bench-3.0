@@ -1,0 +1,21 @@
+{
+  "artifacts": [
+    {
+      "cflags": [
+        "-m64"
+      ],
+      "defines": {
+        "E": "2"
+      },
+      "env": {
+        "A": "1"
+      },
+      "id": "e2",
+      "ldflags": [
+        "-Wl,--hash-style=gnu"
+      ],
+      "stamp": "4993ca32b805055ca7e854b85682f64b6289c6b8c5aef169e5a805573005240b",
+      "triple": "x86_64-linux-bfd"
+    }
+  ]
+}

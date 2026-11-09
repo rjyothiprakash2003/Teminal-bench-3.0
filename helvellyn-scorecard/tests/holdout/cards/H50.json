@@ -1,0 +1,83 @@
+{
+  "bin_count": 20,
+  "card_id": "H50",
+  "classes": [
+    "alder",
+    "elm",
+    "fir",
+    "yew"
+  ],
+  "min_conf_bp": 3000,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h50-0",
+          "label": "fir",
+          "p_bp": {
+            "alder": 1400,
+            "elm": 400,
+            "fir": 2300,
+            "yew": 5900
+          }
+        },
+        {
+          "example_id": "h50-1",
+          "label": "alder",
+          "p_bp": {
+            "alder": 1100,
+            "elm": 5700,
+            "fir": 2100,
+            "yew": 1100
+          }
+        },
+        {
+          "example_id": "h50-2",
+          "label": "yew",
+          "p_bp": {
+            "alder": 5000,
+            "elm": 1200,
+            "fir": 2200,
+            "yew": 1600
+          }
+        },
+        {
+          "example_id": "h50-3",
+          "label": "fir",
+          "p_bp": {
+            "alder": 6800,
+            "elm": 800,
+            "fir": 2400,
+            "yew": 0
+          }
+        },
+        {
+          "example_id": "h50-4",
+          "label": "alder",
+          "p_bp": {
+            "alder": 6400,
+            "elm": 1100,
+            "fir": 800,
+            "yew": 1700
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z1",
+      "rows": [
+        {
+          "example_id": "h50-5",
+          "label": "elm",
+          "p_bp": {
+            "alder": 600,
+            "elm": 8300,
+            "fir": 1000,
+            "yew": 100
+          }
+        }
+      ]
+    }
+  ]
+}

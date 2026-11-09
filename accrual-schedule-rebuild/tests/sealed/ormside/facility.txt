@@ -1,0 +1,8 @@
+# Working capital line drawn on the last day of April.
+facility F-WK-5518
+class WORKING
+advance 25000000
+rate 640
+drawn 2023-04-30
+periods 4
+frequency 1

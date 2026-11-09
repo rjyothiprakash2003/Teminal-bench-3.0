@@ -1,0 +1,24 @@
+{
+  "bin_count": 4,
+  "card_id": "H20",
+  "classes": [
+    false,
+    "pine"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "s0",
+      "rows": [
+        {
+          "example_id": "e01",
+          "label": "pine",
+          "p_bp": {
+            "False": 2000,
+            "pine": 8000
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,402 @@
+diff --git a/src/pybamm/simulation.py b/src/pybamm/simulation.py
+index 14b9a19..a50041c 100644
+--- a/src/pybamm/simulation.py
++++ b/src/pybamm/simulation.py
+@@ -191,6 +191,7 @@ class Simulation:
+             solve_kwargs is not None
+             and "calculate_sensitivities" in solve_kwargs
+             and solve_kwargs["calculate_sensitivities"]
++            and not solve_kwargs.get("calculate_event_sensitivities", False)
+         ):
+             for step in self.experiment.steps:
+                 if any(
+diff --git a/src/pybamm/solvers/base_solver.py b/src/pybamm/solvers/base_solver.py
+index 49e9b92..3f2bb30 100644
+--- a/src/pybamm/solvers/base_solver.py
++++ b/src/pybamm/solvers/base_solver.py
+@@ -1177,6 +1177,7 @@ class BaseSolver:
+         save=True,
+         calculate_sensitivities=False,
+         t_interp=None,
++        calculate_event_sensitivities=False,
+     ):
+         """
+         Step the solution of the model forward by a given time increment. The
+@@ -1308,6 +1309,21 @@ class BaseSolver:
+             pybamm.logger.verbose(f"Start stepping {model.name} with {self.name}")
+ 
+         using_sensitivities = len(model.calculate_sensitivities) > 0
++        event_history = old_solution
++        if calculate_event_sensitivities:
++            from . import event_sensitivity
++
++            if not isinstance(self, pybamm.IDAKLUSolver) or not using_sensitivities:
++                raise pybamm.SolverError('Event sensitivities require IDAKLU and input sensitivities')
++            if self.output_variables:
++                raise pybamm.SolverError('Event sensitivities require saved states')
++            if model.convert_to_format != 'casadi':
++                raise pybamm.SolverError('Event sensitivities require CasADi model evaluation')
++            if any(np.asarray(v).size != 1 for v in model_inputs.values()):
++                raise pybamm.SolverError('Event sensitivities currently require scalar inputs')
++            if set(model.calculate_sensitivities) != set(model_inputs):
++                raise pybamm.SolverError('Event sensitivities currently require all input parameters')
++            old_solution, event_tau = event_sensitivity.total_history(old_solution)
+ 
+         if isinstance(old_solution, pybamm.EmptySolution):
+             if not first_step_this_model:
+@@ -1352,6 +1368,10 @@ class BaseSolver:
+         # (Re-)calculate consistent initialization
+         self._set_consistent_initialization(model, t_start_shifted, model_inputs)
+ 
++        if calculate_event_sensitivities:
++            event_sensitivity.seed_fixed_time(self, model, t_start_shifted, model_inputs, event_tau)
++            old_solution = event_history
++
+         # Check consistent initialization doesn't violate events
+         self._check_events_with_initialization(t_eval, model, model_inputs)
+ 
+@@ -1374,6 +1394,9 @@ class BaseSolver:
+         # include the event time and state
+         solution, termination = self.get_termination_reason(solution, model.events)
+ 
++        if calculate_event_sensitivities:
++            event_sensitivity.finish(solution, model, model_inputs, event_tau)
++
+         # Assign setup time
+         solution.set_up_time = set_up_time
+ 
+diff --git a/src/pybamm/solvers/event_sensitivity.py b/src/pybamm/solvers/event_sensitivity.py
+new file mode 100644
+index 0000000..834e8b8
+--- /dev/null
++++ b/src/pybamm/solvers/event_sensitivity.py
+@@ -0,0 +1,153 @@
++"""Event-aligned derivatives for autonomous IDAKLU experiment steps.
++
++The integrator evolves derivatives at fixed absolute time. At a moving
++boundary these are converted to total endpoint derivatives for state transfer,
++then converted back for the next vector field.
++"""
++
++import casadi
++import numpy as np
++from scipy.sparse.linalg import spsolve
++
++import pybamm
++
++
++def _ordered(inputs):
++    """The compiled step functions take inputs packed in name order."""
++    return {key: inputs[key] for key in sorted(inputs)}
++
++
++def _packed(inputs):
++    return np.concatenate(
++        [np.asarray(v).reshape(-1) for v in _ordered(inputs).values()]
++    )
++
++
++def flow(model, t, y, inputs):
++    """Full state time derivative, including index-one algebraic variables."""
++    y = np.asarray(y).reshape(-1)
++    packed = _packed(inputs)
++    rhs = np.asarray(model.rhs_eval(t, y, packed)).reshape(-1)
++    if not model.is_standard_form_dae:
++        rhs = model.mass_matrix_inv.entries @ rhs
++    if not model.len_alg:
++        return rhs
++    jac = model.jac_algebraic_eval(t, y, packed).sparse().tocsr()
++    # Supported experiment dynamics are autonomous within each step.
++    algebraic_dot = spsolve(jac[:, model.len_rhs:], -jac[:, :model.len_rhs] @ rhs)
++    return np.concatenate([rhs, np.asarray(algebraic_dot).reshape(-1)])
++
++
++def total_history(history):
++    """Make an isolated last-state view with total endpoint derivatives."""
++    if isinstance(history, pybamm.EmptySolution):
++        return history, {}
++    times = getattr(history, '_all_time_sensitivities', {})
++    if not times:
++        raise pybamm.SolverError('Continuation requires event-sensitive history')
++    state = history.last_state.copy()
++    model = state.all_models[-1]
++    tau = {k: np.asarray(v[-1])[-1].copy() for k, v in times.items()}
++    velocity = flow(model, state.t[-1], state.y[:, -1], state.all_inputs[-1])
++    state._all_sensitivities = {
++        k: [np.asarray(v[-1]) + velocity[:, None] * tau[k][None, :]]
++        for k, v in state._all_sensitivities.items()
++    }
++    return state, tau
++
++
++def seed_fixed_time(solver, model, t, inputs, tau):
++    """Convert transferred total derivatives to fixed-time initial values."""
++    if not tau:
++        return
++    velocity = flow(model, t, model.y0, inputs)
++    names = model.calculate_sensitivities
++    model.y0S = tuple(
++        np.asarray(s).reshape(-1) - velocity * float(tau[name][0])
++        for name, s in zip(names, model.y0S, strict=True)
++    )
++    solver._set_consistent_initialization(model, t, inputs)
++
++
++def _event_time(solution, model, inputs):
++    name = solution.termination.removeprefix('event: ')
++    event = next(e for e in model.events if e.name == name)
++    t = casadi.MX.sym('t')
++    y = casadi.MX.sym('y', model.len_rhs_and_alg)
++    inputs = _ordered(inputs)
++    symbols = {k: casadi.MX.sym(k, np.asarray(v).size) for k, v in inputs.items()}
++    p = casadi.vertcat(*symbols.values())
++    g = event.expression.to_casadi(t, y, inputs=symbols)
++    fun = casadi.Function('event_derivatives', [t, y, p],
++                          [casadi.jacobian(g, y), casadi.jacobian(g, p), casadi.jacobian(g, t)])
++    gy, gp, gt = fun(solution.t[-1], solution.y[:, -1], _packed(inputs))
++    velocity = flow(model, solution.t[-1], solution.y[:, -1], inputs)
++    denominator = float(gy @ velocity + gt)
++    if not np.isfinite(denominator) or denominator == 0.0:
++        raise pybamm.SolverError('Event sensitivity requires a transverse event')
++    n = model.len_rhs_and_alg
++    fixed = np.asarray(solution._all_sensitivities['all'][-1])[-n:]
++    spans = {}
++    offset = 0
++    for key, value in inputs.items():
++        spans[key] = range(offset, offset + np.asarray(value).size)
++        offset += np.asarray(value).size
++    # Fixed-time columns follow model.calculate_sensitivities; match by name.
++    columns = [c for name in model.calculate_sensitivities for c in spans[name]]
++    return -np.asarray(gy @ fixed + gp[:, columns]).reshape(-1) / denominator
++
++
++def finish(solution, model, inputs, tau):
++    """Record derivatives of phase-aligned sample times and the actual endpoint."""
++    names = model.calculate_sensitivities
++    initial = np.array([float(tau.get(k, [0])[0]) for k in names])
++    endpoint = _event_time(solution, model, inputs) if solution.termination.startswith('event: ') else initial
++    blocks = [np.broadcast_to(initial, (len(t), len(names))).copy() for t in solution.all_ts]
++    blocks[-1][-1] = endpoint
++    solution._all_time_sensitivities = {'all': blocks}
++    for column, name in enumerate(names):
++        solution._all_time_sensitivities[name] = [b[:, column:column + 1].copy() for b in blocks]
++
++
++def variable_phase_sensitivities(variable):
++    """Total output derivatives at fixed step-relative times (and endpoints)."""
++    fixed = variable.sensitivities
++    times = variable.all_time_sensitivities
++    if not times:
++        raise pybamm.SolverError('Event sensitivities were not calculated')
++    corrections = []
++    for ts, ys, inputs, expression, model, dt in zip(
++        variable.all_ts, variable.all_ys, variable.all_inputs,
++        variable.base_variables, variable.all_models, times['all'], strict=True
++    ):
++        t = casadi.MX.sym('t'); y = casadi.MX.sym('y', ys.shape[0])
++        inputs = _ordered(inputs)
++        symbols = {k: casadi.MX.sym(k, np.asarray(v).size) for k, v in inputs.items()}
++        p = casadi.vertcat(*symbols.values())
++        expr = expression.to_casadi(t, y, inputs=symbols)
++        if not model.len_alg:
++            velocity = model.rhs_eval(t, y, p)
++            if not model.is_standard_form_dae:
++                velocity = casadi.DM(model.mass_matrix_inv.entries) @ velocity
++            rate_function = casadi.Function('output_rate', [t, y, p],
++                [casadi.jacobian(expr, y) @ velocity + casadi.jacobian(expr, t)])
++            rates = np.asarray(rate_function.map(len(ts))(ts, ys, _packed(inputs)))
++            corrections.extend(rates[:, i, None] * dt[i][None, :] for i in range(len(ts)))
++            continue
++        derivative = casadi.Function('output_time_derivative', [t, y, p],
++            [casadi.jacobian(expr, y), casadi.jacobian(expr, t)])
++        packed = _packed(inputs)
++        for i, time in enumerate(ts):
++            dy, direct = derivative(time, ys[:, i], packed)
++            velocity = flow(model, time, ys[:, i], inputs)
++            rate = np.asarray(dy @ velocity + direct).reshape(-1)
++            corrections.append(rate[:, None] * dt[i][None, :])
++    all_values = np.asarray(fixed['all']) + np.vstack(corrections)
++    result = {'all': all_values}
++    offset = 0
++    for name in times:
++        if name != 'all':
++            width = times[name][0].shape[1]
++            result[name] = all_values[:, offset:offset + width]
++            offset += width
++    return result
+diff --git a/src/pybamm/solvers/processed_variable.py b/src/pybamm/solvers/processed_variable.py
+index fe9dea2..d4cd73a 100644
+--- a/src/pybamm/solvers/processed_variable.py
++++ b/src/pybamm/solvers/processed_variable.py
+@@ -43,6 +43,8 @@ class ProcessedVariable:
+         self.base_variables_casadi = base_variables_casadi
+ 
+         self.all_ts = solution.all_ts
++        self.all_models = solution.all_models
++        self.all_time_sensitivities = solution._all_time_sensitivities
+         self.all_ys = solution.all_ys
+         self.all_yps = solution.all_yps
+         self.all_inputs = solution.all_inputs
+@@ -64,6 +66,7 @@ class ProcessedVariable:
+ 
+         # Sensitivity starts off uninitialized, only set when called
+         self._sensitivities = None
++        self._phase_sensitivities = None
+         self.all_solution_sensitivities = solution._all_sensitivities
+ 
+         # Store time
+@@ -409,6 +412,15 @@ class ProcessedVariable:
+                 )
+         return self._sensitivities
+ 
++    @property
++    def phase_sensitivities(self):
++        """Total derivatives at fixed elapsed step times and moving endpoints."""
++        from .event_sensitivity import variable_phase_sensitivities
++
++        if self._phase_sensitivities is None:
++            self._phase_sensitivities = variable_phase_sensitivities(self)
++        return self._phase_sensitivities
++
+     def initialise_sensitivity_explicit_forward(self):
+         "Set up the sensitivity dictionary"
+ 
+@@ -443,19 +455,18 @@ class ProcessedVariable:
+             dvar_dp_func = casadi.Function(
+                 "dvar_dp", [t_casadi, y_casadi, p_casadi_stacked], [dvar_dp]
+             )
++            sample_sensitivities = []
+             for idx, t in enumerate(ts):
+                 u = ys[:, idx]
+                 next_dvar_dy_eval = dvar_dy_func(t, u, inputs_stacked)
+                 next_dvar_dp_eval = dvar_dp_func(t, u, inputs_stacked)
+-                if idx == 0:
+-                    dvar_dy_eval = next_dvar_dy_eval
+-                    dvar_dp_eval = next_dvar_dp_eval
+-                else:
+-                    dvar_dy_eval = casadi.diagcat(dvar_dy_eval, next_dvar_dy_eval)
+-                    dvar_dp_eval = casadi.vertcat(dvar_dp_eval, next_dvar_dp_eval)
++                state_sensitivity = dy_dp[idx * ys.shape[0] : (idx + 1) * ys.shape[0], :]
++                sample_sensitivities.append(
++                    next_dvar_dy_eval @ state_sensitivity + next_dvar_dp_eval
++                )
+ 
+             # Compute sensitivity
+-            S_var = dvar_dy_eval @ dy_dp + dvar_dp_eval
++            S_var = casadi.vertcat(*sample_sensitivities)
+             all_S_var.append(S_var)
+ 
+         S_var = casadi.vertcat(*all_S_var)
+diff --git a/src/pybamm/solvers/solution.py b/src/pybamm/solvers/solution.py
+index 4f17c60..2af9237 100644
+--- a/src/pybamm/solvers/solution.py
++++ b/src/pybamm/solvers/solution.py
+@@ -93,6 +93,7 @@ class Solution:
+         self._all_ys = all_ys
+         self._all_ys_and_sens = all_ys
+         self._all_models = all_models
++        self._all_time_sensitivities = {}
+ 
+         if (all_yps is not None) and not isinstance(all_yps, list):
+             all_yps = [all_yps]
+@@ -460,7 +461,7 @@ class Solution:
+             sensitivities = {}
+             n_states = self.all_models[0].len_rhs_and_alg
+             for key in self._all_sensitivities:
+-                sensitivities[key] = self._all_sensitivities[key][0][-n_states:, :]
++                sensitivities[key] = self._all_sensitivities[key][0][:n_states, :]
+ 
+         if self.all_yps is None:
+             all_yps = None
+@@ -485,6 +486,9 @@ class Solution:
+             all_yps=all_yps,
+         )
+         new_sol._all_inputs_casadi = self.all_inputs_casadi[:1]
++        new_sol._all_time_sensitivities = {
++            k: [v[0][:1].copy()] for k, v in self._all_time_sensitivities.items()
++        }
+         new_sol._sub_solutions = self.sub_solutions[:1]
+ 
+         new_sol.solve_time = 0
+@@ -531,6 +535,9 @@ class Solution:
+             all_yps=all_yps,
+         )
+         new_sol._all_inputs_casadi = self.all_inputs_casadi[-1:]
++        new_sol._all_time_sensitivities = {
++            k: [v[-1][-1:].copy()] for k, v in self._all_time_sensitivities.items()
++        }
+         new_sol._sub_solutions = self.sub_solutions[-1:]
+         new_sol.solve_time = 0
+         new_sol.integration_time = 0
+@@ -538,6 +545,11 @@ class Solution:
+ 
+         return new_sol
+ 
++    @property
++    def time_sensitivities(self):
++        """Sample-time derivatives at fixed step phase, with moving endpoints."""
++        return {k: np.vstack(v) for k, v in self._all_time_sensitivities.items()}
++
+     @property
+     def total_time(self):
+         return self.set_up_time + self.solve_time
+@@ -938,12 +950,13 @@ class Solution:
+         elif isinstance(self._all_sensitivities, dict) and isinstance(
+             other._all_sensitivities, dict
+         ):
+-            all_sensitivities = self._all_sensitivities
++            all_sensitivities = {k: list(v) for k, v in self._all_sensitivities.items()}
+             # we can assume that the keys are the same for both solutions
+             for key in other._all_sensitivities:
+-                all_sensitivities[key] = (
+-                    all_sensitivities[key] + other._all_sensitivities[key]
+-                )
++                right = list(other._all_sensitivities[key])
++                if other.all_ts[0][0] == self.all_ts[-1][-1]:
++                    right[0] = right[0][other.all_models[0].len_rhs_and_alg:]
++                all_sensitivities[key] = all_sensitivities[key] + right
+         elif not self._all_sensitivities and not other._all_sensitivities:
+             all_sensitivities = {}
+         else:
+@@ -963,6 +976,12 @@ class Solution:
+         )
+ 
+         new_sol.closest_event_idx = other.closest_event_idx
++        if self._all_time_sensitivities and other._all_time_sensitivities:
++            for key, left in self._all_time_sensitivities.items():
++                right = list(other._all_time_sensitivities[key])
++                if other.all_ts[0][0] == self.all_ts[-1][-1]:
++                    right[0] = right[0][1:]
++                new_sol._all_time_sensitivities[key] = list(left) + right
+         new_sol._all_inputs_casadi = self.all_inputs_casadi + other.all_inputs_casadi
+ 
+         # Add timers (if available)
+@@ -996,7 +1015,7 @@ class Solution:
+ 
+     def copy(self):
+         new_sol = self.__class__(
+-            self.all_ts,
++            [t.copy() for t in self.all_ts],
+             # need to copy y in case it is modified by extract explicit sensitivities
+             [copy.copy(y) for y in self.all_ys],
+             self.all_models,
+@@ -1009,6 +1028,9 @@ class Solution:
+             self.variables_returned,
+         )
+         new_sol._all_inputs_casadi = self.all_inputs_casadi
++        new_sol._all_time_sensitivities = {
++            k: [a.copy() for a in v] for k, v in self._all_time_sensitivities.items()
++        }
+         new_sol._sub_solutions = self.sub_solutions
+         new_sol.closest_event_idx = self.closest_event_idx
+ 
+@@ -1135,6 +1157,9 @@ def make_cycle_solution(
+         cycle_solution._variables = sum_sols._variables
+ 
+     cycle_solution._all_inputs_casadi = sum_sols.all_inputs_casadi
++    cycle_solution._all_time_sensitivities = {
++        k: [a.copy() for a in v] for k, v in sum_sols._all_time_sensitivities.items()
++    }
+     cycle_solution._sub_solutions = sum_sols.sub_solutions
+ 
+     cycle_solution.solve_time = sum_sols.solve_time

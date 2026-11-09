@@ -1,0 +1,15 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a": {
+    "content_hex": "626c6f636b0a",
+    "kind": "file",
+    "mode": 420
+  },
+  "a.txt": {
+    "kind": "dir",
+    "mode": 493
+  }
+}

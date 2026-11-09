@@ -1,0 +1,10 @@
+facility F-BR-SLED
+class BRIDGE
+advance 7777777777
+rate 1825
+drawn 1999-11-30
+periods 6
+frequency 1
+step 2000-02-08 6400
+step 2000-02-19 9100
+step 2000-02-25 4300

@@ -1,0 +1,15 @@
+{
+  "copied": [
+    ""
+  ],
+  "skipped": [
+    {
+      "path": "d",
+      "reason": "type conflict"
+    },
+    {
+      "path": "d/inner.txt",
+      "reason": "unsafe"
+    }
+  ]
+}

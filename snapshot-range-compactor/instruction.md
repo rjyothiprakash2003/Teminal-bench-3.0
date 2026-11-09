@@ -1,0 +1,3 @@
+The compactor in /app/src is dropping values still needed by pinned snapshots, and range deletions sometimes let old lower-level values reappear. Repair it against /app/docs/compaction-contract.md. This is the integer-counter column family: merge operands must stay correct when their base is outside the compaction.
+
+Keep the Go command working as `cd /app/src && go build -o /app/compact .`; it reads one compaction request from stdin and writes its canonical result to stdout. The input in /app/examples/regression.json reproduces a failure involving two read cuts. The repair must handle other valid requests, including the scale described in the contract. Leave the implementation under /app/src; the evaluator builds that source afresh.

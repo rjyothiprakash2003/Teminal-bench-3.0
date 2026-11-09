@@ -1,0 +1,58 @@
+stopwords an on of a to at
+query 3 1 a host
+begin
+delete d10
+add b poll/fill disk/Cache=a
+commit
+query 3 1 ca retry pool cpu
+query 2 0 cup of cup up
+query 3 0 fill
+query 5 2 hosts on api
+begin
+delete f
+commit
+query 4 2 cache node at cache
+begin
+add d10 hosts  out
+commit
+query 0 0 a time
+query 7 1 uath
+begin
+delete a
+add b catch/ca  MISS cache)an:dusk
+add d-1 up=ca=hosts)TO-ca.out cpu.aip
+add d10  a  ack(Out.nodes  an-to dusk=disk
+append d-1 of(link/on
+commit
+begin
+commit
+query 3 1 poll poll timeout fill time
+query 7 1 hosts hosts
+begin
+append d10 ca  auth, HOST auth_EROR(miss
+add d2  on.retry, time akc
+delete b
+add c aip68.api=code to  an
+add d2 on-a(an code)at catch.link an:on
+commit
+query 5 1 down hosts full
+query 3 1 api api a
+begin
+delete c
+commit
+begin
+commit
+begin
+append d10 pool
+add a aip.ack
+delete e-x
+add d-1 --
+delete d-1
+commit
+query 0 1 error
+begin
+append d10 pool_host)host=UATH hosts_a
+add f catch:hosts dusk44)fill_link  at
+commit
+query 2 0 miss pool on nodes
+query 6 0 full

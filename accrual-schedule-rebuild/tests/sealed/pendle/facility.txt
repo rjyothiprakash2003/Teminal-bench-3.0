@@ -1,0 +1,7 @@
+facility F-WK-9999
+class WORKING
+advance 44000000
+rate 1100
+drawn 2097-12-31
+periods 24
+frequency 1

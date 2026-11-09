@@ -1,0 +1,9 @@
+facility F-TR-2929
+class TRADE
+advance 123456789
+rate 777
+drawn 2020-02-29
+periods 25
+frequency 1
+
+# filed by the desk on the day of drawdown

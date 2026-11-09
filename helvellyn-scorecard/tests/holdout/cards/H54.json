@@ -1,0 +1,68 @@
+{
+  "bin_count": 20,
+  "card_id": "H54",
+  "classes": [
+    "cedar",
+    "elm",
+    "larch",
+    "oak",
+    "pine"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h54-0",
+          "label": "cedar",
+          "p_bp": {
+            "cedar": 4800,
+            "elm": 1700,
+            "larch": 1000,
+            "oak": 600,
+            "pine": 1900
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z1",
+      "rows": [
+        {
+          "example_id": "h54-1",
+          "label": "elm",
+          "p_bp": {
+            "cedar": 2600,
+            "elm": 1500,
+            "larch": 2300,
+            "oak": 800,
+            "pine": 2800
+          }
+        },
+        {
+          "example_id": "h54-2",
+          "label": "cedar",
+          "p_bp": {
+            "cedar": 2900,
+            "elm": 3000,
+            "larch": 200,
+            "oak": 3200,
+            "pine": 700
+          }
+        },
+        {
+          "example_id": "h54-3",
+          "label": "larch",
+          "p_bp": {
+            "cedar": 200,
+            "elm": 3300,
+            "larch": 5000,
+            "oak": 1000,
+            "pine": 500
+          }
+        }
+      ]
+    }
+  ]
+}

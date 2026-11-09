@@ -1,0 +1,8 @@
+facility F-PL-3312
+class PLANT
+advance 5600000
+rate 1490
+drawn 2022-01-31
+periods 7
+frequency 1
+step 2022-04-19 1625

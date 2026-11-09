@@ -1,0 +1,1 @@
+{"targets": [{"id": "t_ci", "arch": "x86_64", "os": "linux", "linker": "lld", "toolchain": "ci", "override": {"cflags": ["-Wall"]}}, {"id": "t_plain", "arch": "aarch64", "os": "linux", "linker": "bfd"}]}

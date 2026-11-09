@@ -1,0 +1,1 @@
+{"ldflags": ["-Wl,-z,relro"]}

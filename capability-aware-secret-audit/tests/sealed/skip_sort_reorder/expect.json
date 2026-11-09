@@ -1,0 +1,13 @@
+{
+  "findings": [],
+  "skipped": [
+    {
+      "path": "a/missing",
+      "reason": "missing"
+    },
+    {
+      "path": "z/missing",
+      "reason": "missing"
+    }
+  ]
+}

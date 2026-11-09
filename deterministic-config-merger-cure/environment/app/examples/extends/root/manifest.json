@@ -1,0 +1,16 @@
+{
+  "sources": [
+    {
+      "id": "common",
+      "priority": 1
+    },
+    {
+      "id": "worker",
+      "priority": 5
+    },
+    {
+      "id": "tuning",
+      "priority": 3
+    }
+  ]
+}

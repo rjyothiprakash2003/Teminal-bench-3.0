@@ -1,0 +1,23 @@
+{
+  "extra": [
+    {
+      "content": "secret\n",
+      "kind": "file",
+      "mode": 416,
+      "path": "secret.dat"
+    }
+  ],
+  "src": [
+    {
+      "kind": "symlink",
+      "path": "trap",
+      "target": "../extra/secret.dat"
+    },
+    {
+      "content": "ok\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "ok.txt"
+    }
+  ]
+}

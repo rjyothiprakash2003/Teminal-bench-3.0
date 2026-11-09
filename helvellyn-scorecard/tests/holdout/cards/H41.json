@@ -1,0 +1,79 @@
+{
+  "bin_count": 2,
+  "card_id": "H41",
+  "classes": [
+    "alder",
+    "ash",
+    "cedar",
+    "larch",
+    "pine"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h41-0",
+          "label": "cedar",
+          "p_bp": {
+            "alder": 0,
+            "ash": 1900,
+            "cedar": 1800,
+            "larch": 2700,
+            "pine": 3600
+          }
+        },
+        {
+          "example_id": "h41-1",
+          "label": "alder",
+          "p_bp": {
+            "alder": 1200,
+            "ash": 2500,
+            "cedar": 4000,
+            "larch": 1000,
+            "pine": 1300
+          }
+        },
+        {
+          "example_id": "h41-2",
+          "label": "ash",
+          "p_bp": {
+            "alder": 1400,
+            "ash": 5100,
+            "cedar": 1800,
+            "larch": 700,
+            "pine": 1000
+          }
+        },
+        {
+          "example_id": "h41-3",
+          "label": "ash",
+          "p_bp": {
+            "alder": 700,
+            "ash": 6300,
+            "cedar": 700,
+            "larch": 300,
+            "pine": 2000
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z1",
+      "rows": [
+        {
+          "example_id": "h41-4",
+          "label": "cedar",
+          "p_bp": {
+            "alder": 900,
+            "ash": 3500,
+            "cedar": 4000,
+            "larch": 200,
+            "pine": 1400
+          }
+        }
+      ]
+    }
+  ]
+}

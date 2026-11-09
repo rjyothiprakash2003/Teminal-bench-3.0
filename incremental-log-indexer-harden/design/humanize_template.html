@@ -1,0 +1,199 @@
+<title>Log Indexer Humanization</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500&display=swap">
+<style>
+/* Layout: a working desk. Editable prose on top in one column; a file drawer below with a list beside a reader. */
+:root {
+  --bg: #f6f7f5;
+  --panel: #ffffff;
+  --ink: #1d2422;
+  --muted: #5d6965;
+  --line: #d9dfdc;
+  --accent: #2f6f5e;
+  --accent-soft: #e2efea;
+  --warn: #9a5b00;
+  --warn-soft: #fbefdc;
+  --bad: #a3322a;
+  --code-bg: #f0f2f1;
+  --f-display: "IBM Plex Serif", Georgia, serif;
+  --f-body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141917; --panel: #1b2220; --ink: #e4ebe8; --muted: #9aa8a3; --line: #2e3835;
+    --accent: #7cc4ad; --accent-soft: #20332d; --warn: #e6b062; --warn-soft: #3a2e1b; --bad: #f08a80;
+    --code-bg: #111614; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141917; --panel: #1b2220; --ink: #e4ebe8; --muted: #9aa8a3; --line: #2e3835;
+  --accent: #7cc4ad; --accent-soft: #20332d; --warn: #e6b062; --warn-soft: #3a2e1b; --bad: #f08a80;
+  --code-bg: #111614; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 1100px; margin: 0 auto; padding-inline: 20px; padding-block: 28px 64px; display: grid; gap: 36px; }
+header { display: grid; gap: 8px; }
+h1 { font-family: var(--f-display); font-weight: 500; font-size: 1.9rem; margin: 0; text-wrap: balance; }
+h2 { font-size: 1.05rem; margin: 0; font-weight: 600; }
+.lede { color: var(--muted); max-width: 68ch; margin: 0; }
+.eyebrow { font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.edit { display: grid; gap: 22px; }
+.field { display: grid; gap: 6px; }
+.field-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; }
+.field-head label { font-weight: 600; }
+.field-head code { font-family: var(--f-mono); font-size: .8rem; color: var(--muted); }
+textarea { width: 100%; min-height: 9.5em; resize: vertical; padding: 12px 14px; border: 1px solid var(--line); border-radius: 6px;
+  background: var(--panel); color: var(--ink); font: inherit; line-height: 1.6; }
+#instruction { min-height: 14em; }
+textarea:focus-visible, button:focus-visible, .file:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.meter { display: flex; flex-wrap: wrap; gap: 6px; font-size: .78rem; font-variant-numeric: tabular-nums; }
+.chip { padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+.chip.warn { background: var(--warn-soft); color: var(--warn); }
+.bar { position: sticky; bottom: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 0 calc(12px + env(safe-area-inset-bottom, 0px));
+  background: var(--bg); border-top: 1px solid var(--line); }
+button { font: inherit; font-weight: 600; padding: 9px 16px; border-radius: 6px; border: 1px solid var(--accent); background: var(--accent); color: var(--panel); cursor: pointer; }
+button.ghost { background: transparent; color: var(--accent); }
+button:disabled { opacity: .5; cursor: default; }
+#status { color: var(--muted); font-size: .88rem; }
+#status.bad { color: var(--bad); }
+.drawer { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 16px; align-items: start; }
+.list { display: grid; gap: 2px; max-height: 70vh; overflow: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); padding: 6px; }
+.group { font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); padding: 8px 8px 2px; font-weight: 600; }
+.file { all: unset; display: block; padding: 4px 8px; border-radius: 4px; font-family: var(--f-mono); font-size: .8rem; cursor: pointer; overflow-wrap: anywhere; }
+.file:hover { background: var(--code-bg); }
+.file[aria-current="true"] { background: var(--accent-soft); color: var(--accent); }
+.reader { min-width: 0; display: grid; gap: 8px; }
+.reader-head { font-family: var(--f-mono); font-size: .85rem; color: var(--muted); overflow-wrap: anywhere; }
+pre { margin: 0; padding: 14px 16px; background: var(--code-bg); border: 1px solid var(--line); border-radius: 6px; overflow: auto; max-height: 70vh;
+  font-family: var(--f-mono); font-size: .8rem; line-height: 1.5; white-space: pre; tab-size: 4; }
+@media (max-width: 720px) { .drawer { grid-template-columns: minmax(0, 1fr); } .list { max-height: 40vh; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Checklist line 10 · humanization</span>
+    <h1>incremental-log-indexer, in your words</h1>
+    <p class="lede">Rewrite the instruction and the four prose fields of task.toml in your own words, then save. Your text becomes the base of what ships. Every other file of the task is shown read-only below so you can check facts without an editor. The counters show the preflight limits.</p>
+  </header>
+
+  <section class="edit" aria-labelledby="edit-h">
+    <h2 id="edit-h">Your text</h2>
+    <div id="fields"></div>
+    <div class="bar">
+      <button id="save" type="button">Save my text</button>
+      <button id="reset" type="button" class="ghost">Restore the shipped text</button>
+      <span id="status" role="status">Loading your saved text…</span>
+    </div>
+  </section>
+
+  <section aria-labelledby="files-h" style="display:grid;gap:12px">
+    <h2 id="files-h">Every other file, read-only</h2>
+    <div class="drawer">
+      <nav class="list" id="list" aria-label="Task files"></nav>
+      <div class="reader">
+        <div class="reader-head" id="reader-head"></div>
+        <pre id="reader"></pre>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+const DATA = __DATA__;
+const ORDER = [
+  ["instruction", "instruction.md", "Instruction", {max: 300}],
+  ["difficulty_explanation", "task.toml", "Difficulty explanation", {min: 80, max: 120}],
+  ["solution_explanation", "task.toml", "Solution explanation", {min: 80, max: 120}],
+  ["verification_explanation", "task.toml", "Verification explanation", {min: 80, max: 120}],
+  ["relevant_experience", "task.toml", "Relevant experience", {}],
+];
+const fieldsEl = document.getElementById("fields");
+const statusEl = document.getElementById("status");
+const saveBtn = document.getElementById("save");
+const areas = {};
+
+function words(t) { return t.trim() ? t.trim().split(/\s+/).length : 0; }
+function longestSentence(t) {
+  return t.trim().split(/(?<=[.!?])\s+/).reduce((m, s) => Math.max(m, words(s)), 0);
+}
+function meter(key, limits) {
+  const t = areas[key].value, n = words(t), ls = longestSentence(t);
+  const out = [];
+  const range = limits.min ? `${limits.min} to ${limits.max}` : limits.max ? `at most ${limits.max}` : "";
+  const okWords = (!limits.min || n >= limits.min) && (!limits.max || n <= limits.max);
+  out.push(`<span class="chip${okWords ? "" : " warn"}">${n} words${range ? " · " + range : ""}</span>`);
+  out.push(`<span class="chip${ls <= 39 ? "" : " warn"}">longest sentence ${ls} words · at most 39</span>`);
+  document.getElementById("m-" + key).innerHTML = out.join("");
+}
+for (const [key, file, label, limits] of ORDER) {
+  const wrap = document.createElement("div");
+  wrap.className = "field";
+  wrap.innerHTML = `<div class="field-head"><label for="${key}">${label}</label><code>${file}${file === "task.toml" ? " · " + key : ""}</code></div>
+    <textarea id="${key}" spellcheck="true"></textarea><div class="meter" id="m-${key}"></div>`;
+  fieldsEl.appendChild(wrap);
+  areas[key] = wrap.querySelector("textarea");
+  areas[key].value = DATA.editable[key];
+  areas[key].addEventListener("input", () => meter(key, limits));
+  meter(key, limits);
+}
+
+let db = null;
+const docPath = "humanization/current";
+(async () => {
+  db = window.claude ? await window.claude.use("db") : null;
+  if (!db) { statusEl.textContent = "Saving is unavailable in this view. Copy your text from the boxes instead."; saveBtn.disabled = true; return; }
+  try {
+    const snap = await db.doc(docPath).get();
+    if (snap.exists) {
+      const d = snap.data();
+      for (const [key, , , limits] of ORDER) if (typeof d[key] === "string") { areas[key].value = d[key]; meter(key, limits); }
+      statusEl.textContent = "Showing your text saved " + (d.savedAt ? new Date(d.savedAt).toLocaleString() : "earlier") + ".";
+    } else {
+      statusEl.textContent = "Showing the shipped text. Nothing saved yet.";
+    }
+  } catch (e) {
+    statusEl.textContent = "Could not load saved text: " + (e && e.code ? e.code : "unknown error") + ".";
+  }
+})();
+
+saveBtn.addEventListener("click", async () => {
+  if (!db) return;
+  saveBtn.disabled = true;
+  statusEl.className = ""; statusEl.textContent = "Saving…";
+  const body = { savedAt: Date.now() };
+  for (const [key] of ORDER) body[key] = areas[key].value;
+  try {
+    await db.doc(docPath).set(body);
+    statusEl.textContent = "Saved. Tell Claude your text is ready.";
+  } catch (e) {
+    statusEl.className = "bad";
+    statusEl.textContent = (e && e.code === "not_granted") ? "Saving was not allowed for this view." : "Save failed: " + (e && e.code ? e.code : "unknown error") + ". Try again.";
+  } finally { saveBtn.disabled = false; }
+});
+document.getElementById("reset").addEventListener("click", () => {
+  for (const [key, , , limits] of ORDER) { areas[key].value = DATA.editable[key]; meter(key, limits); }
+  statusEl.className = ""; statusEl.textContent = "Restored the shipped text. Save to keep it.";
+});
+
+const list = document.getElementById("list"), reader = document.getElementById("reader"), head = document.getElementById("reader-head");
+const paths = Object.keys(DATA.files);
+let lastGroup = null, buttons = {};
+for (const p of paths) {
+  const g = p.includes("/") ? p.split("/").slice(0, p.startsWith("tests/sealed/") || p.startsWith("environment/app/") ? 3 : 1).join("/") : "task root";
+  if (g !== lastGroup) { const h = document.createElement("div"); h.className = "group"; h.textContent = g; list.appendChild(h); lastGroup = g; }
+  const b = document.createElement("button");
+  b.className = "file"; b.type = "button"; b.textContent = p.slice(g === "task root" ? 0 : g.length + 1);
+  b.addEventListener("click", () => show(p));
+  list.appendChild(b); buttons[p] = b;
+}
+function show(p) {
+  for (const k in buttons) buttons[k].removeAttribute("aria-current");
+  buttons[p].setAttribute("aria-current", "true");
+  head.textContent = p + " · " + DATA.files[p].split("\n").length + " lines";
+  reader.textContent = DATA.files[p];
+}
+show(paths.includes("environment/app/docs/indexing-notes.md") ? "environment/app/docs/indexing-notes.md" : paths[0]);
+</script>

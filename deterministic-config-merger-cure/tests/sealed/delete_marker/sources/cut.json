@@ -1,0 +1,6 @@
+{
+  "gone": "$delete",
+  "nest": {
+    "b": "$delete"
+  }
+}

@@ -1,0 +1,8 @@
+facility 0-INV-30
+class INVOICE
+advance 9876543
+rate 640
+drawn 2021-01-30
+periods 9
+frequency 1
+step 2021-03-31 710

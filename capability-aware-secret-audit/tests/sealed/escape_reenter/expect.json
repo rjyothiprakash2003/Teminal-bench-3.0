@@ -1,0 +1,9 @@
+{
+  "findings": [],
+  "skipped": [
+    {
+      "path": "door/back/conf/token",
+      "reason": "escaped"
+    }
+  ]
+}

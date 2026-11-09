@@ -1,0 +1,43 @@
+{
+  "bin_count": 20,
+  "card_id": "H70",
+  "classes": [
+    "cedar",
+    "elm",
+    "larch",
+    "yew"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h70-0",
+          "label": "elm",
+          "p_bp": {
+            "cedar": 1900,
+            "elm": 3300,
+            "larch": 1300,
+            "yew": 3500
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z1",
+      "rows": [
+        {
+          "example_id": "h70-1",
+          "label": "larch",
+          "p_bp": {
+            "cedar": 1100,
+            "elm": 4600,
+            "larch": 3900,
+            "yew": 400
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+stopwords a is
+begin
+add c auth/POLL node  POLL:link.Dusk)time_catch
+delete f
+add e-x ack  cache:nodes catch/hosts aip
+delete e-x
+delete d10
+commit
+query 8 1 error cup cup
+begin
+add d10 Ca
+add d2 --
+append d10 cup  error  abc aip desk
+add d-1 api-code)nodes-uath.miss
+append d10 Retry)disk
+commit
+begin
+add d-1 timeout node_NODE down
+add a dusk api-abc
+add e-x --
+add d2 dusk-down
+rollback
+begin
+delete d10
+add c abc98
+commit
+query 0 0 out abc out
+begin
+add b cache/api81)disk=eror-api
+add f is)dusk.api.aip_pool:node, pool(cup64=retry
+append b node
+add f disk
+append d-1 Aip.Catch(aip.ca22:ca poll
+commit
+query 8 1 hosts a hosts error
+begin
+add b pool/dusk93 pool is)is.miss=retry time0  pool
+add d10 x
+commit
+query 5 1 miss pool
+begin
+add d-1 host:uath abc
+rollback
+query 2 0 is cup auth fill catch
+query 9 1 cache is
+begin
+add d-1  desk
+commit
+begin
+add c eror=cache-link
+append c a
+delete c
+commit

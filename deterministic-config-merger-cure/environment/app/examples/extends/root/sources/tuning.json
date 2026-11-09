@@ -1,0 +1,6 @@
+{
+  "retries": 9,
+  "queue": {
+    "size": 50
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "bin_count": 10,
+  "card_id": "H72",
+  "classes": [
+    "alder",
+    "elm"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h72-0",
+          "label": "elm",
+          "p_bp": {
+            "alder": 9800,
+            "elm": 200
+          }
+        },
+        {
+          "example_id": "h72-1",
+          "label": "elm",
+          "p_bp": {
+            "alder": 1300,
+            "elm": 8700
+          }
+        },
+        {
+          "example_id": "h72-2",
+          "label": "elm",
+          "p_bp": {
+            "alder": 7300,
+            "elm": 2700
+          }
+        },
+        {
+          "example_id": "h72-3",
+          "label": "elm",
+          "p_bp": {
+            "alder": 9300,
+            "elm": 700
+          }
+        },
+        {
+          "example_id": "h72-4",
+          "label": "alder",
+          "p_bp": {
+            "alder": 1600,
+            "elm": 8400
+          }
+        }
+      ]
+    }
+  ]
+}

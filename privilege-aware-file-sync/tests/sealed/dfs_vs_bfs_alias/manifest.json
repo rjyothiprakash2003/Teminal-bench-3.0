@@ -1,0 +1,31 @@
+{
+  "dst_pre": [
+    {
+      "kind": "symlink",
+      "path": "a",
+      "target": "."
+    }
+  ],
+  "src": [
+    {
+      "content": "top",
+      "create_order": 0,
+      "kind": "file",
+      "mode": 420,
+      "path": "x"
+    },
+    {
+      "create_order": 1,
+      "kind": "dir",
+      "mode": 493,
+      "path": "a"
+    },
+    {
+      "content": "nested",
+      "create_order": 2,
+      "kind": "file",
+      "mode": 420,
+      "path": "a/x"
+    }
+  ]
+}

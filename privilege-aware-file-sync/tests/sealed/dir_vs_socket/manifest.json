@@ -1,0 +1,22 @@
+{
+  "dst_pre": [
+    {
+      "kind": "socket",
+      "mode": 420,
+      "path": "d"
+    }
+  ],
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "d"
+    },
+    {
+      "content": "i\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "d/inner.txt"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a": {
+    "kind": "symlink",
+    "target": "missing"
+  },
+  "missing": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "missing/f": {
+    "content_hex": "78",
+    "kind": "file",
+    "mode": 420
+  }
+}

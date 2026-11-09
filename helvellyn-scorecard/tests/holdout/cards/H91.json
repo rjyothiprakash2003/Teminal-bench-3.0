@@ -1,0 +1,23 @@
+{
+  "bin_count": 4,
+  "card_id": "H91",
+  "mode": "thawed",
+  "classes": [
+    "oak"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "s0",
+      "rows": [
+        {
+          "example_id": "e",
+          "label": "oak",
+          "p_bp": {
+            "oak": 10000
+          }
+        }
+      ]
+    }
+  ]
+}

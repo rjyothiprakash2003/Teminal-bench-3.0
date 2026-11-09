@@ -1,0 +1,7 @@
+facility F-TR-6644
+class TRADE
+advance 31500000
+rate 1180
+drawn 2023-10-31
+periods 5
+frequency 1

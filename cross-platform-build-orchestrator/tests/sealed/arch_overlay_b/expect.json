@@ -1,0 +1,19 @@
+{
+  "artifacts": [
+    {
+      "cflags": [
+        "-march=rv64gc"
+      ],
+      "defines": {
+        "RISCV": "1"
+      },
+      "env": {},
+      "id": "rv",
+      "ldflags": [
+        "-Wl,--hash-style=gnu"
+      ],
+      "stamp": "8f14eb8278923727301ec18858e7cd349d35b8870ad3dca47453f98370226547",
+      "triple": "riscv64-linux-bfd"
+    }
+  ]
+}

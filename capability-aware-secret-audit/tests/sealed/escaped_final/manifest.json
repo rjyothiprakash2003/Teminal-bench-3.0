@@ -1,0 +1,26 @@
+{
+  "nodes": [
+    {
+      "path": "conf",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "conf/link",
+      "kind": "symlink",
+      "target": "../../extra/secret.dat"
+    }
+  ],
+  "extra": [
+    {
+      "path": "secret.dat",
+      "kind": "fifo",
+      "mode": "0644",
+      "uid": 0,
+      "gid": 0
+    }
+  ],
+  "root_mode": "0755"
+}

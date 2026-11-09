@@ -1,0 +1,19 @@
+{
+  "steps": [
+    {"op": "begin", "txn": "t1"},
+    {"op": "put", "txn": "t1", "key": "user.1", "value": {"n": 1}, "expected": 0},
+    {"op": "commit", "txn": "t1", "op_id": "seed"},
+    {"op": "begin", "txn": "t2"},
+    {"op": "begin", "txn": "t3"},
+    {"op": "put", "txn": "t3", "key": "user.1", "value": {"n": 3}, "expected": 1},
+    {"op": "commit", "txn": "t3", "op_id": "later"},
+    {"op": "put", "txn": "t2", "key": "user.1", "value": {"n": 2}, "expected": 1},
+    {"op": "get", "key": "user.1"},
+    {"op": "commit", "txn": "t2", "op_id": "stale"},
+    {"op": "get", "key": "user.1"},
+    {"op": "begin", "txn": "t4"},
+    {"op": "put", "txn": "t4", "key": "user.1", "value": {"n": 4}, "expected": 2},
+    {"op": "commit", "txn": "t4", "op_id": "later"},
+    {"op": "snapshot"}
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "artifacts": [
+    {
+      "cflags": [
+        "-m64"
+      ],
+      "defines": {},
+      "env": {},
+      "id": "d",
+      "ldflags": [
+        "-Wl,-dead_strip"
+      ],
+      "stamp": "076e8c028e049bad2c68aa2ed5b91fba68ea9d8a029d89eab1acecbc00c2c32c",
+      "triple": "x86_64-darwin-ld64"
+    }
+  ]
+}

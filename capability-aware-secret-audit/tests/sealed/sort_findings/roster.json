@@ -1,0 +1,36 @@
+{
+  "entries": [
+    {
+      "path": "z/late",
+      "allow_uids": [
+        1
+      ],
+      "allow_gids": [
+        1
+      ]
+    },
+    {
+      "path": "a/early",
+      "allow_uids": [
+        1
+      ],
+      "allow_gids": [
+        1
+      ]
+    }
+  ],
+  "subjects": [
+    {
+      "uid": 1,
+      "gids": [
+        1
+      ]
+    },
+    {
+      "uid": 9,
+      "gids": [
+        9
+      ]
+    }
+  ]
+}

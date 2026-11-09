@@ -1,0 +1,14 @@
+{
+  "copied": [
+    "",
+    "a",
+    "a/p/x",
+    "a/x"
+  ],
+  "skipped": [
+    {
+      "path": "a/p",
+      "reason": "type conflict"
+    }
+  ]
+}

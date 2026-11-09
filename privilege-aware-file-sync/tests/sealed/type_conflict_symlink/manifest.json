@@ -1,0 +1,17 @@
+{
+  "dst_pre": [
+    {
+      "content": "keep\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "item"
+    }
+  ],
+  "src": [
+    {
+      "kind": "symlink",
+      "path": "item",
+      "target": "somewhere"
+    }
+  ]
+}

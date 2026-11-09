@@ -1,0 +1,35 @@
+{
+  "nodes": [
+    {
+      "path": "conf",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "conf/open",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "conf/open/locked",
+      "kind": "dir",
+      "mode": "0700",
+      "uid": 1000,
+      "gid": 1000
+    },
+    {
+      "path": "conf/open/locked/token",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 1000,
+      "gid": 1000,
+      "content": "t"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

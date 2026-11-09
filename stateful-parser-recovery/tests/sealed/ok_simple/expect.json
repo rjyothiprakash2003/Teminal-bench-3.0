@@ -1,0 +1,27 @@
+{
+  "status": "ok",
+  "frames": [],
+  "bindings": [
+    {
+      "frame": "outer",
+      "kind": "VAL",
+      "name": "left",
+      "value": 7,
+      "line": 2
+    },
+    {
+      "frame": "inner",
+      "kind": "VAL",
+      "name": "right",
+      "value": 11,
+      "line": 4
+    }
+  ],
+  "uses": [
+    {
+      "name": "left",
+      "value": 7,
+      "line": 5
+    }
+  ]
+}

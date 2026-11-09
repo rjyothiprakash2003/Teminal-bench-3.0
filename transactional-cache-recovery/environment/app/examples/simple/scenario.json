@@ -1,0 +1,10 @@
+{
+  "steps": [
+    {"op": "begin", "txn": "t1"},
+    {"op": "put", "txn": "t1", "key": "alpha", "value": "one", "expected": 0},
+    {"op": "get", "key": "alpha"},
+    {"op": "commit", "txn": "t1", "op_id": "op-1"},
+    {"op": "get", "key": "alpha"},
+    {"op": "snapshot"}
+  ]
+}

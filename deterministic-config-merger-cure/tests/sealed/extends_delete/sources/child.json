@@ -1,0 +1,7 @@
+{
+  "$extends": [
+    "parent"
+  ],
+  "b": "$delete",
+  "c": 3
+}

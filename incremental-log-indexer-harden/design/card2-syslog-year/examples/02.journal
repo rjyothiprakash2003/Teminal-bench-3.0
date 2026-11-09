@@ -1,0 +1,8 @@
+retain 7
+batch 2026-03-02T08:00:00
+Mar  1 23:50:00 app2 cron[7]: backup started
+Mar  2 07:59:30 app2 cron[7]: backup finished
+batch 2026-03-09T08:00:00
+Mar  9 07:00:00 app2 cron[7]: backup started
+count 2026-03-01T00:00:00 2026-03-09T23:59:59 backup
+lag 2026-03-09T09:00:00 backup

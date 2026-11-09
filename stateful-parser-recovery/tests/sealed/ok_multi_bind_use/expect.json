@@ -1,0 +1,39 @@
+{
+  "status": "ok",
+  "frames": [],
+  "bindings": [
+    {
+      "frame": "root",
+      "kind": "VAL",
+      "name": "a",
+      "value": 1,
+      "line": 2
+    },
+    {
+      "frame": "root",
+      "kind": "VAL",
+      "name": "b",
+      "value": 2,
+      "line": 3
+    },
+    {
+      "frame": "root",
+      "kind": "ALIAS",
+      "name": "c",
+      "value": "a",
+      "line": 4
+    }
+  ],
+  "uses": [
+    {
+      "name": "c",
+      "value": 1,
+      "line": 5
+    },
+    {
+      "name": "b",
+      "value": 2,
+      "line": 6
+    }
+  ]
+}

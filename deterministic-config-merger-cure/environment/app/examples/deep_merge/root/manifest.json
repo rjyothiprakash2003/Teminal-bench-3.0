@@ -1,0 +1,12 @@
+{
+  "sources": [
+    {
+      "id": "defaults",
+      "priority": 1
+    },
+    {
+      "id": "prod",
+      "priority": 2
+    }
+  ]
+}

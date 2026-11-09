@@ -1,0 +1,27 @@
+stopwords a
+query 0 1 pool pool a
+query 4 0 abc eror miss cup
+begin
+delete a
+rollback
+begin
+add e-x aip.DUSK.cup=Time.FULL catch
+add b out pool-dusk-code, pool-api:ack=Abc
+append e-x catch
+add a ...
+commit
+begin
+append a A eror=poll  akc_hosts/fill
+delete a
+commit
+query 8 1 eror
+query 6 1 api a api
+query 6 2 ack full up
+query 7 0 eror catch eror poll retry a
+query 0 1 nodes error poll out
+query 5 1 akc
+query 0 1 aip hosts
+begin
+append e-x cache_hosts/aip
+append e-x TIMEOUT
+commit

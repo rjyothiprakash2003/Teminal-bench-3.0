@@ -1,0 +1,15 @@
+{
+  "src": [
+    {
+      "content": "body\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "body.txt"
+    },
+    {
+      "kind": "symlink",
+      "path": "alias",
+      "target": "body.txt"
+    }
+  ]
+}

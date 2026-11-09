@@ -1,0 +1,272 @@
+{
+  "bin_count": 4,
+  "card_id": "C58",
+  "classes": [
+    "oak",
+    "pine"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "s0",
+      "rows": [
+        {
+          "example_id": "e00",
+          "label": "oak",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e01",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e02",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e03",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e04",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e05",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e06",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e07",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e08",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e09",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e10",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e11",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e12",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e13",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e14",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e15",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e16",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e17",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e18",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e19",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e20",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e21",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e22",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e23",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e24",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e25",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e26",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e27",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e28",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e29",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e30",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        },
+        {
+          "example_id": "e31",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8000,
+            "pine": 2000
+          }
+        }
+      ]
+    }
+  ]
+}

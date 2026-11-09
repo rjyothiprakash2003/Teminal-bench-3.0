@@ -1,0 +1,7 @@
+{
+  "cache": {
+    "ttl": "$delete"
+  },
+  "debug": "$delete",
+  "log": "$delete"
+}

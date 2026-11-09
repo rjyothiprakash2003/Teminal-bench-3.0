@@ -1,0 +1,7 @@
+facility F-PL-0001
+class PLANT
+advance 1
+rate 20000
+drawn 2001-01-31
+periods 60
+frequency 1

@@ -1,0 +1,19 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "keep": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "keep/ok.txt": {
+    "content_hex": "6b0a",
+    "kind": "file",
+    "mode": 420
+  },
+  "keep/shut": {
+    "kind": "dir",
+    "mode": 0
+  }
+}

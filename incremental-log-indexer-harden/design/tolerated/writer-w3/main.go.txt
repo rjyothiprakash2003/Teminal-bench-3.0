@@ -1,0 +1,382 @@
+package main
+
+import (
+	"bufio"
+	"io"
+	"os"
+	"sort"
+	"strconv"
+	"strings"
+)
+
+// tokenize splits text into lowercase runs of ASCII letters and digits.
+func tokenize(s string) []string {
+	var toks []string
+	i := 0
+	for i < len(s) {
+		c := s[i]
+		if isAlnum(c) {
+			j := i
+			for j < len(s) && isAlnum(s[j]) {
+				j++
+			}
+			toks = append(toks, strings.ToLower(s[i:j]))
+			i = j
+		} else {
+			i++
+		}
+	}
+	return toks
+}
+
+func isAlnum(c byte) bool {
+	return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9')
+}
+
+// damerau computes the unrestricted Damerau-Levenshtein distance.
+func damerau(a, b string) int {
+	la, lb := len(a), len(b)
+	maxd := la + lb
+	w := lb + 2
+	d := make([]int, (la+2)*w)
+	at := func(i, j int) *int { return &d[i*w+j] }
+	*at(0, 0) = maxd
+	for i := 0; i <= la; i++ {
+		*at(i+1, 0) = maxd
+		*at(i+1, 1) = i
+	}
+	for j := 0; j <= lb; j++ {
+		*at(0, j+1) = maxd
+		*at(1, j+1) = j
+	}
+	var da [256]int
+	for i := 1; i <= la; i++ {
+		db := 0
+		for j := 1; j <= lb; j++ {
+			i1 := da[b[j-1]]
+			j1 := db
+			cost := 1
+			if a[i-1] == b[j-1] {
+				cost = 0
+				db = j
+			}
+			v := *at(i, j) + cost
+			if x := *at(i+1, j) + 1; x < v {
+				v = x
+			}
+			if x := *at(i, j+1) + 1; x < v {
+				v = x
+			}
+			if x := *at(i1, j1) + (i - i1 - 1) + 1 + (j - j1 - 1); x < v {
+				v = x
+			}
+			*at(i+1, j+1) = v
+		}
+		da[a[i-1]] = i
+	}
+	return *at(la+1, lb+1)
+}
+
+type cand struct {
+	off  int
+	word int
+	pos  int
+}
+
+// minSpread returns the least spread of placements, or -1 if none has spread <= slop.
+// cands must be sorted by offset; positions are < npos.
+func minSpread(cands []cand, nw int, slop int, npos int) int {
+	n := len(cands)
+	best := -1
+	matchW := make([]int, nw) // word -> cand index
+	for i := range matchW {
+		matchW[i] = -1
+	}
+	matchP := make([]int, npos) // pos -> word
+	for i := range matchP {
+		matchP[i] = -1
+	}
+	visit := make([]int, npos)
+	stamp := 0
+	adj := make([][]int, nw) // word -> cand indices in window (front trimmed)
+	head := make([]int, nw)
+	matched := 0
+	var try func(w int) bool
+	try = func(w int) bool {
+		for _, ci := range adj[w][head[w]:] {
+			p := cands[ci].pos
+			if visit[p] == stamp {
+				continue
+			}
+			visit[p] = stamp
+			ow := matchP[p]
+			if ow < 0 || try(ow) {
+				matchP[p] = w
+				matchW[w] = ci
+				return true
+			}
+		}
+		return false
+	}
+	augment := func() {
+		for w := 0; w < nw; w++ {
+			if head[w] == len(adj[w]) {
+				return
+			}
+		}
+		for w := 0; w < nw && matched < nw; w++ {
+			if matchW[w] < 0 {
+				stamp++
+				if try(w) {
+					matched++
+				}
+			}
+		}
+	}
+	r := 0
+	for l := 0; l < n; {
+		L := cands[l].off
+		augment()
+		for matched < nw && r < n && cands[r].off-L <= slop {
+			o := cands[r].off
+			for r < n && cands[r].off == o {
+				adj[cands[r].word] = append(adj[cands[r].word], r)
+				r++
+			}
+			augment()
+		}
+		if matched == nw {
+			lo, hi := cands[matchW[0]].off, cands[matchW[0]].off
+			for _, ci := range matchW {
+				if o := cands[ci].off; o < lo {
+					lo = o
+				} else if o > hi {
+					hi = o
+				}
+			}
+			if sp := hi - lo; best < 0 || sp < best {
+				best = sp
+			}
+			if best == 0 {
+				return 0
+			}
+		}
+		if r >= n && matched < nw {
+			break
+		}
+		// remove group at offset L
+		for l < n && cands[l].off == L {
+			w := cands[l].word
+			if l < r {
+				head[w]++
+				if matchW[w] == l {
+					matchP[cands[l].pos] = -1
+					matchW[w] = -1
+					matched--
+				}
+			}
+			l++
+		}
+		if r < l {
+			r = l
+		}
+	}
+	if best > slop {
+		return -1
+	}
+	return best
+}
+
+var vocab []string
+var vocabID = map[string]int32{}
+
+func intern(toks []string) []int32 {
+	ids := make([]int32, len(toks))
+	for i, t := range toks {
+		id, ok := vocabID[t]
+		if !ok {
+			id = int32(len(vocab))
+			vocab = append(vocab, t)
+			vocabID[t] = id
+		}
+		ids[i] = id
+	}
+	return ids
+}
+
+func main() {
+	r := bufio.NewReaderSize(os.Stdin, 1<<16)
+	data, _ := io.ReadAll(r)
+	lines := strings.Split(string(data), "\n")
+	out := bufio.NewWriter(os.Stdout)
+	defer out.Flush()
+
+	stop := map[string]bool{}
+	committed := map[string][]int32{}
+	var work map[string][]int32
+	first := true
+	for _, line := range lines {
+		line = strings.TrimSuffix(line, "\r")
+		if line == "" {
+			continue
+		}
+		if first {
+			first = false
+			for _, w := range strings.Split(line, " ")[1:] {
+				if w != "" {
+					stop[w] = true
+				}
+			}
+			continue
+		}
+		switch {
+		case line == "begin":
+			work = make(map[string][]int32, len(committed))
+			for k, v := range committed {
+				work[k] = v
+			}
+		case line == "commit":
+			committed = work
+			work = nil
+		case line == "rollback":
+			work = nil
+		case strings.HasPrefix(line, "add "):
+			rest := line[4:]
+			sp := strings.IndexByte(rest, ' ')
+			id, text := rest, ""
+			if sp >= 0 {
+				id, text = rest[:sp], rest[sp+1:]
+			}
+			work[id] = intern(tokenize(text))
+		case strings.HasPrefix(line, "append "):
+			rest := line[7:]
+			sp := strings.IndexByte(rest, ' ')
+			id, text := rest, ""
+			if sp >= 0 {
+				id, text = rest[:sp], rest[sp+1:]
+			}
+			old := work[id]
+			nt := intern(tokenize(text))
+			merged := make([]int32, 0, len(old)+len(nt))
+			merged = append(merged, old...)
+			merged = append(merged, nt...)
+			work[id] = merged
+		case strings.HasPrefix(line, "delete "):
+			delete(work, line[7:])
+		case strings.HasPrefix(line, "query "):
+			if len(line) < 10 {
+				out.WriteString("-\n")
+				continue
+			}
+			slop := int(line[6] - '0')
+			fuzz := int(line[8] - '0')
+			text := ""
+			if len(line) > 10 {
+				text = line[10:]
+			}
+			answerQuery(out, committed, stop, slop, fuzz, text)
+		}
+	}
+}
+
+type hit struct {
+	id   string
+	dist int
+}
+
+func answerQuery(out *bufio.Writer, idx map[string][]int32, stop map[string]bool, slop, fuzz int, text string) {
+	toks := tokenize(text)
+	var words []string
+	var qpos []int
+	for i, t := range toks {
+		if stop[t] {
+			continue
+		}
+		words = append(words, t)
+		qpos = append(qpos, i)
+	}
+	if len(words) == 0 {
+		out.WriteString("-\n")
+		return
+	}
+	nw := len(words)
+	maxq := qpos[nw-1]
+	// mask[id]: bit w set if vocab token id matches word w; bit 7 = computed.
+	mask := make([]uint8, len(vocab))
+	getMask := func(id int32) uint8 {
+		m := mask[id]
+		if m&0x80 != 0 {
+			return m & 0x7f
+		}
+		m = 0
+		tok := vocab[id]
+		if !stop[tok] {
+			for w := 0; w < nw; w++ {
+				a := words[w]
+				var ok bool
+				if fuzz == 0 {
+					ok = a == tok
+				} else {
+					dl := len(a) - len(tok)
+					if dl < 0 {
+						dl = -dl
+					}
+					ok = dl <= fuzz && damerau(a, tok) <= fuzz
+				}
+				if ok {
+					m |= 1 << uint(w)
+				}
+			}
+		}
+		mask[id] = m | 0x80
+		return m
+	}
+	full := uint8(1<<uint(nw)) - 1
+	var hits []hit
+	var dm []uint8
+	var cands []cand
+	for id, doc := range idx {
+		dm = dm[:0]
+		var all uint8
+		for _, t := range doc {
+			m := getMask(t)
+			dm = append(dm, m)
+			all |= m
+		}
+		if all != full {
+			continue
+		}
+		cands = cands[:0]
+		for o := -maxq; o < len(doc); o++ {
+			for w := 0; w < nw; w++ {
+				p := o + qpos[w]
+				if p >= 0 && p < len(doc) && dm[p]&(1<<uint(w)) != 0 {
+					cands = append(cands, cand{o, w, p})
+				}
+			}
+		}
+		d := minSpread(cands, len(words), slop, len(doc))
+		if d >= 0 && d <= slop {
+			hits = append(hits, hit{id, d})
+		}
+	}
+	if len(hits) == 0 {
+		out.WriteString("-\n")
+		return
+	}
+	sort.Slice(hits, func(i, j int) bool {
+		if hits[i].dist != hits[j].dist {
+			return hits[i].dist < hits[j].dist
+		}
+		return hits[i].id < hits[j].id
+	})
+	for i, h := range hits {
+		if i > 0 {
+			out.WriteByte(' ')
+		}
+		out.WriteString(h.id)
+		out.WriteByte('@')
+		out.WriteString(strconv.Itoa(h.dist))
+	}
+	out.WriteByte('\n')
+}

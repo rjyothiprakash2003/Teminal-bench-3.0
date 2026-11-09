@@ -1,0 +1,15 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a": {
+    "content_hex": "6e6573746564",
+    "kind": "file",
+    "mode": 420
+  },
+  "z": {
+    "kind": "symlink",
+    "target": "."
+  }
+}

@@ -1,0 +1,8 @@
+open UNIT outer
+bind VAL base 10
+open BLOCK mid
+bind ALIAS link base
+use link
+end BLOCK
+use ghost
+end UNIT

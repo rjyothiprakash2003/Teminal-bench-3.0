@@ -1,0 +1,157 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "committed",
+      "op_id": "m1",
+      "idempotent": false,
+      "writes": {
+        "k1": {
+          "value": "A",
+          "version": 1
+        },
+        "k2": {
+          "value": "B",
+          "version": 1
+        }
+      }
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "committed",
+      "op_id": "m3",
+      "idempotent": false,
+      "writes": {
+        "k1": {
+          "value": "C1",
+          "version": 2
+        },
+        "k2": {
+          "value": "C2",
+          "version": 2
+        }
+      }
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "conflict",
+      "op_id": "m2",
+      "idempotent": false,
+      "writes": {}
+    },
+    {
+      "status": "ok",
+      "entries": {
+        "k1": {
+          "value": "C1",
+          "version": 2
+        },
+        "k2": {
+          "value": "C2",
+          "version": 2
+        }
+      },
+      "ops": {
+        "m1": {
+          "status": "committed",
+          "writes": {
+            "k1": {
+              "value": "A",
+              "version": 1
+            },
+            "k2": {
+              "value": "B",
+              "version": 1
+            }
+          }
+        },
+        "m2": {
+          "status": "conflict",
+          "writes": {}
+        },
+        "m3": {
+          "status": "committed",
+          "writes": {
+            "k1": {
+              "value": "C1",
+              "version": 2
+            },
+            "k2": {
+              "value": "C2",
+              "version": 2
+            }
+          }
+        }
+      }
+    }
+  ],
+  "final": {
+    "entries": {
+      "k1": {
+        "value": "C1",
+        "version": 2
+      },
+      "k2": {
+        "value": "C2",
+        "version": 2
+      }
+    },
+    "ops": {
+      "m1": {
+        "status": "committed",
+        "writes": {
+          "k1": {
+            "value": "A",
+            "version": 1
+          },
+          "k2": {
+            "value": "B",
+            "version": 1
+          }
+        }
+      },
+      "m2": {
+        "status": "conflict",
+        "writes": {}
+      },
+      "m3": {
+        "status": "committed",
+        "writes": {
+          "k1": {
+            "value": "C1",
+            "version": 2
+          },
+          "k2": {
+            "value": "C2",
+            "version": 2
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+open UNIT root
+bind VAL x 1
+bind ALIAS x y
+end UNIT

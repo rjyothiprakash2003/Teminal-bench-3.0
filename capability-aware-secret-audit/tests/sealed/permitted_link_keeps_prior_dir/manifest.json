@@ -1,0 +1,38 @@
+{
+  "nodes": [
+    {
+      "path": "a",
+      "kind": "dir",
+      "mode": "0700",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "b",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "b/f",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 1000,
+      "gid": 1000,
+      "content": "t"
+    },
+    {
+      "path": "l",
+      "kind": "symlink",
+      "target": "a"
+    },
+    {
+      "path": "a/back",
+      "kind": "symlink",
+      "target": "../b"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

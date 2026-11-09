@@ -1,0 +1,38 @@
+{
+  "bin_count": 2,
+  "card_id": "H47",
+  "classes": [
+    "ash",
+    "elm",
+    "larch",
+    "oak"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h47-0",
+          "label": "oak",
+          "p_bp": {
+            "ash": 1400,
+            "elm": 1400,
+            "larch": 800,
+            "oak": 6400
+          }
+        },
+        {
+          "example_id": "h47-1",
+          "label": "larch",
+          "p_bp": {
+            "ash": 900,
+            "elm": 1300,
+            "larch": 7300,
+            "oak": 500
+          }
+        }
+      ]
+    }
+  ]
+}

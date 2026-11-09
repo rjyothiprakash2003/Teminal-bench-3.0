@@ -1,0 +1,90 @@
+{
+  "bin_count": 5,
+  "card_id": "H39",
+  "classes": [
+    "oak",
+    "rowan"
+  ],
+  "min_conf_bp": 3000,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h39-0",
+          "label": "oak",
+          "p_bp": {
+            "oak": 5400,
+            "rowan": 4600
+          }
+        },
+        {
+          "example_id": "h39-1",
+          "label": "rowan",
+          "p_bp": {
+            "oak": 4700,
+            "rowan": 5300
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z1",
+      "rows": [
+        {
+          "example_id": "h39-2",
+          "label": "rowan",
+          "p_bp": {
+            "oak": 4400,
+            "rowan": 5600
+          }
+        },
+        {
+          "example_id": "h39-3",
+          "label": "rowan",
+          "p_bp": {
+            "oak": 6900,
+            "rowan": 3100
+          }
+        },
+        {
+          "example_id": "h39-4",
+          "label": "oak",
+          "p_bp": {
+            "oak": 9200,
+            "rowan": 800
+          }
+        },
+        {
+          "example_id": "h39-5",
+          "label": "oak",
+          "p_bp": {
+            "oak": 3300,
+            "rowan": 6700
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z2",
+      "rows": [
+        {
+          "example_id": "h39-6",
+          "label": "rowan",
+          "p_bp": {
+            "oak": 400,
+            "rowan": 9600
+          }
+        },
+        {
+          "example_id": "h39-7",
+          "label": "oak",
+          "p_bp": {
+            "oak": 7500,
+            "rowan": 2500
+          }
+        }
+      ]
+    }
+  ]
+}

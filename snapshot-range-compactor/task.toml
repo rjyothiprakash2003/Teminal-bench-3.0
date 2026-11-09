@@ -1,0 +1,39 @@
+name = "snapshot-range-compactor"
+artifacts = ["/app/src/"]
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+category = "Software"
+subcategory = "Databases"
+tags = ["lsm", "mvcc", "compaction", "range-tombstones", "merge-operands", "go"]
+languages = ["go"]
+difficulty = "advanced"
+expert_time_estimate_hours = 7
+difficulty_explanation = "I have to reason as a storage-engine developer about several snapshots of the same version history at once. A value that is obsolete for the latest read can still be the only value an older snapshot sees. A range deletion can stop a merge chain even when that deletion does not belong in the final output, and an unresolved merge can still depend on a base in a lower file. Removing the barrier too early brings deleted data back; combining operands across a snapshot boundary changes an older counter. I also have to distinguish an absent key from a present value of zero and decide where lower-file coverage prevents a deletion from being discarded. These decisions interact at interval boundaries, so an output can look properly sorted and compacted while returning the wrong value. I need an interval-aware implementation to make the same decisions within the stated input size and runtime limits."
+solution_explanation = "I first collect the distinct read cuts, including the latest sequence, and deduplicate records that occur in more than one input table. I sweep the keys and interval endpoints in byte order, keeping a count of lower spans and a Fenwick index of active range sequences. That lets me find the newest covering deletion visible at each cut. I trace each read against the original records before discarding anything, then retain the point versions those reads actually reach. Merge operands combine only while they remain in the same snapshot stripe and no original terminal event separates them. I discard an old point deletion only where the lower files hold no possible base. For the range output, I form the visible tombstone stack on each interval, remove entries that are safe to drop, and join adjoining intervals whose remaining stacks agree. I keep the sequence numbers and counter arithmetic exact throughout."
+verification_explanation = "I build the submitted Go source afresh in a separate container with networking disabled and run it as an unprivileged account. I request two CPU cores and two GiB for the verifier, and I measure the compiled program's peak resident memory on every request. I reject a run above two GiB using the kernel's per-process high-water measurement, so a host-level cgroup view cannot reject a correct compactor. I inspect the dependency graph reported by Go to allow standard-library packages and Go source included in the submitted main module, including adapted helpers, while rejecting vendored or locally replaced external modules. I check module membership rather than making an unverifiable claim about who writes each source file. I run only the rebuilt executable in an isolated filesystem with empty temporary space, and I block further executable launches after startup, including interpreters or helpers extracted into temporary files. I allow interpreters, virtual machines, and textual DSL dispatch implemented by Go code inside that executable, including embedded scripts or bytecode, under the same output and resource limits. I enforce the executable boundary without claiming to distinguish interpreted logic from other Go logic inside the process. I give each request twenty seconds. I check fifty-seven worked cases, ninety-six generated histories against an independent Python model, and twelve histories again after shuffling and repeating the run. I include empty databases at latest zero, the named regression, retained ranges with lowercase output members, repeated snapshots beyond the distinct-cut limit, both signed 64-bit endpoints, and a lower span that matters only at the four-thousandth entry. I test every key and endpoint width from one through thirty-two bytes, six equivalent JSON representations, and inputs just above sixteen MiB and at exactly twenty-four MiB. I exercise sixty thousand points, twelve thousand ranges, four thousand lower spans, and one hundred and twenty-eight cuts. I combine those limits in a request whose sixty thousand distinct point keys all sit inside the innermost of twelve thousand nested ranges. I also test raw snapshot arrays with thousands and millions of duplicates, including a request that fills the twenty-four-MiB byte limit and ends with a snapshot that changes the answer. I also check twelve thousand deeply nested ranges at all one hundred and twenty-eight cuts, using both repeated and distinct range sequences. I compare complete results and enforce exactly one LF after the output object while accepting whitespace inside it. I use a separate reader to check snapshot values against several possible lower-file bases. I keep expected records protected and probe the permissions that prevent candidate code from reading them or writing the reward. I test the grader against incorrect implementations, a zero-latest rejection, a Python sorting helper, an embedded executable, an arbitrary raw-snapshot cap, a per-point active-range scan, and a dense memory workspace. I also check a valid variant with four-space indented output, reordered result members, and a local helper package. I check an embedded textual DSL that dispatches through its COMPACT instruction to confirm that permitted in-process evaluation passes."
+relevant_experience = "I use Go and independent Python models to examine storage-engine behavior. My work on this task covers MVCC visibility, range tombstones, partial merge chains, and lower-level data that compaction cannot inspect. I work through the reads at each snapshot and check where a deletion still matters after older records disappear. I use small worked histories, generated inputs, and deliberately broken implementations to check those interactions and distinguish a valid compaction from one that only produces plausible output."
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[verifier.environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 2048
+storage_mb = 10240
+
+[agent]
+timeout_sec = 7200
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240

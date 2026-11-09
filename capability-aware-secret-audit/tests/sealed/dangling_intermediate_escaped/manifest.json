@@ -1,0 +1,11 @@
+{
+  "nodes": [
+    {
+      "path": "link",
+      "kind": "symlink",
+      "target": "nonexistent"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

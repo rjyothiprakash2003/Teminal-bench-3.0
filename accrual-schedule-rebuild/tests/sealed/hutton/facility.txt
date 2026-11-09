@@ -1,0 +1,8 @@
+# Bridge facility drawn in the last year the calendar the note sets out reaches.
+facility F-BR-4099
+class BRIDGE
+advance 100000000
+rate 1250
+drawn 2099-01-31
+periods 11
+frequency 1

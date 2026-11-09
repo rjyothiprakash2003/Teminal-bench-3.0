@@ -1,0 +1,38 @@
+{
+  "bin_count": 20,
+  "card_id": "H52",
+  "classes": [
+    "ash",
+    "fir",
+    "hazel",
+    "larch"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h52-0",
+          "label": "fir",
+          "p_bp": {
+            "ash": 200,
+            "fir": 3500,
+            "hazel": 0,
+            "larch": 6300
+          }
+        },
+        {
+          "example_id": "h52-1",
+          "label": "fir",
+          "p_bp": {
+            "ash": 4200,
+            "fir": 2100,
+            "hazel": 100,
+            "larch": 3600
+          }
+        }
+      ]
+    }
+  ]
+}

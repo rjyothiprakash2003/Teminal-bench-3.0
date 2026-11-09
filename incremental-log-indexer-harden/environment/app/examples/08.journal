@@ -1,0 +1,14 @@
+stopwords is on at the
+begin
+add web-1 cache miss rate is high on the edge
+add web-2 edge cache cold start at the origin
+add web-3 origin is healthy
+commit
+query 3 0 cache edge
+query 0 1 origin
+query 5 0 edge cache
+begin
+delete web-3
+add web-4 cold cache on edge
+commit
+query 2 0 cold cache

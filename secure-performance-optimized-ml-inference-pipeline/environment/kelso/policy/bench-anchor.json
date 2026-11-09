@@ -1,0 +1,9 @@
+{
+  "loadspec": "/app/bench/loadspec.txt",
+  "total_requests": 21,
+  "total_ticks": 258,
+  "avg_latency_ticks": 12,
+  "p95_ticks": 15,
+  "p99_ticks": 15,
+  "memory_units": 128
+}

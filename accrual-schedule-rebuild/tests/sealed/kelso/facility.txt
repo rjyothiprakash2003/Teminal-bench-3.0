@@ -1,0 +1,7 @@
+facility F-WK-6120
+class WORKING
+advance 52500000
+rate 1330
+drawn 2022-08-31
+periods 9
+frequency 3

@@ -1,0 +1,103 @@
+{
+  "bin_count": 16,
+  "card_id": "H44",
+  "classes": [
+    "ash",
+    "cedar",
+    "larch",
+    "pine"
+  ],
+  "min_conf_bp": 3000,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h44-0",
+          "label": "larch",
+          "p_bp": {
+            "ash": 2400,
+            "cedar": 3500,
+            "larch": 2600,
+            "pine": 1500
+          }
+        },
+        {
+          "example_id": "h44-1",
+          "label": "cedar",
+          "p_bp": {
+            "ash": 1000,
+            "cedar": 2000,
+            "larch": 3800,
+            "pine": 3200
+          }
+        },
+        {
+          "example_id": "h44-2",
+          "label": "ash",
+          "p_bp": {
+            "ash": 5200,
+            "cedar": 2800,
+            "larch": 600,
+            "pine": 1400
+          }
+        },
+        {
+          "example_id": "h44-3",
+          "label": "ash",
+          "p_bp": {
+            "ash": 3800,
+            "cedar": 2900,
+            "larch": 900,
+            "pine": 2400
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z1",
+      "rows": [
+        {
+          "example_id": "h44-4",
+          "label": "ash",
+          "p_bp": {
+            "ash": 2100,
+            "cedar": 2200,
+            "larch": 3900,
+            "pine": 1800
+          }
+        },
+        {
+          "example_id": "h44-5",
+          "label": "pine",
+          "p_bp": {
+            "ash": 200,
+            "cedar": 3800,
+            "larch": 900,
+            "pine": 5100
+          }
+        },
+        {
+          "example_id": "h44-6",
+          "label": "cedar",
+          "p_bp": {
+            "ash": 6600,
+            "cedar": 1400,
+            "larch": 700,
+            "pine": 1300
+          }
+        },
+        {
+          "example_id": "h44-7",
+          "label": "ash",
+          "p_bp": {
+            "ash": 1300,
+            "cedar": 5400,
+            "larch": 2000,
+            "pine": 1300
+          }
+        }
+      ]
+    }
+  ]
+}

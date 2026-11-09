@@ -1,0 +1,8 @@
+# Calderbank Commercial Finance, accrual basis table, issue 9.
+# Labels were reissued at this issue; nothing below keeps an earlier label.
+R5 actual 365
+Q3 actual 360
+S6 thirty-e 365
+Q8 thirty-us 360
+R1 thirty-us 365
+S4 thirty-e 360

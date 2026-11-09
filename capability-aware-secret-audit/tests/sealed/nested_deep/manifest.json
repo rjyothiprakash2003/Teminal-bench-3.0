@@ -1,0 +1,91 @@
+{
+  "nodes": [
+    {
+      "path": "a",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "a/b",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "a/b/c",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "a/b/c/d",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "a/b/c/d/e",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "a/b/c/d/e/f",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "a/b/c/d/e/f/g",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "a/b/c/d/e/f/g/h",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "a/b/c/d/e/f/g/h/i",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "a/b/c/d/e/f/g/h/i/j",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "a/b/c/d/e/f/g/h/i/j/k",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "a/b/c/d/e/f/g/h/i/j/k/token",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 50,
+      "gid": 50,
+      "content": "t"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

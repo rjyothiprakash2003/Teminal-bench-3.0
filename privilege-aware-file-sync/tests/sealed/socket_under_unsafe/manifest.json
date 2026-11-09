@@ -1,0 +1,29 @@
+{
+  "dst_pre": [
+    {
+      "kind": "symlink",
+      "path": "d",
+      "target": "../extra"
+    }
+  ],
+  "extra": [
+    {
+      "content": "o\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "out.txt"
+    }
+  ],
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "d"
+    },
+    {
+      "kind": "socket",
+      "mode": 420,
+      "path": "d/p"
+    }
+  ]
+}

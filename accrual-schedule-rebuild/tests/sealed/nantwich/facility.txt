@@ -1,0 +1,7 @@
+facility F-TR-1001
+class TRADE
+advance 25000000
+rate 0
+drawn 2024-02-29
+periods 1
+frequency 1

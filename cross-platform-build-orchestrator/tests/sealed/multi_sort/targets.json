@@ -1,0 +1,1 @@
+{"targets": [{"id": "zulu", "arch": "x86_64", "os": "windows", "linker": "link"}, {"id": "alpha", "arch": "x86_64", "os": "linux", "linker": "bfd"}]}

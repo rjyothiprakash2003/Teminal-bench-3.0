@@ -1,0 +1,7 @@
+open BLOCK outer
+bind VAL left 7
+open UNIT inner
+bind VAL right 11
+use left
+end UNIT
+end BLOCK

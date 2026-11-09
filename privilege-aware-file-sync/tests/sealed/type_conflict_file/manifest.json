@@ -1,0 +1,17 @@
+{
+  "dst_pre": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "item"
+    }
+  ],
+  "src": [
+    {
+      "content": "new\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "item"
+    }
+  ]
+}

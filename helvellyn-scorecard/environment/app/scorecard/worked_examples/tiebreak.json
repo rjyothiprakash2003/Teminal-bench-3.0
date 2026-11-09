@@ -1,0 +1,48 @@
+{
+  "ap_micro_u": 1000000,
+  "card": {
+    "bin_count": 4,
+    "card_id": "TIE2",
+    "classes": [
+      "ash",
+      "oak",
+      "pine"
+    ],
+    "min_conf_bp": 0,
+    "slices": [
+      {
+        "slice_id": "s0",
+        "rows": [
+          {
+            "example_id": "t1",
+            "label": "oak",
+            "p_bp": {
+              "ash": 2000,
+              "oak": 4000,
+              "pine": 4000
+            }
+          },
+          {
+            "example_id": "t2",
+            "label": "oak",
+            "p_bp": {
+              "ash": 2000,
+              "oak": 4000,
+              "pine": 4000
+            }
+          },
+          {
+            "example_id": "t3",
+            "label": "pine",
+            "p_bp": {
+              "ash": 1000,
+              "oak": 1000,
+              "pine": 8000
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "ece_micro_u": 466667
+}

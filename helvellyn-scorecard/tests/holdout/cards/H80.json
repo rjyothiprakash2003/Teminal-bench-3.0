@@ -1,0 +1,20 @@
+{
+  "bin_count": 8,
+  "card_id": "H80",
+  "classes": [
+    "fir"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "w",
+      "rows": [
+        {
+          "example_id": "r1",
+          "label": "fir",
+          "p_bp": 7
+        }
+      ]
+    }
+  ]
+}

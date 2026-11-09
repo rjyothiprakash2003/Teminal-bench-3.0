@@ -1,0 +1,27 @@
+{
+  "entries": [
+    {
+      "path": "conf/locked/token",
+      "allow_uids": [
+        1000
+      ],
+      "allow_gids": [
+        1000
+      ]
+    }
+  ],
+  "subjects": [
+    {
+      "uid": 1000,
+      "gids": [
+        1000
+      ]
+    },
+    {
+      "uid": 2000,
+      "gids": [
+        2000
+      ]
+    }
+  ]
+}

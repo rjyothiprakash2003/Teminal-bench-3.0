@@ -1,0 +1,6 @@
+open UNIT root
+bind VAL n 7
+open BLOCK c
+use n
+end BLOCK
+end UNIT

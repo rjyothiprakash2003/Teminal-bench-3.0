@@ -1,0 +1,21 @@
+{
+  "bin_count": 4,
+  "card_id": "N",
+  "classes": [
+    "oak"
+  ],
+  "slices": [
+    {
+      "rows": [
+        {
+          "example_id": "e",
+          "label": "oak",
+          "p_bp": {
+            "oak": 10000
+          }
+        }
+      ],
+      "slice_id": "s"
+    }
+  ]
+}

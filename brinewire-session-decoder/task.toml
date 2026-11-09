@@ -1,0 +1,32 @@
+name = "brinewire-session-decoder"
+artifacts = ["/app/decode.py", "/app/output/sessions.jsonl", "/app/output/summary.json"]
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+category = "Security"
+subcategory = "Reverse engineering"
+tags = ["brinewire", "tlv", "encapsulation", "capture", "session"]
+languages = ["python"]
+difficulty = "advanced"
+expert_time_estimate_hours = 6
+difficulty_explanation = "A radio reverse-engineering analyst must finish BW-2026 so capture rows decode to session byte lists. Stated frame layout, seal checking, extended length, sequence carry, ACK echo, and TERM closure interact on one session. Nested ENCAP must reject rather than flatten inward or keep the outer payload. A flatten or outer-payload keep still yields a byte list that looks like a session. The hard part is emitting deterministic concatenation for every accept path while applying reject_nested_encap uniformly, including sealed holdout geometry the primary pack never shows."
+solution_explanation = "The oracle installs a BW-faithful /app/decode.py under the agent workspace. It reads manifest rows in ascending session_id order and validates flags before parsing each hex frame. It unpacks magic, kind, sequence, length, payload, and seal, using a 16-bit length when flag e is set. It unwraps a single ENCAP only when the inner kind is DATA, concatenates DATA payloads in capture order, checks ACK echoes, and requires TERM. Nested ENCAP receives reject_nested_encap. It writes sorted-key sessions.jsonl rows and a fixed-key disposition summary under /app/output."
+verification_explanation = "The separate verifier compares staged sessions.jsonl and summary.json to sealed expected files under tests. It checks summary top-level key order, by_disposition order, and sessions.jsonl key order. It also checks corpus-critical sessions for extended length, hex prefixes, whitespace hex, capture carry, ACK echo, sequence wrap, nested ENCAP, inner ACK, length mismatch, TERM payload, flags, and seal checking. It stages regular files under /app other than output, captures, and brinewire into the sandbox, plants leftover --out entries, then re-invokes decode.py against a sealed holdout pack that never appears under /app/captures. Exact session bytes and summary match is required on both corpora. Twenty-six automated domain tests drive a binary reward with no partial credit."
+relevant_experience = "I reverse engineer proprietary radio and capture protocols for incident response labs. My recent work covers nested encapsulation policies, sequence-carrying session rebuilds, seal checks on live captures, and reject-on-nested-wrap rules that must hold across primary and holdout capture packs in the field."
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 7200
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240

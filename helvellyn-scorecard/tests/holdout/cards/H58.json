@@ -1,0 +1,118 @@
+{
+  "bin_count": 20,
+  "card_id": "H58",
+  "classes": [
+    "birch",
+    "elm",
+    "fir",
+    "oak"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h58-0",
+          "label": "oak",
+          "p_bp": {
+            "birch": 2700,
+            "elm": 700,
+            "fir": 1300,
+            "oak": 5300
+          }
+        },
+        {
+          "example_id": "h58-1",
+          "label": "fir",
+          "p_bp": {
+            "birch": 3900,
+            "elm": 2000,
+            "fir": 600,
+            "oak": 3500
+          }
+        },
+        {
+          "example_id": "h58-2",
+          "label": "elm",
+          "p_bp": {
+            "birch": 500,
+            "elm": 300,
+            "fir": 1600,
+            "oak": 7600
+          }
+        },
+        {
+          "example_id": "h58-3",
+          "label": "oak",
+          "p_bp": {
+            "birch": 7900,
+            "elm": 1600,
+            "fir": 500,
+            "oak": 0
+          }
+        },
+        {
+          "example_id": "h58-4",
+          "label": "elm",
+          "p_bp": {
+            "birch": 4300,
+            "elm": 1300,
+            "fir": 3200,
+            "oak": 1200
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z1",
+      "rows": [
+        {
+          "example_id": "h58-5",
+          "label": "birch",
+          "p_bp": {
+            "birch": 5000,
+            "elm": 700,
+            "fir": 2300,
+            "oak": 2000
+          }
+        },
+        {
+          "example_id": "h58-6",
+          "label": "fir",
+          "p_bp": {
+            "birch": 3700,
+            "elm": 100,
+            "fir": 2100,
+            "oak": 4100
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z2",
+      "rows": [
+        {
+          "example_id": "h58-7",
+          "label": "birch",
+          "p_bp": {
+            "birch": 6500,
+            "elm": 600,
+            "fir": 1700,
+            "oak": 1200
+          }
+        },
+        {
+          "example_id": "h58-8",
+          "label": "oak",
+          "p_bp": {
+            "birch": 1200,
+            "elm": 100,
+            "fir": 3800,
+            "oak": 4900
+          }
+        }
+      ]
+    }
+  ]
+}

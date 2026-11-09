@@ -1,0 +1,6 @@
+{
+  "$extends": [
+    "high",
+    "low"
+  ]
+}

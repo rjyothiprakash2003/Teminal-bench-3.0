@@ -1,0 +1,18 @@
+{
+  "artifacts": [
+    {
+      "cflags": [
+        "-m64"
+      ],
+      "defines": {},
+      "env": {},
+      "id": "m",
+      "ldflags": [
+        "-Wl,-z,relro",
+        "-fuse-ld=mold"
+      ],
+      "stamp": "875b79fe70356ceb0cad821033cd07aabbc293c54a06285cc71ba93bd12bbb47",
+      "triple": "x86_64-linux-mold"
+    }
+  ]
+}

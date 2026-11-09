@@ -1,0 +1,24 @@
+{
+  "findings": [
+    {
+      "exposure": [
+        "uid:1001",
+        "uid:2000"
+      ],
+      "path": "d/a",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:1001"
+      ],
+      "path": "d/b",
+      "remediation": {
+        "mode": "0400"
+      }
+    }
+  ],
+  "skipped": []
+}

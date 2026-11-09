@@ -1,0 +1,58 @@
+stopwords an to
+begin
+add d10 ...
+delete b
+add b out:error=LINK_Hosts-link
+commit
+query 1 0 aip to down api time
+begin
+commit
+query 0 0 to desk desk
+query 5 1 time
+begin
+append b code.cup/retry uath ack)akc61
+add d10 ack-poll/poll cpu/ca cup aip:nodes
+delete f
+commit
+query 8 1 ca ca an
+query 7 1 desk
+query 9 0 abc ca
+query 9 2 cpu to
+begin
+append d10 out, ca_ack
+add a x
+add d2 To)cup=miss abc  eror.an/an, to)EROR
+rollback
+query 1 2 akc ack eror akc to code
+begin
+add d10  timeout-out_node48, ack.catch
+add a akc(Akc
+delete d10
+add a to:full-cache)Up catch error:api cup
+add a up)auth to=catch=To.host(CUP:miss
+commit
+query 0 0 api error up aip an error
+begin
+add d2 Auth/nodes, POOL an=host.eror:HOSTS
+add f  fill88 host.Aip
+append a uath  hosts_miss
+commit
+begin
+add f full)an)cache:dusk
+add f retry
+append f AN/eror/error
+add d-1 node/abc/dusk)api
+append d2 fill)node=down
+commit
+query 8 1 fill retry
+query 5 1 cpu retry
+begin
+add d10 catch TO, host-cpu, cpu:uath=full
+add c catch)time
+commit
+begin
+add c  miss, full_auth34/down_akc auth/catch:DUSK:timeout
+add d-1 down=out-API
+add b --
+add f error_to-time
+commit

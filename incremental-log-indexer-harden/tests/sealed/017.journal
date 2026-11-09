@@ -1,0 +1,40 @@
+stopwords
+query 4 0 uath catch
+begin
+rollback
+query 8 1 timeout full api hosts
+begin
+add e-x Auth_full.Api full.catch
+commit
+query 2 1 akc node link
+begin
+rollback
+begin
+commit
+begin
+rollback
+query 7 0 nodes nodes up host
+begin
+delete a
+add d-1 aip:host, cache cpu(Full(up
+add d10 cpu/auth:cache, retry  dusk
+append d-1 aip disk48
+commit
+query 0 0 code disk ca
+query 7 1 out error out
+query 2 0 disk timeout
+begin
+add b Cup poll=code-timeout, retry/Catch code
+rollback
+query 0 0 host
+query 4 2 cpu cup abc ack
+query 5 0 uath dusk uath desk
+query 7 0 poll
+query 7 2 api api
+query 0 0 timeout
+begin
+append e-x  down
+append e-x CACHE1 error.out.ACK
+append d-1 poll.Poll:eror, ack
+append e-x timeout=catch94 abc link link
+commit

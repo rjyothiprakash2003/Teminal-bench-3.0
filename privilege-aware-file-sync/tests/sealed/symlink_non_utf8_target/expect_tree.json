@@ -1,0 +1,10 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "weird": {
+    "kind": "symlink",
+    "target": "\udcff"
+  }
+}

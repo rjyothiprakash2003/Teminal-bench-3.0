@@ -1,0 +1,14 @@
+{
+  "findings": [
+    {
+      "exposure": [
+        "uid:51"
+      ],
+      "path": "a/b/c/d/e/f/g/h/i/j/k/token",
+      "remediation": {
+        "mode": "0640"
+      }
+    }
+  ],
+  "skipped": []
+}

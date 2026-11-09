@@ -1,0 +1,437 @@
+{
+  "findings": [
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s00",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s01",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s02",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s03",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s04",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s05",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s06",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s07",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s08",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s09",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s10",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s11",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s12",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s13",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s14",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s15",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s16",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s17",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s18",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s19",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s20",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s21",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s22",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s23",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s24",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s25",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s26",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s27",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s28",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s29",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s30",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s31",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s32",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s33",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s34",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s35",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s36",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s37",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s38",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s39",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s40",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s41",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s42",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s43",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s44",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s45",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s46",
+      "remediation": {
+        "mode": "0640"
+      }
+    },
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "s47",
+      "remediation": {
+        "mode": "0640"
+      }
+    }
+  ],
+  "skipped": []
+}

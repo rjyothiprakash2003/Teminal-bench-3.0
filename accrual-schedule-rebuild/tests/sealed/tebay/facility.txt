@@ -1,0 +1,8 @@
+# Plant facility drawn on the last day of November.
+facility F-PL-6093
+class PLANT
+advance 180000000
+rate 925
+drawn 2025-11-30
+periods 3
+frequency 1

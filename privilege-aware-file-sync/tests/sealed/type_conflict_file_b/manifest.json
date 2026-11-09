@@ -1,0 +1,17 @@
+{
+  "dst_pre": [
+    {
+      "kind": "symlink",
+      "path": "q",
+      "target": "nowhere"
+    }
+  ],
+  "src": [
+    {
+      "content": "q\n",
+      "kind": "file",
+      "mode": 384,
+      "path": "q"
+    }
+  ]
+}

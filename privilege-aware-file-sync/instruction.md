@@ -1,0 +1,3 @@
+Repair the syncer at `/app/src/syncer.py` so it satisfies `/app/docs/SYNC.md`. The tree under `/app/examples/simple` is the plain case; `/app/examples/regression` is a linked tree the contract already decides.
+
+Keep the program driveable as `python3 /app/src/syncer.py --src <dir> --dst <dir> --report <file>`. Grading runs that source against trees the shipped layout does not contain, compares destination entries and report bytes to the contract, and compares refusal text and exit status on the refusals the contract names. Each run may take at most 20 seconds. Graded trees stay within the size bounds the contract states.

@@ -1,0 +1,16 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "Z": {
+    "content_hex": "5a0a",
+    "kind": "file",
+    "mode": 420
+  },
+  "a": {
+    "content_hex": "610a",
+    "kind": "file",
+    "mode": 420
+  }
+}

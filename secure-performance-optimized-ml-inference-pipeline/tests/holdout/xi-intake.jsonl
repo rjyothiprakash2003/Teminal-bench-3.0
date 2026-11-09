@@ -1,0 +1,4 @@
+{"id":"XI-1","tenure_months":120,"util_ratio":0.35,"delinq_24":0.8,"inq_6":1.2,"revol_bal":8500,"open_trades":7}
+{"id":"XI-2","tenure_months":48,"util_ratio":0.35,"delinq_24":0.8,"inq_6":1.2,"revol_bal":42000,"open_trades":7}
+{"id":"XI-3","tenure_months":72,"util_ratio":0.90,"delinq_24":4.0,"inq_6":1.2,"revol_bal":1200,"open_trades":3}
+{"id":"XI-4","tenure_months":96,"util_ratio":0.55,"delinq_24":1.5,"inq_6":2.0,"revol_bal":15000,"open_trades":12}

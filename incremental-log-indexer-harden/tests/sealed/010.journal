@@ -1,0 +1,25 @@
+stopwords
+begin
+add d2 ca62/desk  time76(akc-AUTH-Out miss/api
+append d2 Eror:desk full(timeout-api=disk
+delete f
+commit
+query 0 1 ca retry ca ca
+query 1 0 out
+query 7 2 api disk
+query 0 2 cache akc cpu retry
+begin
+append d2 code  aip
+delete d10
+append d2 down.link api:fill41, full, abc
+commit
+begin
+add a node
+delete a
+append d2 catch
+delete a
+commit
+begin
+add b host/abc, fill-ca(hosts.Pool/up
+delete d-1
+commit

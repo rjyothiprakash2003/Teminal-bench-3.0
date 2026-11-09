@@ -1,0 +1,7 @@
+facility F-BR-7777
+class BRIDGE
+advance 9999999999
+rate 20000
+drawn 2044-01-31
+periods 13
+frequency 1

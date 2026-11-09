@@ -1,0 +1,52 @@
+{
+  "bin_count": 5,
+  "card_id": "H60",
+  "classes": [
+    "birch",
+    "oak",
+    "pine",
+    "rowan",
+    "yew"
+  ],
+  "min_conf_bp": 3000,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h60-0",
+          "label": "yew",
+          "p_bp": {
+            "birch": 2100,
+            "oak": 200,
+            "pine": 4200,
+            "rowan": 500,
+            "yew": 3000
+          }
+        },
+        {
+          "example_id": "h60-1",
+          "label": "birch",
+          "p_bp": {
+            "birch": 300,
+            "oak": 2300,
+            "pine": 3200,
+            "rowan": 1200,
+            "yew": 3000
+          }
+        },
+        {
+          "example_id": "h60-2",
+          "label": "pine",
+          "p_bp": {
+            "birch": 300,
+            "oak": 5500,
+            "pine": 500,
+            "rowan": 1800,
+            "yew": 1900
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "src": [
+    {
+      "kind": "symlink",
+      "path": "weird",
+      "target_hex": "ff"
+    }
+  ]
+}

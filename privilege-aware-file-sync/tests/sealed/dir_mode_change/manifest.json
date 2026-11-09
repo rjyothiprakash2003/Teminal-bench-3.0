@@ -1,0 +1,16 @@
+{
+  "dst_pre": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "d"
+    }
+  ],
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 448,
+      "path": "d"
+    }
+  ]
+}

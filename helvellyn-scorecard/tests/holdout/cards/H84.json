@@ -1,0 +1,53 @@
+{
+  "bin_count": 5,
+  "card_id": "H84",
+  "classes": [
+    "ash",
+    "elm",
+    "fir"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "ridge",
+      "rows": [
+        {
+          "example_id": "k1",
+          "label": "ash",
+          "p_bp": {
+            "ash": 1500,
+            "elm": 2000,
+            "fir": 6500
+          }
+        },
+        {
+          "example_id": "k2",
+          "label": "fir",
+          "p_bp": {
+            "ash": 1000,
+            "elm": 2500,
+            "fir": 6500
+          }
+        },
+        {
+          "example_id": "k3",
+          "label": "elm",
+          "p_bp": {
+            "ash": 4000,
+            "elm": 5000,
+            "fir": 1000
+          }
+        },
+        {
+          "example_id": "k4",
+          "label": "fir",
+          "p_bp": {
+            "ash": 2000,
+            "elm": 2000,
+            "fir": 6000
+          }
+        }
+      ]
+    }
+  ]
+}

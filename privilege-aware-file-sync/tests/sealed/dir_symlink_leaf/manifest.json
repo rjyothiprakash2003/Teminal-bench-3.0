@@ -1,0 +1,20 @@
+{
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "box"
+    },
+    {
+      "content": "x\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "box/x.txt"
+    },
+    {
+      "kind": "symlink",
+      "path": "door",
+      "target": "box"
+    }
+  ]
+}

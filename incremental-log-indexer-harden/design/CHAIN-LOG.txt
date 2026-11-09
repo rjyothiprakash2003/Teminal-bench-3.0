@@ -1,0 +1,155 @@
+== build
+== mint
+wrote 92 witnesses in 16 tests
+== examples
+examples: reference prints all 8 exactly
+== inputs
+inputs gate: 122 graded journals and 8 examples checked, 0 outside the domain 
+model agreement: 122 graded answers, 0 differ from the independent model 
+inputs gate self-test: 10 planted journals, 0 let through 
+== fuzz
+fuzz: 800 journals over seeds 101 and 202, 0 disagreements
+== sweep
+reference control: PASS
+mutant r1_reads_at_most_399_lines               owner test_journal_lines_and_stop_word_line                   own 1, tests failed 3 ok
+mutant r1_prints_a_line_without_queries         owner test_journal_lines_and_stop_word_line                   own 1, tests failed 1 ok
+mutant r2_built_in_stop_list                    owner test_journal_lines_and_stop_word_line                   own 1, tests failed 5 ok
+mutant r2_keyword_is_a_stop_word                owner test_journal_lines_and_stop_word_line                   own 1, tests failed 1 ok
+mutant r2_stop_list_cut_at_19                   owner test_journal_lines_and_stop_word_line                   own 2, tests failed 1 ok
+mutant r2_stop_word_cut_at_8_letters            owner test_journal_lines_and_stop_word_line                   own 2, tests failed 1 ok
+mutant r3_id_read_into_text                     owner test_line_fields_ids_slop_and_fuzz                      own 1, tests failed 3 ok
+mutant r3_fuzz_read_as_a_word                   owner test_line_fields_ids_slop_and_fuzz                      own 9, tests failed 16 ok
+mutant r3_id_cut_at_15                          owner test_line_fields_ids_slop_and_fuzz                      own 2, tests failed 1 ok
+mutant r3_line_cut_at_128                       owner test_line_fields_ids_slop_and_fuzz                      own 3, tests failed 4 ok
+mutant r3_fuzz_capped_at_1                      owner test_line_fields_ids_slop_and_fuzz                      own 1, tests failed 4 ok
+mutant r3_slop_capped_at_8                      owner test_line_fields_ids_slop_and_fuzz                      own 1, tests failed 2 ok
+mutant r5_empty_commit_clears_the_index         owner test_batches_commit_and_roll_back                       own 1, tests failed 2 ok
+mutant r5_rollback_commits                      owner test_batches_commit_and_roll_back                       own 3, tests failed 2 ok
+mutant r5_working_copy_shares_documents         owner test_batches_commit_and_roll_back                       own 1, tests failed 2 ok
+mutant r5_batch_starts_from_empty               owner test_batches_commit_and_roll_back                       own 3, tests failed 4 ok
+mutant r6_split_on_spaces_only                  owner test_tokens_split_on_punctuation_and_lowercase          own 4, tests failed 3 ok
+mutant r6_underscore_is_a_word_character        owner test_tokens_split_on_punctuation_and_lowercase          own 3, tests failed 2 ok
+mutant r6_case_kept                             owner test_tokens_split_on_punctuation_and_lowercase          own 2, tests failed 4 ok
+mutant r6_digits_separate                       owner test_tokens_split_on_punctuation_and_lowercase          own 2, tests failed 6 ok
+mutant r7_stop_words_take_no_position           owner test_stop_words_hold_positions_and_are_not_indexed      own 1, tests failed 5 ok
+mutant r8_add_extends_a_live_document           owner test_add_replaces_a_live_document                       own 2, tests failed 4 ok
+mutant r8_first_add_wins                        owner test_add_replaces_a_live_document                       own 3, tests failed 4 ok
+mutant r8_replacement_keeps_the_old_length      owner test_add_replaces_a_live_document                       own 1, tests failed 2 ok
+mutant r9_append_replaces_the_text              owner test_append_carries_positions_on                        own 8, tests failed 8 ok
+mutant r9_append_after_last_indexed_token       owner test_append_carries_positions_on                        own 1, tests failed 1 ok
+mutant r9_append_runs_the_texts_together        owner test_append_carries_positions_on                        own 8, tests failed 8 ok
+mutant r10_delete_ignored                       owner test_delete_ends_a_document                             own 2, tests failed 5 ok
+mutant r10_deleted_document_comes_back          owner test_delete_ends_a_document                             own 1, tests failed 2 ok
+mutant r11_document_cut_at_256_tokens           owner test_document_size_limits                               own 3, tests failed 3 ok
+mutant r11_at_most_64_documents                 owner test_document_size_limits                               own 2, tests failed 1 ok
+mutant r12_query_case_kept                      owner test_query_words_keep_their_positions                   own 1, tests failed 2 ok
+mutant r12_query_stop_words_kept                owner test_query_words_keep_their_positions                   own 4, tests failed 4 ok
+mutant r12_query_words_renumbered               owner test_query_words_keep_their_positions                   own 3, tests failed 2 ok
+mutant r12_repeated_words_merged                owner test_query_words_keep_their_positions                   own 1, tests failed 4 ok
+mutant r12_query_cut_at_5_words                 owner test_query_words_keep_their_positions                   own 1, tests failed 1 ok
+mutant r13_no_swaps                             owner test_edit_distance_is_the_least_number_of_edits         own 4, tests failed 3 ok
+mutant r13_swap_costs_two_edits_more            owner test_edit_distance_is_the_least_number_of_edits         own 4, tests failed 3 ok
+mutant r14_missing_words_skipped                owner test_placements_take_distinct_tokens_within_the_fuzz    own 1, tests failed 10 ok
+mutant r14_tokens_shared_between_words          owner test_placements_take_distinct_tokens_within_the_fuzz    own 2, tests failed 3 ok
+mutant r14_fuzz_ignored                         owner test_placements_take_distinct_tokens_within_the_fuzz    own 2, tests failed 7 ok
+mutant r15_order_ignored                        owner test_distance_is_the_least_spread                       own 6, tests failed 16 ok
+mutant r15_first_occurrence_only                owner test_distance_is_the_least_spread                       own 4, tests failed 6 ok
+mutant r15_first_window_found                   owner test_distance_is_the_least_spread                       own 3, tests failed 6 ok
+mutant r15_nearest_token_greedy                 owner test_distance_is_the_least_spread                       own 1, tests failed 3 ok
+mutant r16_slop_is_exclusive                    owner test_hits_lie_within_the_slop                           own 4, tests failed 16 ok
+mutant r16_slop_ignored                         owner test_hits_lie_within_the_slop                           own 3, tests failed 9 ok
+mutant r17_ties_by_descending_id                owner test_output_order_and_format                            own 2, tests failed 7 ok
+mutant r17_ties_by_length_then_id               owner test_output_order_and_format                            own 1, tests failed 3 ok
+mutant r17_sorted_by_id_alone                   owner test_output_order_and_format                            own 1, tests failed 2 ok
+mutant r17_empty_line_without_hits              owner test_output_order_and_format                            own 3, tests failed 15 ok
+mutant r17_distance_omitted                     owner test_output_order_and_format                            own 5, tests failed 16 ok
+mutant r17_answers_after_the_whole_journal      owner test_output_order_and_format                            own 1, tests failed 3 ok
+mutant r6_separators_listed_without_hash        owner test_tokens_split_on_punctuation_and_lowercase          own 2, tests failed 1 ok
+mutant r6_separators_listed_without_bang        owner test_tokens_split_on_punctuation_and_lowercase          own 2, tests failed 1 ok
+mutant r6_apostrophe_kept_in_tokens             owner test_tokens_split_on_punctuation_and_lowercase          own 2, tests failed 1 ok
+mutant r9_tokenless_append_takes_a_position     owner test_append_carries_positions_on                        own 3, tests failed 1 ok
+mutant r3_append_text_cut_at_199                owner test_line_fields_ids_slop_and_fuzz                      own 2, tests failed 1 ok
+mutant r9_at_most_300_appends                   owner test_append_carries_positions_on                        own 2, tests failed 1 ok
+mutant r13_fuzzy_refuses_tokens_over_32         owner test_edit_distance_is_the_least_number_of_edits         own 1, tests failed 2 ok
+mutant r3_id_must_start_with_a_letter           owner test_line_fields_ids_slop_and_fuzz                      own 1, tests failed 1 ok
+mutant r11_at_most_100_ids_ever                 owner test_document_size_limits                               own 2, tests failed 1 ok
+mutant r6_tokens_cut_at_64                      owner test_tokens_split_on_punctuation_and_lowercase          own 2, tests failed 1 ok
+mutant r12_query_tokens_cut_at_8_before_stops   owner test_query_words_keep_their_positions                   own 2, tests failed 1 ok
+mutant r13_no_fuzz_for_words_not_longer_than_fuzz owner test_edit_distance_is_the_least_number_of_edits         own 1, tests failed 2 ok
+mutant r13_first_letter_must_match              owner test_edit_distance_is_the_least_number_of_edits         own 2, tests failed 2 ok
+mutant r14_candidates_capped_at_100             owner test_placements_take_distinct_tokens_within_the_fuzz    own 2, tests failed 2 ok
+mutant r6_tokens_cut_at_120                     owner test_tokens_split_on_punctuation_and_lowercase          own 1, tests failed 1 ok
+mutant r6_tokens_cut_at_122                     owner test_tokens_split_on_punctuation_and_lowercase          own 1, tests failed 1 ok
+mutant r3_line_cut_at_220                       owner test_line_fields_ids_slop_and_fuzz                      own 1, tests failed 1 ok
+mutant r2_first_line_cut_at_256                 owner test_journal_lines_and_stop_word_line                   own 1, tests failed 1 ok
+mutant r11_positions_wrap_at_256                owner test_document_size_limits                               own 1, tests failed 3 ok
+mutant r11_positions_wrap_at_128                owner test_document_size_limits                               own 1, tests failed 3 ok
+mutant r15_offsets_kept_in_int8                 owner test_distance_is_the_least_spread                       own 1, tests failed 2 ok
+mutant r15_offsets_kept_in_uint8                owner test_distance_is_the_least_spread                       own 3, tests failed 4 ok
+mutant r6_lowercasing_stops_before_Z            owner test_tokens_split_on_punctuation_and_lowercase          own 1, tests failed 1 ok
+mutant r6_lowercasing_starts_after_A            owner test_tokens_split_on_punctuation_and_lowercase          own 2, tests failed 2 ok
+mutant r6_letters_end_before_z                  owner test_tokens_split_on_punctuation_and_lowercase          own 1, tests failed 5 ok
+mutant r6_letters_start_after_a                 owner test_tokens_split_on_punctuation_and_lowercase          own 4, tests failed 10 ok
+mutant r6_capitals_end_before_Z                 owner test_tokens_split_on_punctuation_and_lowercase          own 1, tests failed 1 ok
+mutant r6_capitals_start_after_A                owner test_tokens_split_on_punctuation_and_lowercase          own 2, tests failed 2 ok
+mutant r6_digits_end_before_9                   owner test_tokens_split_on_punctuation_and_lowercase          own 1, tests failed 3 ok
+mutant r6_digits_start_after_0                  owner test_tokens_split_on_punctuation_and_lowercase          own 1, tests failed 2 ok
+mutant r14_occurrences_capped_at_256            owner test_placements_take_distinct_tokens_within_the_fuzz    own 1, tests failed 1 ok
+mutant r12_query_tokens_capped_at_32            owner test_query_words_keep_their_positions                   own 1, tests failed 1 ok
+mutant r17_at_most_256_answers                  owner test_output_order_and_format                            own 1, tests failed 1 ok
+mutant r5_at_most_128_commits                   owner test_batches_commit_and_roll_back                       own 1, tests failed 1 ok
+mutant r11_at_most_192_ids_ever                 owner test_document_size_limits                               own 1, tests failed 1 ok
+mutant r9_at_most_350_appends                   owner test_append_carries_positions_on                        own 1, tests failed 1 ok
+mutant r11_index_capped_at_16384_tokens         owner test_document_size_limits                               own 1, tests failed 1 ok
+victim victim_stop_token_fuzzy_match fails {'test_stop_words_hold_positions_and_are_not_indexed': 1, 'test_placements_take_distinct_tokens_within_the_fuzz': 1} examples all exact -> ok
+victim victim_restricted_edit_distance fails {'test_edit_distance_is_the_least_number_of_edits': 2, 'test_hits_lie_within_the_slop': 1} examples all exact -> ok
+lazy fails ['test_edit_distance_is_the_least_number_of_edits', 'test_hits_lie_within_the_slop', 'test_placements_take_distinct_tokens_within_the_fuzz', 'test_stop_words_hold_positions_and_are_not_indexed'] -> ok
+cells per test, most: 1
+mutants 90, survivors 0
+SWEEP GREEN
+== guard
+reference-control            PASS
+stderr-and-unbuffered        PASS
+writer-w1                    PASS
+writer-w2                    PASS
+writer-w3                    PASS
+writer-w4                    PASS
+over-strictness guard: 5 tolerated trees, all pass
+== leak
+leak scan: 21 agent files, 65 verifier files, 242 graded strings; identical pairs 0, undeclared 0 
+== checks
+ok   domain tests: 16 (at most 18)
+ok   test_outputs.py comment lines: none
+ok   test_outputs.py module docstring: none
+ok   helper docstrings: none
+ok   every test has a one-line docstring
+ok   copytree passes symlinks=True
+ok   no descriptor-level permission calls
+ok   comment lines in solution/, Dockerfiles and test.sh: 0 (at most 4)
+ok   no template hint comment
+ok   test.sh writes ctrf
+ok   environment/.dockerignore lists .gitignore
+ok   task root holds only the five shipped entries
+ok   difficulty_explanation: 114 words (80 to 120)
+ok   difficulty_explanation: longest sentence 33 words (at most 39)
+ok   solution_explanation: 103 words (80 to 120)
+ok   solution_explanation: longest sentence 24 words (at most 39)
+ok   verification_explanation: 100 words (80 to 120)
+ok   verification_explanation: longest sentence 22 words (at most 39)
+ok   resource limits inside the envelope
+ok   timeouts at most 18000
+ok   instruction: 144 words (at most 300)
+ok   instruction's first sentence names an absolute path
+ok   instruction: no sentence over 39 words
+ok   page: 179 lines, 17 rules (150 to 260, 10 to 18)
+ok   examples: 8 sets (6 to 10)
+ok   slowest graded run of the reference: 0.015 s (stop 10 s, at most a tenth)
+CHECKS GREEN
+== farm
+oracle reward 1 (============================== 16 passed in 2.06s ==============================)
+nop reward 0 (============================== 16 failed in 1.90s ==============================)
+lazy reward 0 (========================= 4 failed, 12 passed in 1.17s =========================)
+hostile reward 0 (============================== 16 failed in 1.22s ==============================)
+thirdparty reward 0 (============================== 16 errors in 0.64s ==============================)
+multipackage reward 1 (============================== 16 passed in 1.10s ==============================)
+CHAIN VERDICT: GREEN

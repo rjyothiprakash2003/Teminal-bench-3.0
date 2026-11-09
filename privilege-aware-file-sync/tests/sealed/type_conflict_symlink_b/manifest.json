@@ -1,0 +1,16 @@
+{
+  "dst_pre": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "p"
+    }
+  ],
+  "src": [
+    {
+      "kind": "symlink",
+      "path": "p",
+      "target": "tgt"
+    }
+  ]
+}

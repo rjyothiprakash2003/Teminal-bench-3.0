@@ -1,0 +1,14 @@
+kind,token,payload
+SETTLE,days,14
+ROLE,core,incremental
+ROLE,io,incremental
+ROLE,debug,flatten
+ROLE,scan,flatten
+LIB,2,2024-01-01
+LIB,4,2024-03-01
+REPAIR,GHOST_MAP,drop-checkpoint
+REPAIR,LIB_MISBIND,rebind-lib
+REPAIR,ANCESTOR_GAP,relink-ancestor
+REPAIR,AREA_REGRESS,remap-area
+REPAIR,STALE_LIB,promote-lib
+REPAIR,CLKGT_SPLIT,rebind-icg

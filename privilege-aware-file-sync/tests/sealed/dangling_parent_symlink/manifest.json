@@ -1,0 +1,22 @@
+{
+  "dst_pre": [
+    {
+      "kind": "symlink",
+      "path": "a",
+      "target": "missing"
+    }
+  ],
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a"
+    },
+    {
+      "content": "x",
+      "kind": "file",
+      "mode": 420,
+      "path": "a/f"
+    }
+  ]
+}

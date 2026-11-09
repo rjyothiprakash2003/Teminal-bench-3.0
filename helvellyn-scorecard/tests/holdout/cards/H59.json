@@ -1,0 +1,73 @@
+{
+  "bin_count": 5,
+  "card_id": "H59",
+  "classes": [
+    "ash",
+    "elm",
+    "hazel",
+    "larch"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h59-0",
+          "label": "ash",
+          "p_bp": {
+            "ash": 2100,
+            "elm": 3000,
+            "hazel": 2300,
+            "larch": 2600
+          }
+        },
+        {
+          "example_id": "h59-1",
+          "label": "hazel",
+          "p_bp": {
+            "ash": 4000,
+            "elm": 3200,
+            "hazel": 2500,
+            "larch": 300
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z1",
+      "rows": [
+        {
+          "example_id": "h59-2",
+          "label": "larch",
+          "p_bp": {
+            "ash": 200,
+            "elm": 1100,
+            "hazel": 4800,
+            "larch": 3900
+          }
+        },
+        {
+          "example_id": "h59-3",
+          "label": "hazel",
+          "p_bp": {
+            "ash": 1900,
+            "elm": 3700,
+            "hazel": 2100,
+            "larch": 2300
+          }
+        },
+        {
+          "example_id": "h59-4",
+          "label": "hazel",
+          "p_bp": {
+            "ash": 1700,
+            "elm": 3700,
+            "hazel": 2100,
+            "larch": 2500
+          }
+        }
+      ]
+    }
+  ]
+}

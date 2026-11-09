@@ -1,0 +1,52 @@
+{
+  "ap_micro_u": 709571,
+  "card": {
+    "bin_count": 4,
+    "card_id": "ECEX",
+    "classes": [
+      "oak",
+      "pine"
+    ],
+    "min_conf_bp": 0,
+    "slices": [
+      {
+        "slice_id": "s0",
+        "rows": [
+          {
+            "example_id": "p1",
+            "label": "oak",
+            "p_bp": {
+              "oak": 1000,
+              "pine": 9000
+            }
+          },
+          {
+            "example_id": "p2",
+            "label": "pine",
+            "p_bp": {
+              "oak": 1500,
+              "pine": 8500
+            }
+          },
+          {
+            "example_id": "p3",
+            "label": "oak",
+            "p_bp": {
+              "oak": 8000,
+              "pine": 2000
+            }
+          },
+          {
+            "example_id": "p4",
+            "label": "pine",
+            "p_bp": {
+              "oak": 7000,
+              "pine": 3000
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "ece_micro_u": 187500
+}

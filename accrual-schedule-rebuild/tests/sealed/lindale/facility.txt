@@ -1,0 +1,7 @@
+facility F-TR-0044
+class TRADE
+advance 780000000
+rate 640
+drawn 2019-02-28
+periods 6
+frequency 12

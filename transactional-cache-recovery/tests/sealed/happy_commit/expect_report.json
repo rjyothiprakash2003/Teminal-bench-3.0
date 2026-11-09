@@ -1,0 +1,69 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "found": false
+    },
+    {
+      "status": "committed",
+      "op_id": "c1",
+      "idempotent": false,
+      "writes": {
+        "a": {
+          "value": 10,
+          "version": 1
+        }
+      }
+    },
+    {
+      "found": true,
+      "value": 10,
+      "version": 1
+    },
+    {
+      "status": "ok",
+      "entries": {
+        "a": {
+          "value": 10,
+          "version": 1
+        }
+      },
+      "ops": {
+        "c1": {
+          "status": "committed",
+          "writes": {
+            "a": {
+              "value": 10,
+              "version": 1
+            }
+          }
+        }
+      }
+    }
+  ],
+  "final": {
+    "entries": {
+      "a": {
+        "value": 10,
+        "version": 1
+      }
+    },
+    "ops": {
+      "c1": {
+        "status": "committed",
+        "writes": {
+          "a": {
+            "value": 10,
+            "version": 1
+          }
+        }
+      }
+    }
+  }
+}

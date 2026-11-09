@@ -1,0 +1,7 @@
+facility F-IN-7420
+class INVOICE
+advance 18900000
+rate 1305
+drawn 2020-12-31
+periods 5
+frequency 1

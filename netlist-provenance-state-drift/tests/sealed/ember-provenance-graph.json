@@ -1,0 +1,43 @@
+{
+  "desk": "KilnbridgeNetloom",
+  "findings": [
+    {
+      "code": "AREA_REGRESS",
+      "part": "ember-edge",
+      "note": "mapped cell count grew at unchanged liberty revision",
+      "epoch": 6
+    },
+    {
+      "code": "GHOST_MAP",
+      "part": "ember-edge",
+      "note": "recovered mapping generation is older than live mapping",
+      "epoch": 8
+    },
+    {
+      "code": "CLKGT_SPLIT",
+      "part": "ember-twin",
+      "note": "incremental module clock-gate disagrees with live icg icg_x6y0",
+      "epoch": 12
+    }
+  ],
+  "patches": [
+    {
+      "rank": 1,
+      "verb": "remap-area",
+      "part": "ember-edge",
+      "epoch": 6
+    },
+    {
+      "rank": 2,
+      "verb": "drop-checkpoint",
+      "part": "ember-edge",
+      "epoch": 8
+    },
+    {
+      "rank": 3,
+      "verb": "rebind-icg",
+      "part": "ember-twin",
+      "epoch": 12
+    }
+  ]
+}

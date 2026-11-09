@@ -1,0 +1,14 @@
+{
+  "findings": [
+    {
+      "exposure": [
+        "uid:1000"
+      ],
+      "path": "inside",
+      "remediation": {
+        "mode": "0640"
+      }
+    }
+  ],
+  "skipped": []
+}

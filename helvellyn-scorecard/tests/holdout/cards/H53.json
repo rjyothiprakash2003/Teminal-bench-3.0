@@ -1,0 +1,90 @@
+{
+  "bin_count": 10,
+  "card_id": "H53",
+  "classes": [
+    "birch",
+    "cedar",
+    "elm",
+    "hazel",
+    "rowan"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h53-0",
+          "label": "elm",
+          "p_bp": {
+            "birch": 1700,
+            "cedar": 500,
+            "elm": 5000,
+            "hazel": 2400,
+            "rowan": 400
+          }
+        },
+        {
+          "example_id": "h53-1",
+          "label": "rowan",
+          "p_bp": {
+            "birch": 2000,
+            "cedar": 1600,
+            "elm": 3000,
+            "hazel": 1500,
+            "rowan": 1900
+          }
+        },
+        {
+          "example_id": "h53-2",
+          "label": "hazel",
+          "p_bp": {
+            "birch": 500,
+            "cedar": 100,
+            "elm": 900,
+            "hazel": 0,
+            "rowan": 8500
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z1",
+      "rows": [
+        {
+          "example_id": "h53-3",
+          "label": "hazel",
+          "p_bp": {
+            "birch": 900,
+            "cedar": 800,
+            "elm": 2400,
+            "hazel": 200,
+            "rowan": 5700
+          }
+        },
+        {
+          "example_id": "h53-4",
+          "label": "hazel",
+          "p_bp": {
+            "birch": 4100,
+            "cedar": 1300,
+            "elm": 0,
+            "hazel": 1000,
+            "rowan": 3600
+          }
+        },
+        {
+          "example_id": "h53-5",
+          "label": "cedar",
+          "p_bp": {
+            "birch": 0,
+            "cedar": 3700,
+            "elm": 600,
+            "hazel": 4400,
+            "rowan": 1300
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "nodes": [
+    {
+      "path": "alias",
+      "kind": "symlink",
+      "target": "../tree_extra/token"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755",
+  "tree_extra": [
+    {
+      "path": "token",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 0,
+      "gid": 0,
+      "content": "x"
+    }
+  ]
+}

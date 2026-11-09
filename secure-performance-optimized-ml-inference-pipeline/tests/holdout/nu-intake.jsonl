@@ -1,0 +1,3 @@
+{"id":"N-HI","tenure_months":48,"util_ratio":0.3500000932494865,"delinq_24":0.8,"inq_6":1.2,"revol_bal":8500,"open_trades":7}
+{"id":"N-LO","tenure_months":48,"util_ratio":0.3500000932494864,"delinq_24":0.8,"inq_6":1.2,"revol_bal":8500,"open_trades":7}
+{"id":"N-X","tenure_months":36,"util_ratio":0.55,"delinq_24":1.2,"inq_6":0.5,"revol_bal":12000,"open_trades":5}

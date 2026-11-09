@@ -1,0 +1,6 @@
+{
+  "cflags": ["-march=armv8-a"],
+  "defines": {
+    "ARCH_AARCH64": "1"
+  }
+}

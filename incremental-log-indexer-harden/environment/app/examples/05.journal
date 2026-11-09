@@ -1,0 +1,11 @@
+stopwords of
+begin
+add trace-1 panic in handler
+append trace-1 goroutine 17 stack trace
+commit
+query 0 0 handler goroutine
+query 3 0 panic stack
+begin
+append trace-1 end
+commit
+query 1 0 trace end

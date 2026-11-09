@@ -1,0 +1,2630 @@
+[
+ {
+  "label": "a significant line holding no space",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nnospace\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a line whose key is empty because the line opens with its space",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n rate 400\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a line whose value is empty because the space ends the line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate \ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 4: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a key carrying a capital letter",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nRate 400\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a key carrying a digit",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nrate2 400\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a key carrying a hyphen",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nday-rule actual\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a key of thirteen bytes",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nabcdefghijklm 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a key of twelve bytes, which is a length the note allows and a key it does not",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nabcdefghijkl 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: unknown key\n",
+  "output": "none"
+ },
+ {
+  "label": "a key the note does not list",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nmargin 400\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: unknown key\n",
+  "output": "none"
+ },
+ {
+  "label": "a second facility line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nfacility F-TR-0001\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: repeated key\n",
+  "output": "none"
+ },
+ {
+  "label": "a second class line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nclass TRADE\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: repeated key\n",
+  "output": "none"
+ },
+ {
+  "label": "a second frequency line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: repeated key\n",
+  "output": "none"
+ },
+ {
+  "label": "a reference carrying a lower case letter",
+  "facility": "facility F-tr-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad reference\n",
+  "output": "none"
+ },
+ {
+  "label": "a reference carrying an underscore",
+  "facility": "facility F_TR_0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad reference\n",
+  "output": "none"
+ },
+ {
+  "label": "a reference whose first byte is outside the set",
+  "facility": "facility /F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad reference\n",
+  "output": "none"
+ },
+ {
+  "label": "a reference whose last byte is outside the set",
+  "facility": "facility F-TR-0000.\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad reference\n",
+  "output": "none"
+ },
+ {
+  "label": "a reference of seventeen bytes",
+  "facility": "facility AAAAAAAAAAAAAAAAA\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad reference\n",
+  "output": "none"
+ },
+ {
+  "label": "a reference carrying a byte above 0x7F",
+  "facility": "facility F-TR-00\u00c3\u00a9\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad reference\n",
+  "output": "none"
+ },
+ {
+  "label": "a reference carrying the byte just below the capitals",
+  "facility": "facility F@TR\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad reference\n",
+  "output": "none"
+ },
+ {
+  "label": "a reference carrying the byte just above the capitals",
+  "facility": "facility F[TR\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad reference\n",
+  "output": "none"
+ },
+ {
+  "label": "a class the note does not list",
+  "facility": "facility F-TR-0000\nclass FACTOR\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 2: unknown class\n",
+  "output": "none"
+ },
+ {
+  "label": "a class written in lower case",
+  "facility": "facility F-TR-0000\nclass trade\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 2: unknown class\n",
+  "output": "none"
+ },
+ {
+  "label": "a class that is a prefix of one the note lists",
+  "facility": "facility F-TR-0000\nclass TRAD\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 2: unknown class\n",
+  "output": "none"
+ },
+ {
+  "label": "an advance of zero",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 0\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 3: bad advance\n",
+  "output": "none"
+ },
+ {
+  "label": "an advance carrying a leading zero",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 0100\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 3: bad advance\n",
+  "output": "none"
+ },
+ {
+  "label": "an advance of eleven digits",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 10000000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 3: bad advance\n",
+  "output": "none"
+ },
+ {
+  "label": "an advance carrying a byte that is not a digit",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000x\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 3: bad advance\n",
+  "output": "none"
+ },
+ {
+  "label": "an advance written with a decimal point",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000.00\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 3: bad advance\n",
+  "output": "none"
+ },
+ {
+  "label": "a rate one above the ceiling",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 20001\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 4: bad rate\n",
+  "output": "none"
+ },
+ {
+  "label": "a rate of six digits, which wraps nothing but is still too long",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 100000\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 4: bad rate\n",
+  "output": "none"
+ },
+ {
+  "label": "a rate written as a double zero",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 00\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 4: bad rate\n",
+  "output": "none"
+ },
+ {
+  "label": "a rate carrying a sign",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate +500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 4: bad rate\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date in a month the calendar does not have",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-13-01\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date on the thirtieth of February",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-02-30\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date on the twenty ninth of February in a year that is not a leap year",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-02-29\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date before the calendar, written on a day that year did not have",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 1900-02-29\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date one year before the earliest the note allows",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 1969-12-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date one year after the latest the note allows",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2200-01-01\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date on day zero",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-04-00\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date in month zero",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-00-14\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date written without its separators",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 20220131\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date written with solidus separators",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022/01/31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date carrying a trailing byte",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31Z\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a period count of zero",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 0\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 6: bad period count\n",
+  "output": "none"
+ },
+ {
+  "label": "a period count one above the ceiling",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 481\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 6: bad period count\n",
+  "output": "none"
+ },
+ {
+  "label": "a period count of four digits",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 0480\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 6: bad period count\n",
+  "output": "none"
+ },
+ {
+  "label": "a frequency the note does not list",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 2\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 7: bad frequency\n",
+  "output": "none"
+ },
+ {
+  "label": "a frequency of four, which divides the year but is not listed",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 4\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 7: bad frequency\n",
+  "output": "none"
+ },
+ {
+  "label": "a frequency carrying a leading zero",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 01\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 7: bad frequency\n",
+  "output": "none"
+ },
+ {
+  "label": "a step separated from its rate by a tab",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15\t700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step carrying a date and nothing else",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step whose rate is above the ceiling",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15 20001\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step whose date is not a date",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-31 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step carrying two spaces between its fields",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15  700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step carrying a byte after its rate",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15 700x\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a fault on a last line that has no line feed after it",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15 700x",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a facility file holding no significant line",
+  "facility": "# nothing here\n\n",
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "none"
+ },
+ {
+  "label": "a facility file of no bytes at all",
+  "facility": "",
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "none"
+ },
+ {
+  "label": "a facility file with no advance line",
+  "facility": "facility F-TR-0000\nclass TRADE\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "none"
+ },
+ {
+  "label": "a facility file with no frequency line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\n",
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "none"
+ },
+ {
+  "label": "a facility file with no facility line",
+  "facility": "class TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis line holding two fields",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 5: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis line holding four fields",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360 spare\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 5: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis line holding two spaces between two of its fields",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us  360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 5: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis line whose identifier is a letter and a letter",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nKA actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 3: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis line whose identifier is a digit and a digit",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\n11 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 3: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis line whose identifier is three bytes",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK10 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 3: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis line whose identifier is one byte",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 3: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis line naming a day rule the note does not list",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-360 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 7: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis line naming a year length the note does not list",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 366\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 7: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis line whose day rule is written in capitals",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 ACTUAL 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 4: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis table naming one identifier twice",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK4 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 6: duplicate identifier\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis table of five lines",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\n",
+  "status": 1,
+  "stderr": "schedbuild: basis table incomplete\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis table holding one pairing twice under two identifiers",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK9 thirty-e 360\n",
+  "status": 1,
+  "stderr": "schedbuild: basis table incomplete\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis table of seven lines carrying every pairing",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\nK9 actual 360\n",
+  "status": 1,
+  "stderr": "schedbuild: basis table incomplete\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis table of no bytes at all",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "",
+  "status": 1,
+  "stderr": "schedbuild: basis table incomplete\n",
+  "output": "none"
+ },
+ {
+  "label": "a step dated on the drawdown day itself",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-01-31 700\n",
+  "status": 1,
+  "stderr": "schedbuild: step out of term\n",
+  "output": "none"
+ },
+ {
+  "label": "a step dated before the drawdown",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2021-12-01 700\n",
+  "status": 1,
+  "stderr": "schedbuild: step out of term\n",
+  "output": "none"
+ },
+ {
+  "label": "a step dated on the end of the last period",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-04-30 700\n",
+  "status": 1,
+  "stderr": "schedbuild: step out of term\n",
+  "output": "none"
+ },
+ {
+  "label": "a step dated after the end of the last period",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-05-01 700\n",
+  "status": 1,
+  "stderr": "schedbuild: step out of term\n",
+  "output": "none"
+ },
+ {
+  "label": "two step lines carrying one date and one rate",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-10 700\nstep 2022-02-10 700\n",
+  "status": 1,
+  "stderr": "schedbuild: repeated step date\n",
+  "output": "none"
+ },
+ {
+  "label": "two step lines carrying one date and two rates",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-10 700\nstep 2022-02-10 800\n",
+  "status": 1,
+  "stderr": "schedbuild: repeated step date\n",
+  "output": "none"
+ },
+ {
+  "label": "a term whose last period ends one day past the calendar",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2199-12-31\nperiods 1\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: term past the calendar\n",
+  "output": "none"
+ },
+ {
+  "label": "a term that runs years past the calendar",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2198-01-31\nperiods 120\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: term past the calendar\n",
+  "output": "none"
+ },
+ {
+  "label": "a facility file with no facility line",
+  "facility": "class TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "none"
+ },
+ {
+  "label": "a second facility line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nfacility F-TR-0001\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: repeated key\n",
+  "output": "none"
+ },
+ {
+  "label": "a facility file with no class line",
+  "facility": "facility F-TR-0000\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "none"
+ },
+ {
+  "label": "a second class line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nclass TRADE\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: repeated key\n",
+  "output": "none"
+ },
+ {
+  "label": "a facility file with no advance line",
+  "facility": "facility F-TR-0000\nclass TRADE\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "none"
+ },
+ {
+  "label": "a second advance line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nadvance 2000000\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: repeated key\n",
+  "output": "none"
+ },
+ {
+  "label": "a facility file with no rate line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "none"
+ },
+ {
+  "label": "a second rate line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nrate 600\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: repeated key\n",
+  "output": "none"
+ },
+ {
+  "label": "a facility file with no drawn line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "none"
+ },
+ {
+  "label": "a second drawn line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\ndrawn 2021-05-31\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: repeated key\n",
+  "output": "none"
+ },
+ {
+  "label": "a facility file with no periods line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "none"
+ },
+ {
+  "label": "a second periods line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nperiods 4\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: repeated key\n",
+  "output": "none"
+ },
+ {
+  "label": "a facility file with no frequency line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\n",
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "none"
+ },
+ {
+  "label": "a second frequency line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nfrequency 3\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: repeated key\n",
+  "output": "none"
+ },
+ {
+  "label": "a key of one byte, which is a length the note allows and a key it does not",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nx 5\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: unknown key\n",
+  "output": "none"
+ },
+ {
+  "label": "a line carrying a carriage return before its line feed",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15 700\r\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a value carrying a carriage return, which is not a byte any value rule allows",
+  "facility": "facility F-TR-0000\nclass TRADE\r\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 2: unknown class\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date on the thirty first of a month that has thirty days",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-04-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date on the thirty first of another month that has thirty days",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-09-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date on a day no month has",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-32\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a period count carrying a leading zero inside the length the note allows",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 012\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 6: bad period count\n",
+  "output": "none"
+ },
+ {
+  "label": "a step whose rate carries a leading zero",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15 0700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis identifier whose letter is in lower case",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nk1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 3: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis identifier written digit first",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\n1K actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 3: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date whose month is one digit",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-1-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date whose year is two digits",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 22-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date whose day is padded to three digits",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-031\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a step date whose month is one digit",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-2-15 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a rate that is not zero and carries a leading zero",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 0500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 4: bad rate\n",
+  "output": "none"
+ },
+ {
+  "label": "a step whose rate is signed",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15 +700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a period count that is signed",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods +3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 6: bad period count\n",
+  "output": "none"
+ },
+ {
+  "label": "a significant line whose value carries a byte below the printable range",
+  "facility": "facility F-TR-0000\nclass TRADE\u0007\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 2: unknown class\n",
+  "output": "none"
+ },
+ {
+  "label": "a line opening with a space before its number sign",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n # not a comment\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a line opening with a tab before its number sign",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n\t# not a comment\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a reference carrying a space, which a whitespace split would hide",
+  "facility": "facility F-TR 0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad reference\n",
+  "output": "none"
+ },
+ {
+  "label": "a frequency carrying a trailing space, which a whitespace split would trim",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1 \n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 7: bad frequency\n",
+  "output": "none"
+ },
+ {
+  "label": "a key carrying a byte above 0x7F",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nrat\u00c3\u00a8 500\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis line separated by tabs",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1\tactual\t360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 3: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis identifier whose second byte is punctuation",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK- actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 3: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis year length between the two the note allows",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 362\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 4: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis year length carrying a leading zero",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 0365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 4: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis day rule one byte short of one the note lists",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty- 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 7: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "an identifier repeating one that stood three lines earlier",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK1 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 8: duplicate identifier\n",
+  "output": "none"
+ },
+ {
+  "label": "an earlier line beats a later one",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nmargin 400\nfacility F-TR-0002\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: unknown key\n",
+  "output": "none"
+ },
+ {
+  "label": "the shape of a line beats its key",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nMargin400\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "the key beats the repetition, so a repeat of an unknown key is unknown",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nmargin 400\nmargin 500\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: unknown key\n",
+  "output": "none"
+ },
+ {
+  "label": "the repetition beats the value, so a repeated key with a bad value repeats",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nrate 90000\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: repeated key\n",
+  "output": "none"
+ },
+ {
+  "label": "a facility line fault beats a basis line fault",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 20001\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nKA actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 4: bad rate\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis line fault beats an incomplete table",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 366\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 7: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "an incomplete table beats a missing key",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\n",
+  "status": 1,
+  "stderr": "schedbuild: basis table incomplete\n",
+  "output": "none"
+ },
+ {
+  "label": "a missing key beats a step outside the term",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2020-01-01 700\n",
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "none"
+ },
+ {
+  "label": "a step outside the term beats a repeated step date",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2030-01-01 700\nstep 2022-02-10 700\nstep 2022-02-10 800\n",
+  "status": 1,
+  "stderr": "schedbuild: step out of term\n",
+  "output": "none"
+ },
+ {
+  "label": "a repeated step date beats a term past the calendar",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2198-01-31\nperiods 120\nfrequency 1\nstep 2198-03-05 700\nstep 2198-03-05 800\n",
+  "status": 1,
+  "stderr": "schedbuild: repeated step date\n",
+  "output": "none"
+ },
+ {
+  "label": "a second space before a reference",
+  "facility": "facility  F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad reference\n",
+  "output": "none"
+ },
+ {
+  "label": "a second space before a class",
+  "facility": "facility F-TR-0000\nclass  TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 2: unknown class\n",
+  "output": "none"
+ },
+ {
+  "label": "a second space before an advance",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance  1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 3: bad advance\n",
+  "output": "none"
+ },
+ {
+  "label": "a second space before a rate",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate  500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 4: bad rate\n",
+  "output": "none"
+ },
+ {
+  "label": "a second space before a drawdown date",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn  2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a second space before a period count",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods  3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 6: bad period count\n",
+  "output": "none"
+ },
+ {
+  "label": "a second space before a frequency",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency  1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 7: bad frequency\n",
+  "output": "none"
+ },
+ {
+  "label": "a second space before a step",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep  2022-02-15 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a rate with a byte after its digits",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500x\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 4: bad rate\n",
+  "output": "none"
+ },
+ {
+  "label": "a period count with a byte after its digits",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3x\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 6: bad period count\n",
+  "output": "none"
+ },
+ {
+  "label": "a frequency with a byte after its digit",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1x\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 7: bad frequency\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date with a space after it",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31 \nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date whose year is not all digits",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 202x-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date whose month is not all digits",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-0x-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown date whose day is not all digits",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-3x\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a step date one year before the calendar",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 1969-12-31 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step date one year after the calendar",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2200-01-01 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step date whose year is not all digits",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 202x-02-15 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step with a space after its rate",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15 700 \n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step with a tab after its rate",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15 700\t\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a reference with a space after it",
+  "facility": "facility F-TR-0000 \nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad reference\n",
+  "output": "none"
+ },
+ {
+  "label": "a class with a space after it",
+  "facility": "facility F-TR-0000\nclass TRADE \nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 2: unknown class\n",
+  "output": "none"
+ },
+ {
+  "label": "an advance with a space after it",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000 \nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 3: bad advance\n",
+  "output": "none"
+ },
+ {
+  "label": "a rate with a space after it",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500 \ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 4: bad rate\n",
+  "output": "none"
+ },
+ {
+  "label": "a period count with a tab after it",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\t\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 6: bad period count\n",
+  "output": "none"
+ },
+ {
+  "label": "a bad rate on the first line ahead of a bad advance on a later one",
+  "facility": "rate 20001\nfacility F-TR-0000\nclass TRADE\nadvance 0\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad rate\n",
+  "output": "none"
+ },
+ {
+  "label": "a bad date on the first line ahead of a bad period count on a later one",
+  "facility": "drawn 2022-02-30\nfacility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\nperiods 0\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a bad frequency on the first line ahead of an unknown class on a later one",
+  "facility": "frequency 2\nfacility F-TR-0000\nclass FACTOR\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad frequency\n",
+  "output": "none"
+ },
+ {
+  "label": "the first of two malformed basis rows",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nKA actual 360\nK2 actual 366\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 3: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a malformed basis row ahead of a later duplicate",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nKA actual 360\nK2 actual 365\nK4 thirty-us 360\nK2 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 3: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a duplicate identifier ahead of a later malformed row",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK1 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 366\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 5: duplicate identifier\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis row with a space after its last field",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365 \nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 4: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis row with a space before its first field",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\n K2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 4: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis identifier opening with a capital outside A to Z",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\n\u00c3\u00891 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 3: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis day rule with a byte after it",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actualx 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 3: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis day rule with a byte after thirty-us",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-usx 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 5: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis day rule with a byte after thirty-e",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e0 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 7: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis year length with a byte after it",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 3650\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 4: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a value fault ahead of an unknown key on a later line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 0\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nmargin 400\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 3: bad advance\n",
+  "output": "none"
+ },
+ {
+  "label": "a value fault ahead of a line with no space",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 0\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nnospace\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 3: bad advance\n",
+  "output": "none"
+ },
+ {
+  "label": "a value fault ahead of a repeated key",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 0\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nrate 600\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 3: bad advance\n",
+  "output": "none"
+ },
+ {
+  "label": "a repeated key ahead of a line with no space",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nclass TRADE\nnospace\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: repeated key\n",
+  "output": "none"
+ },
+ {
+  "label": "an unknown key ahead of a line with no space",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nmargin 5\nnospace\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: unknown key\n",
+  "output": "none"
+ },
+ {
+  "label": "an empty value on a key the note does not list",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nmargin \n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "an empty value on a key already given",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nrate \n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a facility line of one space",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n \n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a facility line of one tab",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n\t\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis line of one space",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n \n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 9: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "an advance carrying a sign",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance +1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 3: bad advance\n",
+  "output": "none"
+ },
+ {
+  "label": "an advance carrying a minus sign",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance -1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 3: bad advance\n",
+  "output": "none"
+ },
+ {
+  "label": "a step outside the term after two steps sharing a date",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-10 700\nstep 2022-02-10 800\nstep 2030-01-01 700\n",
+  "status": 1,
+  "stderr": "schedbuild: step out of term\n",
+  "output": "none"
+ },
+ {
+  "label": "a malformed row after a row repeating a pairing",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK9 thirty-e 360\nK8 thirty-e 366\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 9: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a duplicate identifier after a seventh row",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\nK9 actual 360\nK1 actual 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 10: duplicate identifier\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown month carrying a sign",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-+1-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown day carrying a sign",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-+3\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a step month carrying a sign",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-+2-15 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a frequency carrying a sign",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency +1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 7: bad frequency\n",
+  "output": "none"
+ },
+ {
+  "label": "a reference holding capitals outside A to Z",
+  "facility": "facility F-TR-\u00c3\u0089\u00c3\u0089\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad reference\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis identifier of two bytes whose first is a capital outside A to Z",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\n\u00c91 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 3: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis row ending in a carriage return",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\r\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 4: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a rate followed by a number sign",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500#desk\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 4: bad rate\n",
+  "output": "none"
+ },
+ {
+  "label": "a reference followed by a number sign",
+  "facility": "facility F-TR-0000#2\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad reference\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis row followed by a number sign",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365#x\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 4: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis row both malformed and repeating an identifier",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK1 thirty-e 366\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "facility line 8: bad step",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-00-15 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "facility line 8: bad step",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-13-15 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "facility line 8: bad step",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-03-00 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "facility line 8: bad step",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-03-32 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "facility line 8: bad step",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-29 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "facility line 8: bad step",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-04-31 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "facility line 7: bad frequency",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 13\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 7: bad frequency\n",
+  "output": "none"
+ },
+ {
+  "label": "facility line 7: bad frequency",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 120\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 7: bad frequency\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read facility file (omit facility)",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "staging": {
+   "omit_facility": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read facility file\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read basis table (omit table)",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "staging": {
+   "omit_table": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read basis table\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read basis table (table is directory)",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "staging": {
+   "table_is_directory": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read basis table\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read facility file (facility is directory)",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "staging": {
+   "facility_is_directory": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read facility file\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read facility file (facility unreadable)",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "staging": {
+   "facility_unreadable": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read facility file\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read basis table (table unreadable)",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "staging": {
+   "table_unreadable": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read basis table\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot write output file (output directory unwritable)",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "staging": {
+   "output_directory_unwritable": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot write output file\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot write output file (output absent/sched.out)",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "staging": {
+   "output": "absent/sched.out"
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot write output file\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read facility file (facility unreadable, table unreadable)",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "staging": {
+   "facility_unreadable": true,
+   "table_unreadable": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read facility file\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read basis table (output directory unwritable, table unreadable)",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "staging": {
+   "table_unreadable": true,
+   "output_directory_unwritable": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read basis table\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read facility file (existing, facility unreadable)",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "staging": {
+   "facility_unreadable": true,
+   "existing": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read facility file\n",
+  "output": "stale"
+ },
+ {
+  "label": "cannot read basis table (existing, table unreadable)",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "staging": {
+   "table_unreadable": true,
+   "existing": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read basis table\n",
+  "output": "stale"
+ },
+ {
+  "label": "facility line 8: malformed entry (output absent/sched.out)",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nnospace\n",
+  "staging": {
+   "output": "absent/sched.out"
+  },
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "missing key (output absent/sched.out)",
+  "facility": "class TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "output": "absent/sched.out"
+  },
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "none"
+ },
+ {
+  "label": "basis table incomplete (output absent/sched.out)",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\n",
+  "staging": {
+   "output": "absent/sched.out"
+  },
+  "status": 1,
+  "stderr": "schedbuild: basis table incomplete\n",
+  "output": "none"
+ },
+ {
+  "label": "basis line 3: malformed entry (output absent/sched.out)",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nKA actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "staging": {
+   "output": "absent/sched.out"
+  },
+  "status": 1,
+  "stderr": "schedbuild: basis line 3: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "basis line 6: duplicate identifier (output absent/sched.out)",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK4 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "staging": {
+   "output": "absent/sched.out"
+  },
+  "status": 1,
+  "stderr": "schedbuild: basis line 6: duplicate identifier\n",
+  "output": "none"
+ },
+ {
+  "label": "basis line 9: malformed entry (output absent/sched.out)",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK9 thirty-e 360\nK8 thirty-e 366\n",
+  "staging": {
+   "output": "absent/sched.out"
+  },
+  "status": 1,
+  "stderr": "schedbuild: basis line 9: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "step out of term (output absent/sched.out)",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2030-01-01 700\n",
+  "staging": {
+   "output": "absent/sched.out"
+  },
+  "status": 1,
+  "stderr": "schedbuild: step out of term\n",
+  "output": "none"
+ },
+ {
+  "label": "repeated step date (output absent/sched.out)",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-10 700\nstep 2022-02-10 800\n",
+  "staging": {
+   "output": "absent/sched.out"
+  },
+  "status": 1,
+  "stderr": "schedbuild: repeated step date\n",
+  "output": "none"
+ },
+ {
+  "label": "term past the calendar (output absent/sched.out)",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2198-01-31\nperiods 120\nfrequency 1\n",
+  "staging": {
+   "output": "absent/sched.out"
+  },
+  "status": 1,
+  "stderr": "schedbuild: term past the calendar\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read facility file (omit facility, omit table)",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "omit_facility": true,
+   "omit_table": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read facility file\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read facility file (facility is directory, omit table)",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "facility_is_directory": true,
+   "omit_table": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read facility file\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read facility file (omit facility, table is directory)",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "omit_facility": true,
+   "table_is_directory": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read facility file\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read facility file (omit facility)",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "staging": {
+   "omit_facility": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read facility file\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read facility file (omit facility)",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\n",
+  "staging": {
+   "omit_facility": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read facility file\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read facility file (omit facility, output absent/sched.out)",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "omit_facility": true,
+   "output": "absent/sched.out"
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read facility file\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read basis table (omit table)",
+  "facility": "class TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "omit_table": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read basis table\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read basis table (omit table)",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2030-01-01 700\n",
+  "staging": {
+   "omit_table": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read basis table\n",
+  "output": "none"
+ },
+ {
+  "label": "cannot read basis table (omit table, output absent/sched.out)",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "omit_table": true,
+   "output": "absent/sched.out"
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read basis table\n",
+  "output": "none"
+ },
+ {
+  "label": "step out of term (existing)",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2030-01-01 700\n",
+  "staging": {
+   "existing": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: step out of term\n",
+  "output": "stale"
+ },
+ {
+  "label": "two step lines carrying one date and two rates",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-10 700\nstep 2022-02-10 800\n",
+  "staging": {
+   "existing": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: repeated step date\n",
+  "output": "stale"
+ },
+ {
+  "label": "a term that runs years past the calendar",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2198-01-31\nperiods 120\nfrequency 1\n",
+  "staging": {
+   "existing": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: term past the calendar\n",
+  "output": "stale"
+ },
+ {
+  "label": "a facility file with no facility line",
+  "facility": "class TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "existing": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "stale"
+ },
+ {
+  "label": "a basis table of five lines",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\n",
+  "staging": {
+   "existing": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: basis table incomplete\n",
+  "output": "stale"
+ },
+ {
+  "label": "cannot read facility file (existing, omit facility)",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "omit_facility": true,
+   "existing": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read facility file\n",
+  "output": "stale"
+ },
+ {
+  "label": "cannot read facility file (existing, facility is directory)",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "facility_is_directory": true,
+   "existing": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read facility file\n",
+  "output": "stale"
+ },
+ {
+  "label": "cannot read basis table (existing, omit table)",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "omit_table": true,
+   "existing": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read basis table\n",
+  "output": "stale"
+ },
+ {
+  "label": "cannot read basis table (existing, table is directory)",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "table_is_directory": true,
+   "existing": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read basis table\n",
+  "output": "stale"
+ },
+ {
+  "label": "a basis line holding two fields",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "staging": {
+   "existing": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: basis line 5: malformed entry\n",
+  "output": "stale"
+ },
+ {
+  "label": "a basis table naming one identifier twice",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK4 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "staging": {
+   "existing": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: basis line 6: duplicate identifier\n",
+  "output": "stale"
+ },
+ {
+  "label": "a tab where the first space would stand",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate\t500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 4: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a step line with a tab after its key",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep\t2022-02-15 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "an empty step value",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep \n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a rate whose value is one space",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate  \ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 4: bad rate\n",
+  "output": "none"
+ },
+ {
+  "label": "a key the note does not list whose value is one tab",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nmargin \t\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: unknown key\n",
+  "output": "none"
+ },
+ {
+  "label": "a key already given whose value is one space",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nrate  \n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: repeated key\n",
+  "output": "none"
+ },
+ {
+  "label": "a facility file opening with a byte-order mark",
+  "facility": "\u00ef\u00bb\u00bf# desk copy\nfacility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis table opening with a byte-order mark",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "\u00ef\u00bb\u00bf# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 1: malformed entry\n",
+  "output": "none"
+ },
+ {
+  "label": "a basis row repeated word for word",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\nK1 actual 360\n",
+  "status": 1,
+  "stderr": "schedbuild: basis line 9: duplicate identifier\n",
+  "output": "none"
+ },
+ {
+  "label": "two step lines with one date and a third between them",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-10 700\nstep 2022-03-05 800\nstep 2022-02-10 900\n",
+  "status": 1,
+  "stderr": "schedbuild: repeated step date\n",
+  "output": "none"
+ },
+ {
+  "label": "a step outside the term between two inside it",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-10 700\nstep 2030-01-01 800\nstep 2022-03-15 900\n",
+  "status": 1,
+  "stderr": "schedbuild: step out of term\n",
+  "output": "none"
+ },
+ {
+  "label": "a step before the drawdown between two inside the term",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-03-15 700\nstep 2021-12-01 800\nstep 2022-02-10 900\n",
+  "status": 1,
+  "stderr": "schedbuild: step out of term\n",
+  "output": "none"
+ },
+ {
+  "label": "a line fault beats an output that cannot be written [directory]",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nnospace\n",
+  "staging": {
+   "output_is_directory": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "directory"
+ },
+ {
+  "label": "a missing key beats an output that cannot be written [directory]",
+  "facility": "class TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "output_is_directory": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "directory"
+ },
+ {
+  "label": "an incomplete table beats an output that cannot be written [directory]",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\n",
+  "staging": {
+   "output_is_directory": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: basis table incomplete\n",
+  "output": "directory"
+ },
+ {
+  "label": "a malformed basis row beats an output that cannot be written [directory]",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nKA actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "staging": {
+   "output_is_directory": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: basis line 3: malformed entry\n",
+  "output": "directory"
+ },
+ {
+  "label": "a duplicate identifier beats an output that cannot be written [directory]",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK4 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "staging": {
+   "output_is_directory": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: basis line 6: duplicate identifier\n",
+  "output": "directory"
+ },
+ {
+  "label": "a malformed basis row after a repeated pairing beats an output that cannot be written [directory]",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK9 thirty-e 360\nK8 thirty-e 366\n",
+  "staging": {
+   "output_is_directory": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: basis line 9: malformed entry\n",
+  "output": "directory"
+ },
+ {
+  "label": "a bad step beats an output that cannot be written [absent]",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15 700x\n",
+  "staging": {
+   "output": "absent/sched.out"
+  },
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a bad step beats an output that cannot be written [directory]",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15 700x\n",
+  "staging": {
+   "output_is_directory": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "directory"
+ },
+ {
+  "label": "an unknown class beats an output that cannot be written [absent]",
+  "facility": "facility F-TR-0000\nclass FACTOR\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "output": "absent/sched.out"
+  },
+  "status": 1,
+  "stderr": "schedbuild: facility line 2: unknown class\n",
+  "output": "none"
+ },
+ {
+  "label": "an unknown class beats an output that cannot be written [directory]",
+  "facility": "facility F-TR-0000\nclass FACTOR\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "output_is_directory": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: facility line 2: unknown class\n",
+  "output": "directory"
+ },
+ {
+  "label": "a step outside the term beats an output that cannot be written [directory]",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2030-01-01 700\n",
+  "staging": {
+   "output_is_directory": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: step out of term\n",
+  "output": "directory"
+ },
+ {
+  "label": "a repeated step date beats an output that cannot be written [directory]",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-10 700\nstep 2022-02-10 800\n",
+  "staging": {
+   "output_is_directory": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: repeated step date\n",
+  "output": "directory"
+ },
+ {
+  "label": "a term past the calendar beats an output that cannot be written [directory]",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2198-01-31\nperiods 120\nfrequency 1\n",
+  "staging": {
+   "output_is_directory": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: term past the calendar\n",
+  "output": "directory"
+ },
+ {
+  "label": "a facility file that is not there beats an output path that is a directory",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "omit_facility": true,
+   "output_is_directory": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read facility file\n",
+  "output": "directory"
+ },
+ {
+  "label": "a basis table that is not there beats an output path that is a directory",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "omit_table": true,
+   "output_is_directory": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot read basis table\n",
+  "output": "directory"
+ },
+ {
+  "label": "a bad step beats a basis table that is not there",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15 700x\n",
+  "staging": {
+   "omit_table": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a bad step beats an unknown key on a later line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15 700x\nmargin 400\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a bad step beats a malformed basis row",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15 700x\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nKA actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a bad step beats a missing key",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15 700x\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 7: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a bad step beats an incomplete table",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-15 700x\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "an unknown class beats a basis table that is not there",
+  "facility": "facility F-TR-0000\nclass FACTOR\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "omit_table": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: facility line 2: unknown class\n",
+  "output": "none"
+ },
+ {
+  "label": "an unknown class beats an unknown key on a later line",
+  "facility": "facility F-TR-0000\nclass FACTOR\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nmargin 400\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 2: unknown class\n",
+  "output": "none"
+ },
+ {
+  "label": "an unknown class beats a missing key",
+  "facility": "facility F-TR-0000\nclass FACTOR\nadvance 1000000\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 2: unknown class\n",
+  "output": "none"
+ },
+ {
+  "label": "an unknown class beats a malformed basis row",
+  "facility": "facility F-TR-0000\nclass FACTOR\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nKA actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 2: unknown class\n",
+  "output": "none"
+ },
+ {
+  "label": "an unknown class beats an incomplete table",
+  "facility": "facility F-TR-0000\nclass FACTOR\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 2: unknown class\n",
+  "output": "none"
+ },
+ {
+  "label": "a bad reference beats a bad advance on a later line",
+  "facility": "facility F_TR\nclass TRADE\nadvance 0\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad reference\n",
+  "output": "none"
+ },
+ {
+  "label": "a bad reference beats a basis table that is not there",
+  "facility": "facility F_TR\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "omit_table": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: facility line 1: bad reference\n",
+  "output": "none"
+ },
+ {
+  "label": "a period count past 480 beats a bad frequency on a later line",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 481\nfrequency 2\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 6: bad period count\n",
+  "output": "none"
+ },
+ {
+  "label": "a period count past 480 beats a step outside the term",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 481\nfrequency 1\nstep 2099-12-01 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 6: bad period count\n",
+  "output": "none"
+ },
+ {
+  "label": "an output path that is a directory",
+  "facility": "# Plant facility drawn over the turn of the year.\nfacility F-PL-0916\nclass PLANT\nadvance 300000000\nrate 875\ndrawn 2019-12-31\nperiods 8\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nK1 actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "staging": {
+   "output_is_directory": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot write output file\n",
+  "output": "directory"
+ },
+ {
+  "label": "a drawdown on day 32 of March, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-03-32\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown on day 32 of May, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-05-32\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown on day 31 of June, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-06-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown on day 32 of July, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-07-32\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown on day 32 of August, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-08-32\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown on day 32 of October, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-10-32\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown on day 31 of November, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-11-31\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a drawdown on day 32 of December, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-12-32\nperiods 3\nfrequency 1\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 5: bad date\n",
+  "output": "none"
+ },
+ {
+  "label": "a step on day 32 of January, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-01-32 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step on day 30 of February, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-02-30 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step on day 32 of May, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-05-32 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step on day 31 of June, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-06-31 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step on day 32 of July, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-07-32 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step on day 32 of August, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-08-32 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step on day 31 of September, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-09-31 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step on day 32 of October, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-10-32 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step on day 31 of November, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-11-31 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step on day 32 of December, one past its last",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nstep 2022-12-32 700\n",
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: bad step\n",
+  "output": "none"
+ },
+ {
+  "label": "a step on the period-end day in March 1996, at the facility's own rate",
+  "facility": "# Trade facility drawn on the leap day of a year in the nineties.\nfacility F-TR-2960\nclass TRADE\nadvance 4500000\nrate 875\ndrawn 1996-02-29\nperiods 13\nfrequency 1\nstep 1996-03-29 875\n",
+  "status": 0,
+  "stderr": "",
+  "output": "schedule:garsdale"
+ },
+ {
+  "label": "a step on the period-end day in April 1996, at the facility's own rate",
+  "facility": "# Trade facility drawn on the leap day of a year in the nineties.\nfacility F-TR-2960\nclass TRADE\nadvance 4500000\nrate 875\ndrawn 1996-02-29\nperiods 13\nfrequency 1\nstep 1996-04-29 875\n",
+  "status": 0,
+  "stderr": "",
+  "output": "schedule:garsdale"
+ },
+ {
+  "label": "a step on the period-end day in May 1996, at the facility's own rate",
+  "facility": "# Trade facility drawn on the leap day of a year in the nineties.\nfacility F-TR-2960\nclass TRADE\nadvance 4500000\nrate 875\ndrawn 1996-02-29\nperiods 13\nfrequency 1\nstep 1996-05-29 875\n",
+  "status": 0,
+  "stderr": "",
+  "output": "schedule:garsdale"
+ },
+ {
+  "label": "a step on the period-end day in June 1996, at the facility's own rate",
+  "facility": "# Trade facility drawn on the leap day of a year in the nineties.\nfacility F-TR-2960\nclass TRADE\nadvance 4500000\nrate 875\ndrawn 1996-02-29\nperiods 13\nfrequency 1\nstep 1996-06-29 875\n",
+  "status": 0,
+  "stderr": "",
+  "output": "schedule:garsdale"
+ },
+ {
+  "label": "a step on the period-end day in July 1996, at the facility's own rate",
+  "facility": "# Trade facility drawn on the leap day of a year in the nineties.\nfacility F-TR-2960\nclass TRADE\nadvance 4500000\nrate 875\ndrawn 1996-02-29\nperiods 13\nfrequency 1\nstep 1996-07-29 875\n",
+  "status": 0,
+  "stderr": "",
+  "output": "schedule:garsdale"
+ },
+ {
+  "label": "a step on the period-end day in August 1996, at the facility's own rate",
+  "facility": "# Trade facility drawn on the leap day of a year in the nineties.\nfacility F-TR-2960\nclass TRADE\nadvance 4500000\nrate 875\ndrawn 1996-02-29\nperiods 13\nfrequency 1\nstep 1996-08-29 875\n",
+  "status": 0,
+  "stderr": "",
+  "output": "schedule:garsdale"
+ },
+ {
+  "label": "a step on the period-end day in September 1996, at the facility's own rate",
+  "facility": "# Trade facility drawn on the leap day of a year in the nineties.\nfacility F-TR-2960\nclass TRADE\nadvance 4500000\nrate 875\ndrawn 1996-02-29\nperiods 13\nfrequency 1\nstep 1996-09-29 875\n",
+  "status": 0,
+  "stderr": "",
+  "output": "schedule:garsdale"
+ },
+ {
+  "label": "a step on the period-end day in October 1996, at the facility's own rate",
+  "facility": "# Trade facility drawn on the leap day of a year in the nineties.\nfacility F-TR-2960\nclass TRADE\nadvance 4500000\nrate 875\ndrawn 1996-02-29\nperiods 13\nfrequency 1\nstep 1996-10-29 875\n",
+  "status": 0,
+  "stderr": "",
+  "output": "schedule:garsdale"
+ },
+ {
+  "label": "a step on the period-end day in November 1996, at the facility's own rate",
+  "facility": "# Trade facility drawn on the leap day of a year in the nineties.\nfacility F-TR-2960\nclass TRADE\nadvance 4500000\nrate 875\ndrawn 1996-02-29\nperiods 13\nfrequency 1\nstep 1996-11-29 875\n",
+  "status": 0,
+  "stderr": "",
+  "output": "schedule:garsdale"
+ },
+ {
+  "label": "a step on the period-end day in December 1996, at the facility's own rate",
+  "facility": "# Trade facility drawn on the leap day of a year in the nineties.\nfacility F-TR-2960\nclass TRADE\nadvance 4500000\nrate 875\ndrawn 1996-02-29\nperiods 13\nfrequency 1\nstep 1996-12-29 875\n",
+  "status": 0,
+  "stderr": "",
+  "output": "schedule:garsdale"
+ },
+ {
+  "label": "a step on the period-end day in January 1997, at the facility's own rate",
+  "facility": "# Trade facility drawn on the leap day of a year in the nineties.\nfacility F-TR-2960\nclass TRADE\nadvance 4500000\nrate 875\ndrawn 1996-02-29\nperiods 13\nfrequency 1\nstep 1997-01-29 875\n",
+  "status": 0,
+  "stderr": "",
+  "output": "schedule:garsdale"
+ },
+ {
+  "label": "a step on the period-end day in February 1997, at the facility's own rate",
+  "facility": "# Trade facility drawn on the leap day of a year in the nineties.\nfacility F-TR-2960\nclass TRADE\nadvance 4500000\nrate 875\ndrawn 1996-02-29\nperiods 13\nfrequency 1\nstep 1997-02-28 875\n",
+  "status": 0,
+  "stderr": "",
+  "output": "schedule:garsdale"
+ },
+ {
+  "label": "the facility file given again as the output path, refused for a facility line at fault",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nnospace\n",
+  "staging": {
+   "names": [
+    0,
+    1,
+    0
+   ]
+  },
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "facility"
+ },
+ {
+  "label": "the facility file given again as the output path, refused for a basis line at fault",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nKA actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "staging": {
+   "names": [
+    0,
+    1,
+    0
+   ]
+  },
+  "status": 1,
+  "stderr": "schedbuild: basis line 3: malformed entry\n",
+  "output": "facility"
+ },
+ {
+  "label": "the facility file given again as the output path, refused for a key standing on no line",
+  "facility": "class TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "names": [
+    0,
+    1,
+    0
+   ]
+  },
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "facility"
+ },
+ {
+  "label": "the facility file given again as the output path, refused for an output that cannot be written",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "names": [
+    0,
+    1,
+    0
+   ],
+   "output_directory_unwritable": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot write output file\n",
+  "output": "facility"
+ },
+ {
+  "label": "the basis table given again as the output path, refused for a facility line at fault",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\nnospace\n",
+  "staging": {
+   "names": [
+    0,
+    1,
+    1
+   ]
+  },
+  "status": 1,
+  "stderr": "schedbuild: facility line 8: malformed entry\n",
+  "output": "table"
+ },
+ {
+  "label": "the basis table given again as the output path, refused for a basis line at fault",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "table": "# Calderbank Commercial Finance, accrual basis table, issue 7.\n# Retired identifiers are not reused, which is why the numbering has gaps.\nKA actual 360\nK2 actual 365\nK4 thirty-us 360\nK5 thirty-us 365\nK7 thirty-e 360\nK8 thirty-e 365\n",
+  "staging": {
+   "names": [
+    0,
+    1,
+    1
+   ]
+  },
+  "status": 1,
+  "stderr": "schedbuild: basis line 3: malformed entry\n",
+  "output": "table"
+ },
+ {
+  "label": "the basis table given again as the output path, refused for a key standing on no line",
+  "facility": "class TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "names": [
+    0,
+    1,
+    1
+   ]
+  },
+  "status": 1,
+  "stderr": "schedbuild: missing key\n",
+  "output": "table"
+ },
+ {
+  "label": "the basis table given again as the output path, refused for an output that cannot be written",
+  "facility": "facility F-TR-0000\nclass TRADE\nadvance 1000000\nrate 500\ndrawn 2022-01-31\nperiods 3\nfrequency 1\n",
+  "staging": {
+   "names": [
+    0,
+    1,
+    1
+   ],
+   "output_directory_unwritable": true
+  },
+  "status": 1,
+  "stderr": "schedbuild: cannot write output file\n",
+  "output": "table"
+ }
+]

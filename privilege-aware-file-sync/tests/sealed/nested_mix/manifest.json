@@ -1,0 +1,31 @@
+{
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b"
+    },
+    {
+      "content": "c\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "a/b/c.txt"
+    },
+    {
+      "kind": "symlink",
+      "path": "a/link",
+      "target": "b/c.txt"
+    },
+    {
+      "content": "z\n",
+      "kind": "file",
+      "mode": 457,
+      "path": "z.txt"
+    }
+  ]
+}

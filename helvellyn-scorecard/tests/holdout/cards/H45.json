@@ -1,0 +1,32 @@
+{
+  "bin_count": 8,
+  "card_id": "H45",
+  "classes": [
+    "ash",
+    "hazel"
+  ],
+  "min_conf_bp": 3000,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h45-0",
+          "label": "hazel",
+          "p_bp": {
+            "ash": 7300,
+            "hazel": 2700
+          }
+        },
+        {
+          "example_id": "h45-1",
+          "label": "hazel",
+          "p_bp": {
+            "ash": 6900,
+            "hazel": 3100
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+name = "helvellyn-scorecard-folder"
+artifacts = ["/app"]
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+category = "ML"
+subcategory = "Evaluation"
+tags = ["average-precision", "calibration", "ece", "scorecard", "interpolation"]
+languages = ["python"]
+difficulty = "advanced"
+expert_time_estimate_hours = 10
+difficulty_explanation = "An evaluation engineer must finish SMF-2026 so labeled scorecards fold into average precision and expected calibration error. Class posteriors arrive as basis-point masses. The pack recovers a unique 6-tuple (interpolant, placement, mean confidence, survival, prediction tie, ranking tie) from worked examples. Live cards apply that tuple in full; frozen cards lock survival/placement/mean/prediction-tie to max/max/max/earliest while still using the pack interpolant and ranking-tie member. Manifest weights feed half-even pack pools in summary.json without changing per-card metrics; invalid weights reject the card before the file is folded. Macro AP walks classes in document order. A scorer that brute-forces the 6-tuple but applies it uniformly to frozen cards, that sorts class names before macro averaging, that omits pack pools or weight fields, or that freezes ranking ties on frozen cards, writes a plausible primary ledger and still misses sealed holdout cards. Card and worked-example fixtures are synthetic hand-authored JSON, not production logs."
+solution_explanation = "The oracle installs a SMF-faithful /app/fold.py. It recovers the unique 6-tuple from --spec worked examples (folded as live), reads manifest weights (default 1; invalid weight yields reject_schema with weight 0), parses optional mode live/frozen, applies effective members per card, ranks with the recovered ranking-tie member, averages AP in document class order, writes weight on every folds.jsonl row, and emits summary pools as half-even weighted means over ok cards only with fixed key order ap_pool_micro_u/by_disposition/card_count/ece_pool_micro_u/ok_count."
+verification_explanation = "The separate verifier compares staged and holdout ledgers including weight fields and pack pools, checks key orders on delivered and fresh output, grades frozen-mode survival locks, document-order macro cards, invalid mode and invalid weight rejects, and replays independent --spec 6-tuples. Thirty-one automated tests drive a binary reward with no partial credit."
+relevant_experience = "I build evaluation harnesses and calibration scorecards for multiclass ranking systems with pack-level pooling and per-card scoring profiles recovered from sealed example cards."
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 7200
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240

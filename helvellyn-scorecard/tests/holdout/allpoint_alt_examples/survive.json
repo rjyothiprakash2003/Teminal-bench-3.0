@@ -1,0 +1,44 @@
+{
+  "ap_micro_u": 1000000,
+  "card": {
+    "bin_count": 4,
+    "card_id": "SURV",
+    "classes": [
+      "oak",
+      "pine"
+    ],
+    "min_conf_bp": 7000,
+    "slices": [
+      {
+        "slice_id": "s0",
+        "rows": [
+          {
+            "example_id": "a",
+            "label": "oak",
+            "p_bp": {
+              "oak": 2000,
+              "pine": 8000
+            }
+          },
+          {
+            "example_id": "b",
+            "label": "pine",
+            "p_bp": {
+              "oak": 1000,
+              "pine": 9000
+            }
+          },
+          {
+            "example_id": "c",
+            "label": "oak",
+            "p_bp": {
+              "oak": 7500,
+              "pine": 2500
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "ece_micro_u": 150000
+}

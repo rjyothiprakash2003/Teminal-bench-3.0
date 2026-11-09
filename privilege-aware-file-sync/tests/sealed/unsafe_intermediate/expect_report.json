@@ -1,0 +1,15 @@
+{
+  "copied": [
+    ""
+  ],
+  "skipped": [
+    {
+      "path": "sub",
+      "reason": "type conflict"
+    },
+    {
+      "path": "sub/nested.txt",
+      "reason": "unsafe"
+    }
+  ]
+}

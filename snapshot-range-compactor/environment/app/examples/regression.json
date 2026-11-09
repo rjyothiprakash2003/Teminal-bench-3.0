@@ -1,0 +1,38 @@
+{
+  "latest": 40,
+  "snapshots": [
+    23
+  ],
+  "tables": [
+    {
+      "points": [
+        {
+          "key": "6374722f61",
+          "seq": 29,
+          "kind": "merge",
+          "value": 17
+        },
+        {
+          "key": "6374722f61",
+          "seq": 23,
+          "kind": "merge",
+          "value": -4
+        },
+        {
+          "key": "6374722f61",
+          "seq": 11,
+          "kind": "put",
+          "value": 31
+        }
+      ],
+      "ranges": [
+        {
+          "start": "6374722f61",
+          "end": "6374722f63",
+          "seq": 26
+        }
+      ]
+    }
+  ],
+  "lower": []
+}

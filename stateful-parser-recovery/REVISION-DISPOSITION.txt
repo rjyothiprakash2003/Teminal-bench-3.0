@@ -1,0 +1,43 @@
+Quality Panel revision round 17 (Prompt B) — disposition
+
+FILL IN FIRST
+  The task tree: /Users/jyothiprakash629/Downloads/v3/stateful-parser-recovery
+  The return file: pasted Quality Panel return (1 PGT MAJOR + 1 SV MAJOR + 3 SV MINOR)
+  What the last packaged version number was: flat zip ../stateful-parser-recovery.zip
+    mtime Oct 3 03:26 (post spr-qp16). No numeric package field in task.toml.
+
+Package state before edits: citations resolve (s03b = example bytes; dup fixtures
+change payload; no U+1680; NEL only blank/edges; s90a success-only at 2000).
+None of the five already cured. No REVISION NOTES / QC FAIL beyond panel +
+Pre-Difficulty Gate.
+
+Scope (all MAKE IT TRUE — load-bearing or cheap enforcement of existing page):
+1. PGT — second success site must not clone examples/simple (keep ≥2 ok sites).
+2. SV — DUP is unconditional name collision; identical payload earns fixtures.
+3–5. SV MINOR — page already promises str.strip / LF physical lines / line
+   numbers; add the charged distinguishing sources (not new page sentences).
+
+1. [PGT] MAKE IT TRUE — tests/test_outputs.py test_visible_ok_simple_second_site
+   s03b now `open UNIT cell / bind VAL n 7 / use n` (≠ demo/answer/42 example).
+   Both-sides: example-byte replay no longer matches s03b expect; ref ok.
+
+2. [SV] MAKE IT TRUE — r45a identical `bind VAL x 1` twice → dup@3;
+   r45b identical `bind ALIAS a missing` twice → dup@3.
+   Both-sides: idempotent same-(kind,payload) skip → ok; ref dup@3.
+
+3. [SV] MAKE IT TRUE — r46a `\u1680\n` → empty ok (OGHAM SPACE MARK).
+   Both-sides: manual WS set omitting U+1680 → form@1; ref ok.
+
+4. [SV] MAKE IT TRUE — r47a `open UNIT r\u0085end UNIT\n` → form@1.
+   Both-sides: splitlines() → ok; ref form@1 on one physical line.
+
+5. [SV] MAKE IT TRUE — r48a 1999 blank + nope → form@2000; r48b form@1999
+   in a 2000-line file.
+   Both-sides: 8-bit line trunc → 208 on r48a; ref line 2000.
+
+No QUILL.md / instruction / explanation edits.
+
+Harbor: spr-qp17-oracle3 Mean 1.000 (3/3 Reward 1.0); spr-qp17-nop Mean 0.000
+(Reward 0.0). Flat zip ../stateful-parser-recovery.zip rebuilt excluding design/
+and REVISION-DISPOSITION.txt.
+Companion: design/qp17-audit-sitting.md, design/qp17-axes-table.md

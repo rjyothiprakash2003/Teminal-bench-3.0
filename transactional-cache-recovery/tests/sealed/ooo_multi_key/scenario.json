@@ -1,0 +1,76 @@
+{
+  "steps": [
+    {
+      "op": "begin",
+      "txn": "a"
+    },
+    {
+      "op": "put",
+      "txn": "a",
+      "key": "k1",
+      "value": "A",
+      "expected": 0
+    },
+    {
+      "op": "put",
+      "txn": "a",
+      "key": "k2",
+      "value": "B",
+      "expected": 0
+    },
+    {
+      "op": "commit",
+      "txn": "a",
+      "op_id": "m1"
+    },
+    {
+      "op": "begin",
+      "txn": "b"
+    },
+    {
+      "op": "begin",
+      "txn": "c"
+    },
+    {
+      "op": "put",
+      "txn": "c",
+      "key": "k1",
+      "value": "C1",
+      "expected": 1
+    },
+    {
+      "op": "put",
+      "txn": "c",
+      "key": "k2",
+      "value": "C2",
+      "expected": 1
+    },
+    {
+      "op": "commit",
+      "txn": "c",
+      "op_id": "m3"
+    },
+    {
+      "op": "put",
+      "txn": "b",
+      "key": "k1",
+      "value": "B1",
+      "expected": 1
+    },
+    {
+      "op": "put",
+      "txn": "b",
+      "key": "k2",
+      "value": "B2",
+      "expected": 1
+    },
+    {
+      "op": "commit",
+      "txn": "b",
+      "op_id": "m2"
+    },
+    {
+      "op": "snapshot"
+    }
+  ]
+}

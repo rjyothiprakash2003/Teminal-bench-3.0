@@ -1,0 +1,11 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "f.txt": {
+    "content_hex": "66726573680a",
+    "kind": "file",
+    "mode": 420
+  }
+}

@@ -1,0 +1,8 @@
+stopwords
+begin
+add api-1 GET /health returned 200 in 3ms
+add api-2 POST /login returned 500 after retry
+commit
+query 0 0 returned 500
+query 1 0 health returned
+query 0 0 login

@@ -1,0 +1,296 @@
+Calderbank Commercial Finance
+Servicing note SN-208, revision 4, issued to the servicing desk and to whoever
+maintains the schedule builder.
+
+This note is the authority for the accrual schedule. Every field, every figure,
+every refusal and every other rule set out below is binding on the builder.
+Where a desk procedure and this note disagree, this note is followed.
+
+Why the schedule matters. A facility is drawn down once and repaid over a fixed
+number of periods. The borrower receives one schedule at drawdown and the
+servicing ledger is posted from it for the whole term, so the schedule is the
+record both sides work from. A schedule that is a penny out is a schedule the
+desk has to reissue, and a reissue after the first posting is a customer
+complaint. The figures are kept in pence throughout and never in pounds, because
+a pound figure carried through a term of forty periods loses the carried
+fractions the borrower is entitled to.
+
+1.1 The builder takes exactly three operands, in this order: the path of the
+facility file, the path of the basis table, and the path of the schedule it is
+to write.
+
+1.2 When the operand count is anything other than three the builder writes the
+single line "schedbuild: usage: schedbuild <facility-file> <basis-table>
+<output-file>" to standard error, writes nothing to standard output, exits
+with status 2, and writes no output file.
+
+1.3 A run that completes writes the schedule to the output path, writes nothing
+at all to standard output or to standard error, and exits with status 0.
+
+1.4 A run that is refused writes exactly one diagnostic line to standard error,
+writes nothing to standard output, exits with status 1, and creates no output
+file.
+
+1.5 A diagnostic that belongs to a line of the facility file is written as
+"schedbuild: facility line N: reason". One that belongs to a line of the basis
+table is written as "schedbuild: basis line N: reason". One that belongs to the
+work as a whole is written as "schedbuild: reason". In the first two forms N is
+the position of the line in its own file, counted from one, with ignored lines
+counted. The reasons are the exact phrases listed in 10.2. Eight of them belong
+to the work as a whole and are never written with a line number: "cannot read
+facility file", "cannot read basis table", "basis table incomplete", "missing
+key", "step out of term", "repeated step date", "term past the calendar" and
+"cannot write output file". That holds even where a step line or another line of
+the facility file gave rise to the fault. Every other reason belongs to the line
+that carries the fault.
+
+1.6 The schedule is the only file a run leaves behind. However a run ended of
+its own accord, by completing, by being refused or by being turned away over the
+operand count, no file and no directory it made still stands once it has ended,
+the schedule written by a run that completes aside, and where it was made makes
+no difference: beside the output path, in the directory the builder was started
+in, or wherever the system puts its temporary files. A builder that stages its
+work in a file of its own removes that file before the run ends. Where no
+directory stands above the output path the builder does not make one. A run
+destroyed from outside, by a signal no program can take, has not ended of its
+own accord, and this paragraph does not reach what it leaves.
+
+1.7 The file at the output path is the only thing a run changes. Whatever else
+stood when the run began stands unchanged when the run ends, whether it
+completed or was refused: the files the builder was given to read, anything else
+filed in the directory the schedule is written to, and anything standing in the
+directories around them. A file or a directory stands unchanged when its contents,
+permission mode, owning user ID (UID), and owning group ID (GID) are all as they
+were. User ownership and group ownership must each be preserved independently.
+
+Where one path is given for more than one operand it is the output path, whether
+it is the facility file or the basis table that is named again, and 1.3, 1.4 and
+9.5 govern what stands there. A path given as both of the files to be read is
+read twice, in the order 10.1 reads them in.
+
+1.8 The output path never carries part of a schedule. At every moment of a run,
+and after a run destroyed from outside as well, that path carries what it
+carried before the run began, or carries nothing where nothing stood there, or
+carries the whole of the schedule the run writes. A builder that writes the
+schedule over the output path itself cannot keep this, because a write that
+stops partway leaves half a schedule where the desk expects a whole one.
+
+2.1 Both input files are read as byte streams. A line ends at a line feed, and
+the last line of a file may end at the end of the file instead. A line that
+holds no bytes, and a line whose first byte is a number sign, is ignored. Every
+other line is significant.
+
+2.2 A significant line of the facility file is read by finding its first space.
+The bytes before that space are the key and the bytes after it are the value.
+A key is one to twelve bytes and each of its bytes is a lower case letter a to
+z. Where a significant line holds no space, or its key is not written that way,
+or its value holds no bytes, the reason is "malformed entry".
+
+2.3 The keys the builder accepts are facility, class, advance, rate, drawn,
+periods, frequency and step. A significant line carrying any other key is
+refused with the reason "unknown key".
+
+2.4 Each of facility, class, advance, rate, drawn, periods and frequency stands
+on exactly one significant line. A second line carrying one of them is refused
+with the reason "repeated key", reported against the later line. A key of those
+seven that stands on no significant line is refused with the reason "missing
+key". The key step may stand on any number of significant lines, including
+none.
+
+3.1 The value of facility is one to sixteen bytes, and each of its bytes is a
+capital letter A to Z, a digit 0 to 9 or a hyphen. Any other value is refused
+with the reason "bad reference".
+
+3.2 The value of class is one of BRIDGE, INVOICE, PLANT, TRADE and WORKING. Any
+other value is refused with the reason "unknown class".
+
+3.3 The value of advance is the amount drawn down, in pence. It is one to ten
+decimal digits, it carries no leading zero, and its value is at least 1. Any
+other value is refused with the reason "bad advance".
+
+3.4 The value of rate is the annual rate in basis points, one basis point being
+one hundredth of one per cent. It is one to five decimal digits, it carries no
+leading zero unless it is the single digit 0, and its value is at most 20000.
+Any other value is refused with the reason "bad rate".
+
+3.5 A date is written as ten bytes, four digits then a hyphen then two digits
+then a hyphen then two digits, giving the year, the month and the day. The year
+is at least 1970 and at most 2199, the month is at least 1 and at most 12, and
+the day is at least 1 and at most the number of days that month has in that
+year. A year has a twenty-ninth of February when, and only when, the year is
+divisible by four.
+
+3.6 The value of drawn is the date of the drawdown. A value that is not a date
+as 3.5 writes one is refused with the reason "bad date".
+
+3.7 The value of periods is the number of accrual periods. It is one to three
+decimal digits, it carries no leading zero, and its value is at least 1 and at
+most 480. Any other value is refused with the reason "bad period count".
+
+3.8 The value of frequency is the number of months in one accrual period. It is
+one of 1, 3, 6 and 12. Any other value is refused with the reason "bad
+frequency".
+
+3.9 The value of step is a date, then one space, then a rate, each written as
+3.5 and 3.4 write them. Any other value is refused with the reason "bad step".
+
+4.1 The basis table names the accrual bases the desk recognises. A significant
+line of it holds three fields with one space between each pair of them: the
+identifier of the basis, then its day rule, then its year length. The identifier
+is two bytes, a capital letter A to Z then a digit 0 to 9. The day rule is one
+of actual, thirty-us and thirty-e. The year length is 360 or 365. A significant
+line that is not written that way is refused with the reason "malformed entry".
+
+4.2 An identifier that has already stood on an earlier significant line is
+refused with the reason "duplicate identifier", reported against the later line.
+
+4.3 There are six pairings of a day rule with a year length. The table holds one
+line for each of them and no other significant line. A table that does not is
+refused with the reason "basis table incomplete".
+
+5.1 Every facility class is accrued on one pairing of a day rule with a year
+length, and the same pairing every time. This note does not list which pairing
+belongs to which class. The settled facilities under /app/settled are the
+complete authoritative record of that mapping: the builder recovers each class's
+pairing from those schedules and applies that same pairing to every facility of
+that class.
+
+5.2 The identifier of a basis is a label the table gives it and is not a
+property of the pairing. The builder takes the pairing for the facility's class
+and reports the identifier the table in front of it gives that pairing.
+
+6.1 Period k, counting from one, ends on the day of the month of the drawdown
+date, in the month that stands k times the frequency months after the month of
+the drawdown date. Where that month has no such day the period ends on the last
+day of that month.
+
+6.2 The first period begins on the drawdown date. Each later period begins on
+the day the period before it ended.
+
+6.3 Where the last period would end after 2199-12-31 the work is refused with
+the reason "term past the calendar".
+
+6.4 The day count of a span from one date to a later date is taken by the day
+rule of the facility's basis, and the three day rules count as follows. Call the
+year, the month and the day of the first date Y1, M1 and D1, and those of the
+second date Y2, M2 and D2.
+
+6.5 Under actual the count is the number of days from the first date to the
+second.
+
+6.6 Under thirty-us, where D1 is 31 it is taken as 30; then, where D2 is 31 and
+D1 is now 30, D2 is taken as 30. The count is 360 times Y2 less Y1, plus 30
+times M2 less M1, plus D2 less D1.
+
+6.7 Under thirty-e, where D1 is 31 it is taken as 30, and separately, where D2
+is 31 it is taken as 30. The count is formed from the adjusted figures as 6.6
+forms it.
+
+7.1 The balance at the start of the first period is the advanced amount.
+
+7.2 The principal repaid in a period is the advanced amount divided by the
+period count, with the remainder of that division disregarded. In the last
+period the principal repaid is that figure with the remainder of that division
+added to it.
+
+7.3 The balance at the start of a period after the first is the balance at the
+start of the period before it, less the principal repaid in that earlier period.
+The principal repaid in a period is not taken off the balance that period is
+accrued on.
+
+7.4 The periods are accrued in turn from the first to the last. The accrual of a
+period is its balance at the start of the period, multiplied by the rate in
+force, multiplied by the day count of the period, with the remainder carried out
+of the period before it added to the product. Section 8 says what is done
+instead where a rate changes inside a period.
+
+7.5 The interest of a period is its accrual divided by ten thousand times the
+year length of the facility's basis, with the remainder of that division
+disregarded. That remainder is the remainder carried out of the period. Where
+the day rule is actual and the year length of the pairing is 365, and the
+twenty-ninth of February of a leap year stands on the span this division is
+taken over, including when that day is the first date or the second date of the
+span, the year length used in the division is 366.
+
+7.6 The remainder carried into the first period is zero. The remainder carried
+out of the last period is not paid and is not reported.
+
+8.1 A step line fixes the rate that applies from its date. The rate in force
+over a span is the rate of the latest step whose date stands at or before the
+first date of the span, and is the rate of 3.4 where no step date stands at or
+before it.
+
+8.2 Every step date stands after the drawdown date and before the end of the
+last period. A step date outside that span is refused with the reason "step out
+of term". Two step lines carrying the same date are refused with the reason
+"repeated step date". By 1.5 both belong to the work as a whole, so they are
+written "schedbuild: step out of term" and "schedbuild: repeated step date",
+with no facility line number.
+
+8.3 A period inside which one or more step dates fall, meaning after the start
+of the period and before its end, is accrued in parts. The first part runs from
+the start of the period to the earliest such step date, each further part runs
+from one such step date to the next, and the last part runs from the last such
+step date to the end of the period.
+
+8.4 Each part carries its own day count, taken by 6.4 over the two dates of that
+part, and its own rate in force, taken by 8.1 over that part. Each part is
+accrued from the balance at the start of the period, multiplied by the rate in
+force over the part and by the day count of the part. The remainder carried out
+of the period before it is added to the accrual of the first part and to no
+other part. The interest of each part follows from 7.5 on that part's accrual.
+The remainder 7.5 takes from a part that is not the last part of the period is
+disregarded and is not carried into the next part of that period. The remainder
+of the last part is the remainder carried out of the period. The interest of
+the period is the sum of the interest of its parts.
+
+8.5 The day count the schedule reports for a period accrued in parts is the sum
+of the day counts of its parts.
+
+9.1 The schedule is written as text. Every line of it, the last one included,
+ends in a line feed. No line carries any byte other than the ones 9.2 to 9.4
+place in it.
+
+9.2 The first line reads SCHEDULE, then one space, then the value of facility,
+then one space, then the value of class, then one space, then the identifier of
+the facility's basis, then one space, then the period count written as three
+digits with leading zeros.
+
+9.3 One line follows for each period, in order from the first to the last. It
+carries the number of the period written as four digits with leading zeros, the
+date the period began and the date it ended, each written as 3.5 writes a date,
+the day count of the period written as six digits with leading zeros, the balance at the start of the period, the
+interest of the period, and the principal repaid in the period, each of the last
+three written as fifteen digits with leading zeros and in pence, with one space
+between each pair of fields.
+
+9.4 The last line reads TOTAL, then one space, then the sum of the interest of
+every period, then one space, then the sum of the principal repaid in every
+period, each written as fifteen digits with leading zeros.
+
+9.5 Where a file already stands at the output path a run that completes replaces
+it. A run that is refused leaves it as it stands, whichever of the rules in 10.1
+raised the refusal. By 1.6 nothing else is added to the directory that holds it
+and by 1.7 nothing else standing there is changed.
+
+9.6 Two runs from the same facility file and the same basis table write the same
+bytes.
+
+10.1 The work is checked in the order set out here and the first fault found
+decides the diagnostic: the facility file cannot be opened or read; the
+significant lines of the facility file, from the first to the last, the first
+line carrying a fault deciding; the basis table cannot be opened or read; the
+significant lines of the basis table, from the first to the last; the table does
+not hold the six pairings of 4.3; a key of 2.4 stands on no significant line; a
+step date lies outside the span of 8.2; two step lines carry one date; the last
+period ends past the date of 6.3; the output file cannot be written. Within one
+significant line of the facility file the checks run in this order: the shape of
+2.2, the key of 2.3, the repetition of 2.4, and then the rule the value must
+satisfy. Within one significant line of the basis table the rule of 4.1 is
+checked before the repetition of 4.2.
+
+10.2 The reasons, and no others, are: cannot read facility file; cannot read
+basis table; malformed entry; unknown key; repeated key; missing key; bad
+reference; unknown class; bad advance; bad rate; bad date; bad period count; bad
+frequency; bad step; duplicate identifier; basis table incomplete; step out of
+term; repeated step date; term past the calendar; cannot write output file.

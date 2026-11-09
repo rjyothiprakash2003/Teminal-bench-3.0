@@ -1,0 +1,53 @@
+stopwords
+begin
+add d2  Abc)fill  full.code
+commit
+begin
+add e-x retry(link.full/code
+add e-x  nodes/disk_cache, timeout=nodes aip, cpu, link
+add d10 disk full_full DUSK
+delete e-x
+add a error LINK:auth=ack akc, ack_fill/eror
+commit
+query 1 2 retry ack host node
+begin
+add d2 ABC=code desk, poll=full=ca
+add d10 abc full AIP)akc99, cup uath=disk/hosts Eror
+append d10 API21)ack
+rollback
+begin
+append d2 up(auth nodes
+append d2 eror, auth
+add c DESK full ca42.node/aip dusk_out  Hosts
+delete d-1
+delete f
+commit
+begin
+commit
+query 8 1 abc eror
+begin
+add f Link-cup.cpu
+delete e-x
+commit
+begin
+delete f
+append d10 code DOWN_POOL(desk Auth hosts
+add d10 disk=down dusk-DISK/timeout time/TIMEOUT
+commit
+query 9 0 up time cpu up
+query 1 0 ack poll
+query 8 1 aip disk
+begin
+add b  down
+delete b
+add d10  host:cup-AKC
+append d2 hosts
+add d2 time cup
+rollback
+query 7 0 akc cache
+query 5 0 code pool
+begin
+add f miss/MISS.HOSTS out
+commit
+query 5 1 node cup nodes ack
+query 7 0 akc

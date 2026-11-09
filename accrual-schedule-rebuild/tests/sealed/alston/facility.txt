@@ -1,0 +1,10 @@
+# Bridge facility taken quarterly, with one rate change.
+facility B-7702-AL
+class BRIDGE
+advance 125000077
+rate 1375
+drawn 2023-11-30
+periods 5
+frequency 3
+step 2024-02-15 18500
+

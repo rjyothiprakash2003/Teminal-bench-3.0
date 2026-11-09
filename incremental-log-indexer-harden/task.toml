@@ -1,0 +1,32 @@
+name = "incremental-log-indexer"
+artifacts = ["/app/logindex/"]
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+category = "Software"
+subcategory = "Databases"
+tags = ["inverted-index", "phrase-search", "edit-distance", "transactions", "golang"]
+languages = ["go"]
+difficulty = "advanced"
+expert_time_estimate_hours = 4
+difficulty_explanation = "The program replays a log journal of batches that commit or roll back, and answers phrase queries with slop and fuzz. Nothing in the notes says how to find a document's distance. The solver must search placements in which each query word takes its own token, and keep the least spread. The fuzz rests on the least number of edits with adjacent swaps, which is the true Damerau-Levenshtein distance; the textbook dynamic program gives a larger answer for pairs such as ca and abc. A stop word holds its position but is never matched, even by a near word, so a program that compares every stored token against a fuzzy word finds false hits."
+solution_explanation = "The oracle copies a Go program into /app/logindex. It replays each batch on a cloned working copy and keeps it only on commit. Each text is split into lowercased runs of letters and digits, and every token keeps its position, with stop words flagged and never matched. Query words keep their positions after stop words drop out. For each document, it lists the candidate tokens within the fuzz, using the unrestricted Damerau-Levenshtein recurrence. Two pointers walk the sorted offsets, and a bipartite matching checks that every query word can take its own token in the window. The least feasible window is the distance."
+verification_explanation = "The verifier copies /app/logindex, builds it with Go 1.24 as an unprivileged account and runs it once per journal on standard input. It requires exit status 0 and byte-exact output, and never reads standard error. Fifteen tests, one for each rule or pair of rules, hold named witness journals written inline with their expected answers. A sixteenth runs thirty held-out journals that are root-only and loaded before the program runs. Expected answers were minted only where the reference and an independent model agree. Every planted wrong program fails a witness named for its rule, and correct programs written independently pass."
+relevant_experience = "I build and review log search pipelines in which batched ingest, rollback and phrase or fuzzy queries meet, and I check search code against independent models and planted wrong programs rather than against its own output."
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 7200
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240

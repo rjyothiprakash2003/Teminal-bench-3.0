@@ -1,0 +1,36 @@
+name = "cross-platform-build-orchestrator"
+artifacts = ["/app/src/orchestrator.py"]
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+category = "Software"
+subcategory = "Systems"
+tags = ["cross-compile", "build", "orchestrator", "targets", "python"]
+languages = ["python"]
+difficulty = "advanced"
+expert_time_estimate_hours = 6
+
+difficulty_explanation = "Build and release engineers who maintain cross-compilation configs, such as CMake toolchain files or Bazel toolchains, do this work when a resolver mishandles inheritance. The shipped orchestrator already handles overlays, profiles and leaf toolchains. The hard part is the post-profile pipeline: Profile extras for rare (os,linker,arch) triples, extends chains expanded into one settings object before override, adjacent-only compaction after Concrete, and a SHA-256 stamp ending in tc or notc. The contract fixes $delete inside an expansion exactly: a root file's expansion is its own keys, so its $delete values reach the target, while a child's $delete is spent on its parents. The common design of folding a chain from an empty object drops the root's $delete and fails those cases."
+
+solution_explanation = "Keep shipped overlay concatenation, arch inject, and base linker profiles. After the profile, Apply any Profile extra for (os,linker,arch). Expand toolchains via extends (parent Apply then child; refuse cycles and missing parents), Apply the expansion before override, Concrete, compact adjacent duplicates only, then stamp with the NUL-joined recipe ending in tc or notc. Refuse bad toolchain members, cycles, and ghosts with refuse: bad toolchain."
+
+verification_explanation = "The separate verifier runs the submitted /app/src/orchestrator.py unprivileged with a 20-second per-run limit. Visible configs decide extends expansion, profile extras, tc/notc stamps, adjacent compact, host isolation, and refusal classes including extends cycles, each at two sites where required. Seventeen sealed configs under /tests/sealed scale stacked extends and arch-extra cases on inputs absent from /app. Expect bytes were minted from the reference. A sandbox probe confirms reward and sealed expects stay unreadable."
+
+relevant_experience = "I build and review cross-compilation pipelines where toolchain inheritance, arch-qualified linker extras, flag compaction, and content stamps interact. I use mutation sweeps that drop extends parents, omit stamp tags, or skip rare profile extras to separate a correct artifact list from one that only matches leaf toolchains."
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 600
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240

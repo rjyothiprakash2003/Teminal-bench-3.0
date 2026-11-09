@@ -1,0 +1,15 @@
+{
+  "src": [
+    {
+      "kind": "fifo",
+      "mode": 420,
+      "path": "pipe"
+    },
+    {
+      "content": "ok\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "ok.txt"
+    }
+  ]
+}

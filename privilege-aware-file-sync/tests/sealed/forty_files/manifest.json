@@ -1,0 +1,244 @@
+{
+  "src": [
+    {
+      "content": "0\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f00.txt"
+    },
+    {
+      "content": "1\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f01.txt"
+    },
+    {
+      "content": "2\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f02.txt"
+    },
+    {
+      "content": "3\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f03.txt"
+    },
+    {
+      "content": "4\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f04.txt"
+    },
+    {
+      "content": "5\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f05.txt"
+    },
+    {
+      "content": "6\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f06.txt"
+    },
+    {
+      "content": "7\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f07.txt"
+    },
+    {
+      "content": "8\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f08.txt"
+    },
+    {
+      "content": "9\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f09.txt"
+    },
+    {
+      "content": "10\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f10.txt"
+    },
+    {
+      "content": "11\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f11.txt"
+    },
+    {
+      "content": "12\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f12.txt"
+    },
+    {
+      "content": "13\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f13.txt"
+    },
+    {
+      "content": "14\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f14.txt"
+    },
+    {
+      "content": "15\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f15.txt"
+    },
+    {
+      "content": "16\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f16.txt"
+    },
+    {
+      "content": "17\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f17.txt"
+    },
+    {
+      "content": "18\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f18.txt"
+    },
+    {
+      "content": "19\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f19.txt"
+    },
+    {
+      "content": "20\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f20.txt"
+    },
+    {
+      "content": "21\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f21.txt"
+    },
+    {
+      "content": "22\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f22.txt"
+    },
+    {
+      "content": "23\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f23.txt"
+    },
+    {
+      "content": "24\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f24.txt"
+    },
+    {
+      "content": "25\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f25.txt"
+    },
+    {
+      "content": "26\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f26.txt"
+    },
+    {
+      "content": "27\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f27.txt"
+    },
+    {
+      "content": "28\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f28.txt"
+    },
+    {
+      "content": "29\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f29.txt"
+    },
+    {
+      "content": "30\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f30.txt"
+    },
+    {
+      "content": "31\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f31.txt"
+    },
+    {
+      "content": "32\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f32.txt"
+    },
+    {
+      "content": "33\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f33.txt"
+    },
+    {
+      "content": "34\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f34.txt"
+    },
+    {
+      "content": "35\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f35.txt"
+    },
+    {
+      "content": "36\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f36.txt"
+    },
+    {
+      "content": "37\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f37.txt"
+    },
+    {
+      "content": "38\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f38.txt"
+    },
+    {
+      "content": "39\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f39.txt"
+    }
+  ]
+}

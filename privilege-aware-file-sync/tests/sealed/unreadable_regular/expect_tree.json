@@ -1,0 +1,16 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "locked": {
+    "content_hex": "6f6c64",
+    "kind": "file",
+    "mode": 420
+  },
+  "ok.txt": {
+    "content_hex": "6f6b0a",
+    "kind": "file",
+    "mode": 420
+  }
+}

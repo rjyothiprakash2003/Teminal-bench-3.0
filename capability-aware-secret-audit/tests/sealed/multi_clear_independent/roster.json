@@ -1,0 +1,30 @@
+{
+  "entries": [
+    {
+      "path": "d/a",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "d/b",
+      "allow_uids": [
+        2001
+      ],
+      "allow_gids": []
+    }
+  ],
+  "subjects": [
+    {
+      "uid": 2001,
+      "gids": [
+        2001
+      ]
+    },
+    {
+      "uid": 2003,
+      "gids": [
+        2002
+      ]
+    }
+  ]
+}

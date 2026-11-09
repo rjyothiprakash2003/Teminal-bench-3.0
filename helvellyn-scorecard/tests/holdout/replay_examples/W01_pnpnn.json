@@ -1,0 +1,26 @@
+{
+  "ap_micro_u": 1000000,
+  "card": {
+    "bin_count": 4,
+    "card_id": "SIMP",
+    "classes": [
+      "oak"
+    ],
+    "min_conf_bp": 0,
+    "slices": [
+      {
+        "slice_id": "s0",
+        "rows": [
+          {
+            "example_id": "e01",
+            "label": "oak",
+            "p_bp": {
+              "oak": 10000
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "ece_micro_u": 0
+}

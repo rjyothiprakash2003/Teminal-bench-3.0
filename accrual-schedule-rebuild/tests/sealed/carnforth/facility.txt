@@ -1,0 +1,9 @@
+# Plant facility at the ceiling rate until a rate holiday.
+facility PL-CARN-19
+class PLANT
+advance 700000001
+rate 20000
+drawn 2019-08-31
+periods 5
+frequency 6
+step 2020-05-05 0

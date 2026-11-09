@@ -1,0 +1,11 @@
+NPG1
+NODE|ember-901|CELL_X11Y0|icg_x8y0|live
+NODE|ember-clear|CELL_X0Y0|icg_x4y0|live
+NODE|ember-edge|CELL_X1Y1|icg_x4y1|live
+NODE|ember-larch|CELL_X4Y4|icg_x4y2|frozen
+NODE|ember-twin|CELL_X9Y9|icg_x6y0|live
+NODE|ember-up|PAD_X1Y1|icg_x5y5|live
+FIND|AREA_REGRESS|ember-edge|6
+FIND|GHOST_MAP|ember-edge|8
+FIND|CLKGT_SPLIT|ember-twin|12
+SEAL|70bb8fd766350b57c4f5f621fe19f962d9a0cfc42ff08daaf432189854dfd0e6

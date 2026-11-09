@@ -1,0 +1,15 @@
+{
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 1005,
+      "path": "s"
+    },
+    {
+      "content": "x\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "s/x.txt"
+    }
+  ]
+}

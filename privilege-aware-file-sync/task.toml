@@ -1,0 +1,70 @@
+name = "privilege-aware-file-sync"
+artifacts = ["/app/src/syncer.py"]
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+category = "Software"
+subcategory = "Systems"
+tags = ["filesystem", "symlinks", "permissions", "sync", "python"]
+languages = ["python"]
+difficulty = "advanced"
+expert_time_estimate_hours = 4
+
+difficulty_explanation = """\
+The hard lever is discovery and metadata without following links: directory \
+symlinks are leaves, file symlinks must be recreated by target string, chmod \
+must never touch a link target, and a destination intermediate that is a link \
+escaping the destination root must be skipped as unsafe. A rebuild that walks \
+with followlinks, materializes link targets as regular files, or chmods through \
+a trap link still fails hidden trees that nest links, type conflicts, and \
+inaccessible directories together. The sealed fixtures are synthetic trees \
+built to isolate those cases rather than captured production dumps. Backup, \
+deployment, and container-build engineers who harden copy paths against \
+symlink escapes do this kind of work in practice.
+"""
+
+solution_explanation = """\
+The oracle installs a SYNC.md-faithful syncer. It walks with lstat only, \
+treats symlinks as leaves, copies regular files through O_NOFOLLOW, recreates \
+symlink target strings with surrogateescape, applies mode bits only to real \
+files and directories, skips type conflicts and unsafe destination \
+intermediates, records inaccessible listings, and writes the sorted JSON \
+report the page names.
+"""
+
+verification_explanation = """\
+The separate verifier snapshots sealed expects into memory, removes them from \
+disk, stages /app/src/syncer.py into an unprivileged sandbox (uid 2000), and \
+runs each invocation with a 20-second limit. Visible literal trees decide \
+symlink-as-leaf, no follow of directory links, mode preservation without \
+touching link targets, unsafe destination intermediates, type conflicts, \
+inaccessible skips, and bad-args refusals at multiple sites. Sealed \
+manifests scale the same rules on inputs absent from /app. Expect bytes were \
+minted where an independent model and the reference agree. Destination reads \
+use lstat and O_NOFOLLOW. A sandbox probe confirms reward and sealed paths \
+stay unreachable.
+"""
+
+relevant_experience = """\
+I build and review filesystem utilities where symlink boundaries, permission \
+bits, and destination escape checks interact. I use independent models and \
+mutation sweeps to separate a correct link-preserving sync from one that \
+only works on plain trees.
+"""
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 7200
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240

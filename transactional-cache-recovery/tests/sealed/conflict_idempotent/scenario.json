@@ -1,0 +1,59 @@
+{
+  "steps": [
+    {
+      "op": "begin",
+      "txn": "t1"
+    },
+    {
+      "op": "put",
+      "txn": "t1",
+      "key": "z",
+      "value": "base",
+      "expected": 0
+    },
+    {
+      "op": "commit",
+      "txn": "t1",
+      "op_id": "z0"
+    },
+    {
+      "op": "begin",
+      "txn": "t2"
+    },
+    {
+      "op": "put",
+      "txn": "t2",
+      "key": "z",
+      "value": "bad",
+      "expected": 0
+    },
+    {
+      "op": "commit",
+      "txn": "t2",
+      "op_id": "zbad"
+    },
+    {
+      "op": "begin",
+      "txn": "t3"
+    },
+    {
+      "op": "put",
+      "txn": "t3",
+      "key": "z",
+      "value": "worse",
+      "expected": 0
+    },
+    {
+      "op": "commit",
+      "txn": "t3",
+      "op_id": "zbad"
+    },
+    {
+      "op": "get",
+      "key": "z"
+    },
+    {
+      "op": "snapshot"
+    }
+  ]
+}

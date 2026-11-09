@@ -1,0 +1,8 @@
+# Trade facility drawn on the leap day of a year in the nineties.
+facility F-TR-2960
+class TRADE
+advance 4500000
+rate 875
+drawn 1996-02-29
+periods 13
+frequency 1

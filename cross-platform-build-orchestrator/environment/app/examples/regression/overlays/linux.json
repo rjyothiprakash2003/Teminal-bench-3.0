@@ -1,0 +1,6 @@
+{
+  "cflags": ["-pthread"],
+  "env": {
+    "OS_TAG": "linux"
+  }
+}

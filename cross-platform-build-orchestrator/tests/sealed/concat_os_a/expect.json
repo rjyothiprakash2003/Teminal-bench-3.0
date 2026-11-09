@@ -1,0 +1,19 @@
+{
+  "artifacts": [
+    {
+      "cflags": [
+        "-O2",
+        "-pthread",
+        "-m64"
+      ],
+      "defines": {},
+      "env": {},
+      "id": "t1",
+      "ldflags": [
+        "-Wl,--hash-style=gnu"
+      ],
+      "stamp": "bd4f22376c846de1a7dfe09c02829d4ba5595d76f0e5d86079739b4f9e5f1060",
+      "triple": "x86_64-linux-bfd"
+    }
+  ]
+}

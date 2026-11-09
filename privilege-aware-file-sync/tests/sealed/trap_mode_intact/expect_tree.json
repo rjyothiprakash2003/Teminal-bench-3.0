@@ -1,0 +1,15 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "ok.txt": {
+    "content_hex": "6f6b0a",
+    "kind": "file",
+    "mode": 420
+  },
+  "trap": {
+    "kind": "symlink",
+    "target": "../extra/secret.dat"
+  }
+}

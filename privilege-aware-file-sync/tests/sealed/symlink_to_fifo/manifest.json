@@ -1,0 +1,14 @@
+{
+  "src": [
+    {
+      "kind": "fifo",
+      "mode": 420,
+      "path": "pipe"
+    },
+    {
+      "kind": "symlink",
+      "path": "probe",
+      "target": "pipe"
+    }
+  ]
+}

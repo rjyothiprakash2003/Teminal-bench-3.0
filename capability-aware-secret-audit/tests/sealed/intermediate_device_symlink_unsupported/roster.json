@@ -1,0 +1,10 @@
+{
+  "entries": [
+    {
+      "path": "alias/child",
+      "allow_uids": [],
+      "allow_gids": []
+    }
+  ],
+  "subjects": []
+}

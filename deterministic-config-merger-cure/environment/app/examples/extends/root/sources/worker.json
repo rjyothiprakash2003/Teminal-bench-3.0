@@ -1,0 +1,8 @@
+{
+  "$extends": [
+    "common"
+  ],
+  "queue": {
+    "name": "work"
+  }
+}

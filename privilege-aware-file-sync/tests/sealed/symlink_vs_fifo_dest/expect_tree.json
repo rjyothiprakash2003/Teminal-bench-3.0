@@ -1,0 +1,10 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "item": {
+    "kind": "fifo",
+    "mode": 420
+  }
+}

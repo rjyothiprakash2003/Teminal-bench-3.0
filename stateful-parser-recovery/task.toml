@@ -1,0 +1,36 @@
+name = "stateful-parser-recovery"
+artifacts = ["/app/src/quill.py"]
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+category = "Software"
+subcategory = "Systems"
+tags = ["parser", "fault-recovery", "nested-scopes", "bindings", "python"]
+languages = ["python"]
+difficulty = "advanced"
+expert_time_estimate_hours = 4
+
+difficulty_explanation = "A strong agent must repair the shipped Quill nest parser so it matches QUILL.md. Trials that already implement nested frames and basic refusals still fail on the fault machine: FORM halts later ends so end-of-file nest at the open header beats a later FORM; DUP only halts declarations so a later end can still close and let DUP win; UNBOUND does not halt; closer mismatch suppresses EOF nest; ALIAS targets resolve only to a VAL in the same frame; binding names collide across VAL and ALIAS. The starter uses one halt flag for every fault, resolves aliases across parents, and treats duplicates as same-kind-only, so partial fixes that only clean the happy path still fail sealed joints."
+
+solution_explanation = "Replace the single halt flag with halt_all (FORM and closer-NEST, blocking end) versus halt_decls (DUP, end still applies), leave UNBOUND non-halting, and fire EOF nest on still-open frames unless closer_mismatch is set. Reject malformed opens without pushing. Rank pick by earliest line then form>nest>dup>unbound. Resolve ALIAS one step to a same-frame VAL only. Refuse bad args and bad source without altering --out; on success overwrite --out with indent=2 ensure_ascii=False JSON ending in one LF. The independent model and reference were agreed on 35 sealed sources before expects were sealed."
+
+verification_explanation = "The separate verifier snapshots sealed expects into memory, removes them from disk, and runs python3 /app/src/quill.py under setpriv (uid 2000) with a 20-second per-run limit. Visible sources decide EOF-nest-versus-FORM, failed-open non-push, closer-mismatch skip of EOF nest, cross-kind DUP, UNBOUND-then-close, same-frame-only ALIAS, name length bounds, large extra arities, Unicode whitespace, and refusals at multiple sites. Thirty-five sealed sources scale the same rules on inputs absent from /app. Expect bytes were minted where an independent model and the reference agree. Output byte mismatches report length and first differing offset only. A sandbox probe confirms reward and sealed paths stay unreachable."
+
+relevant_experience = "I design and review language front-ends where nested scopes, duplicate binds, and earliest-fault ranking interact. I use independent models and mutation sweeps to separate a correct recovery pick from one that only works on balanced happy-path sources, and I have shipped parsers under exact-byte acceptance tests."
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 7200
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240

@@ -1,0 +1,8 @@
+# Calderbank Commercial Finance, accrual basis table, issue 7.
+# Retired identifiers are not reused, which is why the numbering has gaps.
+K1 actual 360
+K2 actual 365
+K4 thirty-us 360
+K5 thirty-us 365
+K7 thirty-e 360
+K8 thirty-e 365

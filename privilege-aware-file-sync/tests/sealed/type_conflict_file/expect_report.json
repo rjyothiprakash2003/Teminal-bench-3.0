@@ -1,0 +1,11 @@
+{
+  "copied": [
+    ""
+  ],
+  "skipped": [
+    {
+      "path": "item",
+      "reason": "type conflict"
+    }
+  ]
+}

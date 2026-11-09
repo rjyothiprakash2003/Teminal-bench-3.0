@@ -1,0 +1,10 @@
+{
+  "targets": [
+    {
+      "id": "hostish",
+      "arch": "x86_64",
+      "os": "linux",
+      "linker": "bfd"
+    }
+  ]
+}

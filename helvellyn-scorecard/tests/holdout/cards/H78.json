@@ -1,0 +1,12 @@
+{
+  "bin_count": 8,
+  "card_id": "H78",
+  "classes": [
+    "ash",
+    "pine"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    7
+  ]
+}

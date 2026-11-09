@@ -1,0 +1,15 @@
+{
+  "copied": [
+    ""
+  ],
+  "skipped": [
+    {
+      "path": "a",
+      "reason": "type conflict"
+    },
+    {
+      "path": "a/f",
+      "reason": "unsafe"
+    }
+  ]
+}

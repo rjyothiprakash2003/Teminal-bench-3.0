@@ -1,0 +1,12 @@
+{
+  "note": "Exact allow on /var/log/app.out beats prefix deny on /var/log.",
+  "ops": [
+    {"op_id": "X01", "scope": "fs", "action": "read", "target": "/var/log/app.out"}
+  ],
+  "rules": [
+    {"rule_id": "Rdeny", "ord": 1, "effect": "deny", "scope": "fs", "mode": "prefix", "selector": "/var/log", "action": "*"},
+    {"rule_id": "Rallow", "ord": 9, "effect": "allow", "scope": "fs", "mode": "exact", "selector": "/var/log/app.out", "action": "read"}
+  ],
+  "verdict": "allow",
+  "matched_rule": "Rallow"
+}

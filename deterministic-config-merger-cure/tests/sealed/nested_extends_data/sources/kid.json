@@ -1,0 +1,10 @@
+{
+  "$extends": [
+    "base"
+  ],
+  "deep": {
+    "x": {
+      "$extends": []
+    }
+  }
+}

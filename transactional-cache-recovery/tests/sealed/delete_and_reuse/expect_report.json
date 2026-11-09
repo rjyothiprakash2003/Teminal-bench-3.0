@@ -1,0 +1,144 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "committed",
+      "op_id": "d1",
+      "idempotent": false,
+      "writes": {
+        "d": {
+          "value": "live",
+          "version": 1
+        }
+      }
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "found": true,
+      "value": "live",
+      "version": 1
+    },
+    {
+      "status": "committed",
+      "op_id": "d2",
+      "idempotent": false,
+      "writes": {
+        "d": {
+          "value": null,
+          "version": 0
+        }
+      }
+    },
+    {
+      "found": false
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "committed",
+      "op_id": "d3",
+      "idempotent": false,
+      "writes": {
+        "d": {
+          "value": "again",
+          "version": 1
+        }
+      }
+    },
+    {
+      "found": true,
+      "value": "again",
+      "version": 1
+    },
+    {
+      "status": "ok",
+      "entries": {
+        "d": {
+          "value": "again",
+          "version": 1
+        }
+      },
+      "ops": {
+        "d1": {
+          "status": "committed",
+          "writes": {
+            "d": {
+              "value": "live",
+              "version": 1
+            }
+          }
+        },
+        "d2": {
+          "status": "committed",
+          "writes": {
+            "d": {
+              "value": null,
+              "version": 0
+            }
+          }
+        },
+        "d3": {
+          "status": "committed",
+          "writes": {
+            "d": {
+              "value": "again",
+              "version": 1
+            }
+          }
+        }
+      }
+    }
+  ],
+  "final": {
+    "entries": {
+      "d": {
+        "value": "again",
+        "version": 1
+      }
+    },
+    "ops": {
+      "d1": {
+        "status": "committed",
+        "writes": {
+          "d": {
+            "value": "live",
+            "version": 1
+          }
+        }
+      },
+      "d2": {
+        "status": "committed",
+        "writes": {
+          "d": {
+            "value": null,
+            "version": 0
+          }
+        }
+      },
+      "d3": {
+        "status": "committed",
+        "writes": {
+          "d": {
+            "value": "again",
+            "version": 1
+          }
+        }
+      }
+    }
+  }
+}

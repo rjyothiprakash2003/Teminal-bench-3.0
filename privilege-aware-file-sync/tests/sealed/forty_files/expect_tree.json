@@ -1,0 +1,206 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "f00.txt": {
+    "content_hex": "300a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f01.txt": {
+    "content_hex": "310a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f02.txt": {
+    "content_hex": "320a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f03.txt": {
+    "content_hex": "330a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f04.txt": {
+    "content_hex": "340a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f05.txt": {
+    "content_hex": "350a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f06.txt": {
+    "content_hex": "360a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f07.txt": {
+    "content_hex": "370a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f08.txt": {
+    "content_hex": "380a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f09.txt": {
+    "content_hex": "390a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f10.txt": {
+    "content_hex": "31300a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f11.txt": {
+    "content_hex": "31310a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f12.txt": {
+    "content_hex": "31320a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f13.txt": {
+    "content_hex": "31330a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f14.txt": {
+    "content_hex": "31340a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f15.txt": {
+    "content_hex": "31350a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f16.txt": {
+    "content_hex": "31360a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f17.txt": {
+    "content_hex": "31370a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f18.txt": {
+    "content_hex": "31380a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f19.txt": {
+    "content_hex": "31390a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f20.txt": {
+    "content_hex": "32300a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f21.txt": {
+    "content_hex": "32310a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f22.txt": {
+    "content_hex": "32320a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f23.txt": {
+    "content_hex": "32330a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f24.txt": {
+    "content_hex": "32340a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f25.txt": {
+    "content_hex": "32350a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f26.txt": {
+    "content_hex": "32360a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f27.txt": {
+    "content_hex": "32370a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f28.txt": {
+    "content_hex": "32380a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f29.txt": {
+    "content_hex": "32390a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f30.txt": {
+    "content_hex": "33300a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f31.txt": {
+    "content_hex": "33310a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f32.txt": {
+    "content_hex": "33320a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f33.txt": {
+    "content_hex": "33330a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f34.txt": {
+    "content_hex": "33340a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f35.txt": {
+    "content_hex": "33350a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f36.txt": {
+    "content_hex": "33360a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f37.txt": {
+    "content_hex": "33370a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f38.txt": {
+    "content_hex": "33380a",
+    "kind": "file",
+    "mode": 420
+  },
+  "f39.txt": {
+    "content_hex": "33390a",
+    "kind": "file",
+    "mode": 420
+  }
+}

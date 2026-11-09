@@ -1,0 +1,30 @@
+{
+  "targets": [
+    {
+      "id": "alpha_linux",
+      "arch": "aarch64",
+      "os": "linux",
+      "linker": "mold",
+      "toolchain": "ci",
+      "override": {
+        "defines": {
+          "LEGACY": "$delete",
+          "TARGET": "alpha"
+        }
+      }
+    },
+    {
+      "id": "beta_darwin",
+      "arch": "x86_64",
+      "os": "darwin",
+      "linker": "ld64"
+    },
+    {
+      "id": "gamma_win",
+      "arch": "x86_64",
+      "os": "windows",
+      "linker": "link",
+      "toolchain": "ci"
+    }
+  ]
+}

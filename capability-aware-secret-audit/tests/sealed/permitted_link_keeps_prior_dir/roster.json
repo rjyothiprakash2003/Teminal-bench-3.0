@@ -1,0 +1,15 @@
+{
+  "entries": [
+    {
+      "path": "l/back/f",
+      "allow_uids": [],
+      "allow_gids": []
+    }
+  ],
+  "subjects": [
+    {
+      "uid": 1000,
+      "gids": []
+    }
+  ]
+}

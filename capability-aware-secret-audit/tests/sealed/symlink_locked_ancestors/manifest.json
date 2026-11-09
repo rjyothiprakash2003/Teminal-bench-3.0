@@ -1,0 +1,26 @@
+{
+  "nodes": [
+    {
+      "path": "link",
+      "kind": "symlink",
+      "target": "locked/secret"
+    },
+    {
+      "path": "locked",
+      "kind": "dir",
+      "mode": "0700",
+      "uid": 2000,
+      "gid": 2000
+    },
+    {
+      "path": "locked/secret",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 2000,
+      "gid": 2000,
+      "content": "t"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

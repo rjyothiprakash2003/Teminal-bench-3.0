@@ -1,0 +1,42 @@
+{
+  "dst_pre": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "b"
+    },
+    {
+      "kind": "symlink",
+      "path": "b/q",
+      "target": "."
+    }
+  ],
+  "src": [
+    {
+      "create_order": 0,
+      "kind": "dir",
+      "mode": 493,
+      "path": "b"
+    },
+    {
+      "content": "zeta",
+      "create_order": 1,
+      "kind": "file",
+      "mode": 420,
+      "path": "b/z"
+    },
+    {
+      "create_order": 2,
+      "kind": "dir",
+      "mode": 493,
+      "path": "b/q"
+    },
+    {
+      "content": "queued",
+      "create_order": 3,
+      "kind": "file",
+      "mode": 420,
+      "path": "b/q/z"
+    }
+  ]
+}

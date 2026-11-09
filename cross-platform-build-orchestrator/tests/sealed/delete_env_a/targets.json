@@ -1,0 +1,1 @@
+{"targets": [{"id": "e1", "arch": "x86_64", "os": "linux", "linker": "bfd", "override": {"env": {"DROP": "$delete", "NEW": "y"}}}]}

@@ -1,0 +1,23 @@
+{
+  "dst_pre": [
+    {
+      "content": "block\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "wrap"
+    }
+  ],
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "wrap"
+    },
+    {
+      "content": "i\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "wrap/inner.txt"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+# Working capital line, monthly, two changes.
+
+frequency 1
+periods 13
+step 2024-07-31 1001
+facility WK-EGR-2024
+class WORKING
+# the rate agreed at completion
+rate 999
+advance 31415926
+step 2024-02-29 1000
+drawn 2024-01-31

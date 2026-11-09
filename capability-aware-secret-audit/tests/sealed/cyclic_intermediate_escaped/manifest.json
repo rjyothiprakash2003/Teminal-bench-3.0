@@ -1,0 +1,11 @@
+{
+  "nodes": [
+    {
+      "path": "loop",
+      "kind": "symlink",
+      "target": "loop"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

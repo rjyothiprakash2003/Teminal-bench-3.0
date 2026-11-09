@@ -1,0 +1,74 @@
+name = "capability-aware-secret-audit"
+artifacts = ["/app/cmd/casaudit/", "/app/go.mod", "/app/bin/casaudit"]
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+category = "Security"
+subcategory = "AppSec"
+tags = ["permissions", "capabilities", "symlinks", "secrets", "golang"]
+languages = ["go"]
+difficulty = "advanced"
+expert_time_estimate_hours = 5
+
+difficulty_explanation = """\
+The hard lever is effective read capability across a path, not a single mode \
+bit. A subject can reach a secret only when every ancestor grants execute under \
+the correct owner/group/other class and the final file grants read under its \
+own class. Directory symlinks that leave the audit root must be skipped as \
+escaped while safe in-root links still contribute to the path. Remediation \
+clears only the file-class bits that caused unintended exposure and must keep \
+setgid and similar high bits. Agents that chmod the leaf alone, treat uid 0 as \
+magic, follow escape links, or ignore parent execute still produce tidy JSON \
+that fails sealed trees where those axes interact.
+"""
+
+solution_explanation = """\
+The oracle rebuilds casaudit from the CAPABILITY.md rules. It validates argv \
+and audience shape, walks each entry with lstat, refuses escape links, \
+computes subject class bits along the resolved path, records unintended \
+effective readers, derives a four-digit remediation mode from the final file \
+only, and writes sorted findings and skipped rows.
+"""
+
+verification_explanation = """\
+The separate verifier snapshots sealed manifests and expects into memory, \
+removes them from disk, requires a working /app/bin/casaudit deliverable \
+(any executable form), rebuilds /work/out/casaudit from every Go file under \
+/app/cmd/casaudit plus /app/go.mod, materializes each tree as root with \
+explicit ownership, grants the sandbox uid directory-search ACLs only when \
+other-execute is absent so lstat can reach locked parents without inflating \
+graded group-class mode bits, and runs every graded success and refusal case \
+against both the delivered binary and the rebuilt package under setpriv as \
+uid 2000 with a pytest-identity-free environment. Reward and sealed paths \
+stay root-only. Coverage includes 48-entry and depth-12 trees, owner/group/\
+other class precedence, symlink ancestor execute including resolved-directory \
+denial, cyclic intermediate escapes, FIFO/socket/device intermediates, \
+unicode and HTML-special paths, socket/device unsupported finals and final \
+links, schema refusals (including later-entry and later-subject malformations), \
+and report non-modification on semantic refuse including no-follow of report \
+symlinks.
+"""
+
+relevant_experience = """\
+I review Unix DAC and symlink-boundary issues in application packaging and \
+secret handling. I write capability checks that separate traversal rights from \
+file read rights and verify remediation proposals against intentional group \
+access.
+"""
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 5400
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240

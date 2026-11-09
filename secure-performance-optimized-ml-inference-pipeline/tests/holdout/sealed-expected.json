@@ -1,0 +1,26 @@
+{
+  "digests": {
+    "policy/serving-contract.txt": "6b9764ebbb89a424fc308e0bed719aaf9956ab79a45cc5ce47c6edf278ce6449",
+    "policy/intake-schema.json": "0ea400fb0e06b8351ed1cf507975315251e8995ca0c34bbcbe0ccdf9d203b7a6",
+    "policy/bench-anchor.json": "b91588442561652be6ba62d38d1e5060f53af05fa43af2c1f4f40e56c3c0ad29",
+    "weights/ridge-v3.coef": "46a30488c012ddcd89de3406933a050c260f8a840ae6dd7607a0427094010c9b",
+    "weights/ridge-v3.scale": "fc19d2178f7b6b9951280fcda7e02701b509f3503437c59dfb71d6fe631e084f",
+    "deploy/sidecar.kv": "64ecd6452182f46b37b3ba60db22af5a2a90f70c4add205ecb3d8e27a7b21d50",
+    "deploy/floor.token": "2aa7e41daf4fcf7f2b44904ee32c8a6cb6f6f7d9b4b28ddd35be6c770db9b26f",
+    "fixtures/week41-intake.jsonl": "6b1f22c136a9ecb19ccea97dd8549ebf1a826bc00f8e348668165a4944997e50",
+    "bench/loadspec.txt": "760a4ee94144d7b8590b37d8390e71518a88fe94730ea79c93ea546744bdb590",
+    "policy/bench-recovery-loadspec.txt": "760a4ee94144d7b8590b37d8390e71518a88fe94730ea79c93ea546744bdb590"
+  },
+  "modes": {
+    "policy/serving-contract.txt": 420,
+    "policy/intake-schema.json": 420,
+    "policy/bench-anchor.json": 420,
+    "weights/ridge-v3.coef": 420,
+    "weights/ridge-v3.scale": 420,
+    "deploy/sidecar.kv": 420,
+    "deploy/floor.token": 420,
+    "fixtures/week41-intake.jsonl": 420,
+    "bench/loadspec.txt": 420,
+    "policy/bench-recovery-loadspec.txt": 420
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "nodes": [
+    {
+      "path": "secret",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 0,
+      "gid": 0,
+      "content": "t"
+    },
+    {
+      "path": "inside",
+      "kind": "symlink",
+      "target": "secret"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755",
+  "root_via_alias": true
+}

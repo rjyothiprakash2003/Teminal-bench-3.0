@@ -1,0 +1,50 @@
+{
+  "entries": [
+    {
+      "path": "b/gone",
+      "allow_uids": [
+        1000
+      ],
+      "allow_gids": []
+    },
+    {
+      "path": "a/one",
+      "allow_uids": [
+        1000
+      ],
+      "allow_gids": [
+        1000
+      ]
+    },
+    {
+      "path": "b/two",
+      "allow_uids": [
+        1000
+      ],
+      "allow_gids": []
+    },
+    {
+      "path": "missing/x",
+      "allow_uids": [
+        0
+      ],
+      "allow_gids": [
+        0
+      ]
+    }
+  ],
+  "subjects": [
+    {
+      "uid": 1000,
+      "gids": [
+        1000
+      ]
+    },
+    {
+      "uid": 2000,
+      "gids": [
+        2000
+      ]
+    }
+  ]
+}

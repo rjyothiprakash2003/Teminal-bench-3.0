@@ -1,0 +1,24 @@
+{
+  "dst_pre": [
+    {
+      "kind": "symlink",
+      "path": "t",
+      "target": "../extra/old.dat"
+    }
+  ],
+  "extra": [
+    {
+      "content": "keep\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "old.dat"
+    }
+  ],
+  "src": [
+    {
+      "kind": "symlink",
+      "path": "t",
+      "target": "new-target"
+    }
+  ]
+}

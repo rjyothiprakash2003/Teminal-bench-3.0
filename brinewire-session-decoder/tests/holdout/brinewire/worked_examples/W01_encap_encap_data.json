@@ -1,0 +1,10 @@
+{
+  "disposition": "reject_nested_encap",
+  "flags": "",
+  "frames": [
+    "4203000c42030307420108025a5aee4046",
+    "42040100e2"
+  ],
+  "note": "Outer ENCAP wraps an inner ENCAP that itself wraps DATA.",
+  "session_id": "W01"
+}

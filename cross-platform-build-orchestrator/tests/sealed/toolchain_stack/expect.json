@@ -1,0 +1,45 @@
+{
+  "artifacts": [
+    {
+      "cflags": [
+        "-O2",
+        "-pthread",
+        "-m64",
+        "-g",
+        "-Wall"
+      ],
+      "defines": {
+        "CI": "1"
+      },
+      "env": {
+        "OS": "linux"
+      },
+      "id": "t_ci",
+      "ldflags": [
+        "-Lbase",
+        "-fuse-ld=lld",
+        "-Lci"
+      ],
+      "stamp": "4d6c84155f7638133bcead856108fa18ef95c3ea6130243729c8dc4383fb3f1e",
+      "triple": "x86_64-linux-lld"
+    },
+    {
+      "cflags": [
+        "-O2",
+        "-pthread",
+        "-march=armv8-a"
+      ],
+      "defines": {},
+      "env": {
+        "OS": "linux"
+      },
+      "id": "t_plain",
+      "ldflags": [
+        "-Lbase",
+        "-Wl,--hash-style=gnu"
+      ],
+      "stamp": "50d1367fb4404c35a4806390bbf18e7e204b51006ee762c6e763c8859318136a",
+      "triple": "aarch64-linux-bfd"
+    }
+  ]
+}

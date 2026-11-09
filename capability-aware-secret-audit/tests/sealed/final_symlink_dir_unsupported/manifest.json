@@ -1,0 +1,25 @@
+{
+  "nodes": [
+    {
+      "path": "conf",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "conf/subdir",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "conf/link",
+      "kind": "symlink",
+      "target": "subdir"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

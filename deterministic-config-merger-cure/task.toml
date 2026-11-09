@@ -1,0 +1,32 @@
+name = "deterministic-config-merger"
+artifacts = ["/app/merge.py"]
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+category = "Software"
+subcategory = "Systems"
+tags = ["config", "merge", "precedence", "inheritance", "python"]
+languages = ["python"]
+difficulty = "advanced"
+expert_time_estimate_hours = 3
+difficulty_explanation = "A systems engineer must write a layered configuration merger from a stub so priority, inheritance and deletion markers compose exactly as the notes define. Sources apply by ascending priority then id, whatever the listing or directory order. Objects deep-merge, arrays and null replace whole, and the $delete marker removes a key. A parent passes its finished configuration with its own markers spent, while a child's own markers stay in its layer and remove keys that lower sources set. Strict validation refuses malformed roots, ids, priorities, members, JSON and cycles. A merger that uses one merge everywhere fails either the parent or the child side of inheritance."
+solution_explanation = "The oracle installs a reference /app/merge.py. It validates the root with lstat checks, reads the manifest and every source as strict JSON that rejects NaN, Infinity, repeated member names and trailing content, and checks ids, priorities, members and $extends. It sorts sources by ascending priority then id. Each source's layer starts from {}, applies each parent's configuration left to right, and lays its own data on top, keeping $delete markers. Parent resolutions are memoised with an open set that detects cycles. The final configuration applies every layer in order onto {} and is written with json.dumps using indent 2, sorted keys and ASCII escapes, plus one LF."
+verification_explanation = "The separate verifier copies the candidate merger and runs it with python3 -I -S as an unprivileged user on visible literal roots grouped into seventeen rule tests with 260 named witnesses. They cover ordering, applying, deletion markers, layers, inheritance, output bytes, domain bounds and every refusal rule, and every root and output path is an opaque hash so no case can be read from its name. Output files, stdout and stderr are compared as raw bytes, so a CRLF refusal line fails. Forty-one sealed roots whose expected bytes never appear under /app were minted only where an independent model written from the notes agreed with the reference. Reward is binary."
+relevant_experience = "I work on layered service configuration where environment overlays, profile inheritance, and explicit removals must compose deterministically regardless of how files are discovered on disk."
+
+[verifier]
+timeout_sec = 3600
+environment_mode = "separate"
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 7200
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240

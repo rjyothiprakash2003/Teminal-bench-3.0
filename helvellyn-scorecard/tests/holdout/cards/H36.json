@@ -1,0 +1,310 @@
+{
+  "bin_count": 5,
+  "card_id": "H36",
+  "classes": [
+    "ash",
+    "elm",
+    "fir"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "north",
+      "rows": [
+        {
+          "example_id": "k00",
+          "label": "fir",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k01",
+          "label": "fir",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k02",
+          "label": "fir",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k03",
+          "label": "fir",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k04",
+          "label": "fir",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k05",
+          "label": "fir",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k06",
+          "label": "fir",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k07",
+          "label": "fir",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k08",
+          "label": "fir",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k09",
+          "label": "ash",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k10",
+          "label": "elm",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k11",
+          "label": "ash",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k12",
+          "label": "elm",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "south",
+      "rows": [
+        {
+          "example_id": "k13",
+          "label": "ash",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k14",
+          "label": "elm",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k15",
+          "label": "ash",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k16",
+          "label": "elm",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k17",
+          "label": "ash",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k18",
+          "label": "elm",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k19",
+          "label": "ash",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k20",
+          "label": "elm",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k21",
+          "label": "ash",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k22",
+          "label": "elm",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k23",
+          "label": "ash",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k24",
+          "label": "elm",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k25",
+          "label": "ash",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k26",
+          "label": "elm",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k27",
+          "label": "ash",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k28",
+          "label": "elm",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k29",
+          "label": "ash",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k30",
+          "label": "elm",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        },
+        {
+          "example_id": "k31",
+          "label": "ash",
+          "p_bp": {
+            "ash": 2500,
+            "elm": 1500,
+            "fir": 6000
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "dst_pre": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "sink"
+    },
+    {
+      "kind": "symlink",
+      "path": "out",
+      "target": "../extra"
+    }
+  ],
+  "extra": [
+    {
+      "kind": "symlink",
+      "path": "mid",
+      "target": "../dst/sink"
+    }
+  ],
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "out"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "out/mid"
+    },
+    {
+      "content": "g",
+      "kind": "file",
+      "mode": 420,
+      "path": "out/mid/g"
+    }
+  ]
+}

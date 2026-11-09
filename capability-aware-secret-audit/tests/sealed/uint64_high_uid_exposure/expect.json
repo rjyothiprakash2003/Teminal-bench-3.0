@@ -1,0 +1,14 @@
+{
+  "findings": [
+    {
+      "exposure": [
+        "uid:9223372036854775808"
+      ],
+      "path": "conf/token",
+      "remediation": {
+        "mode": "0640"
+      }
+    }
+  ],
+  "skipped": []
+}

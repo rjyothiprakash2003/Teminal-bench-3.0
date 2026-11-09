@@ -1,0 +1,32 @@
+name = "sandbox-policy-evaluator"
+artifacts = ["/app/evaluate.go", "/app/go.mod", "/app/out/verdicts.jsonl", "/app/out/summary.json"]
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+category = "Software"
+subcategory = "Systems"
+tags = ["cordon", "policy", "sandbox", "precedence", "allow-deny"]
+languages = ["go"]
+difficulty = "advanced"
+expert_time_estimate_hours = 7
+difficulty_explanation = "A sandbox policy engineer must finish SPE-2026 so probe ops receive the right allow or deny under ordered rules. Specificity, explicit denial at equal rank, path inheritance, DNS inheritance on net prefixes, segment glob versus star-star, and action wildcards all interact on one decision. A last-match engine, an allow-over-deny tie break, or a filepath.Match glob still emits verdict rows that look complete. The hard part is applying the same winner selection on sealed holdout packs whose rule geometry the primary pack never shows."
+solution_explanation = "The oracle installs an SPE-faithful /app/evaluate.go. It loads rules.jsonl in file order, skips invalid rule rows, then walks ops in ascending op_id. Each op is checked for scope, action, and target shape. Matching uses exact, path or DNS prefix inheritance, and a custom segment glob. Among matches it keeps the highest specificity, then prefers deny over allow at that rank, then lowest ord. It writes sorted-key verdict rows and a fixed-key by_verdict summary under --out after clearing leftovers."
+verification_explanation = "The separate verifier rebuilds evaluate.go with the Go toolchain inside an unprivileged sandbox and compares staged verdicts.jsonl and summary.json to sealed expects. It checks key order, native integers, leftover clearing, and corpus-critical ops for exact-over-prefix allow, equal-specificity deny, path inheritance, DNS inheritance, segment glob, star-star, action wildcards, deny_default, and reject_malformed. It re-invokes the rebuilt binary against a sealed holdout pack that never appears under /app/probes. Exact verdict bytes and summary match are required on both corpora."
+relevant_experience = "I design and review sandbox and container policy engines where allow and deny precedence, path inheritance, DNS-scoped network selectors, and glob specificity interact. Recent work covers mutation sweeps that swap last-match for specificity ranking and that treat star-star as a single-segment wildcard so wrong engines fail holdout packs."
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 7200
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240

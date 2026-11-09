@@ -1,0 +1,252 @@
+{
+  "entries": [
+    {
+      "path": "s00",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s01",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s02",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s03",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s04",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s05",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s06",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s07",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s08",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s09",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s10",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s11",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s12",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s13",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s14",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s15",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s16",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s17",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s18",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s19",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s20",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s21",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s22",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s23",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s24",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s25",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s26",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s27",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s28",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s29",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s30",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s31",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s32",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s33",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s34",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s35",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s36",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s37",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s38",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s39",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s40",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s41",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s42",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s43",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s44",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s45",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s46",
+      "allow_uids": [],
+      "allow_gids": []
+    },
+    {
+      "path": "s47",
+      "allow_uids": [],
+      "allow_gids": []
+    }
+  ],
+  "subjects": [
+    {
+      "uid": 2000,
+      "gids": [
+        2000
+      ]
+    }
+  ]
+}

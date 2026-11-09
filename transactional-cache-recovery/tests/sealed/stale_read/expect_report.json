@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "found": false
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "found": false
+    },
+    {
+      "status": "ok",
+      "entries": {},
+      "ops": {}
+    }
+  ],
+  "final": {
+    "entries": {},
+    "ops": {}
+  }
+}

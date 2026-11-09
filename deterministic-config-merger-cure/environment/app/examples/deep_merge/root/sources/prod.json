@@ -1,0 +1,12 @@
+{
+  "db": {
+    "host": "db.prod",
+    "pool": {
+      "max": 32
+    }
+  },
+  "hosts": [
+    "p"
+  ],
+  "proxy": null
+}

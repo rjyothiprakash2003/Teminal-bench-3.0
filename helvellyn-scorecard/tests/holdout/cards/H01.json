@@ -1,0 +1,98 @@
+{
+  "bin_count": 10,
+  "card_id": "H01",
+  "classes": [
+    "ash",
+    "elm",
+    "fir",
+    "oak"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "rows": [
+        {
+          "example_id": "e01",
+          "label": "oak",
+          "p_bp": {
+            "ash": 500,
+            "elm": 500,
+            "fir": 500,
+            "oak": 8500
+          }
+        },
+        {
+          "example_id": "e02",
+          "label": "fir",
+          "p_bp": {
+            "ash": 500,
+            "elm": 500,
+            "fir": 7000,
+            "oak": 2000
+          }
+        },
+        {
+          "example_id": "e03",
+          "label": "oak",
+          "p_bp": {
+            "ash": 400,
+            "elm": 400,
+            "fir": 400,
+            "oak": 8800
+          }
+        },
+        {
+          "example_id": "e04",
+          "label": "ash",
+          "p_bp": {
+            "ash": 6500,
+            "elm": 500,
+            "fir": 1500,
+            "oak": 1500
+          }
+        },
+        {
+          "example_id": "e05",
+          "label": "elm",
+          "p_bp": {
+            "ash": 1000,
+            "elm": 6000,
+            "fir": 1500,
+            "oak": 1500
+          }
+        },
+        {
+          "example_id": "e06",
+          "label": "oak",
+          "p_bp": {
+            "ash": 2000,
+            "elm": 2000,
+            "fir": 2000,
+            "oak": 4000
+          }
+        },
+        {
+          "example_id": "e07",
+          "label": "ash",
+          "p_bp": {
+            "ash": 2000,
+            "elm": 1000,
+            "fir": 1000,
+            "oak": 6000
+          }
+        },
+        {
+          "example_id": "e08",
+          "label": "fir",
+          "p_bp": {
+            "ash": 800,
+            "elm": 800,
+            "fir": 4200,
+            "oak": 4200
+          }
+        }
+      ],
+      "slice_id": "s0"
+    }
+  ]
+}

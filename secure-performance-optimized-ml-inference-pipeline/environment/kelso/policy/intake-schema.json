@@ -1,0 +1,11 @@
+{
+  "fields": [
+    {"name": "tenure_months", "min": 0, "max": 600},
+    {"name": "util_ratio", "min": 0, "max": 2.5},
+    {"name": "delinq_24", "min": 0, "max": 20},
+    {"name": "inq_6", "min": 0, "max": 15},
+    {"name": "revol_bal", "min": 0, "max": 250000},
+    {"name": "open_trades", "min": 0, "max": 80}
+  ],
+  "forbidden": ["internal_prior", "debug_bias", "_probe"]
+}

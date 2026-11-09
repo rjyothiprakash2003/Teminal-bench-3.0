@@ -1,0 +1,56 @@
+{
+  "bin_count": 8,
+  "card_id": "H71",
+  "classes": [
+    "alder",
+    "birch",
+    "cedar",
+    "hazel",
+    "oak",
+    "rowan"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h71-0",
+          "label": "rowan",
+          "p_bp": {
+            "alder": 500,
+            "birch": 700,
+            "cedar": 900,
+            "hazel": 5000,
+            "oak": 800,
+            "rowan": 2100
+          }
+        },
+        {
+          "example_id": "h71-1",
+          "label": "oak",
+          "p_bp": {
+            "alder": 1400,
+            "birch": 4100,
+            "cedar": 2000,
+            "hazel": 400,
+            "oak": 1600,
+            "rowan": 500
+          }
+        },
+        {
+          "example_id": "h71-2",
+          "label": "oak",
+          "p_bp": {
+            "alder": 100,
+            "birch": 3100,
+            "cedar": 300,
+            "hazel": 1400,
+            "oak": 3900,
+            "rowan": 1200
+          }
+        }
+      ]
+    }
+  ]
+}

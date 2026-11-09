@@ -1,0 +1,19 @@
+{
+  "findings": [
+    {
+      "exposure": [
+        "uid:2000"
+      ],
+      "path": "a/one",
+      "remediation": {
+        "mode": "0640"
+      }
+    }
+  ],
+  "skipped": [
+    {
+      "path": "missing/x",
+      "reason": "missing"
+    }
+  ]
+}

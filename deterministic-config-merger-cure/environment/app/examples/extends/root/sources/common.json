@@ -1,0 +1,7 @@
+{
+  "retries": 3,
+  "queue": {
+    "name": "jobs",
+    "size": 10
+  }
+}

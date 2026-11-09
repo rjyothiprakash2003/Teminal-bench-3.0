@@ -1,0 +1,27 @@
+{
+  "dst_pre": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "inner"
+    },
+    {
+      "kind": "symlink",
+      "path": "portal",
+      "target": "inner"
+    }
+  ],
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "portal"
+    },
+    {
+      "content": "a\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "portal/a.txt"
+    }
+  ]
+}

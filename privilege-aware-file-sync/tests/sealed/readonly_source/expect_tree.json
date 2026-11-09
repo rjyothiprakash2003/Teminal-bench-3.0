@@ -1,0 +1,11 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "ro.txt": {
+    "content_hex": "726f0a",
+    "kind": "file",
+    "mode": 292
+  }
+}

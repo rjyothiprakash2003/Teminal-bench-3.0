@@ -1,0 +1,4 @@
+open UNIT demo
+bind VAL answer 42
+use answer
+end UNIT

@@ -1,0 +1,4 @@
+open UNIT root
+bind VAL x 1
+bind VAL x 2
+end UNIT

@@ -1,0 +1,14 @@
+NPG1
+NODE|clk-hub|ICGCTRL_X0Y0|icg_x0y2|live
+NODE|core-north|CELL_X12Y8|icg_x0y0|live
+NODE|core-south|CELL_X3Y3|icg_x0y1|frozen
+NODE|dbg-west|CELL_X1Y1|icg_x3y0|live
+NODE|io-east|PAD_X0Y4|icg_x1y1|live
+NODE|scan-tap|CELL_X20Y0|icg_x2y0|live
+FIND|AREA_REGRESS|core-north|3
+FIND|GHOST_MAP|core-north|6
+FIND|ANCESTOR_GAP|core-south|10
+FIND|CLKGT_SPLIT|io-east|11
+FIND|LIB_MISBIND|scan-tap|12
+FIND|STALE_LIB|clk-hub|14
+SEAL|5002efb17b9f6c94947beb9da3b4a3f7c3dd4c985159e521358dca380ac76785

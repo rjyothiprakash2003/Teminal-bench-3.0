@@ -1,0 +1,34 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b/c": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b/c/d": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b/c/d/e": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b/c/d/e/f": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b/c/d/e/f/g": {
+    "kind": "symlink",
+    "target": "../../../../../../../extra"
+  }
+}

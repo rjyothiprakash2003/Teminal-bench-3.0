@@ -1,0 +1,9 @@
+{
+  "findings": [],
+  "skipped": [
+    {
+      "path": "loop",
+      "reason": "unsupported"
+    }
+  ]
+}

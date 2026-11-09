@@ -1,0 +1,18 @@
+{
+  "dst_pre": [
+    {
+      "content": "stale\n",
+      "kind": "file",
+      "mode": 384,
+      "path": "f.txt"
+    }
+  ],
+  "src": [
+    {
+      "content": "fresh\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "f.txt"
+    }
+  ]
+}

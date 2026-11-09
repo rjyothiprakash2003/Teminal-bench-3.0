@@ -1,0 +1,20 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a.txt": {
+    "content_hex": "616c7068610a",
+    "kind": "file",
+    "mode": 420
+  },
+  "d": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "d/b.txt": {
+    "content_hex": "626574610a",
+    "kind": "file",
+    "mode": 384
+  }
+}

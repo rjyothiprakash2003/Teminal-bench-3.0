@@ -1,0 +1,7 @@
+open UNIT root
+bind VAL a 1
+bind VAL b 2
+bind ALIAS c a
+use c
+use b
+end UNIT

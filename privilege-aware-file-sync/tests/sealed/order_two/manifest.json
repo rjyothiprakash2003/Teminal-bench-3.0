@@ -1,0 +1,16 @@
+{
+  "src": [
+    {
+      "content": "a\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "a.txt"
+    },
+    {
+      "content": "b\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "b.txt"
+    }
+  ]
+}

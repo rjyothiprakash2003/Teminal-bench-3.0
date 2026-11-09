@@ -1,0 +1,7 @@
+facility F-WK-1188
+class WORKING
+advance 61200000
+rate 990
+drawn 2024-01-31
+periods 6
+frequency 1

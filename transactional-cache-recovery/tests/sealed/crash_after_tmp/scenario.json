@@ -1,0 +1,31 @@
+{
+  "steps": [
+    {
+      "op": "begin",
+      "txn": "t1"
+    },
+    {
+      "op": "put",
+      "txn": "t1",
+      "key": "t",
+      "value": "tmp",
+      "expected": 0
+    },
+    {
+      "op": "commit",
+      "txn": "t1",
+      "op_id": "t1",
+      "fault": "after_tmp"
+    },
+    {
+      "op": "open"
+    },
+    {
+      "op": "get",
+      "key": "t"
+    },
+    {
+      "op": "snapshot"
+    }
+  ]
+}

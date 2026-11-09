@@ -1,0 +1,19 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "box": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "box/x.txt": {
+    "content_hex": "780a",
+    "kind": "file",
+    "mode": 420
+  },
+  "door": {
+    "kind": "symlink",
+    "target": "box"
+  }
+}

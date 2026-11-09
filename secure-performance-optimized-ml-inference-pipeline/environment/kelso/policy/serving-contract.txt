@@ -1,0 +1,128 @@
+Kelso ridgecast serving contract, freeze week 41
+
+ridgecast scores tabular underwriting applications with the frozen ridge-v3
+logistic. A legal application has the six fields named in intake-schema.json,
+plus a required id that is a non-empty JSON string (whitespace-only counts as
+non-empty). JSON object key order is not significant for legality. Schema field
+order is the order used when scaling and applying ridge-v3 coefficients. Extra
+keys are illegal, as are
+internal_prior, debug_bias, and _probe. A missing field, a null, a JSON
+boolean, a non-numeric value including a numeric-looking JSON string, or a
+value outside that field's inclusive min and max is illegal. Min and max
+values themselves are legal. Range checks compare the exact JSON number text
+against those inclusive bounds before converting to binary64 for scoring; a
+literal that exceeds a bound remains illegal even when binary64 rounding would
+land on the endpoint. A blank or whitespace-only CLI line is illegal
+intake. Duplicate ids inside one CLI score invocation are illegal. Each POST
+/v1/score body is its own run, so repeated ids across separate POSTs are
+allowed. Illegal intake is rejected: the score CLI exits non-zero and must
+not write a successful score object for that record; POST /v1/score returns
+INVALID_INTAKE. The same legality rules apply to the score CLI and to POST
+/v1/score. Each CLI intake line and each POST body is at most 1048576 bytes
+(not counting a terminating newline on a CLI line).
+When score exits non-zero, the named --out path must not exist afterward as a
+regular file or symlink, for both --out PATH and --out=PATH. If --out names an
+existing directory (including `.` or the process working directory), score does
+not remove that directory. A successful score run leaves a complete --out with
+one JSON object per intake line in intake order, keys id and score_micros only,
+with integer score_micros. Extra JSON tokens after a legal object on a CLI line
+are illegal.
+
+Scale each field as (value minus mean) divided by std using ridge-v3.scale.
+Apply each field's own ridge-v3.coef weight to that field's scaled value.
+The logit is bias plus the sum of those products. The probability is 1
+divided by (1 plus e to the minus logit). score_micros is floor of
+(probability times 1000000 plus 0.5). Intermediate arithmetic uses IEEE 754
+binary64, the same as Go float64. Worked lab, not a live application: every
+field at its scale mean yields logit equal to bias -0.45 and score_micros
+389361. Each scored application uses only its own six field values.
+selfcheck prints offmean_micros M then selfcheck ok only after proving both labs
+from the live coefficient and scale files. The mean lab is every field at its
+scale mean (logit equal to bias -0.45 and score_micros 389361). The fixed
+off-mean lab uses tenure_months 72, util_ratio 0.36, and every other field at
+its live scale mean. Acceptance requires the live-computed off-mean micros M
+equal to 364705 and the live-computed mean lab equal to 389361; if live assets
+yield any other values, selfcheck fails without printing selfcheck ok. Those
+six field values and the 364705 pin are part of the contract, not an
+implementation choice.
+
+batch_limit in sidecar.kv is a required positive integer for every command
+that loads the sidecar. Omitting it is invalid; there is no implicit
+default. Zero or a negative value is invalid. A positive integer larger than
+a signed 64-bit Go int is legal and scores the intake as one group. Request
+i must receive the micros of request i whether requests are processed one at
+a time or in batches sized by batch_limit. An optional result cache
+must never change score_micros relative to always recomputing: two
+applications that share an id but differ in features must not share a cache
+entry. Repeated scoring of the same legal application returns the same
+score_micros, including under concurrent POST /v1/score.
+
+Tick costs, not wall clocks, are how bench is graded. Costing uses only the
+loadspec scenario batch B. A loadspec scenario repeat is a positive decimal
+integer of any magnitude (zero is not admitted); values larger than a signed
+64-bit integer are legal when the expanded ledger remains well-defined. A
+scenario batch is a positive decimal integer that fits in a signed 64-bit
+integer. seed_id
+and seed feature lines do not affect tick costing. A singleton (B equals 1)
+costs S
+ticks. Each member of a coalesced batch of n greater than 1 costs C ticks.
+S and C are the unique positive integers with C less than S such that
+expanding /app/policy/bench-recovery-loadspec.txt under those costs
+reproduces total_requests, total_ticks, avg_latency_ticks, p95_ticks, and
+p99_ticks from /app/policy/bench-anchor.json. Each bench invocation recovers
+that unique pair from the current contents of those two files. Recovery must
+remain operational for live pairs whose S, C, totals, and percentile tick
+costs exceed a signed 64-bit integer, including magnitudes of at least
+1000000000000000000, and must still find the unique pair when both
+percentiles equal C. A successful bench ledger is a JSON object with exactly
+the eight integer keys total_requests, total_ticks, throughput,
+avg_latency_ticks, p95_ticks, p99_ticks, cpu_units, and memory_units.
+total_requests is the number of expanded members from --spec. total_ticks is
+the sum of those members' tick costs. avg_latency_ticks is floor of
+(total_ticks divided by total_requests plus 1/2). p95_ticks and p99_ticks
+are the member tick costs at 0-based ranks ceil(19/20 times n) minus 1 and
+ceil(99/100 times n) minus 1 after sorting costs ascending. cpu_units equals
+total_ticks. throughput is floor of (1000000 times total_requests divided by
+total_ticks plus 1/2). memory_units is 64 plus 4 times the largest scenario
+batch B admitted from that same --spec. A loadspec with no admitted scenario
+lines is a bench failure.
+
+HTTP. GET /v1/health returns HTTP 200 and {"status":"ok"} with no
+Authorization. POST /v1/score requires Authorization whose scheme is the
+exact ASCII token Bearer, one space, then the floor token; matching is case
+sensitive on the scheme word. The token value must SHA-256 to token_sha256
+in sidecar.kv. POST /v1/score requires Content-Type whose media type is the
+exact lowercase string application/json. The only allowed parameter is
+charset=utf-8; optional whitespace after the semicolon is allowed, including
+the spelling application/json;charset=utf-8 with no space. Any other
+parameter, or a missing or other media type, is INVALID_INTAKE 400. When both
+Authorization and Content-Type fail, the response is UNAUTHORIZED 401. A
+successful POST returns HTTP 200 with only id and score_micros. A body that
+is not a single JSON object is INVALID_INTAKE. Every HTTP response — health,
+score successes, and all failures including METHOD and NOT_FOUND on unknown
+paths — sets Content-Type to application/json and omits X-Ridge-Model,
+X-Ridge-Token, and X-Ridge-Rev. Failures are {"error","message"} with
+UNAUTHORIZED 401, INVALID_INTAKE 400, METHOD 405, or NOT_FOUND 404. Message
+text must not contain the bearer token or the filenames ridge-v3.coef or
+ridge-v3.scale. Wrong methods on known paths return METHOD. Unknown paths
+return NOT_FOUND.
+
+CLI flags use a double hyphen. A single-hyphen spelling is illegal.
+selfcheck takes no arguments. score takes --config PATH --intake PATH --out
+PATH; --intake and --out are required; omitted --config uses
+/app/deploy/sidecar.kv. A bare -- is illegal. Leftover positionals are
+illegal. Score accepts only --config, --intake, and --out. Serve accepts
+only --config. Bench accepts only --config, --spec, and --out. serve with no
+flags loads /app/deploy/sidecar.kv. bench with no --out writes
+out/bench-ledger.json. Relative sidecar asset paths resolve against the
+process working directory. Commands are deterministic.
+
+/app/ops/ci-gate.sh must rebuild /app/bin/ridgecast by invoking the go
+toolchain on /app/cmd/ridgecast, then invoke that rebuilt binary for
+selfcheck, score, and bench, scoring /app/fixtures/week41-intake.jsonl into
+/app/out/week41-scores.jsonl and benching /app/bench/loadspec.txt into
+/app/out/bench-ledger.json, exiting non-zero if any step fails. After a
+failing selfcheck the gate must not run score or bench. A later score
+failure still requires a non-zero gate status but does not extend that
+selfcheck-only stop rule. A successful gate run must leave those products as
+results of scoring and benching the active fixtures at that moment.

@@ -1,0 +1,32 @@
+{
+  "bin_count": 20,
+  "card_id": "H57",
+  "classes": [
+    "hazel",
+    "yew"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h57-0",
+          "label": "hazel",
+          "p_bp": {
+            "hazel": 1800,
+            "yew": 8200
+          }
+        },
+        {
+          "example_id": "h57-1",
+          "label": "hazel",
+          "p_bp": {
+            "hazel": 600,
+            "yew": 9400
+          }
+        }
+      ]
+    }
+  ]
+}

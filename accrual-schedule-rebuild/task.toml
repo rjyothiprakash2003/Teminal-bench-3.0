@@ -1,0 +1,32 @@
+artifacts = ["/app/tools/schedbuild/"]
+name = "accrual-schedule-rebuild"
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+category = "Operations"
+subcategory = "Finance"
+tags = ["accrual", "day-count", "amortisation", "servicing", "go"]
+languages = ["go"]
+difficulty = "advanced"
+expert_time_estimate_hours = 5
+difficulty_explanation = "I require the solver to recover each facility class's accrual basis from the settled schedules and the supplied table, then reconcile the resulting figures. I combine three day-count rules, month-end clipping, rate changes within a period, and fractional-penny carry between periods. These rules interact: splitting a period under the American thirty-day convention can change its day count, and rounding each span separately can change the interest. I also require exact refusal precedence and atomic publication that preserves existing files through write failures and interruption."
+solution_explanation = "I read facility lines as bytes and validate their shape, key, repetition and value in the order the servicing note specifies. I finish facility-line validation before reading the basis table, then check table entries, completeness and term semantics. I derive class-to-basis assignments from the settled evidence and obtain the output identifier from the table supplied to the builder. I generate period ends from the original drawdown month, split periods at rate changes, and carry the remainder of each integer interest division forward. I repay principal evenly with the remainder in the final period. I write to a uniquely created file beside the output and rename it into place after the complete schedule is written."
+verification_explanation = "I build the submitted Go sources offline as UID/GID 2000 in a separate verifier container with CGO_ENABLED=0, so C helpers cannot supply the implementation. I load fixed fixtures before removing their directories from disk, and I keep the expected results, build caches and reward channel inaccessible to candidate processes. I compare 33 stored schedules byte for byte, check three long terms against stored digests, and run 330 labelled trap records plus four generated traps against exact exit status, stdout, stderr and output expectations.\n\nI run 65 tests. I explicitly accept 2000-02-29 as a drawdown, step date and generated endpoint, with independently calculated integer-pence schedules. I require a facility whose final significant line ends at the end of the file, without a line feed, to build the same schedule as its line-feed form, using a hand-calculated seven-line facility and every stored schedule's facility with its final line feeds removed. I check that a leading # ignores the complete line in both inputs, using #x and every possible non-line-feed second byte, while physical lines still determine later diagnostics. I expose key refusal-order combinations directly in the test file: an unreadable facility file precedes an unreadable basis table in all nine combinations of absent, unreadable and directory-valued inputs, a bad rate precedes a missing, unreadable or directory-valued basis path, and semantic term faults precede output-write failures. I check absent and existing outputs and include valid-input controls for each read-failure layout. I generate all invalid operand counts from 0 through 64, including seven, then test 127, 128, 129, 255, 256, 257 and 1024; every overlong invocation begins with valid facility, basis and output operands.\n\nI compare file contents, permission modes, UID and GID throughout each run tree and the account's writable areas. I test input/output aliases, existing schedules, inaccessible parents, differently owned inputs and neighbors, and failures partway through writes. I observe transient staging paths with inotify in the starting directory and all existing run-tree subdirectories, and prepopulate those same relative paths on fresh runs to detect destructive collisions. I retain explicit neighbors in both the starting directory and output parent, including .schedbuild.tmp at the run root. I check atomic publication by interrupting runs at fixed offsets and when the output first changes; the output must contain its prior state or the complete new schedule. I run the write-failure and interruption sweeps with the output aliasing each input. I also hold a private read-only descriptor on the file standing at the output path, whether an existing schedule or an aliased input, and fail any run that leaves that same file at the path with changed bytes, because that run wrote over the output path in place. I accept complete atomic replacement and exempt staging residue from externally killed runs as the contract specifies.\n\nI validate the reference through solution/solve.sh in the task environment and require every verifier test to pass before packaging. I check an empty submission and targeted defective variants, including staging collisions, an incorrect century-year leap rule, hash-space-only comments, a C-dependent implementation, eager basis reads and a usage guard that rejects only the old enumerated counts. I keep their source changes and failing assertions in local validation records outside the submission archive."
+relevant_experience = "I base this task on loan-servicing reconciliation: matching agreed schedules, checking interest and principal in integer pence, and examining filesystem failure behavior. I document the reasoning in the servicing note, reference implementation and verifier, and I use exact schedules and deliberately incorrect variants to check the task."
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 7200
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240

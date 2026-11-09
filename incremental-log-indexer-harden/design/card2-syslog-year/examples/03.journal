@@ -1,0 +1,7 @@
+retain 365
+batch 2027-01-01T00:02:00
+Dec 31 23:58:00 edge-3 haproxy[4410]: backend api DOWN
+Jan  1 00:01:30 edge-3 haproxy[4410]: backend api UP
+count 2026-12-31T00:00:00 2026-12-31T23:59:59 backend
+count 2027-01-01T00:00:00 2027-01-01T23:59:59 backend
+lag 2027-01-01T01:00:00 api

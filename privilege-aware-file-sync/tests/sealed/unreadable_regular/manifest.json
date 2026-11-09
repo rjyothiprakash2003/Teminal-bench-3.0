@@ -1,0 +1,24 @@
+{
+  "dst_pre": [
+    {
+      "content": "old",
+      "kind": "file",
+      "mode": 420,
+      "path": "locked"
+    }
+  ],
+  "src": [
+    {
+      "content": "secret\n",
+      "kind": "file",
+      "mode": 0,
+      "path": "locked"
+    },
+    {
+      "content": "ok\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "ok.txt"
+    }
+  ]
+}

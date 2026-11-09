@@ -1,0 +1,12 @@
+{
+  "note": "Two exact rules: deny wins over allow at equal specificity even when allow has lower ord.",
+  "ops": [
+    {"op_id": "X02", "scope": "proc", "action": "spawn", "target": "/usr/bin/curl"}
+  ],
+  "rules": [
+    {"rule_id": "A1", "ord": 2, "effect": "allow", "scope": "proc", "mode": "exact", "selector": "/usr/bin/curl", "action": "spawn"},
+    {"rule_id": "D1", "ord": 8, "effect": "deny", "scope": "proc", "mode": "exact", "selector": "/usr/bin/curl", "action": "*"}
+  ],
+  "verdict": "deny",
+  "matched_rule": "D1"
+}

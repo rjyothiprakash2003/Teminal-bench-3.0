@@ -1,0 +1,12 @@
+{
+  "entries": [
+    {
+      "path": "a",
+      "allow_uids": [
+        9223372036854775808
+      ],
+      "allow_gids": []
+    }
+  ],
+  "subjects": []
+}

@@ -1,0 +1,7 @@
+{
+  "extends": "base",
+  "cflags": ["-g"],
+  "defines": {
+    "CI": "1"
+  }
+}

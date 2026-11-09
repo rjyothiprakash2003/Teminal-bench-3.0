@@ -1,0 +1,19 @@
+{
+  "copied": [
+    ""
+  ],
+  "skipped": [
+    {
+      "path": "out",
+      "reason": "type conflict"
+    },
+    {
+      "path": "out/mid",
+      "reason": "unsafe"
+    },
+    {
+      "path": "out/mid/g",
+      "reason": "unsafe"
+    }
+  ]
+}

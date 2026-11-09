@@ -1,0 +1,3 @@
+Repair `/app/leasebox/leasebox.go` and `/app/conf/gate.ini` so the exclusive-lease manager stores named leases in `/app/var/journal.bin` under `/app/spec/LEASEBOX.md` and `/app/spec/journal.rules`. The shipped `/app/conf/gate.ini` is out of band and must sit inside the rules min and max.
+
+Commands are grant, revoke, list, compact, verify, and report. Grading rebuilds the Go package, runs those commands against sealed rules and journals the agent never sees, and compares exit codes, journal bytes, list JSON, and `/app/out/lease-report.json` to the contract. Each command may take at most 20 seconds.

@@ -1,0 +1,21 @@
+{
+  "card_id": "Q",
+  "classes": [
+    "oak"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "rows": [
+        {
+          "example_id": "e",
+          "label": "oak",
+          "p_bp": {
+            "oak": 10000
+          }
+        }
+      ],
+      "slice_id": "s"
+    }
+  ]
+}

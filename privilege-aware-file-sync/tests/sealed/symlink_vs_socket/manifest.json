@@ -1,0 +1,16 @@
+{
+  "dst_pre": [
+    {
+      "kind": "socket",
+      "mode": 420,
+      "path": "item"
+    }
+  ],
+  "src": [
+    {
+      "kind": "symlink",
+      "path": "item",
+      "target": "target"
+    }
+  ]
+}

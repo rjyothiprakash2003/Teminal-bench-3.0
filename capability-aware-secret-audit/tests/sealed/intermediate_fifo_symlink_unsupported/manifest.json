@@ -1,0 +1,18 @@
+{
+  "nodes": [
+    {
+      "path": "pipe",
+      "kind": "fifo",
+      "mode": "0644",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "alias",
+      "kind": "symlink",
+      "target": "pipe"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

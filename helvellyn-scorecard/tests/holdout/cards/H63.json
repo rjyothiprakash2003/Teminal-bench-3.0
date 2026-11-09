@@ -1,0 +1,48 @@
+{
+  "bin_count": 10,
+  "card_id": "H63",
+  "classes": [
+    "cedar",
+    "elm"
+  ],
+  "min_conf_bp": 3000,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h63-0",
+          "label": "elm",
+          "p_bp": {
+            "cedar": 5800,
+            "elm": 4200
+          }
+        },
+        {
+          "example_id": "h63-1",
+          "label": "cedar",
+          "p_bp": {
+            "cedar": 100,
+            "elm": 9900
+          }
+        },
+        {
+          "example_id": "h63-2",
+          "label": "cedar",
+          "p_bp": {
+            "cedar": 6400,
+            "elm": 3600
+          }
+        },
+        {
+          "example_id": "h63-3",
+          "label": "elm",
+          "p_bp": {
+            "cedar": 9300,
+            "elm": 700
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "sources": [
+    {
+      "id": "zebra",
+      "priority": 50
+    },
+    {
+      "id": "alpha",
+      "priority": 10
+    }
+  ]
+}

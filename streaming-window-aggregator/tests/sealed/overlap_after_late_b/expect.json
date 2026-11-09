@@ -1,0 +1,18 @@
+{
+  "windows": [
+    {
+      "start": 24,
+      "end": 32,
+      "totals": {
+        "y": 3
+      }
+    },
+    {
+      "start": 28,
+      "end": 36,
+      "totals": {
+        "y": 3
+      }
+    }
+  ]
+}

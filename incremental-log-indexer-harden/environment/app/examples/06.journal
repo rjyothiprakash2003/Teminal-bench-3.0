@@ -1,0 +1,9 @@
+stopwords
+begin
+add db10 timeout connecting to replica
+add db2 replica timeout
+add db-3 replica lag then timeout
+commit
+query 2 0 timeout replica
+query 1 0 timeout replica
+query 4 2 timeout replica

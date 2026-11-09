@@ -1,0 +1,96 @@
+PyBaMM event-aligned experiment sensitivities
+Upstream: v25.4.0, commit a2a0330fbcd518dbcedf2b1dcee7730bcb9a9042, BSD-3-Clause.
+Source and existing tests live in /app/repo. This extends a documented
+limitation. The original API never promised event-time derivatives.
+
+Calling convention
+Use ordinary pybamm.Simulation and pybamm.Experiment objects. Opt in by
+passing both calculate_sensitivities=True and calculate_event_sensitivities=True
+to Simulation.solve. Inputs are named physical scalar values. Derivatives are
+with respect to those raw values, not their logarithms. Every selected
+parameter occurs in every processed step model.
+
+The supported solve is CasADi-evaluated IDAKLU with the states retained.
+Other solvers and other conversion formats are outside this task. The
+differential and algebraic equations are autonomous inside a step: the
+residual does not depend explicitly on time. An output expression may still
+depend on absolute time.
+
+The flag must work with constant-current, rest, and implicit constant-voltage
+steps. Event-terminated and prescribed-duration steps may be mixed. A
+continuation uses an event-sensitive starting_solution computed at the same
+input values. Reusing a simulation for different input values must recompute
+its derivatives. Continuation from history that lacks event-sensitivity
+information is not required. An experiment may contain more than one cycle.
+Each cycle keeps the aligned derivatives.
+
+Derivative meanings
+Let a step start at absolute time a(p) and end at b(p). At an interior
+observation with fixed elapsed duration r, the sample is evaluated at a(p)+r.
+At the terminating endpoint, it is evaluated at the actual b(p), even when
+that endpoint was located by a termination event.
+
+Existing solution[variable].sensitivities keep their fixed-absolute-time
+meaning. Their state dependence must include all preceding event transitions.
+
+New solution[variable].phase_sensitivities give the total derivative of the
+output when the observation follows the step-relative convention above. The
+endpoint is evaluated on the terminating step's side. This includes explicit
+dependence of an output on absolute time.
+
+New solution.time_sensitivities give the derivative of the absolute timestamp
+of each sample under the same convention. Interior samples hold their nominal
+elapsed time fixed; this is not differentiation of the solver's adaptive mesh.
+A prescribed-duration endpoint holds that duration fixed. An event endpoint
+follows the event.
+
+Both added properties return plain dict objects, with one entry per input
+parameter and an "all" entry. Scalar parameter entries have one column.
+"all" stacks columns in alphabetical parameter-name order, the same order as
+native sensitivities["all"], including when the caller inserted the inputs
+in another order. Time arrays have shape (len(solution.t), number_of_columns).
+Output arrays use the same time-major flattened shape as the existing
+processed-variable sensitivities property, for every sample, not only the
+endpoints. Processed outputs under this contract are scalar.
+
+The full solution, its cycles, and its steps must expose aligned derivatives.
+first_state, last_state, copy(), and chronological addition must preserve
+forward samples, fixed-time sensitivities, phase_sensitivities, and
+time_sensitivities. The processed output entries and the three sensitivity
+families returned by copy() are its own arrays. Addition must not mutate
+the step objects it combines. Accessing or combining solutions must not
+mutate the original solution's derivative data. Forward output values, event
+order, timing, and each step's termination string remain consistent with the
+original solver.
+
+The new properties are produced only when both flags are set. Without the
+opt-in flag, existing calls remain valid, including an event-terminated
+experiment that asks only for calculate_sensitivities. That call keeps the
+original fixed-time sensitivities and does not report event-aligned sample
+times.
+
+Numerical tolerances
+Forward step-end times must agree within 0.001 s. Scalar output values must
+agree within 5e-6 in their stated units. Event-time derivatives allow
+0.05 + 2e-4*abs(reference) in seconds per input unit. Other derivatives allow
+3e-4 + 3e-4*abs(reference) in output units per input unit, tightened to
+3e-5 + 3e-5*abs(reference) for analytic models. Array dimensions, column
+order, and sample alignment must match exactly. Metadata state extraction and
+copies are checked to 1e-8 absolute where applicable. Non-finite results fail.
+
+Interior step-relative queries coincide with the nominal experiment output
+grid. No new interpolation API is required.
+
+Delivery
+Copy the entire modified /app/repo/src/pybamm directory to
+/app/submission/pybamm. Every file from that upstream package must still be
+present and nonempty. Files under pybamm/input must be the bundled bytes.
+pybamm/CITATIONS.bib must be the bundled bytes. Import only that submitted
+package plus the same pinned packages installed in the candidate environment.
+Do not rely on changes left solely in /app/repo, install new dependencies,
+or execute build scripts. Each invocation that exercises the contract is
+stopped at 300 seconds.
+
+/app/reproduce.py demonstrates the original limitation on an analytic
+experiment. The task does not prescribe how the IDAKLU bookkeeping is laid
+out in source files.

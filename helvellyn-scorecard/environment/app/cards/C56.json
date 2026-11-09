@@ -1,0 +1,23 @@
+{
+  "bin_count": 4,
+  "card_id": "C56",
+  "classes": [
+    "oak"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "s0",
+      "rows": [
+        {
+          "example_id": "e1",
+          "label": "oak",
+          "p_bp": {
+            "oak": 10000,
+            "pine": 0
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
++4 Replays each batch on a working copy and keeps it only on commit, so a rollback leaves the committed index exactly as it was (no shared token slices between copies).
++3 Splits text into lowercased runs of ASCII letters and digits, with every other character a separator.
++3 Gives every token a position, stop words included, and never matches a stop word, even with a fuzzy query word.
++3 Keeps query words at their original positions after stop words are dropped.
++3 Continues an appended text's positions after every token the document already holds.
++4 Computes the edit distance as the least number of edits with adjacent swaps (the unrestricted Damerau-Levenshtein distance), not the restricted alignment recurrence.
++4 Finds each document's distance as the least spread over placements in which every query word takes its own token within the fuzz.
++2 Treats a distance equal to the slop as a hit.
++2 Orders hits by distance, then by id in byte order, and writes `-` for a query without hits.
++2 Uses only the Go standard library and builds with go build in /app/logindex.
+-3 Matches a fuzzy query word against a stop word of the document.
+-3 Lets one document token serve two query words.
+-3 Takes each query word's nearest token instead of searching for the least spread.
+-2 Writes anything other than the answer lines to standard output.

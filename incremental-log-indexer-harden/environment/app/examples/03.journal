@@ -1,0 +1,15 @@
+stopwords
+begin
+add job-1 backup started on db primary
+commit
+begin
+add job-1 backup finished with errors
+add job-2 restore started
+rollback
+query 0 0 backup started
+query 0 0 restore
+begin
+add job-1 backup finished with errors
+commit
+query 0 0 backup started
+query 1 0 backup finished

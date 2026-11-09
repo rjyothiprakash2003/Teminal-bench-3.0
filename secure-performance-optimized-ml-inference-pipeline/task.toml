@@ -1,0 +1,37 @@
+schema_version = "2.0"
+name = "kelso-ridgecast-week41"
+artifacts = ["/app/"]
+
+[metadata]
+author_name = "Indra Kumar Macha"
+author_email = "olexpert003@snorkel.com"
+category = "Software"
+subcategory = "Systems"
+tags = ["go", "sidecar", "schema-gate", "tick-bench", "http"]
+languages = ["go", "bash"]
+difficulty = "advanced"
+expert_time_estimate_hours = 5
+
+difficulty_explanation = "The core work is repairing a frozen Go scoring sidecar where shared intake parsing, ridge-v3 logit arithmetic, and optional cache/batch isolation have regressed, plus rewriting the CI gate stub so it rebuilds and runs the required pipeline. An SRE or backend engineer restoring a week-41 underwriting freeze would do this work. Failures that matter are wrong field-order or std arithmetic in the logit, batch aliasing across in-flight requests, a colliding or racy cache, incomplete intake validation, missing batch_limit enforcement, loose Bearer matching, and a non-functional ci-gate.sh. Bench must recover live S and C and emit the documented ledger fields. Fixtures and weights are synthetic lab data. An expert who already knows where those axes break can repair the shared Go sources and CI gate in about five hours."
+
+solution_explanation = "The reference fix restores shared intake parsing and ridge-v3 scoring for CLI and HTTP (exact Bearer match; schema-order logit with correct std division; Parse rejects forbidden/extra keys, wrong JSON types, and out-of-range fields; per-request copies in batch scoring; mutex-protected lossless cache keys). Content-Type accepts bare application/json or charset=utf-8. Sidecar loading requires batch_limit as a positive integer with no implicit default; values above signed 64-bit still load and cover the intake. Score failures remove the named --out path. CLI FlagSet diagnostics are discarded so unknown-flag names cannot leak filenames or the token. The CI gate is rewritten to rebuild ./cmd/ridgecast into /app/bin/ridgecast, run that binary for selfcheck, then score and bench under fail-fast semantics that stop after a failing selfcheck. Tickbench recovers live S and C from the current recovery files; totals that exceed a signed 64-bit integer are decoded so recovery stays operational for the contract's live pairs far above 64."
+
+verification_explanation = "The graded suite is a compact pytest module in test_outputs.py with ridge_helpers.py runners. Cases rebuild and run ridgecast and the agent-controlled ci-gate.sh under setpriv as uid 12000. Gate provenance is observed from a root strace of execve/openat on /app/bin/ridgecast: omitted bench --spec/--out resolve to the documented defaults; a live source rebuild token must appear in the rebuilt ELF and each gated ridgecast PID must open the token-named stamp path compiled into that rebuild (so a swapped prebuilt at the same path cannot satisfy both build and exec evidence). Coverage includes live fixture scoring (expects minted from sealed weights + live fixtures, not shipped goldens of agent-visible inputs), mean-logit and off-mean selfcheck against live files, fail-fast after a failing selfcheck, intake legality on both transports including live schema-bound mutation and long exact-decimal excesses, exact Bearer vs a case-folded scheme, application/json Content-Type with unquoted charset=utf-8 only, per-request cache isolation, barrier-forced concurrent cache overlap under -race, and live S/C recovery including inconsistent-average rejection and pairs whose totals exceed a signed 64-bit integer. Failure messages are checked for the bearer token and model filenames. Holdout bytes for xi/nu intakes and weights are loaded into memory then deleted from /tests/holdout; staged paths use opaque random basenames; prep never follows a candidate /app/out symlink."
+
+relevant_experience = "Assigned Terminus 3.0 expert contributor for Coding and Software Engineering with Systems scope."
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 5400
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240

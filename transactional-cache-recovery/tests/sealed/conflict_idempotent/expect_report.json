@@ -1,0 +1,98 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "committed",
+      "op_id": "z0",
+      "idempotent": false,
+      "writes": {
+        "z": {
+          "value": "base",
+          "version": 1
+        }
+      }
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "conflict",
+      "op_id": "zbad",
+      "idempotent": false,
+      "writes": {}
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "conflict",
+      "op_id": "zbad",
+      "idempotent": true,
+      "writes": {}
+    },
+    {
+      "found": true,
+      "value": "base",
+      "version": 1
+    },
+    {
+      "status": "ok",
+      "entries": {
+        "z": {
+          "value": "base",
+          "version": 1
+        }
+      },
+      "ops": {
+        "z0": {
+          "status": "committed",
+          "writes": {
+            "z": {
+              "value": "base",
+              "version": 1
+            }
+          }
+        },
+        "zbad": {
+          "status": "conflict",
+          "writes": {}
+        }
+      }
+    }
+  ],
+  "final": {
+    "entries": {
+      "z": {
+        "value": "base",
+        "version": 1
+      }
+    },
+    "ops": {
+      "z0": {
+        "status": "committed",
+        "writes": {
+          "z": {
+            "value": "base",
+            "version": 1
+          }
+        }
+      },
+      "zbad": {
+        "status": "conflict",
+        "writes": {}
+      }
+    }
+  }
+}

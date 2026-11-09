@@ -1,0 +1,47 @@
+stopwords is
+begin
+add f pool
+add d2 akc)node)timeout_code
+add d10 is time=auth
+add b api
+rollback
+begin
+delete d2
+delete b
+add b timeout
+append b host
+add c ...
+commit
+begin
+add c link  abc/up eror.akc  uath)uath
+append b AIP akc
+add d10 retry=Disk down
+append d10 CUP
+add c desk(Full
+commit
+begin
+delete d-1
+append d10 cpu out-hosts_poll  poll_miss
+commit
+begin
+delete e-x
+add d-1 poll time timeout.DOWN
+rollback
+query 1 1 time
+query 0 0 is time
+query 4 0 timeout
+query 4 0 desk code poll
+query 8 1 hosts pool
+begin
+append b timeout=Down.poll.host
+commit
+begin
+commit
+query 5 1 is nodes dusk eror
+begin
+add d10 node.TIME=node=node/abc_aip
+rollback
+begin
+add f eror/down(retry/desk/poll_full=time99
+add d10 error
+commit

@@ -1,0 +1,8 @@
+open UNIT root
+bind VAL x 1
+open BLOCK c
+bind VAL x 2
+use x
+end BLOCK
+use x
+end UNIT

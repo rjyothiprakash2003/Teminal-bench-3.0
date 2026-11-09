@@ -1,0 +1,144 @@
+{
+  "bin_count": 5,
+  "card_id": "H51",
+  "classes": [
+    "cedar",
+    "fir",
+    "larch"
+  ],
+  "min_conf_bp": 3000,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h51-0",
+          "label": "larch",
+          "p_bp": {
+            "cedar": 3400,
+            "fir": 400,
+            "larch": 6200
+          }
+        },
+        {
+          "example_id": "h51-1",
+          "label": "larch",
+          "p_bp": {
+            "cedar": 1100,
+            "fir": 4800,
+            "larch": 4100
+          }
+        },
+        {
+          "example_id": "h51-2",
+          "label": "cedar",
+          "p_bp": {
+            "cedar": 4200,
+            "fir": 3200,
+            "larch": 2600
+          }
+        },
+        {
+          "example_id": "h51-3",
+          "label": "larch",
+          "p_bp": {
+            "cedar": 900,
+            "fir": 800,
+            "larch": 8300
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z1",
+      "rows": [
+        {
+          "example_id": "h51-4",
+          "label": "cedar",
+          "p_bp": {
+            "cedar": 6500,
+            "fir": 2700,
+            "larch": 800
+          }
+        },
+        {
+          "example_id": "h51-5",
+          "label": "larch",
+          "p_bp": {
+            "cedar": 2000,
+            "fir": 100,
+            "larch": 7900
+          }
+        },
+        {
+          "example_id": "h51-6",
+          "label": "cedar",
+          "p_bp": {
+            "cedar": 3900,
+            "fir": 2200,
+            "larch": 3900
+          }
+        },
+        {
+          "example_id": "h51-7",
+          "label": "fir",
+          "p_bp": {
+            "cedar": 1700,
+            "fir": 7800,
+            "larch": 500
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z2",
+      "rows": [
+        {
+          "example_id": "h51-8",
+          "label": "cedar",
+          "p_bp": {
+            "cedar": 800,
+            "fir": 1300,
+            "larch": 7900
+          }
+        },
+        {
+          "example_id": "h51-9",
+          "label": "larch",
+          "p_bp": {
+            "cedar": 5200,
+            "fir": 4600,
+            "larch": 200
+          }
+        },
+        {
+          "example_id": "h51-10",
+          "label": "cedar",
+          "p_bp": {
+            "cedar": 6000,
+            "fir": 200,
+            "larch": 3800
+          }
+        },
+        {
+          "example_id": "h51-11",
+          "label": "larch",
+          "p_bp": {
+            "cedar": 3800,
+            "fir": 4800,
+            "larch": 1400
+          }
+        },
+        {
+          "example_id": "h51-12",
+          "label": "fir",
+          "p_bp": {
+            "cedar": 7700,
+            "fir": 600,
+            "larch": 1700
+          }
+        }
+      ]
+    }
+  ]
+}

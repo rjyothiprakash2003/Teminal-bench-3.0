@@ -1,0 +1,142 @@
+Kilnbridge Netlist Provenance Ordinance
+Revision 4 for the digital logic compilation desk
+
+This ordinance is the desk policy for unsafe netlist provenance
+transitions. The reconstructor must read this file from the --ordinance path.
+A clock-gate name is compared the way Liberty matches an ICG cell identifier:
+case is not significant. Private key material is never stored, logged, or
+emitted by the desk, including in graph notes. Notes and process output use
+printable ASCII, stay at most 160 characters per note, and never include a
+run of 32 hexadecimal digits or a run of 32 base64 alphabet characters.
+Sixty-four hexadecimal digits remain forbidden in a note even when grouping
+punctuation separates them. Role, part, and clock-gate tokens copied into
+notes are replaced with the word redacted when they contain a forbidden run.
+The LIB_MISBIND note names the partition role and the CLKGT_SPLIT note names
+the live clock-gate. A forbidden run inside that named token is written as
+the word redacted.
+
+Settle window
+freeze_on is the day that mapping generation is sealed for that partition.
+Read the settle day count from the first SETTLE row in the matrix file passed
+as --matrix. Later SETTLE rows are ignored. A freeze checkpoint is eligible
+as a module ancestor only when the module WHEN date is on or after freeze_on
+plus that settle day count. The freeze day itself is not yet old enough.
+
+Unsafe codes
+GHOST_MAP
+A recover restores a mapping generation older than the live generation of
+that partition. Live generation is the gen of the latest map, recover, or
+freeze on the partition. Recovering the current live generation is checkpoint
+replay, not a ghost. The first recover of a partition with no prior event is
+not a ghost. Techmap and opt events do not change live generation.
+
+LIB_MISBIND
+A module whose lane is incremental is bound to a partition whose latest role
+is not marked incremental in the matrix file passed as --matrix.
+
+ANCESTOR_GAP
+A module whose lane is incremental names a PARENT that is not the eligible
+freeze checkpoint of that same partition. Only freeze events create a
+checkpoint. Recover never creates one. The eligible ancestor is the freeze of
+that partition with the latest freeze_on that is old enough under the settle
+window. If two freeze_on dates match, the alphabetically first checkpoint
+identifier wins. A later map on that partition does not drop the freeze from
+selection. If no freeze is old enough, the legal PARENT is the token -.
+Flatten-lane .nlg files are module records but do not trigger this code.
+
+AREA_REGRESS
+An opt event reports a larger cell count than the previous opt event on the
+same partition while the liberty revision is unchanged. The first opt event
+of a partition does not emit this code. A later opt event may grow when its
+lib differs from the previous opt event. Map, techmap, freeze,
+and recover are not opt events.
+
+STALE_LIB
+A techmap event carries a lib revision lower than the governing revision for
+that event day. Read every LIB row in the matrix. The token is the revision
+and the payload is the effective date. The governing revision is the highest
+revision whose effective date is on or before the techmap day. Map and opt
+events do not trigger this code even when their lib is old.
+
+CLKGT_SPLIT
+A module whose lane is incremental carries an ICG that does not match the
+partition current clock-gate after case folding. Current clock-gate comes
+from the latest map or recover. Freeze, techmap, and opt keep the clock-gate
+already on the partition. Flatten-lane .nlg files do not trigger this code.
+
+Finding epoch
+GHOST_MAP AREA_REGRESS and STALE_LIB use the epoch of the journal event
+that triggered the finding. LIB_MISBIND ANCESTOR_GAP and CLKGT_SPLIT are
+module findings and use the last journal epoch of the bound partition.
+
+Safe events produce no finding. When nothing fires, findings is an empty JSON
+array, never null. Findings are sorted by ascending epoch, then code, then
+part. Duplicate (code, part, epoch) rows collapse to one. Patch rows are
+emitted one per finding in that same order. Repair verbs are the payload of
+the matching REPAIR row in the matrix file passed as --matrix. The shipped
+desk maps drop-checkpoint, rebind-lib, relink-ancestor, remap-area,
+promote-lib, and rebind-icg. rank and epoch are JSON integers.
+
+Lineage attest format NPG1
+Line 1 is the literal token NPG1.
+Then one NODE line per distinct partition last-seen in the journal, sorted by
+ascending part:
+NODE|part|site|clk|phase
+phase is live or frozen. NODE phase is frozen only when that partition last
+journal event is freeze. A map, techmap, opt, or recover leaves phase live.
+clk on NODE lines is lowercase. If a partition has no map or recover event,
+the clk field is empty, so the line is NODE|part|site||phase. Do not emit a
+placeholder token such as - for that missing clock.
+Then one FIND line per unsafe finding in graph finding order:
+FIND|code|part|epoch
+Then one SEAL line:
+SEAL|sha256
+where sha256 is the lowercase hex digest of every prior line joined by a
+single newline including a trailing newline after the last FIND or NODE
+block line before SEAL. The SEAL line itself is excluded from the hashed
+body.
+
+Netlist provenance graph JSON
+Top-level object keys desk findings patches only.
+desk is always KilnbridgeNetloom.
+findings is an array of objects with keys code part note epoch only.
+Each finding is identified by code, part, and epoch. note is a nonempty
+diagnostic string, subject to the private-material limits above. Note text
+follows the redaction rules above. patches is an array of objects with keys rank verb
+part epoch only. indent two spaces trailing newline. Go or Python
+pretty-print escaping of note characters is allowed.
+
+Only files whose names end in .nlg under the modules directory are module
+records. Any other file in that directory is ignored. LIB_MISBIND
+ANCESTOR_GAP and CLKGT_SPLIT fire only when a module record has LANE
+incremental.
+
+Module files under /app/netlist/modules use this stanza:
+MODULE <id>
+PART <part>
+LANE <incremental|flatten>
+ICG <icg>
+PARENT <ckpt|->
+WHEN <YYYY-MM-DD>
+
+The --ordinance flag path must exist and be readable. Open it and require one
+line whose entire text equals Kilnbridge Netlist Provenance Ordinance,
+plus each unsafe code name above as a substring somewhere in the file. If the
+path is missing, unreadable, or fails that title-line or unsafe-code check,
+exit with status 2, write an error to stderr, and write neither graph nor
+attest. Do not create, replace, truncate, or unlink an existing --graph or
+--attest path on that failure; keep its bytes, symbolic-link target text, and
+inode. The same hold applies when --graph or --attest aliases a protected
+input, including through a hard link or a symbolic link whose stored target
+is a relative path. If --graph and --attest alias each other, including
+through a hard link or a symbolic link, exit 2 and write neither. When the
+command exits, either both outputs hold the new generation, or the exit
+status is an error and neither path was modified. An existing output keeps
+its bytes, symbolic-link target text, and inode. A path that did not exist
+stays absent. The same outcome holds for an ordinance failure and for an
+alias refusal. Do not modify the ordinance file, the matrix file, the journal
+file, or any file already present under /app/netlist/modules, including when
+--modules names a different directory. Rule numbers such as settle days,
+incremental roles, liberty revisions, and REPAIR verbs are taken from the
+matrix file passed as --matrix. The prose eligibility rules above are taken
+from this ordinance.

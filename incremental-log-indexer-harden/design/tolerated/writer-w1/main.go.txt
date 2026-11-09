@@ -1,0 +1,318 @@
+package main
+
+import (
+	"bufio"
+	"io"
+	"os"
+	"sort"
+	"strconv"
+	"strings"
+)
+
+var stop = map[string]bool{}
+
+func tokenize(s string) []string {
+	var toks []string
+	i := 0
+	for i < len(s) {
+		c := s[i]
+		if isAlnum(c) {
+			j := i
+			for j < len(s) && isAlnum(s[j]) {
+				j++
+			}
+			toks = append(toks, strings.ToLower(s[i:j]))
+			i = j
+		} else {
+			i++
+		}
+	}
+	return toks
+}
+
+func isAlnum(c byte) bool {
+	return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9')
+}
+
+// damerau computes the unrestricted Damerau-Levenshtein distance
+// (insert, delete, substitute, transpose adjacent), Lowrance-Wagner.
+func damerau(a, b string) int {
+	la, lb := len(a), len(b)
+	inf := la + lb
+	d := make([][]int, la+2)
+	for i := range d {
+		d[i] = make([]int, lb+2)
+	}
+	d[0][0] = inf
+	for i := 0; i <= la; i++ {
+		d[i+1][0] = inf
+		d[i+1][1] = i
+	}
+	for j := 0; j <= lb; j++ {
+		d[0][j+1] = inf
+		d[1][j+1] = j
+	}
+	var da [256]int
+	for i := 1; i <= la; i++ {
+		db := 0
+		for j := 1; j <= lb; j++ {
+			i1 := da[b[j-1]]
+			j1 := db
+			cost := 1
+			if a[i-1] == b[j-1] {
+				cost = 0
+				db = j
+			}
+			v := d[i][j] + cost
+			if x := d[i+1][j] + 1; x < v {
+				v = x
+			}
+			if x := d[i][j+1] + 1; x < v {
+				v = x
+			}
+			if x := d[i1][j1] + (i - i1 - 1) + 1 + (j - j1 - 1); x < v {
+				v = x
+			}
+			d[i+1][j+1] = v
+		}
+		da[a[i-1]] = i
+	}
+	return d[la+1][lb+1]
+}
+
+type distKey struct{ a, b string }
+
+var distCache = map[distKey]int{}
+
+func within(w, t string, fuzz int) bool {
+	if w == t {
+		return true
+	}
+	if fuzz == 0 {
+		return false
+	}
+	dl := len(w) - len(t)
+	if dl < 0 {
+		dl = -dl
+	}
+	if dl > fuzz {
+		return false
+	}
+	k := distKey{w, t}
+	d, ok := distCache[k]
+	if !ok {
+		d = damerau(w, t)
+		distCache[k] = d
+	}
+	return d <= fuzz
+}
+
+type hit struct {
+	id   string
+	dist int
+}
+
+type cand struct{ pos, off int }
+
+type searcher struct {
+	cands [][]cand
+	opts  [][]int
+	owner []int
+	seen  []int
+	stamp int
+}
+
+func (s *searcher) try(i int) bool {
+	for _, p := range s.opts[i] {
+		if s.seen[p] == s.stamp {
+			continue
+		}
+		s.seen[p] = s.stamp
+		o := s.owner[p]
+		if o < 0 || s.try(o) {
+			s.owner[p] = i
+			return true
+		}
+	}
+	return false
+}
+
+func (s *searcher) feasible(lo, hi int) bool {
+	n := len(s.cands)
+	for i := 0; i < n; i++ {
+		c := s.cands[i]
+		a := sort.Search(len(c), func(k int) bool { return c[k].off >= lo })
+		s.opts[i] = s.opts[i][:0]
+		for k := a; k < len(c) && c[k].off <= hi; k++ {
+			s.opts[i] = append(s.opts[i], c[k].pos)
+		}
+		if len(s.opts[i]) == 0 {
+			return false
+		}
+	}
+	ok := true
+	for i := 0; i < n && ok; i++ {
+		s.stamp++
+		if !s.try(i) {
+			ok = false
+		}
+	}
+	for i := 0; i < n; i++ {
+		for _, p := range s.opts[i] {
+			s.owner[p] = -1
+		}
+	}
+	return ok
+}
+
+func docDistance(tokens []string, words []string, wpos []int, slop, fuzz int) int {
+	n := len(words)
+	cands := make([][]cand, n)
+	var offs []int
+	for i, w := range words {
+		for p, t := range tokens {
+			if stop[t] {
+				continue
+			}
+			if within(w, t, fuzz) {
+				o := p - wpos[i]
+				cands[i] = append(cands[i], cand{p, o})
+				offs = append(offs, o)
+			}
+		}
+		if len(cands[i]) < 1 {
+			return -1
+		}
+	}
+	sort.Ints(offs)
+	s := &searcher{cands: cands, opts: make([][]int, n), owner: make([]int, len(tokens)), seen: make([]int, len(tokens))}
+	for i := range s.owner {
+		s.owner[i] = -1
+	}
+	best := slop + 1
+	for k, L := range offs {
+		if k > 0 && offs[k-1] == L {
+			continue
+		}
+		if !s.feasible(L, L+best-1) {
+			continue
+		}
+		for sp := 0; sp < best; sp++ {
+			if s.feasible(L, L+sp) {
+				best = sp
+				break
+			}
+		}
+		if best == 0 {
+			break
+		}
+	}
+	if best > slop {
+		return -1
+	}
+	return best
+}
+
+func main() {
+	data, _ := io.ReadAll(os.Stdin)
+	lines := strings.Split(string(data), "\n")
+	out := bufio.NewWriter(os.Stdout)
+	defer out.Flush()
+
+	committed := map[string][]string{}
+	var work map[string][]string
+	first := true
+	for _, line := range lines {
+		line = strings.TrimRight(line, "\r")
+		if line == "" {
+			continue
+		}
+		if first {
+			first = false
+			f := strings.Fields(line)
+			for _, w := range f[1:] {
+				stop[w] = true
+			}
+			continue
+		}
+		switch {
+		case line == "begin":
+			work = make(map[string][]string, len(committed))
+			for k, v := range committed {
+				work[k] = v
+			}
+		case line == "commit":
+			committed = work
+			work = nil
+		case line == "rollback":
+			work = nil
+		case strings.HasPrefix(line, "add "):
+			rest := line[4:]
+			sp := strings.IndexByte(rest, ' ')
+			id, text := rest, ""
+			if sp >= 0 {
+				id, text = rest[:sp], rest[sp+1:]
+			}
+			work[id] = tokenize(text)
+		case strings.HasPrefix(line, "append "):
+			rest := line[7:]
+			sp := strings.IndexByte(rest, ' ')
+			id, text := rest, ""
+			if sp >= 0 {
+				id, text = rest[:sp], rest[sp+1:]
+			}
+			old := work[id]
+			nt := tokenize(text)
+			merged := make([]string, 0, len(old)+len(nt))
+			merged = append(merged, old...)
+			merged = append(merged, nt...)
+			work[id] = merged
+		case strings.HasPrefix(line, "delete "):
+			delete(work, line[7:])
+		case strings.HasPrefix(line, "query "):
+			slop, _ := strconv.Atoi(line[6:7])
+			fuzz, _ := strconv.Atoi(line[8:9])
+			text := ""
+			if len(line) > 10 {
+				text = line[10:]
+			}
+			var words []string
+			var wpos []int
+			for p, t := range tokenize(text) {
+				if stop[t] {
+					continue
+				}
+				words = append(words, t)
+				wpos = append(wpos, p)
+			}
+			var hits []hit
+			if len(words) > 0 {
+				for id, toks := range committed {
+					d := docDistance(toks, words, wpos, slop, fuzz)
+					if d >= 0 {
+						hits = append(hits, hit{id, d})
+					}
+				}
+			}
+			sort.Slice(hits, func(i, j int) bool {
+				if hits[i].dist != hits[j].dist {
+					return hits[i].dist < hits[j].dist
+				}
+				return hits[i].id < hits[j].id
+			})
+			if len(hits) == 0 {
+				out.WriteString("-\n")
+			} else {
+				for i, h := range hits {
+					if i > 0 {
+						out.WriteByte(' ')
+					}
+					out.WriteString(h.id)
+					out.WriteByte('@')
+					out.WriteString(strconv.Itoa(h.dist))
+				}
+				out.WriteByte('\n')
+			}
+		}
+	}
+}

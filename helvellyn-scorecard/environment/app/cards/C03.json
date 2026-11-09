@@ -1,0 +1,120 @@
+{
+  "bin_count": 8,
+  "card_id": "C03",
+  "classes": [
+    "oak",
+    "pine"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "rows": [
+        {
+          "example_id": "p01",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8900,
+            "pine": 1100
+          }
+        },
+        {
+          "example_id": "p02",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8800,
+            "pine": 1200
+          }
+        },
+        {
+          "example_id": "p03",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8700,
+            "pine": 1300
+          }
+        },
+        {
+          "example_id": "p04",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8600,
+            "pine": 1400
+          }
+        },
+        {
+          "example_id": "p05",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8500,
+            "pine": 1500
+          }
+        },
+        {
+          "example_id": "p06",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8400,
+            "pine": 1600
+          }
+        },
+        {
+          "example_id": "p07",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8300,
+            "pine": 1700
+          }
+        },
+        {
+          "example_id": "p08",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8200,
+            "pine": 1800
+          }
+        },
+        {
+          "example_id": "h01",
+          "label": "oak",
+          "p_bp": {
+            "oak": 9500,
+            "pine": 500
+          }
+        },
+        {
+          "example_id": "h02",
+          "label": "oak",
+          "p_bp": {
+            "oak": 4500,
+            "pine": 5500
+          }
+        },
+        {
+          "example_id": "h03",
+          "label": "oak",
+          "p_bp": {
+            "oak": 500,
+            "pine": 9500
+          }
+        },
+        {
+          "example_id": "t01",
+          "label": "pine",
+          "p_bp": {
+            "oak": 4000,
+            "pine": 6000
+          }
+        },
+        {
+          "example_id": "t02",
+          "label": "pine",
+          "p_bp": {
+            "oak": 3000,
+            "pine": 7000
+          }
+        }
+      ],
+      "slice_id": "s0"
+    }
+  ]
+}

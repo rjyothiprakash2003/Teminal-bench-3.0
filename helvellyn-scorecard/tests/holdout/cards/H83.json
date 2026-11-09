@@ -1,0 +1,26 @@
+{
+  "bin_count": 5,
+  "card_id": "H83",
+  "classes": [
+    "ash",
+    "elm",
+    "fir"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "g",
+      "rows": [
+        {
+          "example_id": "t1",
+          "label": "elm",
+          "p_bp": {
+            "ash": 4000,
+            "elm": 3000,
+            "fir": 3001
+          }
+        }
+      ]
+    }
+  ]
+}

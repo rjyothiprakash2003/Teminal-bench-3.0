@@ -1,0 +1,16 @@
+{
+  "sources": [
+    {
+      "id": "net",
+      "priority": 1
+    },
+    {
+      "id": "disk",
+      "priority": 1
+    },
+    {
+      "id": "node",
+      "priority": 2
+    }
+  ]
+}

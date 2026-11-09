@@ -1,0 +1,34 @@
+{
+  "dst_pre": [
+    {
+      "content": "block\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "a"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a.txt"
+    }
+  ],
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a"
+    },
+    {
+      "content": "z\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "a/z"
+    },
+    {
+      "content": "a\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "a.txt"
+    }
+  ]
+}

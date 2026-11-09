@@ -1,0 +1,18 @@
+{
+  "artifacts": [
+    {
+      "cflags": [
+        "-O1",
+        "-m64"
+      ],
+      "defines": {},
+      "env": {},
+      "id": "w",
+      "ldflags": [
+        "-fuse-ld=lld"
+      ],
+      "stamp": "9ec2df521fbbb062383164be1285df1708ccc04a533ca2b0d108f0566f3d5403",
+      "triple": "x86_64-windows-lld"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+Repair the streaming aggregator at `/app/src/aggregator.py` so it satisfies `/app/docs/window-contract.md`. The stream under `/app/stream` is the simple case; `/app/examples/regression` is an out-of-order stream the contract already decides.
+
+Keep the program driveable as `python3 /app/src/aggregator.py --stream <dir> --out <file>`. Grading runs that source against streams the shipped tree does not contain, compares successful window bytes to the contract, and compares refusal text and exit status on the refusals the contract names. Each run may take at most 20 seconds. Graded streams stay within the size bounds the contract states.

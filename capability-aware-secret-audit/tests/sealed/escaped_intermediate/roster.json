@@ -1,0 +1,36 @@
+{
+  "entries": [
+    {
+      "path": "conf/door/secret.dat",
+      "allow_uids": [
+        0
+      ],
+      "allow_gids": [
+        0
+      ]
+    },
+    {
+      "path": "conf/keep",
+      "allow_uids": [
+        0
+      ],
+      "allow_gids": [
+        0
+      ]
+    }
+  ],
+  "subjects": [
+    {
+      "uid": 0,
+      "gids": [
+        0
+      ]
+    },
+    {
+      "uid": 1000,
+      "gids": [
+        1000
+      ]
+    }
+  ]
+}

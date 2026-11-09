@@ -1,0 +1,60 @@
+{
+  "dst_pre": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c"
+    },
+    {
+      "kind": "symlink",
+      "path": "a/b/c/d",
+      "target": "../../../../extra"
+    }
+  ],
+  "extra": [
+    {
+      "content": "o\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "out.txt"
+    }
+  ],
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c/d"
+    },
+    {
+      "content": "f\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "a/b/c/d/f"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "dst_pre": [
+    {
+      "kind": "fifo",
+      "mode": 420,
+      "path": "wrap"
+    }
+  ],
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "wrap"
+    },
+    {
+      "content": "f\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "wrap/f"
+    }
+  ]
+}

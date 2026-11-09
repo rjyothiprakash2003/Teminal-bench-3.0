@@ -1,0 +1,3 @@
+Repair the build orchestrator at `/app/src/orchestrator.py` so it satisfies `/app/docs/orchestrator-contract.md`. The tree under `/app/sample` is the simple case; `/app/examples/regression` is a multi-target configuration the contract already decides.
+
+Keep the program driveable as `python3 /app/src/orchestrator.py --config <dir> --out <file>`. Grading runs that source against configurations the shipped tree does not contain, compares successful artifact bytes to the contract, and compares refusal text and exit status on the refusals the contract names. Each run may take at most 20 seconds. Graded configurations stay within the size bounds the contract states.

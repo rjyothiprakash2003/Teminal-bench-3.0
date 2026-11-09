@@ -1,0 +1,15 @@
+stopwords
+begin
+add mq-1 queue depth high on broker 3
+add mq-2 consumer lag high on broker 4
+delete mq-9
+commit
+query 2 0 high broker
+begin
+delete mq-1
+commit
+query 2 0 high broker
+begin
+add mq-1 broker 3 recovered
+commit
+query 9 1 broker

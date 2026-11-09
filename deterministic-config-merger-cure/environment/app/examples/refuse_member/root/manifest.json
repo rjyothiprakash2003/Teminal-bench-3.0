@@ -1,0 +1,8 @@
+{
+  "sources": [
+    {
+      "id": "app",
+      "priority": 1
+    }
+  ]
+}

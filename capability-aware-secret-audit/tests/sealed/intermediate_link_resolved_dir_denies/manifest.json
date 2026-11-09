@@ -1,0 +1,26 @@
+{
+  "nodes": [
+    {
+      "path": "private",
+      "kind": "dir",
+      "mode": "0700",
+      "uid": 2000,
+      "gid": 2000
+    },
+    {
+      "path": "private/token",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 2000,
+      "gid": 2000,
+      "content": "t"
+    },
+    {
+      "path": "alias",
+      "kind": "symlink",
+      "target": "private"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

@@ -1,0 +1,8 @@
+retain 30
+batch 2026-10-13T12:00:10
+Oct 13 11:59:58 web1 nginx[201]: GET /health 200
+Oct 13 11:59:59 web1 nginx[201]: GET /login 500
+Oct 13 12:00:02 db1 postgres[88]: checkpoint complete
+count 2026-10-13T11:00:00 2026-10-13T12:00:00 get
+count 2026-10-13T11:00:00 2026-10-13T12:00:00 500
+lag 2026-10-13T12:05:00 get

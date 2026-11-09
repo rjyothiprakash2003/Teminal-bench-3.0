@@ -1,0 +1,90 @@
+{
+  "dst_pre": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c/d"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c/d/e"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c/d/e/f"
+    },
+    {
+      "kind": "symlink",
+      "path": "a/b/c/d/e/f/g",
+      "target": "../../../../../../../extra"
+    }
+  ],
+  "extra": [
+    {
+      "content": "o\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "out.txt"
+    }
+  ],
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c/d"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c/d/e"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c/d/e/f"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c/d/e/f/g"
+    },
+    {
+      "content": "x\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "a/b/c/d/e/f/g/x"
+    }
+  ]
+}

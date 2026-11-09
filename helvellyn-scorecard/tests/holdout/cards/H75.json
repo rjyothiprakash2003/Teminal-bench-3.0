@@ -1,0 +1,35 @@
+{
+  "bin_count": 5,
+  "card_id": "H75",
+  "classes": [
+    "ash",
+    "elm",
+    "fir"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "m",
+      "rows": [
+        {
+          "example_id": "f1",
+          "label": "elm",
+          "p_bp": {
+            "ash": 1000,
+            "elm": 6000,
+            "fir": 3000
+          }
+        },
+        {
+          "example_id": "f2",
+          "label": "fir",
+          "p_bp": {
+            "ash": 1000.0,
+            "elm": 2000,
+            "fir": 7000
+          }
+        }
+      ]
+    }
+  ]
+}

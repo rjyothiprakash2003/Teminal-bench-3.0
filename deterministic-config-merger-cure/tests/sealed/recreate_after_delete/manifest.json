@@ -1,0 +1,16 @@
+{
+  "sources": [
+    {
+      "id": "a",
+      "priority": 1
+    },
+    {
+      "id": "b",
+      "priority": 2
+    },
+    {
+      "id": "c",
+      "priority": 3
+    }
+  ]
+}

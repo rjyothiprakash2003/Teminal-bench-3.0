@@ -1,0 +1,79 @@
+{
+  "bin_count": 10,
+  "card_id": "H69",
+  "classes": [
+    "alder",
+    "birch",
+    "larch",
+    "pine",
+    "yew"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h69-0",
+          "label": "pine",
+          "p_bp": {
+            "alder": 2200,
+            "birch": 1500,
+            "larch": 200,
+            "pine": 1400,
+            "yew": 4700
+          }
+        },
+        {
+          "example_id": "h69-1",
+          "label": "yew",
+          "p_bp": {
+            "alder": 100,
+            "birch": 2400,
+            "larch": 1100,
+            "pine": 2800,
+            "yew": 3600
+          }
+        },
+        {
+          "example_id": "h69-2",
+          "label": "alder",
+          "p_bp": {
+            "alder": 1600,
+            "birch": 1800,
+            "larch": 900,
+            "pine": 1200,
+            "yew": 4500
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z1",
+      "rows": [
+        {
+          "example_id": "h69-3",
+          "label": "yew",
+          "p_bp": {
+            "alder": 100,
+            "birch": 7100,
+            "larch": 800,
+            "pine": 1800,
+            "yew": 200
+          }
+        },
+        {
+          "example_id": "h69-4",
+          "label": "birch",
+          "p_bp": {
+            "alder": 400,
+            "birch": 3300,
+            "larch": 200,
+            "pine": 3300,
+            "yew": 2800
+          }
+        }
+      ]
+    }
+  ]
+}

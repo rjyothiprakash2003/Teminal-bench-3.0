@@ -1,0 +1,10 @@
+retain 90
+count 2026-01-01T00:00:00 2026-12-31T23:59:59 disk
+lag 2026-07-01T00:00:00 disk
+batch 2026-07-01T00:00:00
+batch 2026-07-01T00:00:01
+Jul  1 00:00:00 nas smartd: Disk /dev/sda: 1 Currently unreadable sectors
+Jun 30 23:59:00 nas smartd: disk_check ok
+count 2026-06-30T00:00:00 2026-07-01T00:00:00 disk
+count 2026-06-30T00:00:00 2026-07-01T00:00:00 sda
+lag 2026-07-01T00:00:01 disk

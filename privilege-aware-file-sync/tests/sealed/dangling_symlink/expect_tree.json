@@ -1,0 +1,10 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "dangling": {
+    "kind": "symlink",
+    "target": "missing-target"
+  }
+}

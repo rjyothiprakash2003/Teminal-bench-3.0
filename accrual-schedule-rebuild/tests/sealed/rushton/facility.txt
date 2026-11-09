@@ -1,0 +1,11 @@
+facility F-IN-5150
+class INVOICE
+advance 98000000
+rate 1000
+drawn 2023-01-31
+periods 8
+frequency 1
+step 2023-04-30 1250
+step 2023-05-15 1310
+step 2023-06-12 1400
+step 2023-06-27 1420

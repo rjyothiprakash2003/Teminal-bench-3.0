@@ -1,0 +1,36 @@
+{
+  "nodes": [
+    {
+      "path": "z",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "a",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "z/late",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 1,
+      "gid": 1,
+      "content": "z"
+    },
+    {
+      "path": "a/early",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 1,
+      "gid": 1,
+      "content": "a"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

@@ -1,0 +1,395 @@
+package main
+
+import (
+	"bufio"
+	"io"
+	"os"
+	"sort"
+	"strconv"
+	"strings"
+)
+
+// token of a document: text and whether it is a stop word (not indexed).
+type tok struct {
+	s    string
+	stop bool
+}
+
+type doc struct {
+	toks []tok
+}
+
+type index map[string]*doc
+
+var stopSet = map[string]bool{}
+
+func isAlnum(c byte) bool {
+	return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9')
+}
+
+// tokenize per R6.
+func tokenize(text string) []string {
+	var out []string
+	i := 0
+	n := len(text)
+	for i < n {
+		if !isAlnum(text[i]) {
+			i++
+			continue
+		}
+		j := i
+		for j < n && isAlnum(text[j]) {
+			j++
+		}
+		out = append(out, strings.ToLower(text[i:j]))
+		i = j
+	}
+	return out
+}
+
+func makeToks(text string) []tok {
+	ts := tokenize(text)
+	out := make([]tok, len(ts))
+	for i, t := range ts {
+		out[i] = tok{t, stopSet[t]}
+	}
+	return out
+}
+
+func minInt(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
+}
+
+var dlBuf []int
+
+// damerau computes the unrestricted Damerau-Levenshtein distance
+// (insert, delete, substitute, adjacent transposition).
+func damerau(a, b string) int {
+	la, lb := len(a), len(b)
+	maxd := la + lb
+	W := lb + 2
+	need := (la + 2) * W
+	if cap(dlBuf) < need {
+		dlBuf = make([]int, need)
+	}
+	d := dlBuf[:need]
+	d[0] = maxd
+	for i := 0; i <= la; i++ {
+		d[(i+1)*W] = maxd
+		d[(i+1)*W+1] = i
+	}
+	for j := 0; j <= lb; j++ {
+		d[j+1] = maxd
+		d[W+j+1] = j
+	}
+	var da [256]int
+	for i := 1; i <= la; i++ {
+		db := 0
+		ai := a[i-1]
+		for j := 1; j <= lb; j++ {
+			i1 := da[b[j-1]]
+			j1 := db
+			cost := 1
+			if ai == b[j-1] {
+				cost = 0
+				db = j
+			}
+			v := d[i*W+j] + cost
+			v = minInt(v, d[(i+1)*W+j]+1)
+			v = minInt(v, d[i*W+j+1]+1)
+			v = minInt(v, d[i1*W+j1]+(i-i1-1)+1+(j-j1-1))
+			d[(i+1)*W+j+1] = v
+		}
+		da[ai] = i
+	}
+	return d[(la+1)*W+lb+1]
+}
+
+// within reports whether the distance between a and b is at most f.
+func within(a, b string, f int) bool {
+	if a == b {
+		return true
+	}
+	if f == 0 {
+		return false
+	}
+	dl := len(a) - len(b)
+	if dl < 0 {
+		dl = -dl
+	}
+	if dl > f {
+		return false
+	}
+	return damerau(a, b) <= f
+}
+
+type cand struct {
+	pos int // document position
+	off int // offset = pos - query position
+}
+
+// matcher holds reusable scratch buffers.
+type matcher struct {
+	cands   [][]cand
+	win     [][]cand
+	ptr     []int
+	owner   []int // pos -> word+1 (stamped)
+	ostamp  []int
+	vstamp  []int
+	stamp   int
+	ostampN int
+	offMark []int
+	offs    []int
+}
+
+var mt matcher
+
+// distance returns the least spread (<= slop) or -1 if none within slop.
+// cache maps a token to the bitmask of query words it is within fuzz of.
+func docDistance(d *doc, words []string, qpos []int, fuzz, slop int, cache map[string]uint8) int {
+	k := len(words)
+	n := len(d.toks)
+	m := &mt
+	if len(m.cands) < k {
+		m.cands = make([][]cand, k)
+		m.win = make([][]cand, k)
+		m.ptr = make([]int, k)
+	}
+	if len(m.owner) < n+1 {
+		m.owner = make([]int, n+1)
+		m.ostamp = make([]int, n+1)
+		m.vstamp = make([]int, n+1)
+	}
+	for w := 0; w < k; w++ {
+		m.cands[w] = m.cands[w][:0]
+	}
+	for p, t := range d.toks {
+		if t.stop {
+			continue
+		}
+		mask, ok := cache[t.s]
+		if !ok {
+			for w := 0; w < k; w++ {
+				if within(words[w], t.s, fuzz) {
+					mask |= 1 << uint(w)
+				}
+			}
+			cache[t.s] = mask
+		}
+		if mask == 0 {
+			continue
+		}
+		for w := 0; w < k; w++ {
+			if mask&(1<<uint(w)) != 0 {
+				m.cands[w] = append(m.cands[w], cand{p, p - qpos[w]})
+			}
+		}
+	}
+	m.offs = m.offs[:0]
+	for w := 0; w < k; w++ {
+		if len(m.cands[w]) == 0 {
+			return -1
+		}
+		for _, c := range m.cands[w] {
+			m.offs = append(m.offs, c.off)
+		}
+	}
+	sort.Ints(m.offs)
+	best := -1
+	cands, win, ptr := m.cands[:k], m.win[:k], m.ptr[:k]
+	for w := range ptr {
+		ptr[w] = 0
+	}
+	var try func(w, hi int) bool
+	try = func(w, hi int) bool {
+		for _, c := range win[w] {
+			if c.off > hi {
+				break
+			}
+			if m.vstamp[c.pos] == m.stamp {
+				continue
+			}
+			m.vstamp[c.pos] = m.stamp
+			if m.ostamp[c.pos] != m.ostampN || try(m.owner[c.pos], hi) {
+				m.ostamp[c.pos] = m.ostampN
+				m.owner[c.pos] = w
+				return true
+			}
+		}
+		return false
+	}
+	feasible := func(hi int) bool {
+		for w := 0; w < k; w++ {
+			if win[w][0].off > hi {
+				return false
+			}
+		}
+		m.ostampN++
+		for w := 0; w < k; w++ {
+			m.stamp++
+			if !try(w, hi) {
+				return false
+			}
+		}
+		return true
+	}
+	prev := 0
+	first := true
+	for _, L := range m.offs {
+		if !first && L == prev {
+			continue
+		}
+		first, prev = false, L
+		limit := slop
+		if best >= 0 {
+			limit = best - 1
+		}
+		if limit < 0 {
+			break
+		}
+		ok := true
+		for w := 0; w < k; w++ {
+			cs := cands[w]
+			i := ptr[w]
+			for i < len(cs) && cs[i].off < L {
+				i++
+			}
+			ptr[w] = i
+			if i == len(cs) {
+				return best
+			}
+			j := i
+			for j < len(cs) && cs[j].off <= L+limit {
+				j++
+			}
+			win[w] = cs[i:j]
+			if i == j {
+				ok = false
+			}
+		}
+		if !ok || !feasible(L+limit) {
+			continue
+		}
+		for dd := 0; dd <= limit; dd++ {
+			if feasible(L + dd) {
+				best = dd
+				break
+			}
+		}
+		if best == 0 {
+			break
+		}
+	}
+	return best
+}
+
+func copyIndex(src index) index {
+	dst := make(index, len(src))
+	for id, d := range src {
+		nt := make([]tok, len(d.toks))
+		copy(nt, d.toks)
+		dst[id] = &doc{nt}
+	}
+	return dst
+}
+
+type hit struct {
+	id   string
+	dist int
+}
+
+func main() {
+	data, _ := io.ReadAll(os.Stdin)
+	lines := strings.Split(string(data), "\n")
+	out := bufio.NewWriter(os.Stdout)
+	defer out.Flush()
+
+	committed := index{}
+	var work index
+	first := true
+	for _, line := range lines {
+		line = strings.TrimSuffix(line, "\r")
+		if line == "" {
+			continue
+		}
+		if first {
+			first = false
+			f := strings.Fields(line)
+			for _, w := range f[1:] {
+				stopSet[w] = true
+			}
+			continue
+		}
+		switch {
+		case line == "begin":
+			work = copyIndex(committed)
+		case line == "commit":
+			committed = work
+			work = nil
+		case line == "rollback":
+			work = nil
+		case strings.HasPrefix(line, "add "):
+			rest := line[4:]
+			sp := strings.IndexByte(rest, ' ')
+			id, text := rest[:sp], rest[sp+1:]
+			work[id] = &doc{makeToks(text)}
+		case strings.HasPrefix(line, "append "):
+			rest := line[7:]
+			sp := strings.IndexByte(rest, ' ')
+			id, text := rest[:sp], rest[sp+1:]
+			d, ok := work[id]
+			if !ok {
+				d = &doc{}
+				work[id] = d
+			}
+			d.toks = append(d.toks, makeToks(text)...)
+		case strings.HasPrefix(line, "delete "):
+			delete(work, line[7:])
+		case strings.HasPrefix(line, "query "):
+			slop := int(line[6] - '0')
+			fuzz := int(line[8] - '0')
+			text := line[10:]
+			var words []string
+			var qpos []int
+			for i, t := range tokenize(text) {
+				if stopSet[t] {
+					continue
+				}
+				words = append(words, t)
+				qpos = append(qpos, i)
+			}
+			var hits []hit
+			cache := map[string]uint8{}
+			if len(words) > 0 {
+				for id, d := range committed {
+					dist := docDistance(d, words, qpos, fuzz, slop, cache)
+					if dist >= 0 {
+						hits = append(hits, hit{id, dist})
+					}
+				}
+			}
+			sort.Slice(hits, func(i, j int) bool {
+				if hits[i].dist != hits[j].dist {
+					return hits[i].dist < hits[j].dist
+				}
+				return hits[i].id < hits[j].id
+			})
+			if len(hits) == 0 {
+				out.WriteString("-\n")
+			} else {
+				for i, h := range hits {
+					if i > 0 {
+						out.WriteByte(' ')
+					}
+					out.WriteString(h.id)
+					out.WriteByte('@')
+					out.WriteString(strconv.Itoa(h.dist))
+				}
+				out.WriteByte('\n')
+			}
+		}
+	}
+}

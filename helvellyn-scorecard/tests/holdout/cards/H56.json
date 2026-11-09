@@ -1,0 +1,117 @@
+{
+  "bin_count": 5,
+  "card_id": "H56",
+  "classes": [
+    "ash",
+    "birch",
+    "cedar",
+    "elm",
+    "yew"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h56-0",
+          "label": "ash",
+          "p_bp": {
+            "ash": 300,
+            "birch": 1900,
+            "cedar": 900,
+            "elm": 4200,
+            "yew": 2700
+          }
+        },
+        {
+          "example_id": "h56-1",
+          "label": "ash",
+          "p_bp": {
+            "ash": 400,
+            "birch": 1000,
+            "cedar": 500,
+            "elm": 7700,
+            "yew": 400
+          }
+        },
+        {
+          "example_id": "h56-2",
+          "label": "birch",
+          "p_bp": {
+            "ash": 1500,
+            "birch": 1400,
+            "cedar": 500,
+            "elm": 4500,
+            "yew": 2100
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z1",
+      "rows": [
+        {
+          "example_id": "h56-3",
+          "label": "cedar",
+          "p_bp": {
+            "ash": 3900,
+            "birch": 2400,
+            "cedar": 400,
+            "elm": 500,
+            "yew": 2800
+          }
+        },
+        {
+          "example_id": "h56-4",
+          "label": "cedar",
+          "p_bp": {
+            "ash": 1900,
+            "birch": 4700,
+            "cedar": 2300,
+            "elm": 1000,
+            "yew": 100
+          }
+        },
+        {
+          "example_id": "h56-5",
+          "label": "yew",
+          "p_bp": {
+            "ash": 1200,
+            "birch": 0,
+            "cedar": 5500,
+            "elm": 3000,
+            "yew": 300
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z2",
+      "rows": [
+        {
+          "example_id": "h56-6",
+          "label": "yew",
+          "p_bp": {
+            "ash": 2600,
+            "birch": 300,
+            "cedar": 400,
+            "elm": 1200,
+            "yew": 5500
+          }
+        },
+        {
+          "example_id": "h56-7",
+          "label": "yew",
+          "p_bp": {
+            "ash": 2700,
+            "birch": 1300,
+            "cedar": 3200,
+            "elm": 0,
+            "yew": 2800
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "artifacts": [
+    {
+      "cflags": [
+        "-m64"
+      ],
+      "defines": {
+        "B": "8",
+        "M": "9"
+      },
+      "env": {
+        "A": "2",
+        "Z": "1"
+      },
+      "id": "s1",
+      "ldflags": [
+        "-fuse-ld=lld"
+      ],
+      "stamp": "d43f078584d3e651d475927e5b98b237e5ef881cd8273732be1e08fb9a3baf6a",
+      "triple": "x86_64-darwin-lld"
+    }
+  ]
+}

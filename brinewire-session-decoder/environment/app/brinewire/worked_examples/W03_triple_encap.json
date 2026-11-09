@@ -1,0 +1,10 @@
+{
+  "disposition": "reject_nested_encap",
+  "flags": "",
+  "frames": [
+    "420300104203020b420304064201060151b144454a",
+    "42040100e2"
+  ],
+  "note": "Three nested ENCAP frames around a DATA payload.",
+  "session_id": "W03"
+}

@@ -1,0 +1,30 @@
+{
+  "artifacts": [
+    {
+      "cflags": [
+        "-m64"
+      ],
+      "defines": {},
+      "env": {},
+      "id": "alpha",
+      "ldflags": [
+        "-Wl,--hash-style=gnu"
+      ],
+      "stamp": "49cf297f6e2704b8aace2d284fccf9b5e4800d941567fe809f981a71c51f96d7",
+      "triple": "x86_64-linux-bfd"
+    },
+    {
+      "cflags": [
+        "-m64"
+      ],
+      "defines": {},
+      "env": {},
+      "id": "zulu",
+      "ldflags": [
+        "/INCREMENTAL:NO"
+      ],
+      "stamp": "61185d4b71f5f462ad03d9ac3e43e115fbcc841b046bb1c6861bea36e90756dd",
+      "triple": "x86_64-windows-link"
+    }
+  ]
+}

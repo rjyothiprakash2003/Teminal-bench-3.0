@@ -1,0 +1,18 @@
+{
+  "nodes": [
+    {
+      "path": "sock",
+      "kind": "socket",
+      "mode": "0644",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "alias",
+      "kind": "symlink",
+      "target": "sock"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

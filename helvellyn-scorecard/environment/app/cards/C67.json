@@ -1,0 +1,16 @@
+{
+  "bin_count": 4,
+  "card_id": "C67",
+  "classes": [
+    "oak"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "s",
+      "rows": [
+        null
+      ]
+    }
+  ]
+}

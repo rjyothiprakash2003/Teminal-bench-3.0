@@ -1,0 +1,9 @@
+# Working capital line.
+facility F-WK-5502
+class WORKING
+advance 9900000
+rate 2000
+drawn 2018-10-31
+periods 14
+frequency 1
+step 2019-01-31 18000

@@ -1,0 +1,43 @@
+{
+  "steps": [
+    {
+      "op": "begin",
+      "txn": "t1"
+    },
+    {
+      "op": "put",
+      "txn": "t1",
+      "key": "n",
+      "value": 1,
+      "expected": 0
+    },
+    {
+      "op": "commit",
+      "txn": "t1",
+      "op_id": "same"
+    },
+    {
+      "op": "begin",
+      "txn": "t2"
+    },
+    {
+      "op": "put",
+      "txn": "t2",
+      "key": "n",
+      "value": 99,
+      "expected": 1
+    },
+    {
+      "op": "commit",
+      "txn": "t2",
+      "op_id": "same"
+    },
+    {
+      "op": "get",
+      "key": "n"
+    },
+    {
+      "op": "snapshot"
+    }
+  ]
+}

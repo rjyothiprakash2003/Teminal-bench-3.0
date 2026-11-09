@@ -1,0 +1,11 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "\u00e9": {
+    "content_hex": "650a",
+    "kind": "file",
+    "mode": 420
+  }
+}

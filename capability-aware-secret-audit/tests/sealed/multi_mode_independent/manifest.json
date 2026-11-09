@@ -1,0 +1,29 @@
+{
+  "nodes": [
+    {
+      "path": "d",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "d/a",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 1000,
+      "gid": 1000,
+      "content": "t"
+    },
+    {
+      "path": "d/b",
+      "kind": "file",
+      "mode": "0400",
+      "uid": 1001,
+      "gid": 1001,
+      "content": "t"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

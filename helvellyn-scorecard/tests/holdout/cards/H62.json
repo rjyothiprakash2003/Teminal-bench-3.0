@@ -1,0 +1,49 @@
+{
+  "bin_count": 4,
+  "card_id": "H62",
+  "classes": [
+    "elm",
+    "pine",
+    "yew"
+  ],
+  "min_conf_bp": 3000,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h62-0",
+          "label": "yew",
+          "p_bp": {
+            "elm": 6600,
+            "pine": 1200,
+            "yew": 2200
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z1",
+      "rows": [
+        {
+          "example_id": "h62-1",
+          "label": "pine",
+          "p_bp": {
+            "elm": 7500,
+            "pine": 1600,
+            "yew": 900
+          }
+        },
+        {
+          "example_id": "h62-2",
+          "label": "pine",
+          "p_bp": {
+            "elm": 8600,
+            "pine": 1200,
+            "yew": 200
+          }
+        }
+      ]
+    }
+  ]
+}

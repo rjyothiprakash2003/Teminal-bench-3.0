@@ -1,0 +1,10 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "t": {
+    "kind": "symlink",
+    "target": "new-target"
+  }
+}

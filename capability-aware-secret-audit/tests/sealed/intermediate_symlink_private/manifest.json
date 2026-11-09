@@ -1,0 +1,40 @@
+{
+  "nodes": [
+    {
+      "path": "public",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "public/jump",
+      "kind": "symlink",
+      "target": "../private/deep"
+    },
+    {
+      "path": "private",
+      "kind": "dir",
+      "mode": "0700",
+      "uid": 2000,
+      "gid": 2000
+    },
+    {
+      "path": "private/deep",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "private/deep/secret",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 2000,
+      "gid": 2000,
+      "content": "t"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

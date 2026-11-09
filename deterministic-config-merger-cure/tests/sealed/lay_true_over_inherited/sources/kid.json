@@ -1,0 +1,10 @@
+{
+  "$extends": [
+    "par"
+  ],
+  "on": true,
+  "lvl": true,
+  "sub": {
+    "on": true
+  }
+}

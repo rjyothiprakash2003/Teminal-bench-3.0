@@ -1,0 +1,23 @@
+{
+  "bin_count": 8,
+  "card_id": "H34",
+  "classes": [
+    "pine"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "s",
+      "rows": [
+        {
+          "example_id": "q",
+          "label": "pine",
+          "p_bp": {
+            "mist": 0,
+            "pine": 10000
+          }
+        }
+      ]
+    }
+  ]
+}

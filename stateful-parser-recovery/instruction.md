@@ -1,0 +1,3 @@
+Repair the Quill nest parser at `/app/src/quill.py` so it satisfies `/app/docs/QUILL.md`. The source under `/app/examples/simple` is the plain case; `/app/examples/regression` is a nested alias case the contract already decides.
+
+Keep the program driveable as `python3 /app/src/quill.py --src <file> --out <file>`. Grading runs that source against inputs the shipped tree does not contain, compares successful and fault-report bytes to the contract, and compares refusal text and exit status on the refusals the contract names. Each run may take at most 20 seconds. Graded sources stay within the size bounds the contract states.

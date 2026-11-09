@@ -1,0 +1,60 @@
+{
+  "nodes": [
+    {
+      "path": "nested",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "nested/deep",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "nested/real",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "nested/real/token",
+      "kind": "file",
+      "mode": "0600",
+      "uid": 1000,
+      "gid": 1000,
+      "content": "t"
+    },
+    {
+      "path": "real",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "real/token",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 1000,
+      "gid": 1000,
+      "content": "t"
+    },
+    {
+      "path": "pivot",
+      "kind": "symlink",
+      "target": "nested/deep"
+    },
+    {
+      "path": "alias",
+      "kind": "symlink",
+      "target": "pivot/../real"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

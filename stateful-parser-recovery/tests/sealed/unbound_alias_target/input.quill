@@ -1,0 +1,4 @@
+open UNIT root
+bind ALIAS a missing
+use a
+end UNIT

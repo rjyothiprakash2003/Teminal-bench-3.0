@@ -1,0 +1,33 @@
+{
+  "nodes": [
+    {
+      "path": "via",
+      "kind": "symlink",
+      "target": "blocked/inner"
+    },
+    {
+      "path": "blocked",
+      "kind": "dir",
+      "mode": "0700",
+      "uid": 2000,
+      "gid": 2000
+    },
+    {
+      "path": "blocked/inner",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "blocked/inner/secret",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 2000,
+      "gid": 2000,
+      "content": "t"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

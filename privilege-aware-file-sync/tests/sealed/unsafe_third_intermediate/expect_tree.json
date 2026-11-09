@@ -1,0 +1,18 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b/c": {
+    "kind": "symlink",
+    "target": "../../../extra"
+  }
+}

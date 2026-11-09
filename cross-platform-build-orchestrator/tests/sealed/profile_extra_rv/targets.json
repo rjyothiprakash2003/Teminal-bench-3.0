@@ -1,0 +1,1 @@
+{"targets": [{"id": "r", "arch": "riscv64", "os": "linux", "linker": "mold"}]}

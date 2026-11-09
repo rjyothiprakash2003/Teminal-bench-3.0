@@ -1,0 +1,27 @@
+{
+  "entries": [
+    {
+      "path": "conf/token",
+      "allow_uids": [
+        1000
+      ],
+      "allow_gids": [
+        1000
+      ]
+    }
+  ],
+  "subjects": [
+    {
+      "uid": 1000,
+      "gids": [
+        1000
+      ]
+    },
+    {
+      "uid": 1001,
+      "gids": [
+        1001
+      ]
+    }
+  ]
+}

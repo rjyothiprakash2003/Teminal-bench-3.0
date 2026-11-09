@@ -1,0 +1,22 @@
+{
+  "artifacts": [
+    {
+      "cflags": [
+        "-m64",
+        "-fPIC",
+        "-g"
+      ],
+      "defines": {
+        "CI": "1"
+      },
+      "env": {},
+      "id": "t",
+      "ldflags": [
+        "-Wl,--hash-style=gnu",
+        "-Lbase"
+      ],
+      "stamp": "4433b18d10f0942574626084391bd8ae5844cd2e7cbb8eb45fd811c40b6edaa3",
+      "triple": "x86_64-linux-bfd"
+    }
+  ]
+}

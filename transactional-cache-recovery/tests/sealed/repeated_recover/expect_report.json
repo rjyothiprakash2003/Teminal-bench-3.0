@@ -1,0 +1,91 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "committed",
+      "op_id": "r1",
+      "idempotent": false,
+      "writes": {
+        "r": {
+          "value": [
+            1,
+            2
+          ],
+          "version": 1
+        }
+      }
+    },
+    {
+      "status": "ok",
+      "discarded_tmp": false,
+      "pending_intents": 0
+    },
+    {
+      "status": "ok",
+      "discarded_tmp": false,
+      "pending_intents": 0
+    },
+    {
+      "status": "ok",
+      "discarded_tmp": false,
+      "pending_intents": 0
+    },
+    {
+      "status": "ok",
+      "entries": {
+        "r": {
+          "value": [
+            1,
+            2
+          ],
+          "version": 1
+        }
+      },
+      "ops": {
+        "r1": {
+          "status": "committed",
+          "writes": {
+            "r": {
+              "value": [
+                1,
+                2
+              ],
+              "version": 1
+            }
+          }
+        }
+      }
+    }
+  ],
+  "final": {
+    "entries": {
+      "r": {
+        "value": [
+          1,
+          2
+        ],
+        "version": 1
+      }
+    },
+    "ops": {
+      "r1": {
+        "status": "committed",
+        "writes": {
+          "r": {
+            "value": [
+              1,
+              2
+            ],
+            "version": 1
+          }
+        }
+      }
+    }
+  }
+}

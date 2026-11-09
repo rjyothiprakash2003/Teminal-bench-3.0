@@ -1,0 +1,27 @@
+{
+  "src": [
+    {
+      "content": "o\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "open.txt"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "locked"
+    },
+    {
+      "content": "h\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "locked/hidden.txt"
+    }
+  ],
+  "src_chmod": [
+    {
+      "mode": 0,
+      "path": "locked"
+    }
+  ]
+}

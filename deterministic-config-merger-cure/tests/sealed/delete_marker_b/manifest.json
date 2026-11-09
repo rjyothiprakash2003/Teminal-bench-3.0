@@ -1,0 +1,12 @@
+{
+  "sources": [
+    {
+      "id": "s0",
+      "priority": 1
+    },
+    {
+      "id": "s1",
+      "priority": 2
+    }
+  ]
+}

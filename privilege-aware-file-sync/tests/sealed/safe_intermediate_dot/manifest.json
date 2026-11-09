@@ -1,0 +1,22 @@
+{
+  "dst_pre": [
+    {
+      "kind": "symlink",
+      "path": "alias",
+      "target": "."
+    }
+  ],
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "alias"
+    },
+    {
+      "content": "x\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "alias/x.txt"
+    }
+  ]
+}

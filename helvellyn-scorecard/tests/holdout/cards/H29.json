@@ -1,0 +1,30 @@
+{
+  "bin_count": 5,
+  "card_id": "H29",
+  "classes": [
+    "ash",
+    "birch",
+    "elm",
+    "oak",
+    "pine"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "grove",
+      "rows": [
+        {
+          "example_id": "row-7",
+          "label": "pine",
+          "p_bp": {
+            "ash": 750,
+            "birch": 750,
+            "elm": 750,
+            "oak": 750,
+            "pine": 7000
+          }
+        }
+      ]
+    }
+  ]
+}

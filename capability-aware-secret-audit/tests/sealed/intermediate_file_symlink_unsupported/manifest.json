@@ -1,0 +1,19 @@
+{
+  "nodes": [
+    {
+      "path": "token",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 1000,
+      "gid": 1000,
+      "content": "t"
+    },
+    {
+      "path": "alias",
+      "kind": "symlink",
+      "target": "token"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

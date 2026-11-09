@@ -1,0 +1,27 @@
+{
+  "status": "ok",
+  "frames": [],
+  "bindings": [
+    {
+      "frame": "root",
+      "kind": "VAL",
+      "name": "a",
+      "value": 10,
+      "line": 2
+    },
+    {
+      "frame": "root",
+      "kind": "ALIAS",
+      "name": "b",
+      "value": "a",
+      "line": 3
+    }
+  ],
+  "uses": [
+    {
+      "name": "b",
+      "value": 10,
+      "line": 4
+    }
+  ]
+}

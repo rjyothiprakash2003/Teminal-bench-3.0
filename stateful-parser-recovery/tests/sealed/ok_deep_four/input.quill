@@ -1,0 +1,10 @@
+open UNIT a
+open BLOCK b
+open BLOCK c
+open BLOCK d
+bind VAL v 5
+use v
+end BLOCK
+end BLOCK
+end BLOCK
+end UNIT

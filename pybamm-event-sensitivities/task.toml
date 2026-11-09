@@ -1,0 +1,32 @@
+name = "pybamm-event-sensitivities"
+artifacts = ["/app/submission"]
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+category = "Science"
+subcategory = "Physics"
+tags = ["pybamm", "sensitivity-analysis", "dae", "idaklu", "battery-modeling"]
+languages = ["python"]
+difficulty = "advanced"
+expert_time_estimate_hours = 6
+difficulty_explanation = "IDAKLU already hands you sensitivities at a fixed clock time. A discharge or voltage event then moves the sample, so those numbers are the wrong derivative for the point you kept. You convert at that boundary, seed the next step, and keep three arrays from collapsing into each other: the old fixed-time sensitivities, phase_sensitivities along elapsed time in the step (real endpoint, plus any output that depends on absolute time), and time_sensitivities. Current, rest, and constant-voltage steps get mixed in one experiment, and the same arrays have to survive starting_solution, a second solve on the same Simulation, copy, concatenation, and first_state or last_state. A patch that only repairs the analytic discharge still returns a tidy solution and still misses the later hold."
+solution_explanation = "solve.sh applies the patch under /app/repo and copies src/pybamm to /app/submission/pybamm. The patch lets Simulation.solve take calculate_event_sensitivities along with calculate_sensitivities. On IDAKLU it turns the integrator's fixed-time derivatives into total derivatives at a moving event, passes that state into the next step, and turns them back for the next vector field. Processed variables pick up phase_sensitivities, Solution picks up time_sensitivities, and copy, addition, first_state, and last_state carry those arrays without writing back into the source solution."
+verification_explanation = "The verifier image imports only /app/submission/pybamm. Twenty pytest cases launch a probe as uid 65534 through setpriv. The probe receives the experiment config and never the expected arrays. Goldens stay under /tests/fixtures and are opened with O_NOFOLLOW. The cases are an analytic ODE, an analytic index-one DAE, a prescribed duration, SPM and SPMe discharge into rest, SPM and SPMe implicit voltage holds, a resumed experiment, a reused simulation, copy and alphabetical column checks, explicit time on clock-weighted z, a fixed-duration solve that never passes the new flag, the same flag left off on event-terminated ODE, DAE, SPM, SPMe, and constant-voltage experiments, inputs inserted in reverse name order, and a two-cycle repeat. Every sample of the forward series, fixed sensitivities, phase sensitivities, and time sensitivities is compared, along with termination strings and a plain dict return. Copy, addition, first_state, and last_state are checked on forward values and both sensitivity families, and the step objects that were added are read again afterwards. The submitted tree is checked against the upstream file list. Files under pybamm/input are hashed, including its Python files. CITATIONS.bib is hashed with those bundled bytes; other non-input source files must be present and nonempty. The probe import path contains only that package. Metadata snapshots are taken before first_state and last_state and are compared with the series already checked against the sealed values. Step named fixed-time columns are checked against the alphabetical all stack at every sample. The forward bounds, 0.001 s and 5e-6, are the contract's agreement for the solver trajectory itself. Event-time derivatives use 0.05 + 2e-4*abs(reference) because finite-difference checks of the sealed battery and voltage-hold endpoints move by about 1e-4 s and 0.01 s, and that band covers those residuals. Other derivatives use 3e-5 on analytic models and 3e-4 on battery models: the sealed finite-difference residuals on those same endpoints are about 1e-10 to 6e-8 analytically and about 1e-5 on the battery holds, so both bands sit above an independent difference check rather than at the noise floor. Metadata copies use 1e-8 because those arrays are copies of one solve, where only roundoff should remain. Each probe is killed at 300 seconds. The reward is 1 only when every case passes."
+relevant_experience = "I spend most of my time on battery experiment scripts in PyBaMM, usually IDAKLU steps where a termination event moves the sample and the stored sensitivity is still the fixed-time one. The job is keeping those derivatives honest across a voltage hold and a continuation, not swapping out the solver."
+
+[verifier]
+timeout_sec = 7200
+environment_mode = "separate"
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 14400
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240

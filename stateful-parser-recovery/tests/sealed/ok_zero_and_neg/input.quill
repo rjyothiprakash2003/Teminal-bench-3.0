@@ -1,0 +1,6 @@
+open UNIT root
+bind VAL z 0
+bind VAL n -42
+use z
+use n
+end UNIT

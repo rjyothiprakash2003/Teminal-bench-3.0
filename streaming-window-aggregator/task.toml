@@ -1,0 +1,36 @@
+name = "streaming-window-aggregator"
+artifacts = ["/app/src/aggregator.py"]
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+category = "Software"
+subcategory = "Data engineering"
+tags = ["streaming", "windows", "watermark", "aggregation", "python"]
+languages = ["python"]
+difficulty = "advanced"
+expert_time_estimate_hours = 4
+
+difficulty_explanation = "A strong agent must repair the shipped aggregator so it matches window-contract.md. Trials that already implement arrival-order watermarks and hopping windows still fail on the refusal taxonomy and exact output bytes: nonfinite JSON constants (NaN/Infinity) and other non-object lines must be truncated events (not bad event), refusals must leave a pre-existing --out untouched, and success must emit indent=2 dumps. The shipped starter also sorts by timestamp and uses a closed watermark comparison, so a partial fix that only cleans refusals still fails sealed out-of-order streams."
+
+solution_explanation = "Replace the shipped sort-by-timestamp pass, the ts <= watermark late test, and the silent drop of an unterminated final line. Process events.jsonl in file order; reject nonfinite constants and non-object lines as truncated events; validate object fields before applying lateness; discard only when ts < watermark; coalesce identical (key, ts) contributions; assign each accepted total to every non-negative slide-aligned start w with ts - size < w <= ts. Refuse with the four named stderr lines without altering --out; on success overwrite --out with indent=2 ensure_ascii=False JSON ending in one LF."
+
+verification_explanation = "The separate verifier snapshots sealed expects into memory, removes them from disk, and runs python3 /app/src/aggregator.py under setpriv (uid 2000) with a 20-second per-run limit. Visible streams decide arrival-order late drops, overlapping assignment, half-open boundaries, integer totals past binary64 rounding, truncation versus bad-event (including NaN/Infinity and string/boolean lines), write-nothing on refuse (pre-existing --out sentinel), success overwrite of an existing --out, spaces/CRLF around event lines, and config/event/stream refusals at multiple sites. Thirty sealed streams scale the same rules on inputs absent from /app. Expect bytes were minted where an independent model and the reference agree. Output byte mismatches report length and first differing offset only. A sandbox probe confirms reward and sealed paths stay unreachable."
+
+relevant_experience = "I build and review event-time streaming pipelines where watermarks, hopping windows, and out-of-order arrivals interact. I use independent models and mutation sweeps to separate a correct final window table from one that only works after sorting."
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 7200
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240

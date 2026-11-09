@@ -1,0 +1,13 @@
+{
+  "copied": [
+    "",
+    "locked",
+    "open.txt"
+  ],
+  "skipped": [
+    {
+      "path": "locked",
+      "reason": "inaccessible"
+    }
+  ]
+}

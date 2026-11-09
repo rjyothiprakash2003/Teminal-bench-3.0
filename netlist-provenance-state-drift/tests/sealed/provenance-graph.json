@@ -1,0 +1,79 @@
+{
+  "desk": "KilnbridgeNetloom",
+  "findings": [
+    {
+      "code": "AREA_REGRESS",
+      "part": "core-north",
+      "note": "mapped cell count grew at unchanged liberty revision",
+      "epoch": 3
+    },
+    {
+      "code": "GHOST_MAP",
+      "part": "core-north",
+      "note": "recovered mapping generation is older than live mapping",
+      "epoch": 6
+    },
+    {
+      "code": "ANCESTOR_GAP",
+      "part": "core-south",
+      "note": "incremental module ancestor is not the eligible freeze checkpoint",
+      "epoch": 10
+    },
+    {
+      "code": "CLKGT_SPLIT",
+      "part": "io-east",
+      "note": "incremental module clock-gate disagrees with live icg icg_x1y1",
+      "epoch": 11
+    },
+    {
+      "code": "LIB_MISBIND",
+      "part": "scan-tap",
+      "note": "incremental module on ineligible role scan",
+      "epoch": 12
+    },
+    {
+      "code": "STALE_LIB",
+      "part": "clk-hub",
+      "note": "techmap used a stale liberty revision",
+      "epoch": 14
+    }
+  ],
+  "patches": [
+    {
+      "rank": 1,
+      "verb": "remap-area",
+      "part": "core-north",
+      "epoch": 3
+    },
+    {
+      "rank": 2,
+      "verb": "drop-checkpoint",
+      "part": "core-north",
+      "epoch": 6
+    },
+    {
+      "rank": 3,
+      "verb": "relink-ancestor",
+      "part": "core-south",
+      "epoch": 10
+    },
+    {
+      "rank": 4,
+      "verb": "rebind-icg",
+      "part": "io-east",
+      "epoch": 11
+    },
+    {
+      "rank": 5,
+      "verb": "rebind-lib",
+      "part": "scan-tap",
+      "epoch": 12
+    },
+    {
+      "rank": 6,
+      "verb": "promote-lib",
+      "part": "clk-hub",
+      "epoch": 14
+    }
+  ]
+}

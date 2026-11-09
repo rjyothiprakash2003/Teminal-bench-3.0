@@ -1,0 +1,32 @@
+{
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "keep"
+    },
+    {
+      "content": "k\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "keep/ok.txt"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "keep/shut"
+    },
+    {
+      "content": "x\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "keep/shut/x.txt"
+    }
+  ],
+  "src_chmod": [
+    {
+      "mode": 0,
+      "path": "keep/shut"
+    }
+  ]
+}

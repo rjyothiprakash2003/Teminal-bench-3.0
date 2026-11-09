@@ -1,0 +1,34 @@
+stopwords on
+begin
+delete f
+add e-x  Time ca:eror-disk=Ack28 Auth Host-cpu-ABC
+add b fill desk up_ca, cpu
+add d2 auth=link(catch:abc)disk akc, api
+append b  ERROR nodes:error=full)on=aip
+commit
+query 9 2 poll link uath error
+begin
+append e-x cpu  hosts:ca(cache)disk(pool
+add c retry:nodes=link, akc.down-catch catch, Cache
+delete d-1
+add d10 api retry error)nodes
+commit
+begin
+add c uath
+delete f
+delete a
+delete d-1
+add d10 aip cpu)cache-on time-poll
+rollback
+begin
+append d2 cup=api)up
+delete c
+commit
+query 7 2 error on
+begin
+delete b
+add e-x CACHE-on/Nodes/eror.Cpu
+add a --
+delete b
+commit
+query 0 0 down code

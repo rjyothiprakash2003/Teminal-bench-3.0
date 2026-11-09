@@ -1,0 +1,8 @@
+# Trade book facility. Drawn across the turn of the twenty-second century.
+facility F-TR-7731
+class TRADE
+advance 4800000
+rate 720
+drawn 2100-01-31
+periods 4
+frequency 3

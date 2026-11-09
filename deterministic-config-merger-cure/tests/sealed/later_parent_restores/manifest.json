@@ -1,0 +1,20 @@
+{
+  "sources": [
+    {
+      "id": "early",
+      "priority": 0
+    },
+    {
+      "id": "src",
+      "priority": 5
+    },
+    {
+      "id": "noise",
+      "priority": 6
+    },
+    {
+      "id": "last",
+      "priority": 9
+    }
+  ]
+}

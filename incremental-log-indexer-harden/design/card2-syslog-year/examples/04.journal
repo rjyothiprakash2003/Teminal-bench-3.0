@@ -1,0 +1,10 @@
+retain 10
+batch 2026-05-20T10:00:00
+May 20 09:00:00 k8s-n1 kubelet: Pod oom-killed: worker
+May 20 09:30:00 k8s-n1 kubelet: Pod restarted: worker
+batch 2026-05-30T09:30:00
+May 30 09:29:00 k8s-n1 kubelet: Pod oom-killed: worker
+count 2026-05-01T00:00:00 2026-05-31T00:00:00 worker
+lag 2026-05-30T12:00:00 pod
+batch 2026-05-31T09:00:00
+count 2026-05-01T00:00:00 2026-05-31T00:00:00 worker

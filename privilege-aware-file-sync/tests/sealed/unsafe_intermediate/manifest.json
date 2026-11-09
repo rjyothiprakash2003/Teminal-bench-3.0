@@ -1,0 +1,30 @@
+{
+  "dst_pre": [
+    {
+      "kind": "symlink",
+      "path": "sub",
+      "target": "../extra"
+    }
+  ],
+  "extra": [
+    {
+      "content": "out\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "outside.txt"
+    }
+  ],
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "sub"
+    },
+    {
+      "content": "n\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "sub/nested.txt"
+    }
+  ]
+}

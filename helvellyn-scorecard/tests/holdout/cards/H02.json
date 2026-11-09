@@ -1,0 +1,61 @@
+{
+  "bin_count": 5,
+  "card_id": "H02",
+  "classes": [
+    "oak",
+    "pine"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "rows": [
+        {
+          "example_id": "z1",
+          "label": "oak",
+          "p_bp": {
+            "oak": 9300,
+            "pine": 700
+          }
+        },
+        {
+          "example_id": "z2",
+          "label": "pine",
+          "p_bp": {
+            "oak": 6100,
+            "pine": 3900
+          }
+        }
+      ],
+      "slice_id": "z"
+    },
+    {
+      "rows": [
+        {
+          "example_id": "a1",
+          "label": "pine",
+          "p_bp": {
+            "oak": 8900,
+            "pine": 1100
+          }
+        },
+        {
+          "example_id": "a2",
+          "label": "oak",
+          "p_bp": {
+            "oak": 7700,
+            "pine": 2300
+          }
+        },
+        {
+          "example_id": "a3",
+          "label": "pine",
+          "p_bp": {
+            "oak": 1200,
+            "pine": 8800
+          }
+        }
+      ],
+      "slice_id": "a"
+    }
+  ]
+}

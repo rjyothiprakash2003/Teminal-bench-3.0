@@ -1,0 +1,3 @@
+Repair the transactional cache at `/app/src/cachebox.py` so it satisfies `/app/docs/CACHEBOX.md`. The scenario under `/app/examples/simple` is the plain commit path; `/app/examples/regression` already decides an out-of-order version conflict and an idempotent retry.
+
+Keep the program driveable as `python3 /app/src/cachebox.py --store <dir> --scenario <file> --report <file>`. Grading runs that source against sealed crash, stale-read, conflict, and recovery scenarios the shipped tree does not contain, and compares report bytes and refusal text to the contract. Each run may take at most 20 seconds. Graded stores stay within the size bounds the contract states.

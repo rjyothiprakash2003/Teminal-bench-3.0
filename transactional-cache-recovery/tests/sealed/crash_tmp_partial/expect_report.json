@@ -1,0 +1,32 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "crashed",
+      "fault": "after_tmp_partial"
+    },
+    {
+      "status": "ok",
+      "discarded_tmp": true,
+      "pending_intents": 1
+    },
+    {
+      "found": false
+    },
+    {
+      "status": "ok",
+      "entries": {},
+      "ops": {}
+    }
+  ],
+  "final": {
+    "entries": {},
+    "ops": {}
+  }
+}

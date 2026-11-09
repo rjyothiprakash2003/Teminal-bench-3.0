@@ -1,0 +1,9 @@
+family ridge-v3
+bias -0.450000000
+w tenure_months 0.015000000
+w util_ratio -2.400000000
+w delinq_24 -0.350000000
+w inq_6 -0.180000000
+w revol_bal -0.000040000
+w open_trades 0.060000000
+end

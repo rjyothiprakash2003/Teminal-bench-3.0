@@ -1,0 +1,10 @@
+{
+  "bin_count": 3,
+  "card_id": "C36",
+  "classes": [
+    "oak",
+    "pine"
+  ],
+  "min_conf_bp": 0,
+  "slices": []
+}

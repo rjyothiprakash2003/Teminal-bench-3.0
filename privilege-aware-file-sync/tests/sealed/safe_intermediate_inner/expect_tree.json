@@ -1,0 +1,19 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "inner": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "inner/a.txt": {
+    "content_hex": "610a",
+    "kind": "file",
+    "mode": 420
+  },
+  "portal": {
+    "kind": "symlink",
+    "target": "inner"
+  }
+}

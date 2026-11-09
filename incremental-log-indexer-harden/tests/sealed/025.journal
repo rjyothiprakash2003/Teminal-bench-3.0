@@ -1,0 +1,50 @@
+stopwords
+begin
+delete e-x
+delete a
+delete d-1
+delete d2
+commit
+begin
+delete d-1
+add b dusk dusk)cup(link=cup/aip
+commit
+query 4 1 abc cpu out abc
+query 8 0 abc abc
+begin
+add d2 aip-CACHE miss=disk/error:Hosts
+delete d2
+append b nodes)hosts node-nodes
+append b api, eror)retry auth_Ack
+add c retry-desk:dusk_uath down
+commit
+query 0 1 disk cache host
+query 4 0 fill full
+begin
+commit
+query 4 2 fill
+begin
+delete a
+rollback
+query 3 2 nodes up
+begin
+add d2 pool/eror
+add f x
+add c x
+commit
+query 8 1 desk desk pool
+begin
+add d-1 dusk  abc Api, cpu
+append d2 ABC, eror41
+delete d-1
+delete b
+commit
+query 9 2 ack link
+begin
+add c NODE, up71 full, FULL, aip=ca
+commit
+begin
+add a  UP_timeout_disk.fill53
+append c timeout69(cpu  cup uath Akc(ack
+commit
+query 7 0 node

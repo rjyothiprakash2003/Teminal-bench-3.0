@@ -1,0 +1,91 @@
+{
+  "desk": "KilnbridgeNetloom",
+  "findings": [
+    {
+      "code": "CLKGT_SPLIT",
+      "part": "core-north",
+      "note": "incremental module clock-gate disagrees with live icg ICG_X0Y0",
+      "epoch": 6
+    },
+    {
+      "code": "CLKGT_SPLIT",
+      "part": "core-south",
+      "note": "incremental module clock-gate disagrees with live icg ICG_X0Y1",
+      "epoch": 10
+    },
+    {
+      "code": "CLKGT_SPLIT",
+      "part": "io-east",
+      "note": "incremental module clock-gate disagrees with live icg ICG_X1Y1",
+      "epoch": 11
+    },
+    {
+      "code": "CLKGT_SPLIT",
+      "part": "scan-tap",
+      "note": "incremental module clock-gate disagrees with live icg ICG_X2Y0",
+      "epoch": 12
+    },
+    {
+      "code": "CLKGT_SPLIT",
+      "part": "scan-tap",
+      "note": "incremental module clock-gate disagrees with live icg ICG_X2Y0",
+      "epoch": 12
+    },
+    {
+      "code": "ANCESTOR_GAP",
+      "part": "scan-tap",
+      "note": "incremental module ancestor is not the eligible freeze checkpoint",
+      "epoch": 12
+    },
+    {
+      "code": "CLKGT_SPLIT",
+      "part": "clk-hub",
+      "note": "incremental module clock-gate disagrees with live icg ICG_X0Y2",
+      "epoch": 14
+    }
+  ],
+  "patches": [
+    {
+      "rank": 1,
+      "verb": "rebind-icg",
+      "part": "core-north",
+      "epoch": 6
+    },
+    {
+      "rank": 2,
+      "verb": "rebind-icg",
+      "part": "core-south",
+      "epoch": 10
+    },
+    {
+      "rank": 3,
+      "verb": "rebind-icg",
+      "part": "io-east",
+      "epoch": 11
+    },
+    {
+      "rank": 4,
+      "verb": "rebind-icg",
+      "part": "scan-tap",
+      "epoch": 12
+    },
+    {
+      "rank": 5,
+      "verb": "rebind-icg",
+      "part": "scan-tap",
+      "epoch": 12
+    },
+    {
+      "rank": 6,
+      "verb": "relink-ancestor",
+      "part": "scan-tap",
+      "epoch": 12
+    },
+    {
+      "rank": 7,
+      "verb": "rebind-icg",
+      "part": "clk-hub",
+      "epoch": 14
+    }
+  ]
+}

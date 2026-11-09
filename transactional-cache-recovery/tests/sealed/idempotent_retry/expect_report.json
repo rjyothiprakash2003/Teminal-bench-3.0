@@ -1,0 +1,83 @@
+{
+  "ok": true,
+  "results": [
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "committed",
+      "op_id": "same",
+      "idempotent": false,
+      "writes": {
+        "n": {
+          "value": 1,
+          "version": 1
+        }
+      }
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "ok"
+    },
+    {
+      "status": "committed",
+      "op_id": "same",
+      "idempotent": true,
+      "writes": {
+        "n": {
+          "value": 1,
+          "version": 1
+        }
+      }
+    },
+    {
+      "found": true,
+      "value": 1,
+      "version": 1
+    },
+    {
+      "status": "ok",
+      "entries": {
+        "n": {
+          "value": 1,
+          "version": 1
+        }
+      },
+      "ops": {
+        "same": {
+          "status": "committed",
+          "writes": {
+            "n": {
+              "value": 1,
+              "version": 1
+            }
+          }
+        }
+      }
+    }
+  ],
+  "final": {
+    "entries": {
+      "n": {
+        "value": 1,
+        "version": 1
+      }
+    },
+    "ops": {
+      "same": {
+        "status": "committed",
+        "writes": {
+          "n": {
+            "value": 1,
+            "version": 1
+          }
+        }
+      }
+    }
+  }
+}

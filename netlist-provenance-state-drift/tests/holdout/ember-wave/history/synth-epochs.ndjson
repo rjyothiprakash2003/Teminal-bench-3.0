@@ -1,0 +1,15 @@
+{"epoch":1,"part":"ember-clear","kind":"map","site":"CELL_X0Y0","gen":1,"clk":"ICG_X4Y0","lib":2,"cells":9600,"role":"core","on":"2024-01-01","freeze_on":null,"ckpt":""}
+{"epoch":2,"part":"ember-clear","kind":"freeze","site":"CELL_X0Y0","gen":1,"clk":"ICG_X4Y0","lib":2,"cells":9600,"role":"core","on":"2024-01-01","freeze_on":"2024-01-01","ckpt":"ckpt-clear-1"}
+{"epoch":3,"part":"ember-clear","kind":"recover","site":"CELL_X0Y0","gen":1,"clk":"ICG_X4Y0","lib":2,"cells":9600,"role":"core","on":"2024-02-01","freeze_on":null,"ckpt":""}
+{"epoch":4,"part":"ember-edge","kind":"map","site":"CELL_X1Y1","gen":1,"clk":"ICG_X4Y1","lib":2,"cells":9650,"role":"core","on":"2024-01-02","freeze_on":null,"ckpt":""}
+{"epoch":5,"part":"ember-edge","kind":"opt","site":"CELL_X1Y1","gen":1,"clk":"ICG_X4Y1","lib":2,"cells":9700,"role":"core","on":"2024-01-03","freeze_on":null,"ckpt":""}
+{"epoch":6,"part":"ember-edge","kind":"opt","site":"CELL_X1Y1","gen":1,"clk":"ICG_X4Y1","lib":2,"cells":9920,"role":"core","on":"2024-01-04","freeze_on":null,"ckpt":""}
+{"epoch":7,"part":"ember-edge","kind":"map","site":"CELL_X2Y2","gen":2,"clk":"ICG_X4Y1","lib":2,"cells":9920,"role":"core","on":"2024-01-05","freeze_on":null,"ckpt":""}
+{"epoch":8,"part":"ember-edge","kind":"recover","site":"CELL_X1Y1","gen":1,"clk":"ICG_X4Y1","lib":2,"cells":9920,"role":"core","on":"2024-01-06","freeze_on":null,"ckpt":""}
+{"epoch":9,"part":"ember-up","kind":"map","site":"PAD_X1Y1","gen":1,"clk":"ICG_X5Y5","lib":2,"cells":9800,"role":"io","on":"2024-01-02","freeze_on":null,"ckpt":""}
+{"epoch":10,"part":"ember-up","kind":"opt","site":"PAD_X1Y1","gen":1,"clk":"ICG_X5Y5","lib":2,"cells":9820,"role":"io","on":"2024-01-03","freeze_on":null,"ckpt":""}
+{"epoch":11,"part":"ember-up","kind":"opt","site":"PAD_X1Y1","gen":1,"clk":"ICG_X5Y5","lib":4,"cells":9980,"role":"io","on":"2024-03-10","freeze_on":null,"ckpt":""}
+{"epoch":12,"part":"ember-twin","kind":"map","site":"CELL_X9Y9","gen":1,"clk":"ICG_X6Y0","lib":2,"cells":9880,"role":"core","on":"2024-01-08","freeze_on":null,"ckpt":""}
+{"epoch":13,"part":"ember-larch","kind":"map","site":"CELL_X4Y4","gen":1,"clk":"ICG_X4Y2","lib":2,"cells":9850,"role":"core","on":"2024-01-01","freeze_on":null,"ckpt":""}
+{"epoch":14,"part":"ember-larch","kind":"freeze","site":"CELL_X4Y4","gen":1,"clk":"ICG_X4Y2","lib":2,"cells":9850,"role":"core","on":"2024-01-01","freeze_on":"2024-01-01","ckpt":"ckpt-larch-1"}
+{"epoch":15,"part":"ember-901","kind":"map","site":"CELL_X11Y0","gen":1,"clk":"ICG_X8Y0","lib":2,"cells":9930,"role":"debug","on":"2024-01-09","freeze_on":null,"ckpt":""}

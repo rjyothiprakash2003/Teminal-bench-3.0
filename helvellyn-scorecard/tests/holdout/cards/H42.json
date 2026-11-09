@@ -1,0 +1,126 @@
+{
+  "bin_count": 8,
+  "card_id": "H42",
+  "classes": [
+    "elm",
+    "pine",
+    "rowan"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h42-0",
+          "label": "elm",
+          "p_bp": {
+            "elm": 1000,
+            "pine": 8600,
+            "rowan": 400
+          }
+        },
+        {
+          "example_id": "h42-1",
+          "label": "rowan",
+          "p_bp": {
+            "elm": 700,
+            "pine": 6800,
+            "rowan": 2500
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z1",
+      "rows": [
+        {
+          "example_id": "h42-2",
+          "label": "pine",
+          "p_bp": {
+            "elm": 100,
+            "pine": 4300,
+            "rowan": 5600
+          }
+        },
+        {
+          "example_id": "h42-3",
+          "label": "pine",
+          "p_bp": {
+            "elm": 1300,
+            "pine": 3500,
+            "rowan": 5200
+          }
+        },
+        {
+          "example_id": "h42-4",
+          "label": "pine",
+          "p_bp": {
+            "elm": 5500,
+            "pine": 3900,
+            "rowan": 600
+          }
+        },
+        {
+          "example_id": "h42-5",
+          "label": "pine",
+          "p_bp": {
+            "elm": 4600,
+            "pine": 300,
+            "rowan": 5100
+          }
+        },
+        {
+          "example_id": "h42-6",
+          "label": "rowan",
+          "p_bp": {
+            "elm": 2100,
+            "pine": 4200,
+            "rowan": 3700
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z2",
+      "rows": [
+        {
+          "example_id": "h42-7",
+          "label": "elm",
+          "p_bp": {
+            "elm": 4100,
+            "pine": 800,
+            "rowan": 5100
+          }
+        },
+        {
+          "example_id": "h42-8",
+          "label": "elm",
+          "p_bp": {
+            "elm": 3500,
+            "pine": 800,
+            "rowan": 5700
+          }
+        },
+        {
+          "example_id": "h42-9",
+          "label": "elm",
+          "p_bp": {
+            "elm": 5800,
+            "pine": 2400,
+            "rowan": 1800
+          }
+        },
+        {
+          "example_id": "h42-10",
+          "label": "elm",
+          "p_bp": {
+            "elm": 1100,
+            "pine": 900,
+            "rowan": 8000
+          }
+        }
+      ]
+    }
+  ]
+}

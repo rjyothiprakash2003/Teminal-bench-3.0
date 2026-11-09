@@ -1,0 +1,13 @@
+{
+  "nodes": [
+    {
+      "path": "a",
+      "kind": "device",
+      "mode": "0644",
+      "uid": 0,
+      "gid": 0
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

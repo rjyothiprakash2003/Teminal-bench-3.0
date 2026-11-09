@@ -1,0 +1,12 @@
+{
+  "copied": [
+    "",
+    "ok.txt"
+  ],
+  "skipped": [
+    {
+      "path": "pipe",
+      "reason": "unsupported"
+    }
+  ]
+}

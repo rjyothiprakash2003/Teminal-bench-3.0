@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "path": "a",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "b",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "a/one",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 1000,
+      "gid": 1000,
+      "content": "1"
+    },
+    {
+      "path": "b/two",
+      "kind": "file",
+      "mode": "0600",
+      "uid": 1000,
+      "gid": 1000,
+      "content": "2"
+    },
+    {
+      "path": "b/gone",
+      "kind": "file",
+      "mode": "0600",
+      "uid": 1000,
+      "gid": 1000,
+      "content": "3"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

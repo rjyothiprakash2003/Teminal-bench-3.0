@@ -1,0 +1,1 @@
+These worked examples illustrate disposition `reject_nested_encap` for an ENCAP frame whose inner frame is also ENCAP. They are examples only; the required behavior is stated in `/app/brinewire/BW_SPEC.md` and the instruction.

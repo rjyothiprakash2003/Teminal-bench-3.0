@@ -1,0 +1,21 @@
+{
+  "copied": [
+    "",
+    "a",
+    "a/b",
+    "a/b/c",
+    "a/b/c/d",
+    "a/b/c/d/e",
+    "a/b/c/d/e/f"
+  ],
+  "skipped": [
+    {
+      "path": "a/b/c/d/e/f/g",
+      "reason": "type conflict"
+    },
+    {
+      "path": "a/b/c/d/e/f/g/x",
+      "reason": "unsafe"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+# Plant facility drawn over the turn of the year.
+facility F-PL-0916
+class PLANT
+advance 300000000
+rate 875
+drawn 2019-12-31
+periods 8
+frequency 1

@@ -1,0 +1,30 @@
+{
+  "steps": [
+    {
+      "op": "begin",
+      "txn": "t1"
+    },
+    {
+      "op": "put",
+      "txn": "t1",
+      "key": "k",
+      "value": "staged",
+      "expected": 0
+    },
+    {
+      "op": "get",
+      "key": "k"
+    },
+    {
+      "op": "abort",
+      "txn": "t1"
+    },
+    {
+      "op": "get",
+      "key": "k"
+    },
+    {
+      "op": "snapshot"
+    }
+  ]
+}

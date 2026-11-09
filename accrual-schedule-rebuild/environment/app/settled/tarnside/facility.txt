@@ -1,0 +1,8 @@
+# Invoice facility against the summer book, settled in full.
+facility F-IN-2280
+class INVOICE
+advance 84500007
+rate 1425
+drawn 2021-08-31
+periods 10
+frequency 1

@@ -1,0 +1,23 @@
+{
+  "bin_count": 10,
+  "classes": [
+    "elm",
+    "fir"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "ridge",
+      "rows": [
+        {
+          "example_id": "n1",
+          "label": "elm",
+          "p_bp": {
+            "elm": 6000,
+            "fir": 4000
+          }
+        }
+      ]
+    }
+  ]
+}

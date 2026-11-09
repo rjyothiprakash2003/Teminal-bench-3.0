@@ -1,0 +1,2398 @@
+[
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"aa\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"aa\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 2, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-02\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 3, \"part\": \"aa\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-03\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "aa-1.nlg",
+        "MODULE aa-1\nPART aa\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "GHOST_MAP",
+        "aa",
+        3
+      ]
+    ],
+    "must_not": [],
+    "name": "ghost-map-b7906680"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"bb\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"bb\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"c1\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 3, \"part\": \"bb\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-02-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "bb-1.nlg",
+        "MODULE bb-1\nPART bb\nLANE incremental\nICG icg_x0y0\nPARENT c1\nWHEN 2024-02-20\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "GHOST_MAP",
+        "bb",
+        3
+      ]
+    ],
+    "checks": {
+      "slot_has": [
+        "NODE|bb|CELL_X0Y0|icg_x0y0|live"
+      ]
+    },
+    "name": "ghost-map-7ed3447a"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"cc\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"cc\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"c1\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 3, \"part\": \"cc\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 2, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-02-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 4, \"part\": \"cc\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-02-02\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "cc-1.nlg",
+        "MODULE cc-1\nPART cc\nLANE incremental\nICG icg_x0y0\nPARENT c1\nWHEN 2024-02-20\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "GHOST_MAP",
+        "cc",
+        4
+      ]
+    ],
+    "must_not": [
+      [
+        "GHOST_MAP",
+        "cc",
+        3
+      ]
+    ],
+    "name": "ghost-map-38b95002"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"dd\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "dd-1.nlg",
+        "MODULE dd-1\nPART dd\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "GHOST_MAP",
+        "dd",
+        1
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "ghost-map-fecd9faf"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"ee\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"ee\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-02\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9800}\n",
+      "{\"epoch\": 3, \"part\": \"ee\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-03\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9950}\n"
+    ],
+    "drops": [
+      [
+        "ee-1.nlg",
+        "MODULE ee-1\nPART ee\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "AREA_REGRESS",
+        "ee",
+        3
+      ]
+    ],
+    "must_not": [
+      [
+        "AREA_REGRESS",
+        "ee",
+        2
+      ]
+    ],
+    "name": "area-regress-1f348e1b"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"ff\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"ff\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-02\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9800}\n",
+      "{\"epoch\": 3, \"part\": \"ff\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-03-10\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 4, \"cells\": 9980}\n"
+    ],
+    "drops": [
+      [
+        "ff-1.nlg",
+        "MODULE ff-1\nPART ff\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "AREA_REGRESS",
+        "ff",
+        3
+      ]
+    ],
+    "name": "area-regress-bbb29afd"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"gg\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"gg\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-02\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9800}\n"
+    ],
+    "drops": [
+      [
+        "gg-1.nlg",
+        "MODULE gg-1\nPART gg\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "AREA_REGRESS",
+        "gg",
+        2
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "area-regress-fb67d4ea"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"hh\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"hh\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-02\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9800}\n",
+      "{\"epoch\": 3, \"part\": \"hh\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-03\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9800}\n"
+    ],
+    "drops": [
+      [
+        "hh-1.nlg",
+        "MODULE hh-1\nPART hh\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "AREA_REGRESS",
+        "hh",
+        3
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "area-regress-4fc600d0"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"ii\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-03-10\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"ii\", \"kind\": \"techmap\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-03-10\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "ii-1.nlg",
+        "MODULE ii-1\nPART ii\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "STALE_LIB",
+        "ii",
+        2
+      ]
+    ],
+    "must_not": [
+      [
+        "STALE_LIB",
+        "ii",
+        1
+      ]
+    ],
+    "name": "stale-lib-3b5057b1"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"jj\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-02-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"jj\", \"kind\": \"techmap\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-02-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "jj-1.nlg",
+        "MODULE jj-1\nPART jj\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "STALE_LIB",
+        "jj",
+        2
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "stale-lib-3959daf4"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"kk\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-03-10\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "kk-1.nlg",
+        "MODULE kk-1\nPART kk\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "STALE_LIB",
+        "kk",
+        1
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "stale-lib-ddd5d61b"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"south\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"south\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-10\", \"ckpt\": \"old\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 3, \"part\": \"south\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 2, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-03-20\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 4, \"part\": \"south\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 2, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-04-01\", \"freeze_on\": \"2024-04-01\", \"ckpt\": \"new\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "oak.nlg",
+        "MODULE oak\nPART south\nLANE incremental\nICG icg_x0y0\nPARENT old\nWHEN 2024-04-20\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "ANCESTOR_GAP",
+        "south",
+        4
+      ]
+    ],
+    "must_not": [],
+    "name": "ancestor-gap-7f9f3046"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"south\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"south\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-10\", \"ckpt\": \"old\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 3, \"part\": \"south\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-04-01\", \"freeze_on\": \"2024-04-01\", \"ckpt\": \"new\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "oak2.nlg",
+        "MODULE oak2\nPART south\nLANE incremental\nICG icg_x0y0\nPARENT new\nWHEN 2024-04-20\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "ANCESTOR_GAP",
+        "south",
+        3
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "ancestor-gap-3dc6e9ff"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"hold\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"hold\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"h1\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "h.nlg",
+        "MODULE h\nPART hold\nLANE incremental\nICG icg_x0y0\nPARENT h1\nWHEN 2024-01-10\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "ANCESTOR_GAP",
+        "hold",
+        2
+      ]
+    ],
+    "must_not": [],
+    "name": "ancestor-gap-9cfaf8b5"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"hold7\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"hold7\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"h1\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "h7.nlg",
+        "MODULE h7\nPART hold7\nLANE incremental\nICG icg_x0y0\nPARENT h1\nWHEN 2024-01-10\n"
+      ]
+    ],
+    "matrix": "kind,token,payload\nSETTLE,days,7\nSETTLE,days,21\nROLE,core,incremental\nROLE,io,incremental\nROLE,debug,flatten\nROLE,scan,flatten\nLIB,2,2024-01-01\nLIB,4,2024-03-01\nREPAIR,GHOST_MAP,drop-checkpoint\nREPAIR,LIB_MISBIND,rebind-lib\nREPAIR,ANCESTOR_GAP,relink-ancestor\nREPAIR,AREA_REGRESS,remap-area\nREPAIR,STALE_LIB,promote-lib\nREPAIR,CLKGT_SPLIT,rebind-icg\n",
+    "must": [],
+    "must_not": [
+      [
+        "ANCESTOR_GAP",
+        "hold7",
+        2
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "ancestor-gap-a8929649"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"scan-a\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"scan\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "s1.nlg",
+        "MODULE s1\nPART scan-a\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "LIB_MISBIND",
+        "scan-a",
+        1
+      ]
+    ],
+    "must_not": [],
+    "name": "lib-misbind-8e9918ee"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"scan-b\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"scan\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "s2.nlg",
+        "MODULE s2\nPART scan-b\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": "kind,token,payload\nSETTLE,days,14\nROLE,core,incremental\nROLE,io,incremental\nROLE,debug,flatten\nROLE,scan,incremental\nLIB,2,2024-01-01\nLIB,4,2024-03-01\nREPAIR,GHOST_MAP,drop-checkpoint\nREPAIR,LIB_MISBIND,rebind-lib\nREPAIR,ANCESTOR_GAP,relink-ancestor\nREPAIR,AREA_REGRESS,remap-area\nREPAIR,STALE_LIB,promote-lib\nREPAIR,CLKGT_SPLIT,rebind-icg\n",
+    "must": [],
+    "must_not": [
+      [
+        "LIB_MISBIND",
+        "scan-b",
+        1
+      ]
+    ],
+    "name": "lib-misbind-71bf7cf9"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"role-x\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"role-x\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"scan\", \"on\": \"2024-01-08\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "rx.nlg",
+        "MODULE rx\nPART role-x\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ],
+      [
+        "rx2.nlg",
+        "MODULE rx2\nPART role-x\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-09\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "LIB_MISBIND",
+        "role-x",
+        2
+      ]
+    ],
+    "must_not": [
+      [
+        "LIB_MISBIND",
+        "role-x",
+        1
+      ]
+    ],
+    "checks": {
+      "count": [
+        [
+          "LIB_MISBIND",
+          "role-x",
+          2
+        ],
+        1
+      ]
+    },
+    "name": "lib-misbind-b6117227"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"role-y\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"scan\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"role-y\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-08\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "ry.nlg",
+        "MODULE ry\nPART role-y\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "LIB_MISBIND",
+        "role-y",
+        2
+      ],
+      [
+        "LIB_MISBIND",
+        "role-y",
+        1
+      ]
+    ],
+    "name": "lib-misbind-fb9b39ec"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"clk-x\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X1Y1\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "cx.nlg",
+        "MODULE cx\nPART clk-x\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "CLKGT_SPLIT",
+        "clk-x",
+        1
+      ]
+    ],
+    "must_not": [],
+    "name": "clkgt-split-d940041f"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"clk-y\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X1Y1\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "cy.nlg",
+        "MODULE cy\nPART clk-y\nLANE flatten\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "CLKGT_SPLIT",
+        "clk-y",
+        1
+      ],
+      [
+        "LIB_MISBIND",
+        "clk-y",
+        1
+      ],
+      [
+        "ANCESTOR_GAP",
+        "clk-y",
+        1
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "ancestor-gap-5fdbaddf"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"clk-z\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X1Y1\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "cz.nlg",
+        "MODULE cz\nPART clk-z\nLANE incremental\nICG ICG_X1Y1\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "CLKGT_SPLIT",
+        "clk-z",
+        1
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "clkgt-split-f7836133"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"a\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"a\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X9Y9\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"c1\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "frz.nlg",
+        "MODULE frz\nPART a\nLANE incremental\nICG icg_x9y9\nPARENT c1\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "CLKGT_SPLIT",
+        "a",
+        2
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "slot_has": [
+        "NODE|a|CELL_X0Y0|icg_x0y0|frozen"
+      ],
+      "slot_missing": [
+        "NODE|a|CELL_X0Y0|icg_x9y9|frozen"
+      ]
+    },
+    "name": "clkgt-split-645afe77"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"zz-bind\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"scan\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 1, \"part\": \"aa-bind\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X2Y0\", \"role\": \"scan\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "aa-1.nlg",
+        "MODULE aa-1\nPART zz-bind\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ],
+      [
+        "zz-1.nlg",
+        "MODULE zz-1\nPART aa-bind\nLANE incremental\nICG icg_x2y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "LIB_MISBIND",
+        "aa-bind",
+        1
+      ],
+      [
+        "LIB_MISBIND",
+        "zz-bind",
+        1
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "order_codes": [
+        "LIB_MISBIND"
+      ]
+    },
+    "name": "lib-misbind-3d54fafb"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"z-one\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"scan\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 1, \"part\": \"a-two\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X1Y1\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "z-one.nlg",
+        "MODULE z-one\nPART z-one\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ],
+      [
+        "a-two.nlg",
+        "MODULE a-two\nPART a-two\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "CLKGT_SPLIT",
+        "a-two",
+        1
+      ],
+      [
+        "LIB_MISBIND",
+        "z-one",
+        1
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "exact": true
+    },
+    "name": "clkgt-split-d0c4b726"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"a\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "lr.nlg",
+        "MODULE lr\nPART a\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "LIB_MISBIND",
+        "a",
+        1
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "note_cap": true
+    },
+    "name": "lib-misbind-2e74c54d"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"a\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "hex.nlg",
+        "MODULE hex\nPART a\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "LIB_MISBIND",
+        "a",
+        1
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "redact": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "name": "lib-misbind-bf8acb5f"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"a\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"0123456789abcdef-0123456789abcdef-0123456789abcdef-0123456789abcdef\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "grp.nlg",
+        "MODULE grp\nPART a\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "LIB_MISBIND",
+        "a",
+        1
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "redact": "0123456789abcdef-0123456789abcdef-0123456789abcdef-0123456789abcdef",
+      "grouped": true
+    },
+    "name": "lib-misbind-d69659ea"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"ci-a\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"debug\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "poison.cfg",
+        "MODULE poison\nPART ci-a\nLANE incremental\nICG icg_x9y9\nPARENT ckpt-fake\nWHEN 2024-01-02\n"
+      ],
+      [
+        "junk.md",
+        "not a region record\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "LIB_MISBIND",
+        "ci-a",
+        1
+      ],
+      [
+        "CLKGT_SPLIT",
+        "ci-a",
+        1
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "clkgt-split-0f9994d8"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"ci-b\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"debug\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "poison.NLG",
+        "MODULE poison\nPART ci-b\nLANE incremental\nICG icg_x9y9\nPARENT ckpt-fake\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "LIB_MISBIND",
+        "ci-b",
+        1
+      ]
+    ],
+    "checks": {
+      "exact": []
+    },
+    "name": "lib-misbind-4d0a4f2d"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"empty\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "em.nlg",
+        "MODULE em\nPART empty\nLANE flatten\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [],
+    "checks": {
+      "exact": []
+    },
+    "name": "quiet-928af8f2"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"dup\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X1Y1\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "d1.nlg",
+        "MODULE d1\nPART dup\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ],
+      [
+        "d2.nlg",
+        "MODULE d2\nPART dup\nLANE incremental\nICG icg_x2y2\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "CLKGT_SPLIT",
+        "dup",
+        1
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "count": [
+        [
+          "CLKGT_SPLIT",
+          "dup",
+          1
+        ],
+        1
+      ]
+    },
+    "name": "clkgt-split-41243ef6"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"dash\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"dash\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"c1\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "ds.nlg",
+        "MODULE ds\nPART dash\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "ANCESTOR_GAP",
+        "dash",
+        2
+      ]
+    ],
+    "must_not": [],
+    "name": "ancestor-gap-17c87b29"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"nf\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "nfr.nlg",
+        "MODULE nfr\nPART nf\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "ANCESTOR_GAP",
+        "nf",
+        1
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "ancestor-gap-927e47dc"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"a-slot\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"a-slot\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-02-01\", \"ckpt\": \"c1\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 3, \"part\": \"a-slot\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-04-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 4, \"part\": \"a-slot\", \"kind\": \"recover\", \"site\": \"CELL_X9Y9\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-05-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "as.nlg",
+        "MODULE as\nPART a-slot\nLANE incremental\nICG icg_x0y0\nPARENT c1\nWHEN 2024-05-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "GHOST_MAP",
+        "a-slot",
+        3
+      ],
+      [
+        "GHOST_MAP",
+        "a-slot",
+        4
+      ]
+    ],
+    "checks": {
+      "slot_has": [
+        "NODE|a-slot|CELL_X9Y9|icg_x0y0|live"
+      ]
+    },
+    "name": "ghost-map-5b9c9855"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"tf\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"tf\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-02\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9600}\n",
+      "{\"epoch\": 3, \"part\": \"tf\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"c1\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 4, \"part\": \"tf\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-03-05\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9950}\n"
+    ],
+    "drops": [
+      [
+        "tf1.nlg",
+        "MODULE tf1\nPART tf\nLANE incremental\nICG icg_x0y0\nPARENT c1\nWHEN 2024-03-20\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "AREA_REGRESS",
+        "tf",
+        4
+      ]
+    ],
+    "must_not": [
+      [
+        "AREA_REGRESS",
+        "tf",
+        2
+      ]
+    ],
+    "name": "area-regress-e3fd7df0"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"route-only\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-02-10\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"route-only\", \"kind\": \"techmap\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-03-10\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "ro.nlg",
+        "MODULE ro\nPART route-only\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "STALE_LIB",
+        "route-only",
+        2
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "count": [
+        [
+          "STALE_LIB",
+          "route-only",
+          2
+        ],
+        1
+      ]
+    },
+    "name": "stale-lib-67acd82a"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"ghost2\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"ghost2\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-02\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 3, \"part\": \"ghost2\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 0, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-03\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "g2.nlg",
+        "MODULE g2\nPART ghost2\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "GHOST_MAP",
+        "ghost2",
+        3
+      ]
+    ],
+    "must_not": [
+      [
+        "GHOST_MAP",
+        "ghost2",
+        2
+      ]
+    ],
+    "name": "ghost-map-057dd446"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"rel-x\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "rxn.nlg",
+        "MODULE rxn\nPART rel-x\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": "kind,token,payload\nSETTLE,days,14\nROLE,core,flatten\nROLE,io,incremental\nROLE,debug,flatten\nROLE,scan,flatten\nLIB,2,2024-01-01\nLIB,4,2024-03-01\nREPAIR,GHOST_MAP,drop-checkpoint\nREPAIR,LIB_MISBIND,rebind-lib\nREPAIR,ANCESTOR_GAP,relink-ancestor\nREPAIR,AREA_REGRESS,remap-area\nREPAIR,STALE_LIB,promote-lib\nREPAIR,CLKGT_SPLIT,rebind-icg\n",
+    "must": [
+      [
+        "LIB_MISBIND",
+        "rel-x",
+        1
+      ]
+    ],
+    "must_not": [
+      [
+        "CLKGT_SPLIT",
+        "rel-x",
+        1
+      ]
+    ],
+    "name": "clkgt-split-243d9a4e"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"pred\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n",
+      "{\"epoch\": 2, \"part\": \"pred\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-03-01\", \"freeze_on\": \"2024-01-10\", \"ckpt\": \"late\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "birch.nlg",
+        "MODULE birch\nPART pred\nLANE incremental\nICG icg_x0y0\nPARENT late\nWHEN 2024-01-20\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "ANCESTOR_GAP",
+        "pred",
+        2
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "count": [
+        [
+          "ANCESTOR_GAP",
+          "pred",
+          2
+        ],
+        1
+      ]
+    },
+    "name": "ancestor-gap-16693275"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"ci-a\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"debug\", \"on\": \"2025-06-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 9900}\n"
+    ],
+    "drops": [
+      [
+        "ci1.nlg",
+        "MODULE ci1\nPART ci-a\nLANE flatten\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-02\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [],
+    "checks": {
+      "exact": []
+    },
+    "name": "quiet-06aa497c"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"gopt\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 2, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"gopt\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"gopt\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "gopt.nlg",
+        "MODULE gopt\nPART gopt\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "GHOST_MAP",
+        "gopt",
+        3
+      ]
+    ],
+    "must_not": [],
+    "name": "ghost-map-7df0eb3b"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"gtm\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 2, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"gtm\", \"kind\": \"techmap\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-02-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"gtm\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "gtm.nlg",
+        "MODULE gtm\nPART gtm\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "GHOST_MAP",
+        "gtm",
+        3
+      ]
+    ],
+    "must_not": [],
+    "name": "ghost-map-6119f2a3"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"gfrz\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"gfrz\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 2, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"c1\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"gfrz\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "gfrz.nlg",
+        "MODULE gfrz\nPART gfrz\nLANE incremental\nICG icg_x0y0\nPARENT c1\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "GHOST_MAP",
+        "gfrz",
+        3
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "slot_has": [
+        "NODE|gfrz|CELL_X0Y0|icg_x0y0|live"
+      ]
+    },
+    "name": "ghost-map-c89d957d"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"tie\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"tie\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"a\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"tie\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"z\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "tie.nlg",
+        "MODULE tie\nPART tie\nLANE incremental\nICG icg_x0y0\nPARENT a\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "ANCESTOR_GAP",
+        "tie",
+        3
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "ancestor-gap-c52e93d1"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"tie2\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"tie2\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"a\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"tie2\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"z\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "tie2.nlg",
+        "MODULE tie2\nPART tie2\nLANE incremental\nICG icg_x0y0\nPARENT z\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "ANCESTOR_GAP",
+        "tie2",
+        3
+      ]
+    ],
+    "must_not": [],
+    "name": "ancestor-gap-3bdd799d"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"arm\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"arm\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"arm\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 4, \"part\": \"arm\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 101}\n"
+    ],
+    "drops": [
+      [
+        "arm.nlg",
+        "MODULE arm\nPART arm\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "AREA_REGRESS",
+        "arm",
+        4
+      ]
+    ],
+    "must_not": [
+      [
+        "AREA_REGRESS",
+        "arm",
+        2
+      ],
+      [
+        "AREA_REGRESS",
+        "arm",
+        3
+      ]
+    ],
+    "name": "area-regress-df0b8699"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"art\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"art\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"art\", \"kind\": \"techmap\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-02-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 4, \"part\": \"art\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 101}\n"
+    ],
+    "drops": [
+      [
+        "art.nlg",
+        "MODULE art\nPART art\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "AREA_REGRESS",
+        "art",
+        4
+      ]
+    ],
+    "must_not": [],
+    "name": "area-regress-a49bd586"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"arr\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"arr\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"arr\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 4, \"part\": \"arr\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 101}\n"
+    ],
+    "drops": [
+      [
+        "arr.nlg",
+        "MODULE arr\nPART arr\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "AREA_REGRESS",
+        "arr",
+        4
+      ]
+    ],
+    "must_not": [],
+    "name": "area-regress-93ac2b62"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"arl\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"arl\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 3, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"arl\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 3, \"cells\": 200}\n"
+    ],
+    "drops": [
+      [
+        "arl.nlg",
+        "MODULE arl\nPART arl\nLANE flatten\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "AREA_REGRESS",
+        "arl",
+        3
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "area-regress-3092d71c"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"arl2\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"arl2\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"arl2\", \"kind\": \"techmap\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-03-10\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 4, \"cells\": 100}\n",
+      "{\"epoch\": 4, \"part\": \"arl2\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 4, \"cells\": 101}\n"
+    ],
+    "drops": [
+      [
+        "arl2.nlg",
+        "MODULE arl2\nPART arl2\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "AREA_REGRESS",
+        "arl2",
+        4
+      ]
+    ],
+    "checks": {
+      "no_code": "AREA_REGRESS"
+    },
+    "name": "area-regress-94333315"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"eqlib\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"eqlib\", \"kind\": \"techmap\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-03-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "eqlib.nlg",
+        "MODULE eqlib\nPART eqlib\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-03-20\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "STALE_LIB",
+        "eqlib",
+        2
+      ]
+    ],
+    "must_not": [],
+    "name": "stale-lib-cfa76c37"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"mlib\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"mlib\", \"kind\": \"techmap\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-03-10\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "mlib.nlg",
+        "MODULE mlib\nPART mlib\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-03-20\n"
+      ]
+    ],
+    "matrix": "kind,token,payload\nSETTLE,days,14\nROLE,core,incremental\nROLE,io,incremental\nROLE,debug,flatten\nROLE,scan,flatten\nLIB,2,2024-01-01\nLIB,4,2024-04-01\nREPAIR,GHOST_MAP,drop-checkpoint\nREPAIR,LIB_MISBIND,rebind-lib\nREPAIR,ANCESTOR_GAP,relink-ancestor\nREPAIR,AREA_REGRESS,remap-area\nREPAIR,STALE_LIB,promote-lib\nREPAIR,CLKGT_SPLIT,rebind-icg\n",
+    "must": [],
+    "must_not": [
+      [
+        "STALE_LIB",
+        "mlib",
+        2
+      ]
+    ],
+    "checks": {
+      "exact": []
+    },
+    "name": "stale-lib-22bdf0d3"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"lclk\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-x-\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "lclk.nlg",
+        "MODULE lclk\nPART lclk\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "CLKGT_SPLIT",
+        "lclk",
+        1
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "note_cap": true
+    },
+    "name": "clkgt-split-14f8e332"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"hclk\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "hclk.nlg",
+        "MODULE hclk\nPART hclk\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "CLKGT_SPLIT",
+        "hclk",
+        1
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "redact": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    },
+    "name": "clkgt-split-60bea15f"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"agdup\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "ag1.nlg",
+        "MODULE ag1\nPART agdup\nLANE incremental\nICG icg_x0y0\nPARENT c1\nWHEN 2024-02-01\n"
+      ],
+      [
+        "ag2.nlg",
+        "MODULE ag2\nPART agdup\nLANE incremental\nICG icg_x0y0\nPARENT c1\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "ANCESTOR_GAP",
+        "agdup",
+        1
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "count": [
+        [
+          "ANCESTOR_GAP",
+          "agdup",
+          1
+        ],
+        1
+      ]
+    },
+    "name": "ancestor-gap-9b4c1b1a"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"bnd\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"bnd\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"c1\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "bnd.nlg",
+        "MODULE bnd\nPART bnd\nLANE incremental\nICG icg_x0y0\nPARENT c1\nWHEN 2024-01-15\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "ANCESTOR_GAP",
+        "bnd",
+        2
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "ancestor-gap-6826cdae"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"bnd2\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"bnd2\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"c1\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "bnd2.nlg",
+        "MODULE bnd2\nPART bnd2\nLANE incremental\nICG icg_x0y0\nPARENT c1\nWHEN 2024-01-14\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "ANCESTOR_GAP",
+        "bnd2",
+        2
+      ]
+    ],
+    "must_not": [],
+    "name": "ancestor-gap-2bff914c"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"fb\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"fb\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"old\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"fb\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-20\", \"ckpt\": \"new\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "fb.nlg",
+        "MODULE fb\nPART fb\nLANE incremental\nICG icg_x0y0\nPARENT old\nWHEN 2024-01-25\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "ANCESTOR_GAP",
+        "fb",
+        3
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "ancestor-gap-09827930"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"ord\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"ord\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-10\", \"ckpt\": \"new\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"ord\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"old\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "ord.nlg",
+        "MODULE ord\nPART ord\nLANE incremental\nICG icg_x0y0\nPARENT new\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "ANCESTOR_GAP",
+        "ord",
+        3
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "ancestor-gap-41ee009c"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"ord2\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"ord2\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-10\", \"ckpt\": \"new\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"ord2\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"old\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "ord2.nlg",
+        "MODULE ord2\nPART ord2\nLANE incremental\nICG icg_x0y0\nPARENT old\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "ANCESTOR_GAP",
+        "ord2",
+        3
+      ]
+    ],
+    "must_not": [],
+    "name": "ancestor-gap-952f6575"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"rcv\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"rcv\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"c1\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "rcv.nlg",
+        "MODULE rcv\nPART rcv\nLANE incremental\nICG icg_x0y0\nPARENT c1\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "ANCESTOR_GAP",
+        "rcv",
+        2
+      ]
+    ],
+    "must_not": [],
+    "name": "ancestor-gap-a830a6be"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"ropt\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"ropt\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"scan\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "ropt.nlg",
+        "MODULE ropt\nPART ropt\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "LIB_MISBIND",
+        "ropt",
+        2
+      ]
+    ],
+    "must_not": [
+      [
+        "LIB_MISBIND",
+        "ropt",
+        1
+      ]
+    ],
+    "name": "lib-misbind-e6aa2790"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"rtm\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"rtm\", \"kind\": \"techmap\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"scan\", \"on\": \"2024-02-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "rtm.nlg",
+        "MODULE rtm\nPART rtm\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "LIB_MISBIND",
+        "rtm",
+        2
+      ]
+    ],
+    "must_not": [],
+    "name": "lib-misbind-f24a1d78"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"p\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"q\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"p\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 4, \"part\": \"q\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 101}\n"
+    ],
+    "drops": [
+      [
+        "op.nlg",
+        "MODULE op\nPART p\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ],
+      [
+        "oq.nlg",
+        "MODULE oq\nPART q\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "AREA_REGRESS",
+        "q",
+        4
+      ],
+      [
+        "AREA_REGRESS",
+        "p",
+        3
+      ]
+    ],
+    "checks": {
+      "exact": [],
+      "no_code": "AREA_REGRESS"
+    },
+    "name": "area-regress-d70804b8"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"late\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "a-good.nlg",
+        "MODULE a-good\nPART late\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ],
+      [
+        "b-bad.nlg",
+        "MODULE b-bad\nPART late\nLANE incremental\nICG icg_y\nPARENT Cbad\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "CLKGT_SPLIT",
+        "late",
+        1
+      ],
+      [
+        "ANCESTOR_GAP",
+        "late",
+        1
+      ]
+    ],
+    "must_not": [],
+    "name": "ancestor-gap-72d29aaf"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"rev5\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"rev5\", \"kind\": \"techmap\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-03-10\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 4, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "rev5.nlg",
+        "MODULE rev5\nPART rev5\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-03-20\n"
+      ]
+    ],
+    "matrix": "kind,token,payload\nSETTLE,days,14\nROLE,core,incremental\nROLE,io,incremental\nROLE,debug,flatten\nROLE,scan,flatten\nLIB,2,2024-01-01\nLIB,5,2024-03-01\nREPAIR,GHOST_MAP,drop-checkpoint\nREPAIR,LIB_MISBIND,rebind-lib\nREPAIR,ANCESTOR_GAP,relink-ancestor\nREPAIR,AREA_REGRESS,remap-area\nREPAIR,STALE_LIB,promote-lib\nREPAIR,CLKGT_SPLIT,rebind-icg\n",
+    "must": [
+      [
+        "STALE_LIB",
+        "rev5",
+        2
+      ]
+    ],
+    "must_not": [],
+    "name": "stale-lib-6988197f"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"hilib\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"hilib\", \"kind\": \"techmap\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-03-10\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "hilib.nlg",
+        "MODULE hilib\nPART hilib\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-03-20\n"
+      ]
+    ],
+    "matrix": "kind,token,payload\nSETTLE,days,14\nROLE,core,incremental\nROLE,io,incremental\nROLE,debug,flatten\nROLE,scan,flatten\nLIB,4,2024-01-01\nLIB,2,2024-02-01\nREPAIR,GHOST_MAP,drop-checkpoint\nREPAIR,LIB_MISBIND,rebind-lib\nREPAIR,ANCESTOR_GAP,relink-ancestor\nREPAIR,AREA_REGRESS,remap-area\nREPAIR,STALE_LIB,promote-lib\nREPAIR,CLKGT_SPLIT,rebind-icg\n",
+    "must": [
+      [
+        "STALE_LIB",
+        "hilib",
+        2
+      ]
+    ],
+    "must_not": [],
+    "name": "stale-lib-c7f113fd"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"rcvd\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"rcvd\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"r\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "rcvd.nlg",
+        "MODULE rcvd\nPART rcvd\nLANE incremental\nICG icg_x0y0\nPARENT r\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "ANCESTOR_GAP",
+        "rcvd",
+        2
+      ]
+    ],
+    "must_not": [],
+    "name": "ancestor-gap-25d6d15d"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"a\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"scan\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 1, \"part\": \"z\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X1Y1\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "ma.nlg",
+        "MODULE ma\nPART a\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ],
+      [
+        "mz.nlg",
+        "MODULE mz\nPART z\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "CLKGT_SPLIT",
+        "z",
+        1
+      ],
+      [
+        "LIB_MISBIND",
+        "a",
+        1
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "exact": true
+    },
+    "name": "clkgt-split-073a1cdd"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"rrec\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"rrec\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"scan\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "rrec.nlg",
+        "MODULE rrec\nPART rrec\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "LIB_MISBIND",
+        "rrec",
+        2
+      ]
+    ],
+    "must_not": [
+      [
+        "LIB_MISBIND",
+        "rrec",
+        1
+      ],
+      [
+        "GHOST_MAP",
+        "rrec",
+        2
+      ]
+    ],
+    "name": "ghost-map-6ec2a39b"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"rfrz\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"rfrz\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"scan\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"c1\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "rfrz.nlg",
+        "MODULE rfrz\nPART rfrz\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-10\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "LIB_MISBIND",
+        "rfrz",
+        2
+      ]
+    ],
+    "must_not": [
+      [
+        "ANCESTOR_GAP",
+        "rfrz",
+        2
+      ]
+    ],
+    "name": "ancestor-gap-51f5a9b2"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"copt\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"copt\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X9Y9\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "copt.nlg",
+        "MODULE copt\nPART copt\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "CLKGT_SPLIT",
+        "copt",
+        2
+      ],
+      [
+        "CLKGT_SPLIT",
+        "copt",
+        1
+      ]
+    ],
+    "checks": {
+      "exact": true,
+      "slot_has": [
+        "NODE|copt|CELL_X0Y0|icg_x0y0|live"
+      ],
+      "slot_missing": [
+        "NODE|copt|CELL_X0Y0|icg_x9y9|live"
+      ]
+    },
+    "name": "clkgt-split-0c94dd1c"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"ctm\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"ctm\", \"kind\": \"techmap\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X9Y9\", \"role\": \"core\", \"on\": \"2024-02-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "ctm.nlg",
+        "MODULE ctm\nPART ctm\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "CLKGT_SPLIT",
+        "ctm",
+        2
+      ],
+      [
+        "CLKGT_SPLIT",
+        "ctm",
+        1
+      ]
+    ],
+    "checks": {
+      "exact": true,
+      "slot_has": [
+        "NODE|ctm|CELL_X0Y0|icg_x0y0|live"
+      ],
+      "slot_missing": [
+        "NODE|ctm|CELL_X0Y0|icg_x9y9|live"
+      ]
+    },
+    "name": "clkgt-split-e264c726"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"gmax\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 2, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"gmax\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"gmax\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "gmax.nlg",
+        "MODULE gmax\nPART gmax\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "GHOST_MAP",
+        "gmax",
+        2
+      ]
+    ],
+    "must_not": [
+      [
+        "GHOST_MAP",
+        "gmax",
+        3
+      ]
+    ],
+    "name": "ghost-map-58e2ed46"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"dec\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"dec\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"dec\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 99}\n"
+    ],
+    "drops": [
+      [
+        "dec.nlg",
+        "MODULE dec\nPART dec\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "AREA_REGRESS",
+        "dec",
+        3
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "area-regress-bed95ea8"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"gup\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"gup\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 2, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "gup.nlg",
+        "MODULE gup\nPART gup\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "GHOST_MAP",
+        "gup",
+        2
+      ]
+    ],
+    "checks": {
+      "exact": true,
+      "slot_has": [
+        "NODE|gup|CELL_X0Y0|icg_x0y0|live"
+      ]
+    },
+    "name": "ghost-map-96ada79a"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"acc\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"accelerator\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "acc.nlg",
+        "MODULE acc\nPART acc\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": "kind,token,payload\nSETTLE,days,14\nROLE,core,incremental\nROLE,io,incremental\nROLE,debug,flatten\nROLE,scan,flatten\nLIB,2,2024-01-01\nLIB,4,2024-03-01\nREPAIR,GHOST_MAP,drop-checkpoint\nREPAIR,LIB_MISBIND,rebind-lib\nREPAIR,ANCESTOR_GAP,relink-ancestor\nREPAIR,AREA_REGRESS,remap-area\nREPAIR,STALE_LIB,promote-lib\nREPAIR,CLKGT_SPLIT,rebind-icg\nROLE,accelerator,incremental\n",
+    "must": [],
+    "must_not": [
+      [
+        "LIB_MISBIND",
+        "acc",
+        1
+      ]
+    ],
+    "checks": {
+      "exact": []
+    },
+    "name": "lib-misbind-b2a99242"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"clkrc\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"clkrc\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X1Y1\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "clkrc.nlg",
+        "MODULE clkrc\nPART clkrc\nLANE incremental\nICG icg_x1y1\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "CLKGT_SPLIT",
+        "clkrc",
+        2
+      ]
+    ],
+    "checks": {
+      "exact": true,
+      "slot_has": [
+        "NODE|clkrc|CELL_X0Y0|icg_x1y1|live"
+      ],
+      "slot_missing": [
+        "NODE|clkrc|CELL_X0Y0|icg_x0y0|live"
+      ]
+    },
+    "name": "clkgt-split-46efcb77"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"clkmp\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"clkmp\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 2, \"clk\": \"ICG_X1Y1\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "clkmp.nlg",
+        "MODULE clkmp\nPART clkmp\nLANE incremental\nICG icg_x1y1\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "CLKGT_SPLIT",
+        "clkmp",
+        2
+      ]
+    ],
+    "checks": {
+      "exact": true,
+      "slot_has": [
+        "NODE|clkmp|CELL_X0Y0|icg_x1y1|live"
+      ],
+      "slot_missing": [
+        "NODE|clkmp|CELL_X0Y0|icg_x0y0|live"
+      ]
+    },
+    "name": "clkgt-split-a6b28b92"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"tm0\", \"kind\": \"techmap\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-03-10\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "tm0.nlg",
+        "MODULE tm0\nPART tm0\nLANE flatten\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "STALE_LIB",
+        "tm0",
+        1
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "exact": true,
+      "slot_has": [
+        "NODE|tm0|CELL_X0Y0||live"
+      ],
+      "slot_missing": [
+        "NODE|tm0|CELL_X0Y0|-|live",
+        "NODE|tm0|CELL_X0Y0|icg_x0y0|live"
+      ]
+    },
+    "name": "stale-lib-0a94ceb2"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"op0\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"op0\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 101}\n"
+    ],
+    "drops": [
+      [
+        "op0.nlg",
+        "MODULE op0\nPART op0\nLANE flatten\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "AREA_REGRESS",
+        "op0",
+        2
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "exact": true
+    },
+    "name": "area-regress-dee3bb36"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"b64r\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "b64r.nlg",
+        "MODULE b64r\nPART b64r\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [
+      [
+        "LIB_MISBIND",
+        "b64r",
+        1
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "redact": "ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ"
+    },
+    "name": "lib-misbind-1db53bf7"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"decr\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"decr\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-03-10\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 4, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"decr\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-03-11\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 101}\n"
+    ],
+    "drops": [
+      [
+        "decr.nlg",
+        "MODULE decr\nPART decr\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-03-20\n"
+      ]
+    ],
+    "matrix": null,
+    "must": [],
+    "must_not": [
+      [
+        "AREA_REGRESS",
+        "decr",
+        3
+      ],
+      [
+        "AREA_REGRESS",
+        "decr",
+        2
+      ]
+    ],
+    "checks": {
+      "exact": true,
+      "no_code": "AREA_REGRESS"
+    },
+    "name": "area-regress-1446cded"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"p\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"p\", \"kind\": \"techmap\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-05-02\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 4, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "lib3.nlg",
+        "MODULE lib3\nPART p\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-05-10\n"
+      ]
+    ],
+    "matrix": "kind,token,payload\nSETTLE,days,14\nROLE,core,incremental\nROLE,io,incremental\nROLE,debug,flatten\nROLE,scan,flatten\nLIB,2,2024-01-01\nLIB,4,2024-03-01\nLIB,6,2024-05-01\nREPAIR,GHOST_MAP,drop-checkpoint\nREPAIR,LIB_MISBIND,rebind-lib\nREPAIR,ANCESTOR_GAP,relink-ancestor\nREPAIR,AREA_REGRESS,remap-area\nREPAIR,STALE_LIB,promote-lib\nREPAIR,CLKGT_SPLIT,rebind-icg\n",
+    "must": [
+      [
+        "STALE_LIB",
+        "p",
+        2
+      ]
+    ],
+    "must_not": [],
+    "name": "stale-lib-24b42565"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"p\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"p\", \"kind\": \"techmap\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-02-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "prelib.nlg",
+        "MODULE prelib\nPART p\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-02-20\n"
+      ]
+    ],
+    "matrix": "kind,token,payload\nSETTLE,days,14\nROLE,core,incremental\nROLE,io,incremental\nROLE,debug,flatten\nROLE,scan,flatten\nLIB,4,2024-03-01\nREPAIR,GHOST_MAP,drop-checkpoint\nREPAIR,LIB_MISBIND,rebind-lib\nREPAIR,ANCESTOR_GAP,relink-ancestor\nREPAIR,AREA_REGRESS,remap-area\nREPAIR,STALE_LIB,promote-lib\nREPAIR,CLKGT_SPLIT,rebind-icg\n",
+    "must": [],
+    "must_not": [
+      [
+        "STALE_LIB",
+        "p",
+        2
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "stale-lib-66bf72c8"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"p\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 80}\n",
+      "{\"epoch\": 2, \"part\": \"p\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-02\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 3, \"part\": \"p\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 2, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-03\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 300}\n",
+      "{\"epoch\": 4, \"part\": \"p\", \"kind\": \"opt\", \"site\": \"CELL_X0Y0\", \"gen\": 2, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-04\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 150}\n"
+    ],
+    "drops": [
+      [
+        "gapopt.nlg",
+        "MODULE gapopt\nPART p\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-01-20\n"
+      ]
+    ],
+    "matrix": "kind,token,payload\nSETTLE,days,14\nROLE,core,incremental\nROLE,io,incremental\nROLE,debug,flatten\nROLE,scan,flatten\nLIB,2,2024-01-01\nLIB,4,2024-03-01\nREPAIR,GHOST_MAP,drop-checkpoint\nREPAIR,LIB_MISBIND,rebind-lib\nREPAIR,ANCESTOR_GAP,relink-ancestor\nREPAIR,AREA_REGRESS,remap-area\nREPAIR,STALE_LIB,promote-lib\nREPAIR,CLKGT_SPLIT,rebind-icg\n",
+    "must": [
+      [
+        "AREA_REGRESS",
+        "p",
+        4
+      ]
+    ],
+    "must_not": [],
+    "checks": {
+      "exact": true
+    },
+    "name": "area-regress-c893eb11"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"fz\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"fz\", \"kind\": \"freeze\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": \"2024-01-01\", \"ckpt\": \"ckpt-fz-1\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "flat-wrong.nlg",
+        "MODULE flat-wrong\nPART fz\nLANE flatten\nICG icg_x9y9\nPARENT ckpt-bogus\nWHEN 2024-02-01\n"
+      ]
+    ],
+    "matrix": "kind,token,payload\nSETTLE,days,14\nROLE,core,incremental\nROLE,io,incremental\nROLE,debug,flatten\nROLE,scan,flatten\nLIB,2,2024-01-01\nLIB,4,2024-03-01\nREPAIR,GHOST_MAP,drop-checkpoint\nREPAIR,LIB_MISBIND,rebind-lib\nREPAIR,ANCESTOR_GAP,relink-ancestor\nREPAIR,AREA_REGRESS,remap-area\nREPAIR,STALE_LIB,promote-lib\nREPAIR,CLKGT_SPLIT,rebind-icg\n",
+    "must": [],
+    "must_not": [
+      [
+        "ANCESTOR_GAP",
+        "fz",
+        2
+      ],
+      [
+        "CLKGT_SPLIT",
+        "fz",
+        2
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "ancestor-gap-161c9b06"
+  },
+  {
+    "chronicle": [
+      "{\"epoch\": 1, \"part\": \"p\", \"kind\": \"map\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-01-01\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n",
+      "{\"epoch\": 2, \"part\": \"p\", \"kind\": \"recover\", \"site\": \"CELL_X0Y0\", \"gen\": 1, \"clk\": \"ICG_X0Y0\", \"role\": \"core\", \"on\": \"2024-03-10\", \"freeze_on\": null, \"ckpt\": \"\", \"lib\": 2, \"cells\": 100}\n"
+    ],
+    "drops": [
+      [
+        "prec.nlg",
+        "MODULE prec\nPART p\nLANE incremental\nICG icg_x0y0\nPARENT -\nWHEN 2024-03-20\n"
+      ]
+    ],
+    "matrix": "kind,token,payload\nSETTLE,days,14\nROLE,core,incremental\nROLE,io,incremental\nROLE,debug,flatten\nROLE,scan,flatten\nLIB,2,2024-01-01\nLIB,4,2024-03-01\nREPAIR,GHOST_MAP,drop-checkpoint\nREPAIR,LIB_MISBIND,rebind-lib\nREPAIR,ANCESTOR_GAP,relink-ancestor\nREPAIR,AREA_REGRESS,remap-area\nREPAIR,STALE_LIB,promote-lib\nREPAIR,CLKGT_SPLIT,rebind-icg\n",
+    "must": [],
+    "must_not": [
+      [
+        "STALE_LIB",
+        "p",
+        2
+      ]
+    ],
+    "checks": {
+      "exact": true
+    },
+    "name": "stale-lib-0e685363"
+  }
+]

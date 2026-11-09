@@ -1,0 +1,9 @@
+{
+  "src": [
+    {
+      "kind": "symlink",
+      "path": "dangling",
+      "target": "missing-target"
+    }
+  ]
+}

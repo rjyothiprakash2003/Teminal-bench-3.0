@@ -1,0 +1,6 @@
+{
+  "owner": "team_b",
+  "region": "eu",
+  "replicas": 2,
+  "tier": "site"
+}

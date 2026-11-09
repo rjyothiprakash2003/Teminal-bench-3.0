@@ -1,0 +1,27 @@
+{
+  "entries": [
+    {
+      "path": "a/b/c/d/e/f/g/h/i/j/k/token",
+      "allow_uids": [
+        50
+      ],
+      "allow_gids": [
+        50
+      ]
+    }
+  ],
+  "subjects": [
+    {
+      "uid": 50,
+      "gids": [
+        50
+      ]
+    },
+    {
+      "uid": 51,
+      "gids": [
+        51
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+module countercompact
+
+go 1.24.0

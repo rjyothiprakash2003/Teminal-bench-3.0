@@ -1,0 +1,12 @@
+{
+  "cflags": ["-O2", "-fPIC"],
+  "ldflags": ["-Wl,-z,relro"],
+  "env": {
+    "PROJECT": "demo",
+    "TMP": "scratch"
+  },
+  "defines": {
+    "NDEBUG": "1",
+    "LEGACY": "1"
+  }
+}

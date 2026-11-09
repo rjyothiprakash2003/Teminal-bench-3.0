@@ -1,0 +1,9 @@
+{
+  "findings": [],
+  "skipped": [
+    {
+      "path": "link/token",
+      "reason": "escaped"
+    }
+  ]
+}

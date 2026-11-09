@@ -1,0 +1,17 @@
+{
+  "bin_count": 5,
+  "card_id": "H79",
+  "classes": [
+    "ash",
+    "pine"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "grove",
+      "rows": [
+        7
+      ]
+    }
+  ]
+}

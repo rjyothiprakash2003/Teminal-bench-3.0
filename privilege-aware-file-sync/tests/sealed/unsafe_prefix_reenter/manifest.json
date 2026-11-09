@@ -1,0 +1,39 @@
+{
+  "dst_pre": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "inner"
+    },
+    {
+      "kind": "symlink",
+      "path": "a",
+      "target": "../extra"
+    }
+  ],
+  "extra": [
+    {
+      "kind": "symlink",
+      "path": "back",
+      "target": "../dst/inner"
+    }
+  ],
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/back"
+    },
+    {
+      "content": "x",
+      "kind": "file",
+      "mode": 420,
+      "path": "a/back/f"
+    }
+  ]
+}

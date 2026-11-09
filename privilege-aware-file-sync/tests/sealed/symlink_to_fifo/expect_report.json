@@ -1,0 +1,12 @@
+{
+  "copied": [
+    "",
+    "probe"
+  ],
+  "skipped": [
+    {
+      "path": "pipe",
+      "reason": "unsupported"
+    }
+  ]
+}

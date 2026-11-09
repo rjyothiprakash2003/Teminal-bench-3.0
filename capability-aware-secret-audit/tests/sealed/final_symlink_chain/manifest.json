@@ -1,0 +1,31 @@
+{
+  "nodes": [
+    {
+      "path": "conf",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "conf/token",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 1000,
+      "gid": 1000,
+      "content": "t"
+    },
+    {
+      "path": "conf/b",
+      "kind": "symlink",
+      "target": "token"
+    },
+    {
+      "path": "conf/a",
+      "kind": "symlink",
+      "target": "b"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

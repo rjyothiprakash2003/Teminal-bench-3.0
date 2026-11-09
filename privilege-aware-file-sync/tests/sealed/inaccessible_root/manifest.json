@@ -1,0 +1,16 @@
+{
+  "src": [
+    {
+      "content": "h\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "hidden.txt"
+    }
+  ],
+  "src_chmod": [
+    {
+      "mode": 0,
+      "path": ""
+    }
+  ]
+}

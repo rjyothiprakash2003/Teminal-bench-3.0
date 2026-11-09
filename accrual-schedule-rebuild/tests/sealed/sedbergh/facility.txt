@@ -1,0 +1,8 @@
+# Invoice facility drawn on the last day of September, taken quarterly.
+facility F-IN-2047
+class INVOICE
+advance 7300000
+rate 1110
+drawn 2021-09-30
+periods 3
+frequency 3

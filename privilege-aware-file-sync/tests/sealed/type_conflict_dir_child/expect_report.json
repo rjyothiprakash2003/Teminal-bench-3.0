@@ -1,0 +1,15 @@
+{
+  "copied": [
+    ""
+  ],
+  "skipped": [
+    {
+      "path": "wrap",
+      "reason": "type conflict"
+    },
+    {
+      "path": "wrap/inner.txt",
+      "reason": "unsafe"
+    }
+  ]
+}

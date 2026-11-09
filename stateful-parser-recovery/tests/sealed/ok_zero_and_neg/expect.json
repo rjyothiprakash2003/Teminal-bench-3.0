@@ -1,0 +1,32 @@
+{
+  "status": "ok",
+  "frames": [],
+  "bindings": [
+    {
+      "frame": "root",
+      "kind": "VAL",
+      "name": "z",
+      "value": 0,
+      "line": 2
+    },
+    {
+      "frame": "root",
+      "kind": "VAL",
+      "name": "n",
+      "value": -42,
+      "line": 3
+    }
+  ],
+  "uses": [
+    {
+      "name": "z",
+      "value": 0,
+      "line": 4
+    },
+    {
+      "name": "n",
+      "value": -42,
+      "line": 5
+    }
+  ]
+}

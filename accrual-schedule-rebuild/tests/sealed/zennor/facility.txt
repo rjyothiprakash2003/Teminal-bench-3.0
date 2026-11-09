@@ -1,0 +1,9 @@
+facility ABCDEFGHIJ-01234
+class WORKING
+advance 27500000
+rate 1725
+drawn 2021-03-31
+periods 7
+frequency 1
+step 2021-09-20 1810
+step 2021-04-06 1500

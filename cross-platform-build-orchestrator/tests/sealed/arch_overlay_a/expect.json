@@ -1,0 +1,19 @@
+{
+  "artifacts": [
+    {
+      "cflags": [
+        "-O2",
+        "-pthread",
+        "-march=armv8-a"
+      ],
+      "defines": {},
+      "env": {},
+      "id": "arm",
+      "ldflags": [
+        "-fuse-ld=lld"
+      ],
+      "stamp": "c77dca4c3443c4b0fd4b81cf76ca7440d3910a1ac54983c27c5ddc234c898eee",
+      "triple": "aarch64-linux-lld"
+    }
+  ]
+}

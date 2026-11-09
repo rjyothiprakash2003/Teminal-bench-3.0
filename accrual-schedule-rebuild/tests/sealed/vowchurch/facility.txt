@@ -1,0 +1,11 @@
+#
+facility F-WK-3030
+class WORKING
+advance 7654321
+rate 1234
+drawn 2019-08-31
+periods 11
+frequency 1
+# the desk raised the margin in the autumn
+
+step 2019-11-18 1310

@@ -1,0 +1,51 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b/c": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b/c/d": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b/c/d/e": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b/c/d/e/f": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b/c/d/e/f/g": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b/c/d/e/f/g/h": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b/c/d/e/f/g/h/i": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b/c/d/e/f/g/h/i/j": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b/c/d/e/f/g/h/i/j/k.txt": {
+    "content_hex": "6b0a",
+    "kind": "file",
+    "mode": 420
+  }
+}

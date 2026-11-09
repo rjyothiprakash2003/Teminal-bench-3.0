@@ -1,0 +1,10 @@
+{
+  "entries": [
+    {
+      "path": "link/token",
+      "allow_uids": [],
+      "allow_gids": []
+    }
+  ],
+  "subjects": []
+}

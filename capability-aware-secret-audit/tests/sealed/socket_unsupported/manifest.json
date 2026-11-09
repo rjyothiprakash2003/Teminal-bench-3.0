@@ -1,0 +1,20 @@
+{
+  "nodes": [
+    {
+      "path": "conf",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "conf/sock",
+      "kind": "socket",
+      "mode": "0644",
+      "uid": 0,
+      "gid": 0
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

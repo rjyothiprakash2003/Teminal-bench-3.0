@@ -1,0 +1,4 @@
+{
+  "cflags": ["-fPIC"],
+  "ldflags": ["-Lbase"]
+}

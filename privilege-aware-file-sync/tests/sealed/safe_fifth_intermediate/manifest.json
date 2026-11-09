@@ -1,0 +1,67 @@
+{
+  "dst_pre": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c/d"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c/d/hold"
+    },
+    {
+      "kind": "symlink",
+      "path": "a/b/c/d/e",
+      "target": "hold"
+    }
+  ],
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c/d"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b/c/d/e"
+    },
+    {
+      "content": "ok\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "a/b/c/d/e/f"
+    }
+  ]
+}

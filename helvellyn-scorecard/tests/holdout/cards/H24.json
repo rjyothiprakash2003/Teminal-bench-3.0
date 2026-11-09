@@ -1,0 +1,14 @@
+{
+  "bin_count": 3,
+  "card_id": "H24",
+  "classes": [
+    "oak",
+    "pine"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "s0"
+    }
+  ]
+}

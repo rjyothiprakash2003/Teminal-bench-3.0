@@ -1,0 +1,34 @@
+{
+  "nodes": [
+    {
+      "path": "conf",
+      "kind": "dir",
+      "mode": "0755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "conf/door",
+      "kind": "symlink",
+      "target": "../../extra/trap.fifo"
+    },
+    {
+      "path": "conf/keep",
+      "kind": "file",
+      "mode": "0600",
+      "uid": 0,
+      "gid": 0,
+      "content": "k"
+    }
+  ],
+  "extra": [
+    {
+      "path": "trap.fifo",
+      "kind": "fifo",
+      "mode": "0644",
+      "uid": 0,
+      "gid": 0
+    }
+  ],
+  "root_mode": "0755"
+}

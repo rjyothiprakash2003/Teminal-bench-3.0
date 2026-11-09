@@ -1,0 +1,62 @@
+{
+  "bin_count": 2,
+  "card_id": "H46",
+  "classes": [
+    "alder",
+    "oak",
+    "yew"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h46-0",
+          "label": "yew",
+          "p_bp": {
+            "alder": 4900,
+            "oak": 1400,
+            "yew": 3700
+          }
+        },
+        {
+          "example_id": "h46-1",
+          "label": "oak",
+          "p_bp": {
+            "alder": 1100,
+            "oak": 2800,
+            "yew": 6100
+          }
+        },
+        {
+          "example_id": "h46-2",
+          "label": "alder",
+          "p_bp": {
+            "alder": 2800,
+            "oak": 4600,
+            "yew": 2600
+          }
+        },
+        {
+          "example_id": "h46-3",
+          "label": "alder",
+          "p_bp": {
+            "alder": 200,
+            "oak": 4900,
+            "yew": 4900
+          }
+        },
+        {
+          "example_id": "h46-4",
+          "label": "oak",
+          "p_bp": {
+            "alder": 4100,
+            "oak": 2400,
+            "yew": 3500
+          }
+        }
+      ]
+    }
+  ]
+}

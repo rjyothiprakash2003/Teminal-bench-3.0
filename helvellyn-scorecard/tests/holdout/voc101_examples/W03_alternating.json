@@ -1,0 +1,68 @@
+{
+  "ap_micro_u": 756436,
+  "card": {
+    "bin_count": 5,
+    "card_id": "APX",
+    "classes": [
+      "oak",
+      "pine"
+    ],
+    "min_conf_bp": 0,
+    "slices": [
+      {
+        "slice_id": "s0",
+        "rows": [
+          {
+            "example_id": "e1",
+            "label": "oak",
+            "p_bp": {
+              "oak": 9000,
+              "pine": 1000
+            }
+          },
+          {
+            "example_id": "e2",
+            "label": "pine",
+            "p_bp": {
+              "oak": 8000,
+              "pine": 2000
+            }
+          },
+          {
+            "example_id": "e3",
+            "label": "oak",
+            "p_bp": {
+              "oak": 7000,
+              "pine": 3000
+            }
+          },
+          {
+            "example_id": "e4",
+            "label": "pine",
+            "p_bp": {
+              "oak": 6000,
+              "pine": 4000
+            }
+          },
+          {
+            "example_id": "e5",
+            "label": "oak",
+            "p_bp": {
+              "oak": 5500,
+              "pine": 4500
+            }
+          },
+          {
+            "example_id": "e6",
+            "label": "pine",
+            "p_bp": {
+              "oak": 1000,
+              "pine": 9000
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "ece_micro_u": 125000
+}

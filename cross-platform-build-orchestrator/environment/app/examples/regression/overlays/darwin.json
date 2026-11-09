@@ -1,0 +1,7 @@
+{
+  "cflags": ["-mmacosx-version-min=11.0"],
+  "env": {
+    "OS_TAG": "darwin",
+    "TMP": "$delete"
+  }
+}

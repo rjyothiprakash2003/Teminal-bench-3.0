@@ -1,0 +1,8 @@
+facility -TR-DAL
+class TRADE
+advance 4000000123
+rate 0
+drawn 2020-02-29
+periods 4
+frequency 12
+step 2021-06-01 20000

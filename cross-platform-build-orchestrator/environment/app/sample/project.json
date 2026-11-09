@@ -1,0 +1,10 @@
+{
+  "cflags": ["-O2"],
+  "ldflags": [],
+  "env": {
+    "PROJECT": "demo"
+  },
+  "defines": {
+    "NDEBUG": "1"
+  }
+}

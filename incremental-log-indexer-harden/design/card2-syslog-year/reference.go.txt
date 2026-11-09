@@ -1,0 +1,179 @@
+package main
+
+import (
+	"bufio"
+	"io"
+	"os"
+	"sort"
+	"strconv"
+	"strings"
+	"time"
+)
+
+var months = map[string]time.Month{
+	"Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4, "May": 5, "Jun": 6,
+	"Jul": 7, "Aug": 8, "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12,
+}
+
+type stamp struct {
+	month                time.Month
+	day, hour, min, sec int
+}
+
+type entry struct {
+	st       stamp
+	instant  int64
+	received int64
+	words    map[string]bool
+}
+
+func isLeap(y int) bool {
+	return y%4 == 0 && (y%100 != 0 || y%400 == 0)
+}
+
+func daysIn(m time.Month, y int) int {
+	switch m {
+	case time.February:
+		if isLeap(y) {
+			return 29
+		}
+		return 28
+	case time.April, time.June, time.September, time.November:
+		return 30
+	}
+	return 31
+}
+
+func unix(y int, m time.Month, d, hh, mm, ss int) int64 {
+	return time.Date(y, m, d, hh, mm, ss, 0, time.UTC).Unix()
+}
+
+func parseInstant(s string) int64 {
+	t, _ := time.Parse("2006-01-02T15:04:05", s)
+	return t.Unix()
+}
+
+func formatInstant(u int64) string {
+	return time.Unix(u, 0).UTC().Format("2006-01-02T15:04:05")
+}
+
+func infer(st stamp, received int64) int64 {
+	base := time.Unix(received, 0).UTC().Year()
+	var best, bestDist int64
+	found := false
+	for y := base - 8; y <= base+8; y++ {
+		if st.day > daysIn(st.month, y) {
+			continue
+		}
+		inst := unix(y, st.month, st.day, st.hour, st.min, st.sec)
+		dist := inst - received
+		if dist < 0 {
+			dist = -dist
+		}
+		if !found || dist < bestDist {
+			best, bestDist, found = inst, dist, true
+		}
+	}
+	return best
+}
+
+func words(text string) map[string]bool {
+	out := map[string]bool{}
+	var b strings.Builder
+	flush := func() {
+		if b.Len() > 0 {
+			out[b.String()] = true
+			b.Reset()
+		}
+	}
+	for i := 0; i < len(text); i++ {
+		c := text[i]
+		switch {
+		case c >= 'A' && c <= 'Z':
+			b.WriteByte(c + ('a' - 'A'))
+		case (c >= 'a' && c <= 'z') || (c >= '0' && c <= '9'):
+			b.WriteByte(c)
+		default:
+			flush()
+		}
+	}
+	flush()
+	return out
+}
+
+func parseLog(line string) (stamp, string) {
+	var st stamp
+	st.month = months[line[0:3]]
+	st.day, _ = strconv.Atoi(strings.TrimSpace(line[4:6]))
+	st.hour, _ = strconv.Atoi(line[7:9])
+	st.min, _ = strconv.Atoi(line[10:12])
+	st.sec, _ = strconv.Atoi(line[13:15])
+	rest := line[16:]
+	rest = rest[strings.IndexByte(rest, ' ')+1:]
+	message := rest[strings.Index(rest, ": ")+2:]
+	return st, message
+}
+
+func run(in io.Reader, out io.Writer) {
+	data, _ := io.ReadAll(in)
+	lines := strings.Split(strings.TrimSuffix(string(data), "\n"), "\n")
+	w := bufio.NewWriter(out)
+	defer w.Flush()
+	days, _ := strconv.ParseInt(strings.TrimPrefix(lines[0], "retain "), 10, 64)
+	keep := days * 86400
+	var index []*entry
+	var received int64
+	query := 0
+	for _, line := range lines[1:] {
+		fields := strings.Fields(line)
+		switch fields[0] {
+		case "batch":
+			received = parseInstant(fields[1])
+			kept := index[:0]
+			for _, e := range index {
+				if received-e.instant <= keep {
+					kept = append(kept, e)
+				}
+			}
+			index = kept
+		case "count":
+			query++
+			from, to, word := parseInstant(fields[1]), parseInstant(fields[2]), fields[3]
+			n := 0
+			for _, e := range index {
+				if e.instant >= from && e.instant <= to && e.words[word] {
+					n++
+				}
+			}
+			w.WriteString(strconv.Itoa(query) + " " + strconv.Itoa(n) + "\n")
+		case "lag":
+			query++
+			at, word := parseInstant(fields[1]), fields[2]
+			var hits []*entry
+			for _, e := range index {
+				if e.words[word] {
+					hits = append(hits, e)
+				}
+			}
+			sort.SliceStable(hits, func(a, b int) bool { return hits[a].instant < hits[b].instant })
+			if len(hits) == 0 {
+				w.WriteString(strconv.Itoa(query) + " -\n")
+			}
+			for _, e := range hits {
+				again := infer(e.st, at)
+				w.WriteString(strconv.Itoa(query) + " " + formatInstant(e.instant) + " " +
+					strconv.FormatInt(e.received-e.instant, 10) + " " + strconv.FormatInt(at-again, 10) + "\n")
+			}
+		default:
+			st, message := parseLog(line)
+			inst := infer(st, received)
+			if received-inst <= keep {
+				index = append(index, &entry{st: st, instant: inst, received: received, words: words(message)})
+			}
+		}
+	}
+}
+
+func main() {
+	run(os.Stdin, os.Stdout)
+}

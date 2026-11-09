@@ -1,0 +1,22 @@
+{
+  "bin_count": 8,
+  "card_id": "H26",
+  "classes": [
+    "fir"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "s0",
+      "rows": [
+        {
+          "example_id": "",
+          "label": "fir",
+          "p_bp": {
+            "fir": 10000
+          }
+        }
+      ]
+    }
+  ]
+}

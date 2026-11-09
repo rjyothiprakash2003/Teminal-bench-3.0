@@ -1,0 +1,14 @@
+{
+  "copied": [
+    "",
+    "keep",
+    "keep/ok.txt",
+    "keep/shut"
+  ],
+  "skipped": [
+    {
+      "path": "keep/shut",
+      "reason": "inaccessible"
+    }
+  ]
+}

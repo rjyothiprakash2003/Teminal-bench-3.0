@@ -1,0 +1,9 @@
+{
+  "a": true,
+  "b": true,
+  "c": true,
+  "d": {
+    "e": true
+  },
+  "f": true
+}

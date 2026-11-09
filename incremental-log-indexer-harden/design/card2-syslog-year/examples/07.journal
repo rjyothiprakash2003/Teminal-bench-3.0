@@ -1,0 +1,7 @@
+retain 3650
+batch 2030-11-05T17:45:00
+Nov  5 17:44:59 mx1 postfix/smtpd[3021]: connect from unknown
+Nov  5 17:44:59 mx1 postfix/qmgr[90]: removed
+Nov  5 17:45:01 mx1 postfix/smtpd[3021]: disconnect from unknown
+lag 2030-11-05T17:50:00 unknown
+count 2030-11-05T17:44:59 2030-11-05T17:44:59 removed

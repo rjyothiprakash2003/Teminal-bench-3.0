@@ -1,0 +1,32 @@
+{
+  "bin_count": 10,
+  "card_id": "H35",
+  "classes": [
+    "ash",
+    "oak"
+  ],
+  "min_conf_bp": 6000,
+  "slices": [
+    {
+      "slice_id": "t",
+      "rows": [
+        {
+          "example_id": "dup",
+          "label": "oak",
+          "p_bp": {
+            "ash": 2000,
+            "oak": 8000
+          }
+        },
+        {
+          "example_id": "dup",
+          "label": "ash",
+          "p_bp": {
+            "ash": 5500,
+            "oak": 4500
+          }
+        }
+      ]
+    }
+  ]
+}

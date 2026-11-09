@@ -1,0 +1,67 @@
+schema_version = "2.0"
+name = "restore-leasebox-journal"
+
+artifacts = ["/app/leasebox/", "/app/conf/gate.ini", "/app/spec/", "/app/out/", "/app/var/"]
+
+[metadata]
+author_name = "Indra Kumar Macha"
+author_email = "olexpert003@snorkel.com"
+category = "Software"
+subcategory = "Systems"
+tags = ["golang", "binary-journal", "leases", "checksums", "compaction"]
+languages = ["go", "bash"]
+difficulty = "advanced"
+expert_time_estimate_hours = 5
+
+difficulty_explanation = """\
+A storage engineer repairing an exclusive-lease binary journal must keep \
+duplicate-name refusal, capacity, CRC span, compact reclaim, and durable \
+nonce reservation interacting on one disk file. Layout and exit codes come \
+from journal.rules at runtime; a patch that only stops double booking still \
+fails verify, capacity after a lowered gate, and report active counts. The \
+contract page LEASEBOX.md is the authority the engineer must implement, not \
+a punch list in the prompt.
+"""
+
+solution_explanation = """\
+The oracle installs a LEASEBOX-faithful leasebox.go and an in-band gate.ini. \
+It reads MAGIC, VERSION, RECORD_BYTES, offsets, lengths, and EXIT_* from the \
+selected rules file, writes MAGIC then VERSION and the active flag, stores \
+expiry and nonce as unsigned big-endian with modular wrap of signed now+TTL, \
+checks IEEE CRC32 over bytes before CRC_OFF, matches names on the stored \
+NAME_LEN prefix, refuses duplicates before capacity, persists issued nonce \
+encodings across compact and revoke, drops expiry<=clock on compact, and \
+writes lease-report.json with magic plus integer records/active.
+"""
+
+verification_explanation = """\
+The separate verifier seals journal.rules, rebuilds /app/leasebox as uid \
+12000 on random journals, and grades gate bands, EXIT_DUP before EXIT_FULL, \
+CRC and truncation as EXIT_CRC, compact at expiry equals clock including \
+inactive rows, list omitting expired rows, distinct nonces after revoke and \
+compact, NAME_LEN prefix revoke, selected MAGIC/VERSION layouts, full \
+OWNER_LEN owner bytes, and report records versus active. Delivered sources \
+are rebuilt; holdout clash names come from a sealed pair the agent never \
+sees.
+"""
+
+relevant_experience = """\
+Assigned Terminus 3.0 expert contributor for Coding / Systems with \
+on-disk binary formats, checksums, and exclusive lease accounting.
+"""
+
+[verifier]
+timeout_sec = 1800
+network_mode = "no-network"
+environment_mode = "separate"
+
+[agent]
+timeout_sec = 3600
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 600
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240

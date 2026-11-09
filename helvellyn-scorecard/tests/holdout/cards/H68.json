@@ -1,0 +1,68 @@
+{
+  "bin_count": 5,
+  "card_id": "H68",
+  "classes": [
+    "ash",
+    "hazel",
+    "larch",
+    "rowan"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h68-0",
+          "label": "rowan",
+          "p_bp": {
+            "ash": 800,
+            "hazel": 700,
+            "larch": 8000,
+            "rowan": 500
+          }
+        },
+        {
+          "example_id": "h68-1",
+          "label": "rowan",
+          "p_bp": {
+            "ash": 2000,
+            "hazel": 300,
+            "larch": 2000,
+            "rowan": 5700
+          }
+        },
+        {
+          "example_id": "h68-2",
+          "label": "rowan",
+          "p_bp": {
+            "ash": 1400,
+            "hazel": 3800,
+            "larch": 2400,
+            "rowan": 2400
+          }
+        },
+        {
+          "example_id": "h68-3",
+          "label": "larch",
+          "p_bp": {
+            "ash": 100,
+            "hazel": 2400,
+            "larch": 3500,
+            "rowan": 4000
+          }
+        },
+        {
+          "example_id": "h68-4",
+          "label": "rowan",
+          "p_bp": {
+            "ash": 4300,
+            "hazel": 5400,
+            "larch": 0,
+            "rowan": 300
+          }
+        }
+      ]
+    }
+  ]
+}

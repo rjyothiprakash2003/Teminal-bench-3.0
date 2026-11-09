@@ -1,0 +1,14 @@
+{
+  "nodes": [
+    {
+      "path": "a>b",
+      "kind": "file",
+      "mode": "0644",
+      "uid": 1000,
+      "gid": 1000,
+      "content": "h"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

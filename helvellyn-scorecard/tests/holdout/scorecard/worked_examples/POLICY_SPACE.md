@@ -1,0 +1,3 @@
+Policy illustrations
+
+These worked examples record `ap_micro_u` and `ece_micro_u` for concrete cards under the interpolant, placement, mean-confidence, survival, prediction-tie, and ranking-tie 6-tuple the folder must recover. They are examples only. The closed interpolant space is all_point, voc11, and voc101. Placement, mean-confidence, and survival each use max or label. Prediction ties use earliest or latest. Ranking ties use id_asc or id_desc. Each run recovers the unique 6-tuple from the worked examples in the `--spec` directory for that run. Worked-example cards are folded as live cards.

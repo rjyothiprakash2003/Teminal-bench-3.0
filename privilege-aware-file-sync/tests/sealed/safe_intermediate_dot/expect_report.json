@@ -1,0 +1,12 @@
+{
+  "copied": [
+    "",
+    "alias/x.txt"
+  ],
+  "skipped": [
+    {
+      "path": "alias",
+      "reason": "type conflict"
+    }
+  ]
+}

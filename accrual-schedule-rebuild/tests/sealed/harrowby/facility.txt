@@ -1,0 +1,9 @@
+facility F-PL-4408
+class PLANT
+advance 210000000
+rate 950
+drawn 2020-12-31
+periods 6
+frequency 1
+step 2021-03-17 1080
+step 2021-05-04 700

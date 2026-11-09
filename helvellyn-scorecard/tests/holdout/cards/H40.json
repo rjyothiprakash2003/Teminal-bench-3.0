@@ -1,0 +1,148 @@
+{
+  "bin_count": 16,
+  "card_id": "H40",
+  "classes": [
+    "ash",
+    "cedar",
+    "elm",
+    "larch"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h40-0",
+          "label": "larch",
+          "p_bp": {
+            "ash": 5500,
+            "cedar": 200,
+            "elm": 100,
+            "larch": 4200
+          }
+        },
+        {
+          "example_id": "h40-1",
+          "label": "larch",
+          "p_bp": {
+            "ash": 400,
+            "cedar": 3100,
+            "elm": 3600,
+            "larch": 2900
+          }
+        },
+        {
+          "example_id": "h40-2",
+          "label": "cedar",
+          "p_bp": {
+            "ash": 5000,
+            "cedar": 2000,
+            "elm": 1300,
+            "larch": 1700
+          }
+        },
+        {
+          "example_id": "h40-3",
+          "label": "larch",
+          "p_bp": {
+            "ash": 1500,
+            "cedar": 2000,
+            "elm": 2900,
+            "larch": 3600
+          }
+        },
+        {
+          "example_id": "h40-4",
+          "label": "cedar",
+          "p_bp": {
+            "ash": 5800,
+            "cedar": 800,
+            "elm": 700,
+            "larch": 2700
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z1",
+      "rows": [
+        {
+          "example_id": "h40-5",
+          "label": "cedar",
+          "p_bp": {
+            "ash": 200,
+            "cedar": 1300,
+            "elm": 7900,
+            "larch": 600
+          }
+        },
+        {
+          "example_id": "h40-6",
+          "label": "larch",
+          "p_bp": {
+            "ash": 2800,
+            "cedar": 4700,
+            "elm": 2500,
+            "larch": 0
+          }
+        },
+        {
+          "example_id": "h40-7",
+          "label": "elm",
+          "p_bp": {
+            "ash": 1300,
+            "cedar": 300,
+            "elm": 3700,
+            "larch": 4700
+          }
+        },
+        {
+          "example_id": "h40-8",
+          "label": "larch",
+          "p_bp": {
+            "ash": 100,
+            "cedar": 200,
+            "elm": 1400,
+            "larch": 8300
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z2",
+      "rows": [
+        {
+          "example_id": "h40-9",
+          "label": "larch",
+          "p_bp": {
+            "ash": 2400,
+            "cedar": 2400,
+            "elm": 2300,
+            "larch": 2900
+          }
+        },
+        {
+          "example_id": "h40-10",
+          "label": "elm",
+          "p_bp": {
+            "ash": 2700,
+            "cedar": 3500,
+            "elm": 1100,
+            "larch": 2700
+          }
+        },
+        {
+          "example_id": "h40-11",
+          "label": "larch",
+          "p_bp": {
+            "ash": 700,
+            "cedar": 2100,
+            "elm": 1900,
+            "larch": 5300
+          }
+        }
+      ]
+    }
+  ]
+}

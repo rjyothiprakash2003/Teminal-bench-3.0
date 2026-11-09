@@ -1,0 +1,17 @@
+{"epoch":1,"part":"core-north","kind":"map","site":"CELL_X12Y8","gen":1,"clk":"ICG_X0Y0","lib":2,"cells":9480,"role":"core","on":"2024-01-05","freeze_on":null,"ckpt":""}
+{"epoch":2,"part":"core-north","kind":"opt","site":"CELL_X12Y8","gen":1,"clk":"ICG_X0Y0","lib":2,"cells":9520,"role":"core","on":"2024-01-06","freeze_on":null,"ckpt":""}
+{"epoch":3,"part":"core-north","kind":"opt","site":"CELL_X12Y8","gen":1,"clk":"ICG_X0Y0","lib":2,"cells":9790,"role":"core","on":"2024-01-07","freeze_on":null,"ckpt":""}
+{"epoch":4,"part":"core-north","kind":"freeze","site":"CELL_X12Y8","gen":1,"clk":"ICG_X0Y0","lib":2,"cells":9790,"role":"core","on":"2024-01-08","freeze_on":"2024-01-08","ckpt":"ckpt-north-1"}
+{"epoch":5,"part":"core-north","kind":"map","site":"CELL_X14Y2","gen":2,"clk":"ICG_X0Y0","lib":2,"cells":9790,"role":"core","on":"2024-02-01","freeze_on":null,"ckpt":""}
+{"epoch":6,"part":"core-north","kind":"recover","site":"CELL_X12Y8","gen":1,"clk":"ICG_X0Y0","lib":2,"cells":9790,"role":"core","on":"2024-02-02","freeze_on":null,"ckpt":""}
+{"epoch":7,"part":"core-south","kind":"map","site":"CELL_X2Y2","gen":1,"clk":"ICG_X0Y1","lib":2,"cells":9700,"role":"core","on":"2024-01-10","freeze_on":null,"ckpt":""}
+{"epoch":8,"part":"core-south","kind":"freeze","site":"CELL_X2Y2","gen":1,"clk":"ICG_X0Y1","lib":2,"cells":9700,"role":"core","on":"2024-01-10","freeze_on":"2024-01-10","ckpt":"ckpt-south-1"}
+{"epoch":9,"part":"core-south","kind":"map","site":"CELL_X3Y3","gen":2,"clk":"ICG_X0Y1","lib":2,"cells":9700,"role":"core","on":"2024-03-20","freeze_on":null,"ckpt":""}
+{"epoch":10,"part":"core-south","kind":"freeze","site":"CELL_X3Y3","gen":2,"clk":"ICG_X0Y1","lib":2,"cells":9700,"role":"core","on":"2024-04-01","freeze_on":"2024-04-01","ckpt":"ckpt-south-2"}
+{"epoch":11,"part":"io-east","kind":"map","site":"PAD_X0Y4","gen":1,"clk":"ICG_X1Y1","lib":2,"cells":9900,"role":"io","on":"2024-02-01","freeze_on":null,"ckpt":""}
+{"epoch":12,"part":"scan-tap","kind":"map","site":"CELL_X20Y0","gen":1,"clk":"ICG_X2Y0","lib":2,"cells":9950,"role":"scan","on":"2024-01-20","freeze_on":null,"ckpt":""}
+{"epoch":13,"part":"clk-hub","kind":"map","site":"ICGCTRL_X0Y0","gen":1,"clk":"ICG_X0Y2","lib":2,"cells":9960,"role":"core","on":"2024-03-10","freeze_on":null,"ckpt":""}
+{"epoch":14,"part":"clk-hub","kind":"techmap","site":"ICGCTRL_X0Y0","gen":1,"clk":"ICG_X0Y2","lib":2,"cells":9960,"role":"core","on":"2024-03-10","freeze_on":null,"ckpt":""}
+{"epoch":15,"part":"dbg-west","kind":"map","site":"CELL_X1Y1","gen":1,"clk":"ICG_X3Y0","lib":2,"cells":9920,"role":"debug","on":"2024-01-12","freeze_on":null,"ckpt":""}
+{"epoch":16,"part":"dbg-west","kind":"opt","site":"CELL_X1Y1","gen":1,"clk":"ICG_X3Y0","lib":4,"cells":9940,"role":"debug","on":"2024-03-05","freeze_on":null,"ckpt":""}
+{"epoch":17,"part":"dbg-west","kind":"opt","site":"CELL_X1Y1","gen":1,"clk":"ICG_X3Y0","lib":2,"cells":10010,"role":"debug","on":"2024-03-06","freeze_on":null,"ckpt":""}

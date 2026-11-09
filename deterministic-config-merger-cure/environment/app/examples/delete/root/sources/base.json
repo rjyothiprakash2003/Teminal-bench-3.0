@@ -1,0 +1,8 @@
+{
+  "cache": {
+    "size": 64,
+    "ttl": 30
+  },
+  "debug": true,
+  "log": "info"
+}

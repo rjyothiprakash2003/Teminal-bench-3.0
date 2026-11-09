@@ -1,0 +1,44 @@
+{
+  "bin_count": 2,
+  "card_id": "H67",
+  "classes": [
+    "ash",
+    "birch",
+    "hazel",
+    "larch",
+    "rowan",
+    "yew"
+  ],
+  "min_conf_bp": 3000,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h67-0",
+          "label": "yew",
+          "p_bp": {
+            "ash": 3400,
+            "birch": 800,
+            "hazel": 1100,
+            "larch": 2100,
+            "rowan": 1200,
+            "yew": 1400
+          }
+        },
+        {
+          "example_id": "h67-1",
+          "label": "ash",
+          "p_bp": {
+            "ash": 1900,
+            "birch": 1500,
+            "hazel": 500,
+            "larch": 5500,
+            "rowan": 200,
+            "yew": 400
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+Calderbank Commercial Finance
+Servicing desk procedure, drawdown and schedule issue.
+
+This paper says how the desk works. It settles nothing about the schedule itself.
+Servicing note SN-208 governs that, and it is followed wherever the two could
+be read differently.
+
+When a facility completes, the relationship manager files the facility papers
+as a plain text file and sends it to the servicing desk with the drawdown
+advice. The desk runs the builder against that file, the basis table and the
+path the schedule is to be filed at, in that order, and posts the schedule it
+writes to the borrower and to the ledger.
+
+The basis table is kept once, in the data directory, and is reissued by the
+desk head whenever a basis is added or a label is retired. Labels are not
+reused. The desk has more than one copy of the table in circulation from
+different issues, and the builder is expected to work from whichever copy it is
+given rather than from any label it might remember.
+
+Where a rate change is agreed during a term, the manager adds it to the
+facility papers and the desk reissues the schedule from the whole file rather
+than working out the difference by hand.
+
+Settled facilities are kept in the settled directory. A facility is moved there
+when the term has run and the borrower has confirmed the figures. Each folder
+holds the papers as they stood and the schedule as it was issued. Where the
+servicing note leaves a rule to those schedules, the desk recovers it from them.

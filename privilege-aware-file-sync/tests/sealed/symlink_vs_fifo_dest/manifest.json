@@ -1,0 +1,16 @@
+{
+  "dst_pre": [
+    {
+      "kind": "fifo",
+      "mode": 420,
+      "path": "item"
+    }
+  ],
+  "src": [
+    {
+      "kind": "symlink",
+      "path": "item",
+      "target": "t"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "bin_count": 4,
+  "card_id": "H92",
+  "classes": [
+    "ash",
+    "oak",
+    "pine"
+  ],
+  "min_conf_bp": 0,
+  "mode": "frozen",
+  "slices": [
+    {
+      "slice_id": "s0",
+      "rows": [
+        {
+          "example_id": "a",
+          "label": "oak",
+          "p_bp": {
+            "ash": 2000,
+            "oak": 4000,
+            "pine": 4000
+          }
+        }
+      ]
+    }
+  ]
+}

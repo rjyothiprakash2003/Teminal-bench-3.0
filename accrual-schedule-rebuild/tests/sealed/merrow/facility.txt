@@ -1,0 +1,8 @@
+facility F-BR-8890
+class BRIDGE
+advance 16750000
+rate 1875
+drawn 2020-01-31
+periods 7
+frequency 6
+step 2021-07-31 1500

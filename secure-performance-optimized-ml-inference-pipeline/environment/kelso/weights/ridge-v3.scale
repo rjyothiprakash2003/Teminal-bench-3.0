@@ -1,0 +1,14 @@
+family ridge-v3
+mean tenure_months 48.000000000
+std tenure_months 24.000000000
+mean util_ratio 0.350000000
+std util_ratio 0.200000000
+mean delinq_24 0.800000000
+std delinq_24 1.100000000
+mean inq_6 1.200000000
+std inq_6 1.400000000
+mean revol_bal 8500.000000000
+std revol_bal 6200.000000000
+mean open_trades 7.000000000
+std open_trades 4.000000000
+end

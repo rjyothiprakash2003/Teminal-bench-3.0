@@ -1,0 +1,1 @@
+{"targets": [{"id": "arm", "arch": "aarch64", "os": "linux", "linker": "lld"}]}

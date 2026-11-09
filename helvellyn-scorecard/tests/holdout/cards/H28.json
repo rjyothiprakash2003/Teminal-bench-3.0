@@ -1,0 +1,22 @@
+{
+  "bin_count": 8,
+  "card_id": "H28",
+  "classes": [
+    "pine"
+  ],
+  "min_conf_bp": true,
+  "slices": [
+    {
+      "slice_id": "s9",
+      "rows": [
+        {
+          "example_id": "e9",
+          "label": "pine",
+          "p_bp": {
+            "pine": 10000
+          }
+        }
+      ]
+    }
+  ]
+}

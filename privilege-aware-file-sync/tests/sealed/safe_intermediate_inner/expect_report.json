@@ -1,0 +1,12 @@
+{
+  "copied": [
+    "",
+    "portal/a.txt"
+  ],
+  "skipped": [
+    {
+      "path": "portal",
+      "reason": "type conflict"
+    }
+  ]
+}

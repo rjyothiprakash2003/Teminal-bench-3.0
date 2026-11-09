@@ -1,0 +1,18 @@
+{
+  "artifacts": [
+    {
+      "cflags": [
+        "-march=rv64gc"
+      ],
+      "defines": {},
+      "env": {},
+      "id": "r",
+      "ldflags": [
+        "-fuse-ld=mold",
+        "-Wl,--no-relax"
+      ],
+      "stamp": "165b419969de51087118e5f243a8adf17b3055a4838565c239c543a71e4e1ace",
+      "triple": "riscv64-linux-mold"
+    }
+  ]
+}

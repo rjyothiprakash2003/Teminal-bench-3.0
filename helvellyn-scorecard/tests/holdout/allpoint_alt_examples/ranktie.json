@@ -1,0 +1,52 @@
+{
+  "ap_micro_u": 708333,
+  "card": {
+    "bin_count": 4,
+    "card_id": "RANK",
+    "classes": [
+      "oak",
+      "pine"
+    ],
+    "min_conf_bp": 0,
+    "slices": [
+      {
+        "slice_id": "s0",
+        "rows": [
+          {
+            "example_id": "a",
+            "label": "pine",
+            "p_bp": {
+              "oak": 7000,
+              "pine": 3000
+            }
+          },
+          {
+            "example_id": "b",
+            "label": "oak",
+            "p_bp": {
+              "oak": 7000,
+              "pine": 3000
+            }
+          },
+          {
+            "example_id": "c",
+            "label": "oak",
+            "p_bp": {
+              "oak": 2000,
+              "pine": 8000
+            }
+          },
+          {
+            "example_id": "d",
+            "label": "pine",
+            "p_bp": {
+              "oak": 1000,
+              "pine": 9000
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "ece_micro_u": 275000
+}

@@ -1,0 +1,28 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "a/b/c.txt": {
+    "content_hex": "630a",
+    "kind": "file",
+    "mode": 420
+  },
+  "a/link": {
+    "kind": "symlink",
+    "target": "b/c.txt"
+  },
+  "z.txt": {
+    "content_hex": "7a0a",
+    "kind": "file",
+    "mode": 457
+  }
+}

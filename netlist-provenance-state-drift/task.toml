@@ -1,0 +1,33 @@
+schema_version = "2.0"
+name = "netlist-provenance-state-drift"
+artifacts = ["/app/"]
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous@example.com"
+category = "Hardware"
+subcategory = "RTL"
+tags = ["synthesis", "netlist", "go", "incremental", "provenance"]
+languages = ["go"]
+difficulty = "advanced"
+expert_time_estimate_hours = 6
+difficulty_explanation = "A netlist signoff engineer does this after an incremental compile fails, when two coordinators must accept the same provenance. The journal, modules, and matrix here are synthetic, written for the task and shaped like a realistic compile, not copied from a production farm. The hard part is one pass through the journal: a later event can look as if it replaced a value a later check still reads from an earlier event. Area, clock, liberty, and ancestor each remember a different previous step. A tidy graph can still pair the wrong steps, and both output files have to appear together or not at all."
+solution_explanation = "Read the ordinance and require its exact title line plus every unsafe code name. Settle days, incremental roles, liberty revisions, and REPAIR verbs come from --matrix. Walk the journal in epoch order and keep live generation across map, recover, and freeze. A recover is GHOST_MAP only when its gen is older than that live generation. Opt events raise AREA_REGRESS when cell count grows at an unchanged liberty revision. Techmap events raise STALE_LIB below the highest LIB row effective that day. Only incremental-lane .nlg files produce module findings. The ancestor is the latest settle-ready freeze, not a recover. Redact forbidden runs in notes, sort findings, emit one patch each, then SEAL."
+verification_explanation = "The verifier rebuilds /app/cmd/netloom and runs that binary under setpriv with the documented flags. Exit status 2 is the process return code, not a string scraped from stderr. Goldens load from a root-only seal path and are unlinked before grading. Agent outputs are opened with O_NOFOLLOW after symlink components are rejected. Every run checks graph and attest shape, NODE and FIND lines, a body-derived SEAL, and one matrix patch per finding in graph order. Holdouts, matrix swaps, ordinance failure, and non-.nlg extras all have to pass. At the end it re-reads the ordinance, matrix, journal, and shipped modules."
+relevant_experience = "I have spent several years on RTL synthesis and incremental compile, mostly Yosys plus a commercial mapper in partitioned farms. That work covered checkpoint recovery after a failed compile, liberty revision tracking when a library cut over mid-stream, and clock-gating insertion checks against the live ICG assignment. I also reviewed netlist reproducibility across coordinators so the same journal could not produce two different gate lists. That is the background I used to set the desk rules here: what a freeze day means, when a recover is only replay, and when a larger cell count is actually allowed."
+
+[verifier]
+timeout_sec = 1800
+network_mode = "no-network"
+environment_mode = "separate"
+
+[agent]
+timeout_sec = 5400
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240

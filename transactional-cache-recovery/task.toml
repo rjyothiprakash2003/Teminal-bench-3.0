@@ -1,0 +1,38 @@
+schema_version = "2.0"
+name = "transactional-cache-recovery"
+
+artifacts = ["/app/src/cachebox.py"]
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+category = "Software"
+subcategory = "Systems"
+tags = ["cache", "transactions", "wal", "recovery", "idempotency", "python"]
+languages = ["python"]
+difficulty = "advanced"
+expert_time_estimate_hours = 4
+
+difficulty_explanation = "A systems engineer repairing a write-ahead transactional cache must keep durable commit order, in-memory visibility, version expectations, and idempotent op_id retries interacting on one store directory. A patch that only persists final JSON still fails sealed crash points that leave WAL intents or temporary files, stale gets of staged values, out-of-order commits that must conflict, and repeated recovery that must not replay intents. The contract page CACHEBOX.md is the authority, not a punch list in the prompt."
+
+solution_explanation = "The oracle installs a CACHEBOX-faithful cachebox.py. It stages puts and deletes without touching the visible cache, appends a WAL intent, writes committed.json through an atomic tmp rename, updates the cache only after durability, records conflict and committed op_ids for idempotent retries, discards tmp and unreplayed intents on recover, and returns deterministic sorted snapshots and report JSON."
+
+verification_explanation = "The separate verifier snapshots sealed scenario and expect artifacts into memory, removes them from disk, and runs python3 /app/src/cachebox.py under setpriv as uid 2000 with a 20-second per-run limit. Visible examples decide basic refusals. Twelve sealed scenarios cover stale reads, version conflicts, idempotent retries, crash points after WAL/tmp/partial/before cache, delete reuse, out-of-order multi-key commits, and repeated recovery. Expect bytes were minted from the reference implementation. A sandbox probe confirms reward and sealed paths stay unreachable."
+
+relevant_experience = "I build and review storage and cache layers where write-ahead logging, compare-and-set versions, and crash recovery interact. I use independent fault-injection scenarios to separate a durable transactional cache from one that only works on uninterrupted happy-path commits."
+
+[verifier]
+timeout_sec = 1800
+environment_mode = "separate"
+network_mode = "no-network"
+
+[agent]
+timeout_sec = 7200
+network_mode = "no-network"
+
+[environment]
+network_mode = "public"
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 8192
+storage_mb = 10240

@@ -1,0 +1,9 @@
+{
+  "findings": [],
+  "skipped": [
+    {
+      "path": "conf/link",
+      "reason": "unsupported"
+    }
+  ]
+}

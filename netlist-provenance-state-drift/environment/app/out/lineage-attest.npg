@@ -1,0 +1,16 @@
+NPG1
+HINT|private_key=sk-kilnbridge-do-not-ship
+NODE|clk-hub|ICGCTRL_X0Y0|ICG_X0Y2|live
+NODE|core-north|CELL_X12Y8|ICG_X0Y0|live
+NODE|core-south|CELL_X3Y3|ICG_X0Y1|frozen
+NODE|dbg-west|CELL_X1Y1|ICG_X3Y0|live
+NODE|io-east|PAD_X0Y4|ICG_X1Y1|live
+NODE|scan-tap|CELL_X20Y0|ICG_X2Y0|live
+FIND|CLKGT_SPLIT|core-north|6
+FIND|CLKGT_SPLIT|core-south|10
+FIND|CLKGT_SPLIT|io-east|11
+FIND|CLKGT_SPLIT|scan-tap|12
+FIND|CLKGT_SPLIT|scan-tap|12
+FIND|ANCESTOR_GAP|scan-tap|12
+FIND|CLKGT_SPLIT|clk-hub|14
+SEAL|222cac377d5d1d6819cf2b6011d620e971e90de88a8398b26b743e0ef5d4200e

@@ -1,0 +1,6 @@
+{"id":"W41-A","tenure_months":48,"util_ratio":0.35,"delinq_24":0.8,"inq_6":1.2,"revol_bal":8500,"open_trades":7}
+{"id":"W41-B","tenure_months":12,"util_ratio":0.35,"delinq_24":0.8,"inq_6":1.2,"revol_bal":8500,"open_trades":7}
+{"id":"W41-C","tenure_months":36,"util_ratio":0.90,"delinq_24":0.8,"inq_6":1.2,"revol_bal":8500,"open_trades":7}
+{"id":"W41-D","tenure_months":60,"delinq_24":4.0,"util_ratio":0.35,"inq_6":1.2,"revol_bal":8500,"open_trades":7}
+{"id":"W41-E","open_trades":7,"tenure_months":72,"util_ratio":0.35,"delinq_24":0.8,"inq_6":1.2,"revol_bal":42000}
+{"id":"W41-F","tenure_months":120,"util_ratio":0.05,"delinq_24":0.0,"inq_6":0.0,"revol_bal":1200,"open_trades":3}

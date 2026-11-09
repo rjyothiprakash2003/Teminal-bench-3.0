@@ -1,0 +1,40 @@
+{
+  "dst_pre": [
+    {
+      "kind": "symlink",
+      "path": "a",
+      "target": "../extra"
+    }
+  ],
+  "extra": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "b"
+    },
+    {
+      "content": "o\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "outside.txt"
+    }
+  ],
+  "src": [
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a"
+    },
+    {
+      "kind": "dir",
+      "mode": 493,
+      "path": "a/b"
+    },
+    {
+      "content": "c\n",
+      "kind": "file",
+      "mode": 420,
+      "path": "a/b/c.txt"
+    }
+  ]
+}

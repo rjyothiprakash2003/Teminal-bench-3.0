@@ -1,0 +1,9 @@
+facility F-IN-3901
+class INVOICE
+advance 66000000
+rate 1200
+drawn 2021-12-31
+periods 6
+frequency 1
+step 2022-03-10 1375
+step 2022-05-12 1490

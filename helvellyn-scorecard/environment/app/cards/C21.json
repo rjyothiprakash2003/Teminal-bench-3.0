@@ -1,0 +1,15 @@
+{
+  "bin_count": 4,
+  "card_id": "C21",
+  "classes": [
+    "oak",
+    "pine"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "rows": [],
+      "slice_id": "s0"
+    }
+  ]
+}

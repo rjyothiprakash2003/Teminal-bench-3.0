@@ -1,0 +1,36 @@
+{
+  "bin_count": 4,
+  "card_id": "C59",
+  "classes": [
+    "alder",
+    "ash",
+    "beech",
+    "birch",
+    "elm",
+    "fir",
+    "oak",
+    "pine"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "s0",
+      "rows": [
+        {
+          "example_id": "e1",
+          "label": "elm",
+          "p_bp": {
+            "alder": 0,
+            "ash": 0,
+            "beech": 0,
+            "birch": 0,
+            "elm": 10000,
+            "fir": 0,
+            "oak": 0,
+            "pine": 0
+          }
+        }
+      ]
+    }
+  ]
+}

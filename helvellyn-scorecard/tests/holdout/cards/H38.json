@@ -1,0 +1,34 @@
+{
+  "bin_count": 8,
+  "card_id": "H38",
+  "classes": [
+    "ash",
+    "pine"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": [
+        "grove"
+      ],
+      "rows": [
+        {
+          "example_id": "t1",
+          "label": "pine",
+          "p_bp": {
+            "ash": 1000,
+            "pine": 9000
+          }
+        },
+        {
+          "example_id": "t2",
+          "label": "ash",
+          "p_bp": {
+            "ash": 6000,
+            "pine": 4000
+          }
+        }
+      ]
+    }
+  ]
+}

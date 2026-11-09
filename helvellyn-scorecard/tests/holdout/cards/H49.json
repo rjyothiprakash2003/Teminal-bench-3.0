@@ -1,0 +1,108 @@
+{
+  "bin_count": 8,
+  "card_id": "H49",
+  "classes": [
+    "birch",
+    "elm",
+    "rowan"
+  ],
+  "min_conf_bp": 0,
+  "slices": [
+    {
+      "slice_id": "z0",
+      "rows": [
+        {
+          "example_id": "h49-0",
+          "label": "elm",
+          "p_bp": {
+            "birch": 6100,
+            "elm": 2100,
+            "rowan": 1800
+          }
+        },
+        {
+          "example_id": "h49-1",
+          "label": "elm",
+          "p_bp": {
+            "birch": 3200,
+            "elm": 900,
+            "rowan": 5900
+          }
+        },
+        {
+          "example_id": "h49-2",
+          "label": "elm",
+          "p_bp": {
+            "birch": 2500,
+            "elm": 6000,
+            "rowan": 1500
+          }
+        },
+        {
+          "example_id": "h49-3",
+          "label": "birch",
+          "p_bp": {
+            "birch": 0,
+            "elm": 2600,
+            "rowan": 7400
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z1",
+      "rows": [
+        {
+          "example_id": "h49-4",
+          "label": "elm",
+          "p_bp": {
+            "birch": 3000,
+            "elm": 4900,
+            "rowan": 2100
+          }
+        }
+      ]
+    },
+    {
+      "slice_id": "z2",
+      "rows": [
+        {
+          "example_id": "h49-5",
+          "label": "birch",
+          "p_bp": {
+            "birch": 3600,
+            "elm": 1500,
+            "rowan": 4900
+          }
+        },
+        {
+          "example_id": "h49-6",
+          "label": "rowan",
+          "p_bp": {
+            "birch": 4500,
+            "elm": 4200,
+            "rowan": 1300
+          }
+        },
+        {
+          "example_id": "h49-7",
+          "label": "birch",
+          "p_bp": {
+            "birch": 2800,
+            "elm": 1600,
+            "rowan": 5600
+          }
+        },
+        {
+          "example_id": "h49-8",
+          "label": "birch",
+          "p_bp": {
+            "birch": 4600,
+            "elm": 5300,
+            "rowan": 100
+          }
+        }
+      ]
+    }
+  ]
+}

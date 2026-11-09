@@ -1,0 +1,6 @@
+seed_id LS-0
+seed tenure_months 48 util_ratio 0.35 delinq_24 0.8 inq_6 1.2 revol_bal 8500 open_trades 7
+scenario wide repeat 1 batch 16
+scenario mid repeat 1 batch 3
+scenario solo repeat 2 batch 1
+end

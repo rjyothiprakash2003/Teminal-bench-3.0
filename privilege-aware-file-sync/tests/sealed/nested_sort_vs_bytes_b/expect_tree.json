@@ -1,0 +1,19 @@
+{
+  "": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "b": {
+    "kind": "dir",
+    "mode": 493
+  },
+  "b/q": {
+    "kind": "symlink",
+    "target": "."
+  },
+  "b/z": {
+    "content_hex": "7a657461",
+    "kind": "file",
+    "mode": 420
+  }
+}

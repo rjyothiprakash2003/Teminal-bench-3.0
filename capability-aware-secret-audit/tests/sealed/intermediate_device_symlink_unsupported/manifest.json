@@ -1,0 +1,18 @@
+{
+  "nodes": [
+    {
+      "path": "dev",
+      "kind": "device",
+      "mode": "0644",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "alias",
+      "kind": "symlink",
+      "target": "dev"
+    }
+  ],
+  "extra": [],
+  "root_mode": "0755"
+}

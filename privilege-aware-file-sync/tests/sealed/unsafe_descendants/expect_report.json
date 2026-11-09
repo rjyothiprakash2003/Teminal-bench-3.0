@@ -1,0 +1,19 @@
+{
+  "copied": [
+    ""
+  ],
+  "skipped": [
+    {
+      "path": "a",
+      "reason": "type conflict"
+    },
+    {
+      "path": "a/b",
+      "reason": "unsafe"
+    },
+    {
+      "path": "a/b/c.txt",
+      "reason": "unsafe"
+    }
+  ]
+}
